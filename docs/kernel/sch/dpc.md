@@ -1,6 +1,10 @@
-# [kernel/sch/dpc.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/dpc.c)
++++
+title = "dpc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from dpc.c, do not edit manually -->
+# [kernel/sch/dpc.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/dpc.c)
 
 - [`dpc_run_local()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/dpc.c#L9) — `void dpc_run_local(void)`
 - [`dpc_enqueue_on_cpu()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/dpc.c#L56) — `bool dpc_enqueue_on_cpu(size_t cpu`,[`struct dpc`](https://github.com/bluegummi/charmos/blob/main/include/sch/dpc.h#L9)` *d)`

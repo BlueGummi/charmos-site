@@ -1,0 +1,433 @@
+{
+  "file": "charmos/include/drivers/e1000.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "e1000_device",
+          "members": [
+            {
+              "name": "*regs",
+              "type": "uint32_t",
+              "line": 40,
+              "index": 1
+            },
+            {
+              "name": "*tx_descs",
+              "type": "struct e1000_tx_desc",
+              "line": 43,
+              "index": 4
+            },
+            {
+              "name": "tx_descs_phys",
+              "type": "uintptr_t",
+              "line": 44,
+              "index": 5
+            },
+            {
+              "name": "tx_tail",
+              "type": "uint32_t",
+              "line": 45,
+              "index": 6
+            },
+            {
+              "name": "*tx_buffers[E1000_NUM_TX_DESC]",
+              "type": "void",
+              "line": 46,
+              "index": 7
+            },
+            {
+              "name": "*rx_descs",
+              "type": "struct e1000_rx_desc",
+              "line": 49,
+              "index": 10
+            },
+            {
+              "name": "rx_descs_phys",
+              "type": "uintptr_t",
+              "line": 50,
+              "index": 11
+            },
+            {
+              "name": "rx_tail",
+              "type": "uint32_t",
+              "line": 51,
+              "index": 12
+            },
+            {
+              "name": "*rx_buffers[E1000_NUM_RX_DESC]",
+              "type": "void",
+              "line": 52,
+              "index": 13
+            },
+            {
+              "name": "bus",
+              "type": "uint8_t",
+              "line": 55,
+              "index": 15
+            }
+          ],
+          "line": 39,
+          "start_byte": 937,
+          "end_byte": 1351
+        },
+        {
+          "name": "e1000_tx_desc",
+          "members": [
+            {
+              "name": "addr",
+              "type": "uint64_t",
+              "line": 59,
+              "index": 1
+            },
+            {
+              "name": "length",
+              "type": "uint16_t",
+              "line": 60,
+              "index": 2
+            },
+            {
+              "name": "cso",
+              "type": "uint8_t",
+              "line": 61,
+              "index": 3
+            },
+            {
+              "name": null,
+              "type": "union {\n        uint8_t cmd;\n        struct {\n            uint8_t eop : 1;\n            uint8_t ifcs : 1;\n            uint8_t ic : 1;\n            uint8_t rs : 1;\n            uint8_t rsvd : 1;\n            uint8_t dext : 1;\n            uint8_t vlei : 1;\n            uint8_t ide : 1;\n        };\n    }",
+              "line": 62,
+              "index": 4
+            },
+            {
+              "name": null,
+              "type": "union {\n        uint8_t status;\n        struct {\n            uint8_t dd : 1;\n            uint8_t ec : 1;\n            uint8_t lc : 1;\n            uint8_t rsvd0 : 5;\n        };\n    }",
+              "line": 75,
+              "index": 5
+            },
+            {
+              "name": "css",
+              "type": "uint8_t",
+              "line": 84,
+              "index": 6
+            },
+            {
+              "name": "special",
+              "type": "uint16_t",
+              "line": 85,
+              "index": 7
+            }
+          ],
+          "line": 58,
+          "start_byte": 1354,
+          "end_byte": 1986
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "eop",
+              "type": "uint8_t",
+              "line": 65,
+              "index": 1
+            },
+            {
+              "name": "ifcs",
+              "type": "uint8_t",
+              "line": 66,
+              "index": 2
+            },
+            {
+              "name": "ic",
+              "type": "uint8_t",
+              "line": 67,
+              "index": 3
+            },
+            {
+              "name": "rs",
+              "type": "uint8_t",
+              "line": 68,
+              "index": 4
+            },
+            {
+              "name": "rsvd",
+              "type": "uint8_t",
+              "line": 69,
+              "index": 5
+            },
+            {
+              "name": "dext",
+              "type": "uint8_t",
+              "line": 70,
+              "index": 6
+            },
+            {
+              "name": "vlei",
+              "type": "uint8_t",
+              "line": 71,
+              "index": 7
+            },
+            {
+              "name": "ide",
+              "type": "uint8_t",
+              "line": 72,
+              "index": 8
+            }
+          ],
+          "line": 64,
+          "start_byte": 1475,
+          "end_byte": 1727
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "dd",
+              "type": "uint8_t",
+              "line": 78,
+              "index": 1
+            },
+            {
+              "name": "ec",
+              "type": "uint8_t",
+              "line": 79,
+              "index": 2
+            },
+            {
+              "name": "lc",
+              "type": "uint8_t",
+              "line": 80,
+              "index": 3
+            },
+            {
+              "name": "rsvd0",
+              "type": "uint8_t",
+              "line": 81,
+              "index": 4
+            }
+          ],
+          "line": 77,
+          "start_byte": 1780,
+          "end_byte": 1913
+        },
+        {
+          "name": "e1000_rx_desc",
+          "members": [
+            {
+              "name": "addr",
+              "type": "uint64_t",
+              "line": 89,
+              "index": 1
+            },
+            {
+              "name": "length",
+              "type": "uint16_t",
+              "line": 90,
+              "index": 2
+            },
+            {
+              "name": "checksum",
+              "type": "uint16_t",
+              "line": 91,
+              "index": 3
+            },
+            {
+              "name": null,
+              "type": "union {\n        uint8_t status;\n        struct {\n            uint8_t dd : 1;\n            uint8_t eop : 1;\n            uint8_t ixsm : 1;\n            uint8_t vp : 1;\n            uint8_t rsvd : 4;\n        };\n    }",
+              "line": 92,
+              "index": 4
+            },
+            {
+              "name": "errors",
+              "type": "uint8_t",
+              "line": 102,
+              "index": 5
+            },
+            {
+              "name": "special",
+              "type": "uint16_t",
+              "line": 103,
+              "index": 6
+            }
+          ],
+          "line": 88,
+          "start_byte": 1989,
+          "end_byte": 2358
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "dd",
+              "type": "uint8_t",
+              "line": 95,
+              "index": 1
+            },
+            {
+              "name": "eop",
+              "type": "uint8_t",
+              "line": 96,
+              "index": 2
+            },
+            {
+              "name": "ixsm",
+              "type": "uint8_t",
+              "line": 97,
+              "index": 3
+            },
+            {
+              "name": "vp",
+              "type": "uint8_t",
+              "line": 98,
+              "index": 4
+            },
+            {
+              "name": "rsvd",
+              "type": "uint8_t",
+              "line": 99,
+              "index": 5
+            }
+          ],
+          "line": 94,
+          "start_byte": 2119,
+          "end_byte": 2282
+        },
+        {
+          "name": "eth_hdr",
+          "members": [
+            {
+              "name": "dest[6]",
+              "type": "uint8_t",
+              "line": 108,
+              "index": 1
+            },
+            {
+              "name": "src[6]",
+              "type": "uint8_t",
+              "line": 109,
+              "index": 2
+            },
+            {
+              "name": "ethertype",
+              "type": "uint16_t",
+              "line": 110,
+              "index": 3
+            }
+          ],
+          "line": 107,
+          "start_byte": 2391,
+          "end_byte": 2498
+        },
+        {
+          "name": "ipv4_hdr",
+          "members": [
+            {
+              "name": "version_ihl",
+              "type": "uint8_t",
+              "line": 115,
+              "index": 1
+            },
+            {
+              "name": "tos",
+              "type": "uint8_t",
+              "line": 116,
+              "index": 2
+            },
+            {
+              "name": "total_length",
+              "type": "uint16_t",
+              "line": 117,
+              "index": 3
+            },
+            {
+              "name": "id",
+              "type": "uint16_t",
+              "line": 118,
+              "index": 4
+            },
+            {
+              "name": "flags_fragment",
+              "type": "uint16_t",
+              "line": 119,
+              "index": 5
+            },
+            {
+              "name": "ttl",
+              "type": "uint8_t",
+              "line": 120,
+              "index": 6
+            },
+            {
+              "name": "protocol",
+              "type": "uint8_t",
+              "line": 121,
+              "index": 7
+            },
+            {
+              "name": "checksum",
+              "type": "uint16_t",
+              "line": 122,
+              "index": 8
+            },
+            {
+              "name": "src_ip",
+              "type": "uint32_t",
+              "line": 123,
+              "index": 9
+            },
+            {
+              "name": "dest_ip",
+              "type": "uint32_t",
+              "line": 124,
+              "index": 10
+            }
+          ],
+          "line": 114,
+          "start_byte": 2527,
+          "end_byte": 2790
+        },
+        {
+          "name": "icmp_hdr",
+          "members": [
+            {
+              "name": "type",
+              "type": "uint8_t",
+              "line": 128,
+              "index": 1
+            },
+            {
+              "name": "code",
+              "type": "uint8_t",
+              "line": 129,
+              "index": 2
+            },
+            {
+              "name": "checksum",
+              "type": "uint16_t",
+              "line": 130,
+              "index": 3
+            },
+            {
+              "name": "identifier",
+              "type": "uint16_t",
+              "line": 131,
+              "index": 4
+            },
+            {
+              "name": "sequence",
+              "type": "uint16_t",
+              "line": 132,
+              "index": 5
+            }
+          ],
+          "line": 127,
+          "start_byte": 2793,
+          "end_byte": 2943
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

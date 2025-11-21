@@ -1,0 +1,45 @@
+{
+  "file": "charmos/include/sch/reaper.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "thread_reaper",
+          "members": [
+            {
+              "name": "queue",
+              "type": "struct thread_queue",
+              "line": 7,
+              "index": 1
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 8,
+              "index": 2
+            },
+            {
+              "name": "cv",
+              "type": "struct condvar",
+              "line": 9,
+              "index": 3
+            },
+            {
+              "name": "reaped_threads",
+              "type": "uint64_t",
+              "line": 10,
+              "index": 4
+            }
+          ],
+          "line": 6,
+          "start_byte": 91,
+          "end_byte": 224
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

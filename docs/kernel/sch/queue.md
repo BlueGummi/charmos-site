@@ -1,6 +1,10 @@
-# [kernel/sch/queue.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c)
++++
+title = "queue"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from queue.c, do not edit manually -->
+# [kernel/sch/queue.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c)
 
 - [`scheduler_add_thread()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c#L13) — `void scheduler_add_thread(`[`struct scheduler`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)` *sched`,[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *task`,`bool lock_held)`
 - [`scheduler_remove_thread()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c#L51) — `void scheduler_remove_thread(`[`struct scheduler`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)` *sched`,[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t`,`bool lock_held)`

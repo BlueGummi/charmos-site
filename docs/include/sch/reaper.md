@@ -1,6 +1,10 @@
-# [include/sch/reaper.h](https://github.com/bluegummi/charmos/blob/main/include/sch/reaper.h)
++++
+title = "reaper"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from reaper.h, do not edit manually -->
+# [include/sch/reaper.h](https://github.com/bluegummi/charmos/blob/main/include/sch/reaper.h)
 
 ### struct [`thread_reaper`](https://github.com/bluegummi/charmos/blob/main/include/sch/reaper.h#L6)
 

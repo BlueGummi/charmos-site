@@ -1,0 +1,62 @@
+{
+  "file": "charmos/include/acpi/lapic.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "lapic_reg_to_x2apic_msr",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "uint32_t",
+            "name": "reg"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 49
+      },
+      {
+        "name": "lapic_write",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint32_t",
+            "name": "reg"
+          },
+          {
+            "type": "uint32_t",
+            "name": "val"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 62
+      },
+      {
+        "name": "lapic_read",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "uint32_t",
+            "name": "reg"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 73
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

@@ -1,6 +1,10 @@
-# [kernel/sch/thread_event.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/thread_event.c)
++++
+title = "thread_event"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from thread_event.c, do not edit manually -->
+# [kernel/sch/thread_event.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/thread_event.c)
 
 - [`thread_wake_is_from_block()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/thread_event.c#L7) — `static inline bool thread_wake_is_from_block(uint8_t wake_reason)`
 - [`thread_wake_is_from_sleep()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/thread_event.c#L12) — `static inline bool thread_wake_is_from_sleep(uint8_t wake_reason)`

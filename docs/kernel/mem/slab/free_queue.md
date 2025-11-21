@@ -1,6 +1,10 @@
-# [kernel/mem/slab/free_queue.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/free_queue.c)
++++
+title = "free_queue"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from free_queue.c, do not edit manually -->
+# [kernel/mem/slab/free_queue.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/free_queue.c)
 
 - [`slab_free_queue_init()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/free_queue.c#L13) — `void slab_free_queue_init(`[`struct slab_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L423)` *domain`,[`struct slab_free_queue`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L236)` *q`,`size_t capacity)`
 - [`slab_free_queue_ringbuffer_enqueue()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/free_queue.c#L33) — `bool slab_free_queue_ringbuffer_enqueue(`[`struct slab_free_queue`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L236)` *q`,[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` addr)`

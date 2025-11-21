@@ -1,0 +1,233 @@
+{
+  "file": "charmos/include/smp/core.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "smp_core_id",
+        "return_type": "uint64_t",
+        "parameters": [],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 60
+      },
+      {
+        "name": "smp_core",
+        "return_type": "struct core *",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 68
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "core",
+          "members": [
+            {
+              "name": "*self",
+              "type": "struct core",
+              "line": 16,
+              "index": 1
+            },
+            {
+              "name": "id",
+              "type": "size_t",
+              "line": 17,
+              "index": 2
+            },
+            {
+              "name": "*current_thread",
+              "type": "struct thread",
+              "line": 18,
+              "index": 3
+            },
+            {
+              "name": "domain_cpu_id",
+              "type": "size_t",
+              "line": 20,
+              "index": 4
+            },
+            {
+              "name": "idle",
+              "type": "atomic_bool",
+              "line": 22,
+              "index": 6
+            },
+            {
+              "name": "in_interrupt",
+              "type": "bool",
+              "line": 24,
+              "index": 7
+            },
+            {
+              "name": "current_irql",
+              "type": "enum irql",
+              "line": 25,
+              "index": 8
+            },
+            {
+              "name": "needs_resched",
+              "type": "atomic_bool",
+              "line": 27,
+              "index": 9
+            },
+            {
+              "name": "in_resched",
+              "type": "atomic_bool",
+              "line": 28,
+              "index": 10
+            },
+            {
+              "name": "scheduler_preemption_disable_depth",
+              "type": "atomic_uint_fast32_t",
+              "line": 29,
+              "index": 12
+            },
+            {
+              "name": "*domain",
+              "type": "struct domain",
+              "line": 31,
+              "index": 13
+            },
+            {
+              "name": "*domain_buddy",
+              "type": "struct domain_buddy",
+              "line": 32,
+              "index": 14
+            },
+            {
+              "name": "*domain_arena",
+              "type": "struct domain_arena",
+              "line": 33,
+              "index": 15
+            },
+            {
+              "name": "*slab_domain",
+              "type": "struct slab_domain",
+              "line": 34,
+              "index": 16
+            },
+            {
+              "name": "rr_current_domain",
+              "type": "size_t",
+              "line": 35,
+              "index": 17
+            },
+            {
+              "name": "*tss",
+              "type": "struct tss",
+              "line": 37,
+              "index": 18
+            },
+            {
+              "name": "lapic_freq",
+              "type": "uint32_t",
+              "line": 39,
+              "index": 19
+            },
+            {
+              "name": "rcu_seen_gen",
+              "type": "uint64_t",
+              "line": 40,
+              "index": 20
+            },
+            {
+              "name": "rcu_nesting",
+              "type": "uint32_t",
+              "line": 41,
+              "index": 21
+            },
+            {
+              "name": "rcu_quiescent",
+              "type": "bool",
+              "line": 42,
+              "index": 22
+            },
+            {
+              "name": "*topo_node",
+              "type": "struct topology_node",
+              "line": 44,
+              "index": 23
+            },
+            {
+              "name": "llc",
+              "type": "struct topology_cache_info",
+              "line": 45,
+              "index": 24
+            },
+            {
+              "name": "numa_node",
+              "type": "size_t",
+              "line": 47,
+              "index": 25
+            },
+            {
+              "name": "package_id",
+              "type": "uint32_t",
+              "line": 48,
+              "index": 26
+            },
+            {
+              "name": "smt_mask",
+              "type": "uint32_t",
+              "line": 49,
+              "index": 27
+            },
+            {
+              "name": "smt_id",
+              "type": "uint32_t",
+              "line": 50,
+              "index": 28
+            },
+            {
+              "name": "core_id",
+              "type": "uint32_t",
+              "line": 51,
+              "index": 29
+            },
+            {
+              "name": "tsc_hz",
+              "type": "uint64_t",
+              "line": 53,
+              "index": 30
+            },
+            {
+              "name": "last_us",
+              "type": "uint64_t",
+              "line": 54,
+              "index": 31
+            },
+            {
+              "name": "last_tsc",
+              "type": "uint64_t",
+              "line": 55,
+              "index": 32
+            },
+            {
+              "name": "*tlb_shootdown_dpc",
+              "type": "struct dpc",
+              "line": 57,
+              "index": 34
+            }
+          ],
+          "line": 15,
+          "start_byte": 319,
+          "end_byte": 1293
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

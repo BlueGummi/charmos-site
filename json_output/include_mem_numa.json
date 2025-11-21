@@ -1,0 +1,51 @@
+{
+  "file": "charmos/include/mem/numa.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "numa_node",
+          "members": [
+            {
+              "name": "*topo",
+              "type": "struct topology_node",
+              "line": 7,
+              "index": 1
+            },
+            {
+              "name": "mem_base",
+              "type": "uint64_t",
+              "line": 8,
+              "index": 2
+            },
+            {
+              "name": "mem_size",
+              "type": "uint64_t",
+              "line": 9,
+              "index": 3
+            },
+            {
+              "name": "distances_cnt",
+              "type": "uint64_t",
+              "line": 11,
+              "index": 4
+            },
+            {
+              "name": "*distance",
+              "type": "uint8_t",
+              "line": 12,
+              "index": 5
+            }
+          ],
+          "line": 6,
+          "start_byte": 81,
+          "end_byte": 231
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

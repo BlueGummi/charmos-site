@@ -1,6 +1,10 @@
-# [kernel/sch/resched.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/resched.c)
++++
+title = "resched"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from resched.c, do not edit manually -->
+# [kernel/sch/resched.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/resched.c)
 
 - [`scheduler_mark_core_needs_resched()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/resched.c#L5) — `bool scheduler_mark_core_needs_resched(`[`struct core`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L15)` *c`,`bool new)`
 - [`scheduler_mark_self_needs_resched()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/resched.c#L9) — `bool scheduler_mark_self_needs_resched(bool new)`

@@ -1,0 +1,158 @@
+{
+  "file": "charmos/include/sch/thread_request.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "thread_request_list",
+          "members": [
+            {
+              "name": "lists[THREAD_REQUEST_PRIORITY_COUNT]",
+              "type": "struct locked_list",
+              "line": 66,
+              "index": 1
+            }
+          ],
+          "line": 65,
+          "start_byte": 2482,
+          "end_byte": 2573
+        },
+        {
+          "name": "thread_request",
+          "members": [
+            {
+              "name": "list_node",
+              "type": "struct list_head",
+              "line": 70,
+              "index": 1
+            },
+            {
+              "name": "callback",
+              "type": "thread_request_callback",
+              "line": 71,
+              "index": 2
+            },
+            {
+              "name": "(*thread_entry)(void)",
+              "type": "void",
+              "line": 72,
+              "index": 3
+            },
+            {
+              "name": "*data",
+              "type": "void",
+              "line": 73,
+              "index": 4
+            },
+            {
+              "name": "prio",
+              "type": "enum thread_request_priority",
+              "line": 74,
+              "index": 5
+            },
+            {
+              "name": "state",
+              "type": "enum thread_request_state",
+              "line": 75,
+              "index": 6
+            },
+            {
+              "name": "*_Atomic parent_internal",
+              "type": "struct thread_request_list",
+              "line": 78,
+              "index": 8
+            }
+          ],
+          "line": 69,
+          "start_byte": 2576,
+          "end_byte": 2885
+        }
+      ],
+      "enums": [
+        {
+          "name": "thread_request_decision",
+          "members": [
+            {
+              "name": "THREAD_REQUEST_DECISION_KEEP",
+              "value": null,
+              "line": 45,
+              "index": 2
+            },
+            {
+              "name": "THREAD_REQUEST_DECISION_DESTROY",
+              "value": null,
+              "line": 46,
+              "index": 4
+            }
+          ],
+          "line": 44,
+          "start_byte": 1810,
+          "end_byte": 2002
+        },
+        {
+          "name": "thread_request_priority",
+          "members": [
+            {
+              "name": "THREAD_REQUEST_PRIORITY_LOW",
+              "value": null,
+              "line": 54,
+              "index": 1
+            },
+            {
+              "name": "THREAD_REQUEST_PRIORITY_HIGH",
+              "value": null,
+              "line": 55,
+              "index": 3
+            },
+            {
+              "name": "THREAD_REQUEST_PRIORITY_COUNT",
+              "value": null,
+              "line": 56,
+              "index": 5
+            }
+          ],
+          "line": 53,
+          "start_byte": 2225,
+          "end_byte": 2359
+        },
+        {
+          "name": "thread_request_state",
+          "members": [
+            {
+              "name": "THREAD_REQUEST_PENDING",
+              "value": null,
+              "line": 60,
+              "index": 1
+            },
+            {
+              "name": "THREAD_REQUEST_FULFILLED",
+              "value": null,
+              "line": 61,
+              "index": 3
+            },
+            {
+              "name": "THREAD_REQUEST_CANCELLED",
+              "value": null,
+              "line": 62,
+              "index": 5
+            }
+          ],
+          "line": 59,
+          "start_byte": 2362,
+          "end_byte": 2479
+        }
+      ],
+      "typedefs": [
+        {
+          "name": "(*thread_request_callback)",
+          "type": "enum thread_request_decision (struct thread *, void *data)",
+          "line": 50,
+          "start_byte": 2066,
+          "end_byte": 2223
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

@@ -1,6 +1,10 @@
-# [include/drivers/xhci.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h)
++++
+title = "xhci"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from xhci.h, do not edit manually -->
+# [include/drivers/xhci.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h)
 
 ### struct [`xhci_cap_regs`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L133)
 

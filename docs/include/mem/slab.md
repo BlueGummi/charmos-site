@@ -1,6 +1,10 @@
-# [include/mem/slab.h](https://github.com/bluegummi/charmos/blob/main/include/mem/slab.h)
++++
+title = "slab"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from slab.h, do not edit manually -->
+# [include/mem/slab.h](https://github.com/bluegummi/charmos/blob/main/include/mem/slab.h)
 
 ### struct [`slab_size_constant`](https://github.com/bluegummi/charmos/blob/main/include/mem/slab.h#L7)
 

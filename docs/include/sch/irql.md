@@ -1,6 +1,10 @@
-# [include/sch/irql.h](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h)
++++
+title = "irql"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from irql.h, do not edit manually -->
+# [include/sch/irql.h](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h)
 
 ### enum [`irql`](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h#L2)
 

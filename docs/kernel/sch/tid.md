@@ -1,6 +1,10 @@
-# [kernel/sch/tid.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/tid.c)
++++
+title = "tid"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from tid.c, do not edit manually -->
+# [kernel/sch/tid.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/tid.c)
 
 - [`tid_space_init()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/tid.c#L6) — [`struct tid_space *`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L14)`tid_space_init(uint64_t max_id)`
 - [`tid_range_alloc()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/tid.c#L39) — `static`[`struct tid_range *`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L7)`tid_range_alloc(`[`struct tid_space`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L14)` *ts)`

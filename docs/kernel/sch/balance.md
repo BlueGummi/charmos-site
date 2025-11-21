@@ -1,6 +1,10 @@
-# [kernel/sch/balance.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/balance.c)
++++
+title = "balance"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from balance.c, do not edit manually -->
+# [kernel/sch/balance.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/balance.c)
 
 - [`scheduler_find_idle_core_in_domain()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/balance.c#L7) — `uint64_t scheduler_find_idle_core_in_domain(void)`
 

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@catppuccin/starlight": "^1.0.2"
+  }
+}

@@ -1,6 +1,10 @@
-# [kernel/rcu.c](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c)
++++
+title = "rcu"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from rcu.c, do not edit manually -->
+# [kernel/rcu.c](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c)
 
 - [`rcu_mark_quiescent()`](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c#L8) — `void rcu_mark_quiescent(void)`
 - [`rcu_synchronize()`](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c#L17) — `void rcu_synchronize(void)`

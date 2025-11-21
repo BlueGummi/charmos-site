@@ -1,6 +1,10 @@
-# [include/mem/arena.h](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h)
++++
+title = "arena"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from arena.h, do not edit manually -->
+# [include/mem/arena.h](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h)
 
 ### struct [`hugepage_meta_common`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L49)
 

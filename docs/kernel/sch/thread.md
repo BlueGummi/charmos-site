@@ -1,6 +1,10 @@
-# [kernel/sch/thread.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/thread.c)
++++
+title = "thread"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from thread.c, do not edit manually -->
+# [kernel/sch/thread.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/thread.c)
 
 - [`thread_init_thread_ids()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/thread.c#L28) — `void thread_init_thread_ids(void)`
 - [`thread_init_rq_lists()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/thread.c#L34) — `void thread_init_rq_lists(void)`

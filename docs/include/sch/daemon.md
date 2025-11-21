@@ -1,6 +1,10 @@
-# [include/sch/daemon.h](https://github.com/bluegummi/charmos/blob/main/include/sch/daemon.h)
++++
+title = "daemon"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from daemon.h, do not edit manually -->
+# [include/sch/daemon.h](https://github.com/bluegummi/charmos/blob/main/include/sch/daemon.h)
 
 ### struct [`daemon_thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/daemon.h#L20)
 

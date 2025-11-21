@@ -1,6 +1,10 @@
-# [include/mem/movealloc.h](https://github.com/bluegummi/charmos/blob/main/include/mem/movealloc.h)
++++
+title = "movealloc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from movealloc.h, do not edit manually -->
+# [include/mem/movealloc.h](https://github.com/bluegummi/charmos/blob/main/include/mem/movealloc.h)
 
 ### struct [`movealloc_callback_node`](https://github.com/bluegummi/charmos/blob/main/include/mem/movealloc.h#L18)
 

@@ -1,6 +1,10 @@
-# [kernel/mem/slab/check.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/check.c)
++++
+title = "check"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from check.c, do not edit manually -->
+# [kernel/mem/slab/check.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/check.c)
 
 - [`slab_check_reset_slab()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/check.c#L12) — `bool slab_check_reset_slab(`[`struct slab`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L140)` *slab)`
 - [`slab_check_bitmap()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/check.c#L20) — `bool slab_check_bitmap(`[`struct slab`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L140)` *slab)`

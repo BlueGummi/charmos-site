@@ -1,6 +1,10 @@
-# [include/fs/fat.h](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h)
++++
+title = "fat"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from fat.h, do not edit manually -->
+# [include/fs/fat.h](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h)
 
 ### struct [`fat12_16_ext_bpb`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L47)
 

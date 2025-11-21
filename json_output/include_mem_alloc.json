@@ -1,0 +1,275 @@
+{
+  "file": "charmos/include/mem/alloc.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "alloc_flags_valid",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 84
+      },
+      {
+        "name": "alloc_behavior_base",
+        "return_type": "enum alloc_behavior",
+        "parameters": [
+          {
+            "type": "enum alloc_behavior",
+            "name": "raw"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 169
+      },
+      {
+        "name": "alloc_behavior_may_fault",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "enum alloc_behavior",
+            "name": "raw"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 174
+      },
+      {
+        "name": "alloc_behavior_may_block",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "enum alloc_behavior",
+            "name": "raw"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 183
+      },
+      {
+        "name": "alloc_behavior_is_isr_safe",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "enum alloc_behavior",
+            "name": "raw"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 192
+      },
+      {
+        "name": "alloc_behavior_no_reclaim",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "enum alloc_behavior",
+            "name": "raw"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 197
+      },
+      {
+        "name": "alloc_behavior_is_fast",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "enum alloc_behavior",
+            "name": "raw"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 203
+      },
+      {
+        "name": "alloc_flag_behavior_verify",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "enum alloc_flags",
+            "name": "f"
+          },
+          {
+            "type": "enum alloc_behavior",
+            "name": "behavior"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 207
+      },
+      {
+        "name": "alloc_request_sanitize",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "enum alloc_flags",
+            "name": "*f"
+          },
+          {
+            "type": "enum alloc_behavior",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 224
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [
+        {
+          "name": "alloc_flags",
+          "members": [
+            {
+              "name": "ALLOC_FLAG_PREFER_CACHE_ALIGNED",
+              "value": "(1 << 0)",
+              "line": 58,
+              "index": 2
+            },
+            {
+              "name": "ALLOC_FLAG_NO_CACHE_ALIGN",
+              "value": "(1 << 1)",
+              "line": 59,
+              "index": 4
+            },
+            {
+              "name": "ALLOC_FLAG_FLEXIBLE_LOCALITY",
+              "value": "(1 << 2)",
+              "line": 62,
+              "index": 7
+            },
+            {
+              "name": "ALLOC_FLAG_STRICT_LOCALITY",
+              "value": "(1 << 3)",
+              "line": 63,
+              "index": 9
+            },
+            {
+              "name": "ALLOC_FLAG_PAGEABLE",
+              "value": "(1 << 4)",
+              "line": 66,
+              "index": 12
+            },
+            {
+              "name": "ALLOC_FLAG_NONPAGEABLE",
+              "value": "(1 << 5)",
+              "line": 67,
+              "index": 14
+            },
+            {
+              "name": "ALLOC_FLAG_MOVABLE",
+              "value": "(1 << 6)",
+              "line": 70,
+              "index": 17
+            },
+            {
+              "name": "ALLOC_FLAG_NONMOVABLE",
+              "value": "(1 << 7)",
+              "line": 71,
+              "index": 19
+            },
+            {
+              "name": "ALLOC_FLAG_CLASS_DEFAULT",
+              "value": "(0 << ALLOC_CLASS_SHIFT)",
+              "line": 74,
+              "index": 22
+            },
+            {
+              "name": "ALLOC_FLAG_CLASS_INTERLEAVED",
+              "value": "(1 << ALLOC_CLASS_SHIFT)",
+              "line": 75,
+              "index": 24
+            },
+            {
+              "name": "ALLOC_FLAG_CLASS_HIGH_BANDWIDTH",
+              "value": "(2 << ALLOC_CLASS_SHIFT)",
+              "line": 76,
+              "index": 26
+            }
+          ],
+          "line": 56,
+          "start_byte": 1818,
+          "end_byte": 2481
+        },
+        {
+          "name": "alloc_behavior",
+          "members": [
+            {
+              "name": "ALLOC_BEHAVIOR_NORMAL",
+              "value": null,
+              "line": 127,
+              "index": 1
+            },
+            {
+              "name": "ALLOC_BEHAVIOR_ATOMIC",
+              "value": null,
+              "line": 128,
+              "index": 3
+            },
+            {
+              "name": "ALLOC_BEHAVIOR_NO_WAIT",
+              "value": null,
+              "line": 129,
+              "index": 5
+            },
+            {
+              "name": "ALLOC_BEHAVIOR_NO_RECLAIM",
+              "value": null,
+              "line": 130,
+              "index": 7
+            },
+            {
+              "name": "ALLOC_BEHAVIOR_FAULT_SAFE",
+              "value": null,
+              "line": 131,
+              "index": 9
+            },
+            {
+              "name": "ALLOC_BEHAVIOR_FLAG_FAST",
+              "value": "1 << ALLOC_BEHAVIOR_FLAG_SHIFT",
+              "line": 132,
+              "index": 11
+            }
+          ],
+          "line": 126,
+          "start_byte": 4078,
+          "end_byte": 4318
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

@@ -1,6 +1,10 @@
-# [include/tests.h](https://github.com/bluegummi/charmos/blob/main/include/tests.h)
++++
+title = "tests"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from tests.h, do not edit manually -->
+# [include/tests.h](https://github.com/bluegummi/charmos/blob/main/include/tests.h)
 
 ### struct [`kernel_test`](https://github.com/bluegummi/charmos/blob/main/include/tests.h#L10)
 

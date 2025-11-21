@@ -1,6 +1,10 @@
-# [include/charmos.h](https://github.com/bluegummi/charmos/blob/main/include/charmos.h)
++++
+title = "charmos"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from charmos.h, do not edit manually -->
+# [include/charmos.h](https://github.com/bluegummi/charmos/blob/main/include/charmos.h)
 
 ### struct [`charmos_globals`](https://github.com/bluegummi/charmos/blob/main/include/charmos.h#L14)
 

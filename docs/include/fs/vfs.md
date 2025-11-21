@@ -1,6 +1,10 @@
-# [include/fs/vfs.h](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h)
++++
+title = "vfs"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from vfs.h, do not edit manually -->
+# [include/fs/vfs.h](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h)
 
 ### struct [`vfs_stat`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L78)
 

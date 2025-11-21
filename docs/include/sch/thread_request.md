@@ -1,6 +1,10 @@
-# [include/sch/thread_request.h](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h)
++++
+title = "thread_request"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from thread_request.h, do not edit manually -->
+# [include/sch/thread_request.h](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h)
 
 ### struct [`thread_request_list`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L65)
 

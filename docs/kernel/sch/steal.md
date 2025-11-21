@@ -1,6 +1,10 @@
-# [kernel/sch/steal.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/steal.c)
++++
+title = "steal"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from steal.c, do not edit manually -->
+# [kernel/sch/steal.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/steal.c)
 
 - [`scheduler_can_steal_thread()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/steal.c#L11) — `bool scheduler_can_steal_thread(size_t core`,[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *target)`
 - [`scheduler_pick_victim()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/steal.c#L24) — [`struct scheduler *`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)`scheduler_pick_victim(`[`struct scheduler`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)` *self)`

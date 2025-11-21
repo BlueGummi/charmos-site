@@ -1,6 +1,10 @@
-# [include/mem/alloc.h](https://github.com/bluegummi/charmos/blob/main/include/mem/alloc.h)
++++
+title = "alloc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from alloc.h, do not edit manually -->
+# [include/mem/alloc.h](https://github.com/bluegummi/charmos/blob/main/include/mem/alloc.h)
 
 ### enum [`alloc_flags`](https://github.com/bluegummi/charmos/blob/main/include/mem/alloc.h#L56)
 

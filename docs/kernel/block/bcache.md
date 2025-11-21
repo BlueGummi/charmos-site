@@ -1,6 +1,10 @@
-# [kernel/block/bcache.c](https://github.com/bluegummi/charmos/blob/main/kernel/block/bcache.c)
++++
+title = "bcache"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from bcache.c, do not edit manually -->
+# [kernel/block/bcache.c](https://github.com/bluegummi/charmos/blob/main/kernel/block/bcache.c)
 
 ### struct [`bcache_pf_data`](https://github.com/bluegummi/charmos/blob/main/kernel/block/bcache.c#L154)
 

@@ -1,3 +1,7 @@
-# [include/drivers/timeout.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/timeout.h)
++++
+title = "timeout"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from timeout.h, do not edit manually -->
+# [include/drivers/timeout.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/timeout.h)

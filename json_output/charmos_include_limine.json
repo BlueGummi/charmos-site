@@ -1,0 +1,1451 @@
+{
+  "file": "charmos/include/limine.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "limine_terminal",
+        "return_type": "struct LIMINE_DEPRECATED",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 277
+      },
+      {
+        "name": "limine_terminal_response",
+        "return_type": "struct LIMINE_DEPRECATED",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 283
+      },
+      {
+        "name": "limine_terminal_request",
+        "return_type": "struct LIMINE_DEPRECATED",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 290
+      },
+      {
+        "name": "limine_5_level_paging_response",
+        "return_type": "LIMINE_DEPRECATED",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 347
+      },
+      {
+        "name": "limine_5_level_paging_request",
+        "return_type": "struct LIMINE_DEPRECATED",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 351
+      },
+      {
+        "name": "(info)",
+        "return_type": "struct LIMINE_MP",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 381
+      },
+      {
+        "name": "(response)",
+        "return_type": "struct LIMINE_MP",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 389
+      },
+      {
+        "name": "(info)",
+        "return_type": "struct LIMINE_MP",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 399
+      },
+      {
+        "name": "(response)",
+        "return_type": "struct LIMINE_MP",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 408
+      },
+      {
+        "name": "(info)",
+        "return_type": "struct LIMINE_MP",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 418
+      },
+      {
+        "name": "(response)",
+        "return_type": "struct LIMINE_MP",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 426
+      },
+      {
+        "name": "(info)",
+        "return_type": "struct LIMINE_MP",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 436
+      },
+      {
+        "name": "(response)",
+        "return_type": "struct LIMINE_MP",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 440
+      },
+      {
+        "name": "(request)",
+        "return_type": "struct LIMINE_MP",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 449
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "limine_uuid",
+          "members": [
+            {
+              "name": "a",
+              "type": "uint32_t",
+              "line": 74,
+              "index": 1
+            },
+            {
+              "name": "b",
+              "type": "uint16_t",
+              "line": 75,
+              "index": 2
+            },
+            {
+              "name": "c",
+              "type": "uint16_t",
+              "line": 76,
+              "index": 3
+            },
+            {
+              "name": "d[8]",
+              "type": "uint8_t",
+              "line": 77,
+              "index": 4
+            }
+          ],
+          "line": 73,
+          "start_byte": 2337,
+          "end_byte": 2425
+        },
+        {
+          "name": "limine_file",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 85,
+              "index": 1
+            },
+            {
+              "name": "address",
+              "type": "LIMINE_PTR(void *)",
+              "line": 86,
+              "index": 2
+            },
+            {
+              "name": "size",
+              "type": "uint64_t",
+              "line": 87,
+              "index": 3
+            },
+            {
+              "name": "path",
+              "type": "LIMINE_PTR(char *)",
+              "line": 88,
+              "index": 4
+            },
+            {
+              "name": "media_type",
+              "type": "uint32_t",
+              "line": 94,
+              "index": 6
+            },
+            {
+              "name": "unused",
+              "type": "uint32_t",
+              "line": 95,
+              "index": 7
+            },
+            {
+              "name": "tftp_ip",
+              "type": "uint32_t",
+              "line": 96,
+              "index": 8
+            },
+            {
+              "name": "tftp_port",
+              "type": "uint32_t",
+              "line": 97,
+              "index": 9
+            },
+            {
+              "name": "partition_index",
+              "type": "uint32_t",
+              "line": 98,
+              "index": 10
+            },
+            {
+              "name": "mbr_disk_id",
+              "type": "uint32_t",
+              "line": 99,
+              "index": 11
+            },
+            {
+              "name": "gpt_disk_uuid",
+              "type": "struct limine_uuid",
+              "line": 100,
+              "index": 12
+            },
+            {
+              "name": "gpt_part_uuid",
+              "type": "struct limine_uuid",
+              "line": 101,
+              "index": 13
+            },
+            {
+              "name": "part_uuid",
+              "type": "struct limine_uuid",
+              "line": 102,
+              "index": 14
+            }
+          ],
+          "line": 84,
+          "start_byte": 2534,
+          "end_byte": 3022
+        },
+        {
+          "name": "limine_bootloader_info_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 110,
+              "index": 1
+            },
+            {
+              "name": "name",
+              "type": "LIMINE_PTR(char *)",
+              "line": 111,
+              "index": 2
+            },
+            {
+              "name": "version",
+              "type": "LIMINE_PTR(char *)",
+              "line": 112,
+              "index": 3
+            }
+          ],
+          "line": 109,
+          "start_byte": 3146,
+          "end_byte": 3272
+        },
+        {
+          "name": "limine_bootloader_info_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 116,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 117,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_bootloader_info_response *)",
+              "line": 118,
+              "index": 3
+            }
+          ],
+          "line": 115,
+          "start_byte": 3275,
+          "end_byte": 3426
+        },
+        {
+          "name": "limine_executable_cmdline_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 126,
+              "index": 1
+            },
+            {
+              "name": "cmdline",
+              "type": "LIMINE_PTR(char *)",
+              "line": 127,
+              "index": 2
+            }
+          ],
+          "line": 125,
+          "start_byte": 3567,
+          "end_byte": 3667
+        },
+        {
+          "name": "limine_executable_cmdline_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 131,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 132,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_executable_cmdline_response *)",
+              "line": 133,
+              "index": 3
+            }
+          ],
+          "line": 130,
+          "start_byte": 3670,
+          "end_byte": 3827
+        },
+        {
+          "name": "limine_firmware_type_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 146,
+              "index": 1
+            },
+            {
+              "name": "firmware_type",
+              "type": "uint64_t",
+              "line": 147,
+              "index": 2
+            }
+          ],
+          "line": 145,
+          "start_byte": 4104,
+          "end_byte": 4195
+        },
+        {
+          "name": "limine_firmware_type_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 151,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 152,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_firmware_type_response *)",
+              "line": 153,
+              "index": 3
+            }
+          ],
+          "line": 150,
+          "start_byte": 4198,
+          "end_byte": 4345
+        },
+        {
+          "name": "limine_stack_size_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 161,
+              "index": 1
+            }
+          ],
+          "line": 160,
+          "start_byte": 4465,
+          "end_byte": 4525
+        },
+        {
+          "name": "limine_stack_size_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 165,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 166,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_stack_size_response *)",
+              "line": 167,
+              "index": 3
+            },
+            {
+              "name": "stack_size",
+              "type": "uint64_t",
+              "line": 168,
+              "index": 4
+            }
+          ],
+          "line": 164,
+          "start_byte": 4528,
+          "end_byte": 4694
+        },
+        {
+          "name": "limine_hhdm_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 176,
+              "index": 1
+            },
+            {
+              "name": "offset",
+              "type": "uint64_t",
+              "line": 177,
+              "index": 2
+            }
+          ],
+          "line": 175,
+          "start_byte": 4802,
+          "end_byte": 4877
+        },
+        {
+          "name": "limine_hhdm_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 181,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 182,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_hhdm_response *)",
+              "line": 183,
+              "index": 3
+            }
+          ],
+          "line": 180,
+          "start_byte": 4880,
+          "end_byte": 5009
+        },
+        {
+          "name": "limine_video_mode",
+          "members": [
+            {
+              "name": "pitch",
+              "type": "uint64_t",
+              "line": 193,
+              "index": 1
+            },
+            {
+              "name": "width",
+              "type": "uint64_t",
+              "line": 194,
+              "index": 2
+            },
+            {
+              "name": "height",
+              "type": "uint64_t",
+              "line": 195,
+              "index": 3
+            },
+            {
+              "name": "bpp",
+              "type": "uint16_t",
+              "line": 196,
+              "index": 4
+            },
+            {
+              "name": "memory_model",
+              "type": "uint8_t",
+              "line": 197,
+              "index": 5
+            },
+            {
+              "name": "red_mask_size",
+              "type": "uint8_t",
+              "line": 198,
+              "index": 6
+            },
+            {
+              "name": "red_mask_shift",
+              "type": "uint8_t",
+              "line": 199,
+              "index": 7
+            },
+            {
+              "name": "green_mask_size",
+              "type": "uint8_t",
+              "line": 200,
+              "index": 8
+            },
+            {
+              "name": "green_mask_shift",
+              "type": "uint8_t",
+              "line": 201,
+              "index": 9
+            },
+            {
+              "name": "blue_mask_size",
+              "type": "uint8_t",
+              "line": 202,
+              "index": 10
+            },
+            {
+              "name": "blue_mask_shift",
+              "type": "uint8_t",
+              "line": 203,
+              "index": 11
+            }
+          ],
+          "line": 192,
+          "start_byte": 5165,
+          "end_byte": 5469
+        },
+        {
+          "name": "limine_framebuffer",
+          "members": [
+            {
+              "name": "address",
+              "type": "LIMINE_PTR(void *)",
+              "line": 207,
+              "index": 1
+            },
+            {
+              "name": "width",
+              "type": "uint64_t",
+              "line": 208,
+              "index": 2
+            },
+            {
+              "name": "height",
+              "type": "uint64_t",
+              "line": 209,
+              "index": 3
+            },
+            {
+              "name": "pitch",
+              "type": "uint64_t",
+              "line": 210,
+              "index": 4
+            },
+            {
+              "name": "bpp",
+              "type": "uint16_t",
+              "line": 211,
+              "index": 5
+            },
+            {
+              "name": "memory_model",
+              "type": "uint8_t",
+              "line": 212,
+              "index": 6
+            },
+            {
+              "name": "red_mask_size",
+              "type": "uint8_t",
+              "line": 213,
+              "index": 7
+            },
+            {
+              "name": "red_mask_shift",
+              "type": "uint8_t",
+              "line": 214,
+              "index": 8
+            },
+            {
+              "name": "green_mask_size",
+              "type": "uint8_t",
+              "line": 215,
+              "index": 9
+            },
+            {
+              "name": "green_mask_shift",
+              "type": "uint8_t",
+              "line": 216,
+              "index": 10
+            },
+            {
+              "name": "blue_mask_size",
+              "type": "uint8_t",
+              "line": 217,
+              "index": 11
+            },
+            {
+              "name": "blue_mask_shift",
+              "type": "uint8_t",
+              "line": 218,
+              "index": 12
+            },
+            {
+              "name": "unused[7]",
+              "type": "uint8_t",
+              "line": 219,
+              "index": 13
+            },
+            {
+              "name": "edid_size",
+              "type": "uint64_t",
+              "line": 220,
+              "index": 14
+            },
+            {
+              "name": "edid",
+              "type": "LIMINE_PTR(void *)",
+              "line": 221,
+              "index": 15
+            },
+            {
+              "name": "mode_count",
+              "type": "uint64_t",
+              "line": 223,
+              "index": 17
+            },
+            {
+              "name": "modes",
+              "type": "LIMINE_PTR(struct limine_video_mode **)",
+              "line": 224,
+              "index": 18
+            }
+          ],
+          "line": 206,
+          "start_byte": 5472,
+          "end_byte": 5991
+        },
+        {
+          "name": "limine_framebuffer_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 228,
+              "index": 1
+            },
+            {
+              "name": "framebuffer_count",
+              "type": "uint64_t",
+              "line": 229,
+              "index": 2
+            },
+            {
+              "name": "framebuffers",
+              "type": "LIMINE_PTR(struct limine_framebuffer **)",
+              "line": 230,
+              "index": 3
+            }
+          ],
+          "line": 227,
+          "start_byte": 5994,
+          "end_byte": 6146
+        },
+        {
+          "name": "limine_framebuffer_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 234,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 235,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_framebuffer_response *)",
+              "line": 236,
+              "index": 3
+            }
+          ],
+          "line": 233,
+          "start_byte": 6149,
+          "end_byte": 6292
+        },
+        {
+          "name": "limine_paging_mode_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 328,
+              "index": 1
+            },
+            {
+              "name": "mode",
+              "type": "uint64_t",
+              "line": 329,
+              "index": 2
+            }
+          ],
+          "line": 327,
+          "start_byte": 9525,
+          "end_byte": 9605
+        },
+        {
+          "name": "limine_paging_mode_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 333,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 334,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_paging_mode_response *)",
+              "line": 335,
+              "index": 3
+            },
+            {
+              "name": "mode",
+              "type": "uint64_t",
+              "line": 336,
+              "index": 4
+            },
+            {
+              "name": "max_mode",
+              "type": "uint64_t",
+              "line": 337,
+              "index": 5
+            },
+            {
+              "name": "min_mode",
+              "type": "uint64_t",
+              "line": 338,
+              "index": 6
+            }
+          ],
+          "line": 332,
+          "start_byte": 9608,
+          "end_byte": 9816
+        },
+        {
+          "name": "limine_memmap_entry",
+          "members": [
+            {
+              "name": "base",
+              "type": "uint64_t",
+              "line": 474,
+              "index": 1
+            },
+            {
+              "name": "length",
+              "type": "uint64_t",
+              "line": 475,
+              "index": 2
+            },
+            {
+              "name": "type",
+              "type": "uint64_t",
+              "line": 476,
+              "index": 3
+            }
+          ],
+          "line": 473,
+          "start_byte": 12987,
+          "end_byte": 13076
+        },
+        {
+          "name": "limine_memmap_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 480,
+              "index": 1
+            },
+            {
+              "name": "entry_count",
+              "type": "uint64_t",
+              "line": 481,
+              "index": 2
+            },
+            {
+              "name": "entries",
+              "type": "LIMINE_PTR(struct limine_memmap_entry **)",
+              "line": 482,
+              "index": 3
+            }
+          ],
+          "line": 479,
+          "start_byte": 13079,
+          "end_byte": 13216
+        },
+        {
+          "name": "limine_memmap_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 486,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 487,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_memmap_response *)",
+              "line": 488,
+              "index": 3
+            }
+          ],
+          "line": 485,
+          "start_byte": 13219,
+          "end_byte": 13352
+        },
+        {
+          "name": "limine_entry_point_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 498,
+              "index": 1
+            }
+          ],
+          "line": 497,
+          "start_byte": 13517,
+          "end_byte": 13578
+        },
+        {
+          "name": "limine_entry_point_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 502,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 503,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_entry_point_response *)",
+              "line": 504,
+              "index": 3
+            },
+            {
+              "name": "entry",
+              "type": "LIMINE_PTR(limine_entry_point)",
+              "line": 505,
+              "index": 4
+            }
+          ],
+          "line": 501,
+          "start_byte": 13581,
+          "end_byte": 13766
+        },
+        {
+          "name": "limine_kernel_file_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 521,
+              "index": 2
+            }
+          ],
+          "line": 519,
+          "start_byte": 14117,
+          "end_byte": 14331
+        },
+        {
+          "name": "limine_kernel_file_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 534,
+              "index": 2
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 535,
+              "index": 3
+            }
+          ],
+          "line": 532,
+          "start_byte": 14409,
+          "end_byte": 14668
+        },
+        {
+          "name": "limine_internal_module",
+          "members": [
+            {
+              "name": "path",
+              "type": "LIMINE_PTR(const char *)",
+              "line": 551,
+              "index": 1
+            },
+            {
+              "name": "flags",
+              "type": "uint64_t",
+              "line": 557,
+              "index": 3
+            }
+          ],
+          "line": 550,
+          "start_byte": 14881,
+          "end_byte": 15086
+        },
+        {
+          "name": "limine_module_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 561,
+              "index": 1
+            },
+            {
+              "name": "module_count",
+              "type": "uint64_t",
+              "line": 562,
+              "index": 2
+            },
+            {
+              "name": "modules",
+              "type": "LIMINE_PTR(struct limine_file **)",
+              "line": 563,
+              "index": 3
+            }
+          ],
+          "line": 560,
+          "start_byte": 15089,
+          "end_byte": 15219
+        },
+        {
+          "name": "limine_module_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 567,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 568,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_module_response *)",
+              "line": 569,
+              "index": 3
+            },
+            {
+              "name": "internal_module_count",
+              "type": "uint64_t",
+              "line": 572,
+              "index": 5
+            },
+            {
+              "name": "internal_modules",
+              "type": "LIMINE_PTR(struct limine_internal_module **)",
+              "line": 573,
+              "index": 6
+            }
+          ],
+          "line": 566,
+          "start_byte": 15222,
+          "end_byte": 15488
+        },
+        {
+          "name": "limine_rsdp_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 581,
+              "index": 1
+            }
+          ],
+          "line": 580,
+          "start_byte": 15596,
+          "end_byte": 15746
+        },
+        {
+          "name": "limine_rsdp_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 590,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 591,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_rsdp_response *)",
+              "line": 592,
+              "index": 3
+            }
+          ],
+          "line": 589,
+          "start_byte": 15749,
+          "end_byte": 15878
+        },
+        {
+          "name": "limine_smbios_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 600,
+              "index": 1
+            }
+          ],
+          "line": 599,
+          "start_byte": 15990,
+          "end_byte": 16200
+        },
+        {
+          "name": "limine_smbios_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 611,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 612,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_smbios_response *)",
+              "line": 613,
+              "index": 3
+            }
+          ],
+          "line": 610,
+          "start_byte": 16203,
+          "end_byte": 16336
+        },
+        {
+          "name": "limine_efi_system_table_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 621,
+              "index": 1
+            }
+          ],
+          "line": 620,
+          "start_byte": 16468,
+          "end_byte": 16630
+        },
+        {
+          "name": "limine_efi_system_table_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 630,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 631,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_efi_system_table_response *)",
+              "line": 632,
+              "index": 3
+            }
+          ],
+          "line": 629,
+          "start_byte": 16633,
+          "end_byte": 16786
+        },
+        {
+          "name": "limine_efi_memmap_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 640,
+              "index": 1
+            },
+            {
+              "name": "memmap",
+              "type": "LIMINE_PTR(void *)",
+              "line": 641,
+              "index": 2
+            },
+            {
+              "name": "memmap_size",
+              "type": "uint64_t",
+              "line": 642,
+              "index": 3
+            },
+            {
+              "name": "desc_size",
+              "type": "uint64_t",
+              "line": 643,
+              "index": 4
+            },
+            {
+              "name": "desc_version",
+              "type": "uint64_t",
+              "line": 644,
+              "index": 5
+            }
+          ],
+          "line": 639,
+          "start_byte": 16910,
+          "end_byte": 17078
+        },
+        {
+          "name": "limine_efi_memmap_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 648,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 649,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_efi_memmap_response *)",
+              "line": 650,
+              "index": 3
+            }
+          ],
+          "line": 647,
+          "start_byte": 17081,
+          "end_byte": 17222
+        },
+        {
+          "name": "limine_boot_time_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 666,
+              "index": 2
+            }
+          ],
+          "line": 664,
+          "start_byte": 17562,
+          "end_byte": 17716
+        },
+        {
+          "name": "limine_boot_time_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 679,
+              "index": 2
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 680,
+              "index": 3
+            }
+          ],
+          "line": 677,
+          "start_byte": 17791,
+          "end_byte": 18043
+        },
+        {
+          "name": "limine_kernel_address_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 701,
+              "index": 2
+            },
+            {
+              "name": "physical_base",
+              "type": "uint64_t",
+              "line": 702,
+              "index": 3
+            },
+            {
+              "name": "virtual_base",
+              "type": "uint64_t",
+              "line": 703,
+              "index": 4
+            }
+          ],
+          "line": 699,
+          "start_byte": 18406,
+          "end_byte": 18532
+        },
+        {
+          "name": "limine_kernel_address_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 711,
+              "index": 2
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 712,
+              "index": 3
+            }
+          ],
+          "line": 709,
+          "start_byte": 18613,
+          "end_byte": 18881
+        },
+        {
+          "name": "limine_dtb_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 725,
+              "index": 1
+            },
+            {
+              "name": "dtb_ptr",
+              "type": "LIMINE_PTR(void *)",
+              "line": 726,
+              "index": 2
+            }
+          ],
+          "line": 724,
+          "start_byte": 19000,
+          "end_byte": 19085
+        },
+        {
+          "name": "limine_dtb_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 730,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 731,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_dtb_response *)",
+              "line": 732,
+              "index": 3
+            }
+          ],
+          "line": 729,
+          "start_byte": 19088,
+          "end_byte": 19215
+        },
+        {
+          "name": "limine_riscv_bsp_hartid_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 740,
+              "index": 1
+            },
+            {
+              "name": "bsp_hartid",
+              "type": "uint64_t",
+              "line": 741,
+              "index": 2
+            }
+          ],
+          "line": 739,
+          "start_byte": 19350,
+          "end_byte": 19441
+        },
+        {
+          "name": "limine_riscv_bsp_hartid_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 745,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 746,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_riscv_bsp_hartid_response *)",
+              "line": 747,
+              "index": 3
+            }
+          ],
+          "line": 744,
+          "start_byte": 19444,
+          "end_byte": 19597
+        },
+        {
+          "name": "limine_bootloader_performance_response",
+          "members": [
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 755,
+              "index": 1
+            },
+            {
+              "name": "reset_usec",
+              "type": "uint64_t",
+              "line": 756,
+              "index": 2
+            },
+            {
+              "name": "init_usec",
+              "type": "uint64_t",
+              "line": 757,
+              "index": 3
+            },
+            {
+              "name": "exec_usec",
+              "type": "uint64_t",
+              "line": 758,
+              "index": 4
+            }
+          ],
+          "line": 754,
+          "start_byte": 19741,
+          "end_byte": 19886
+        },
+        {
+          "name": "limine_bootloader_performance_request",
+          "members": [
+            {
+              "name": "id[4]",
+              "type": "uint64_t",
+              "line": 762,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint64_t",
+              "line": 763,
+              "index": 2
+            },
+            {
+              "name": "response",
+              "type": "LIMINE_PTR(struct limine_bootloader_performance_response *)",
+              "line": 764,
+              "index": 3
+            }
+          ],
+          "line": 761,
+          "start_byte": 19889,
+          "end_byte": 20054
+        }
+      ],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "(*limine_terminal_write)",
+          "type": "void (struct limine_terminal *, char *, uint64_t)",
+          "line": 274,
+          "start_byte": 7540,
+          "end_byte": 7628
+        },
+        {
+          "name": "(*limine_terminal_callback)",
+          "type": "void (struct limine_terminal *, uint64_t, uint64_t, uint64_t, uint64_t)",
+          "line": 275,
+          "start_byte": 7629,
+          "end_byte": 7736
+        },
+        {
+          "name": "(*limine_goto_address)",
+          "type": "void (struct LIMINE_MP (info))",
+          "line": 371,
+          "start_byte": 10611,
+          "end_byte": 10673
+        },
+        {
+          "name": "(*limine_entry_point)",
+          "type": "void (void)",
+          "line": 495,
+          "start_byte": 13474,
+          "end_byte": 13515
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

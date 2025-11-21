@@ -1,3 +1,7 @@
-# [include/mem/oom.h](https://github.com/bluegummi/charmos/blob/main/include/mem/oom.h)
++++
+title = "oom"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from oom.h, do not edit manually -->
+# [include/mem/oom.h](https://github.com/bluegummi/charmos/blob/main/include/mem/oom.h)

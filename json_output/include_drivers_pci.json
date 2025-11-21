@@ -1,0 +1,556 @@
+{
+  "file": "charmos/include/drivers/pci.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "pci_read_config16",
+        "return_type": "uint16_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "device"
+          },
+          {
+            "type": "uint8_t",
+            "name": "function"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 91
+      },
+      {
+        "name": "pci_read_config8",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "device"
+          },
+          {
+            "type": "uint8_t",
+            "name": "function"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 106
+      },
+      {
+        "name": "pci_write_config16",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "device"
+          },
+          {
+            "type": "uint8_t",
+            "name": "function"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          },
+          {
+            "type": "uint16_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 117
+      },
+      {
+        "name": "pci_config_address",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 136
+      },
+      {
+        "name": "pci_read",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 142
+      },
+      {
+        "name": "pci_read_word",
+        "return_type": "uint16_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 148
+      },
+      {
+        "name": "pci_read_byte",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 154
+      },
+      {
+        "name": "pci_write",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          },
+          {
+            "type": "uint32_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 160
+      },
+      {
+        "name": "pci_write_word",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          },
+          {
+            "type": "uint16_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 166
+      },
+      {
+        "name": "pci_write_byte",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "offset"
+          },
+          {
+            "type": "uint8_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 174
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "pci_device",
+          "members": [
+            {
+              "name": "bus",
+              "type": "uint8_t",
+              "line": 10,
+              "index": 1
+            },
+            {
+              "name": "device",
+              "type": "uint8_t",
+              "line": 11,
+              "index": 2
+            },
+            {
+              "name": "function",
+              "type": "uint8_t",
+              "line": 12,
+              "index": 3
+            },
+            {
+              "name": "vendor_id",
+              "type": "uint16_t",
+              "line": 14,
+              "index": 4
+            },
+            {
+              "name": "device_id",
+              "type": "uint16_t",
+              "line": 15,
+              "index": 5
+            },
+            {
+              "name": "class_code",
+              "type": "uint8_t",
+              "line": 17,
+              "index": 6
+            },
+            {
+              "name": "subclass",
+              "type": "uint8_t",
+              "line": 18,
+              "index": 7
+            },
+            {
+              "name": "prog_if",
+              "type": "uint8_t",
+              "line": 19,
+              "index": 8
+            },
+            {
+              "name": "revision",
+              "type": "uint8_t",
+              "line": 20,
+              "index": 9
+            }
+          ],
+          "line": 9,
+          "start_byte": 147,
+          "end_byte": 366
+        },
+        {
+          "name": "pci_driver",
+          "members": [
+            {
+              "name": "*name",
+              "type": "char",
+              "line": 24,
+              "index": 1
+            },
+            {
+              "name": "class_code",
+              "type": "uint8_t",
+              "line": 25,
+              "index": 2
+            },
+            {
+              "name": "subclass",
+              "type": "uint8_t",
+              "line": 26,
+              "index": 3
+            },
+            {
+              "name": "prog_if",
+              "type": "uint8_t",
+              "line": 27,
+              "index": 4
+            },
+            {
+              "name": "vendor_id",
+              "type": "uint16_t",
+              "line": 28,
+              "index": 5
+            },
+            {
+              "name": "(*initialize)(uint8_t, uint8_t, uint8_t, struct pci_device *)",
+              "type": "void",
+              "line": 29,
+              "index": 6
+            }
+          ],
+          "line": 23,
+          "start_byte": 369,
+          "end_byte": 598
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "io_space",
+              "type": "uint16_t",
+              "line": 47,
+              "index": 1
+            },
+            {
+              "name": "memory_space",
+              "type": "uint16_t",
+              "line": 48,
+              "index": 3
+            },
+            {
+              "name": "bus_master",
+              "type": "uint16_t",
+              "line": 49,
+              "index": 5
+            },
+            {
+              "name": "special_cycles",
+              "type": "uint16_t",
+              "line": 50,
+              "index": 7
+            },
+            {
+              "name": "mem_write_inv",
+              "type": "uint16_t",
+              "line": 51,
+              "index": 9
+            },
+            {
+              "name": "vga_snoop",
+              "type": "uint16_t",
+              "line": 52,
+              "index": 11
+            },
+            {
+              "name": "parity_error",
+              "type": "uint16_t",
+              "line": 53,
+              "index": 13
+            },
+            {
+              "name": "reserved0",
+              "type": "uint16_t",
+              "line": 54,
+              "index": 15
+            },
+            {
+              "name": "serr_enable",
+              "type": "uint16_t",
+              "line": 55,
+              "index": 17
+            },
+            {
+              "name": "fast_back",
+              "type": "uint16_t",
+              "line": 56,
+              "index": 19
+            },
+            {
+              "name": "interrupt_disable",
+              "type": "uint16_t",
+              "line": 57,
+              "index": 21
+            },
+            {
+              "name": "reserved1",
+              "type": "uint16_t",
+              "line": 58,
+              "index": 23
+            }
+          ],
+          "line": 46,
+          "start_byte": 1389,
+          "end_byte": 1999
+        },
+        {
+          "name": "pci_msix_table_entry",
+          "members": [
+            {
+              "name": "msg_addr_low",
+              "type": "uint32_t",
+              "line": 63,
+              "index": 1
+            },
+            {
+              "name": "msg_addr_high",
+              "type": "uint32_t",
+              "line": 64,
+              "index": 2
+            },
+            {
+              "name": "msg_data",
+              "type": "uint32_t",
+              "line": 65,
+              "index": 3
+            },
+            {
+              "name": "vector_ctrl",
+              "type": "uint32_t",
+              "line": 66,
+              "index": 4
+            }
+          ],
+          "line": 62,
+          "start_byte": 2005,
+          "end_byte": 2156
+        },
+        {
+          "name": "pci_msix_cap",
+          "members": [
+            {
+              "name": "cap_id",
+              "type": "uint8_t",
+              "line": 70,
+              "index": 1
+            },
+            {
+              "name": "next_ptr",
+              "type": "uint8_t",
+              "line": 71,
+              "index": 3
+            },
+            {
+              "name": "msg_ctl",
+              "type": "uint16_t",
+              "line": 72,
+              "index": 5
+            },
+            {
+              "name": "table_offset_bir",
+              "type": "uint32_t",
+              "line": 73,
+              "index": 7
+            },
+            {
+              "name": "pba_offset_bir",
+              "type": "uint32_t",
+              "line": 74,
+              "index": 9
+            }
+          ],
+          "line": 69,
+          "start_byte": 2159,
+          "end_byte": 2396
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

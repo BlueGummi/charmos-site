@@ -1,6 +1,10 @@
-# [include/sch/dpc.h](https://github.com/bluegummi/charmos/blob/main/include/sch/dpc.h)
++++
+title = "dpc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from dpc.h, do not edit manually -->
+# [include/sch/dpc.h](https://github.com/bluegummi/charmos/blob/main/include/sch/dpc.h)
 
 ### struct [`dpc`](https://github.com/bluegummi/charmos/blob/main/include/sch/dpc.h#L9)
 

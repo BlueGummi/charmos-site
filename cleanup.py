@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 DOCS_ROOT = Path("./docs")
-MAX_LINES = 150
+MAX_LINES = 300
 
 def merge_small_dirs(root: Path):
     for dirpath, dirnames, filenames in os.walk(root, topdown=False):

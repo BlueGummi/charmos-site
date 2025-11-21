@@ -1,6 +1,10 @@
-# [kernel/drivers/usb.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c)
++++
+title = "usb"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from usb.c, do not edit manually -->
+# [kernel/drivers/usb.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c)
 
 - [`usb_construct_rq_bitmap()`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L7) — `uint8_t usb_construct_rq_bitmap(uint8_t transfer`,`uint8_t type`,`uint8_t recip)`
 - [`get_desc_bitmap()`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L15) — `static uint8_t get_desc_bitmap(void)`

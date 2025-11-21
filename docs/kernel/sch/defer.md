@@ -1,6 +1,10 @@
-# [kernel/sch/defer.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/defer.c)
++++
+title = "defer"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from defer.c, do not edit manually -->
+# [kernel/sch/defer.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/defer.c)
 
 ### struct [`deferred_event_queue`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/defer.c#L11)
 

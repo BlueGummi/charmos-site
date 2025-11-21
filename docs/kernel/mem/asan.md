@@ -1,6 +1,10 @@
-# [kernel/mem/asan.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/asan.c)
++++
+title = "asan"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from asan.c, do not edit manually -->
+# [kernel/mem/asan.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/asan.c)
 
 ### struct [`__asan_global`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/asan.c#L234)
 

@@ -1,6 +1,10 @@
-# [kernel/mem/vmm.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/vmm.c)
++++
+title = "vmm"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from vmm.c, do not edit manually -->
+# [kernel/mem/vmm.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/vmm.c)
 
 - [`vmm_tlb_shootdown()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/vmm.c#L25) — `static void vmm_tlb_shootdown(`[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` addr)`
 - [`sub_offset()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/vmm.c#L30) — `uint64_t sub_offset(uint64_t a)`

@@ -1,6 +1,10 @@
-# [kernel/ubsan.c](https://github.com/bluegummi/charmos/blob/main/kernel/ubsan.c)
++++
+title = "ubsan"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from ubsan.c, do not edit manually -->
+# [kernel/ubsan.c](https://github.com/bluegummi/charmos/blob/main/kernel/ubsan.c)
 
 ### struct [`ubsan_function_type_mismatch_data`](https://github.com/bluegummi/charmos/blob/main/kernel/ubsan.c#L87)
 

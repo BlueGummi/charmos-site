@@ -1,3 +1,7 @@
-# [include/rust.h](https://github.com/bluegummi/charmos/blob/main/include/rust.h)
++++
+title = "rust"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from rust.h, do not edit manually -->
+# [include/rust.h](https://github.com/bluegummi/charmos/blob/main/include/rust.h)

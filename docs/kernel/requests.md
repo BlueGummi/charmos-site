@@ -1,3 +1,7 @@
-# [kernel/requests.h](https://github.com/bluegummi/charmos/blob/main/kernel/requests.h)
++++
+title = "requests"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from requests.h, do not edit manually -->
+# [kernel/requests.h](https://github.com/bluegummi/charmos/blob/main/kernel/requests.h)

@@ -1,0 +1,291 @@
+{
+  "file": "charmos/include/block/bcache.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "bcache_hash",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "x"
+          },
+          {
+            "type": "uint64_t",
+            "name": "capacity"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 56
+      },
+      {
+        "name": "bcache_increment_ticks",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 91
+      },
+      {
+        "name": "bcache_get_ticks",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 95
+      },
+      {
+        "name": "bcache_ent_lock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 99
+      },
+      {
+        "name": "bcache_ent_unlock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 103
+      },
+      {
+        "name": "bcache_ent_pin",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 107
+      },
+      {
+        "name": "bcache_ent_unpin",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 111
+      },
+      {
+        "name": "bcache_ent_acquire",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 115
+      },
+      {
+        "name": "bcache_ent_release",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 120
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "bcache_entry",
+          "members": [
+            {
+              "name": "*buffer",
+              "type": "uint8_t",
+              "line": 20,
+              "index": 2
+            },
+            {
+              "name": "size",
+              "type": "uint64_t",
+              "line": 22,
+              "index": 3
+            },
+            {
+              "name": "lba",
+              "type": "uint64_t",
+              "line": 25,
+              "index": 5
+            },
+            {
+              "name": "access_time",
+              "type": "uint64_t",
+              "line": 28,
+              "index": 7
+            },
+            {
+              "name": "lock",
+              "type": "struct mutex",
+              "line": 29,
+              "index": 8
+            },
+            {
+              "name": "dirty",
+              "type": "bool",
+              "line": 30,
+              "index": 9
+            },
+            {
+              "name": "no_evict",
+              "type": "bool",
+              "line": 31,
+              "index": 10
+            },
+            {
+              "name": "*request",
+              "type": "struct bio_request",
+              "line": 34,
+              "index": 12
+            },
+            {
+              "name": "refcount",
+              "type": "refcount_t",
+              "line": 36,
+              "index": 13
+            }
+          ],
+          "line": 18,
+          "start_byte": 355,
+          "end_byte": 743
+        },
+        {
+          "name": "bcache_wrapper",
+          "members": [
+            {
+              "name": "key",
+              "type": "uint64_t",
+              "line": 40,
+              "index": 1
+            },
+            {
+              "name": "*value",
+              "type": "struct bcache_entry",
+              "line": 41,
+              "index": 3
+            },
+            {
+              "name": "occupied",
+              "type": "bool",
+              "line": 42,
+              "index": 5
+            },
+            {
+              "name": "*next",
+              "type": "struct bcache_wrapper",
+              "line": 43,
+              "index": 6
+            }
+          ],
+          "line": 39,
+          "start_byte": 746,
+          "end_byte": 929
+        },
+        {
+          "name": "bcache",
+          "members": [
+            {
+              "name": "**entries",
+              "type": "struct bcache_wrapper",
+              "line": 48,
+              "index": 1
+            },
+            {
+              "name": "ticks",
+              "type": "atomic_uint_fast64_t",
+              "line": 49,
+              "index": 2
+            },
+            {
+              "name": "capacity",
+              "type": "uint64_t",
+              "line": 50,
+              "index": 3
+            },
+            {
+              "name": "count",
+              "type": "uint64_t",
+              "line": 51,
+              "index": 4
+            },
+            {
+              "name": "spb",
+              "type": "uint64_t",
+              "line": 52,
+              "index": 5
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 53,
+              "index": 6
+            }
+          ],
+          "line": 47,
+          "start_byte": 975,
+          "end_byte": 1148
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

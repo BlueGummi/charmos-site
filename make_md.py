@@ -282,8 +282,28 @@ def generate_docs(json_dir: Path):
     
         # Gather ideas for this file
         file_ideas = ideas_by_file.get(str(source_path), [])
-    
-        # Build the combined Markdown
+        
+        if file_ideas:
+            first_idea = file_ideas[0]
+            title = first_idea.get("name", md_out_path.stem)
+            author = first_idea.get("author", "Unknown")
+            status = first_idea.get("status", "unknown")
+        else:
+            title = md_out_path.stem
+            author = "Unknown"
+            status = "unknown"
+                
+        front_matter_lines = [
+            "+++\n",
+            f'title = "{title}"\n',
+            f'author = "{author}"\n', 
+            f'status = "{status}"\n',
+            "+++\n\n"
+        ]
+
+        
+            
+                # Build the combined Markdown
         combined_lines = []
     
         for idea in file_ideas:
@@ -312,7 +332,6 @@ def generate_docs(json_dir: Path):
             source_path = Path(data["file"])
             file_url = generate_github_link_safe(data["file"])
             lines.append(f"# [{source_path.as_posix()[8:]}]({file_url})\n")
-            lines.append(f"<!-- Auto-generated from {source_path.name}, do not edit manually -->\n")
     
             # Structs
             for s in data["c_parse"]["types"].get("structs", []):
@@ -371,7 +390,7 @@ def generate_docs(json_dir: Path):
         combined_lines.extend(file_md_lines)
     
         # Write combined Markdown to single file
-        md_out_path.write_text("\n".join(combined_lines), encoding="utf-8")
+        md_out_path.write_text("".join(front_matter_lines) + "\n".join(combined_lines), encoding="utf-8")
         print(f"Wrote combined Markdown to {md_out_path}")
     
 

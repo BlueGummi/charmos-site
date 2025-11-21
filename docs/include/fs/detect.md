@@ -1,6 +1,10 @@
-# [include/fs/detect.h](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h)
++++
+title = "detect"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from detect.h, do not edit manually -->
+# [include/fs/detect.h](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h)
 
 ### enum [`fs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L4)
 

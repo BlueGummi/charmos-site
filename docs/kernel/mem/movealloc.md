@@ -1,6 +1,10 @@
-# [kernel/mem/movealloc.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/movealloc.c)
++++
+title = "movealloc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from movealloc.c, do not edit manually -->
+# [kernel/mem/movealloc.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/movealloc.c)
 
 - [`movealloc_init_chain()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/movealloc.c#L13) — `void movealloc_init_chain(void)`
 - [`movealloc_exec_all()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/movealloc.c#L23) — `void movealloc_exec_all(void)`

@@ -1,3 +1,7 @@
-# [include/string.h](https://github.com/bluegummi/charmos/blob/main/include/string.h)
++++
+title = "string"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from string.h, do not edit manually -->
+# [include/string.h](https://github.com/bluegummi/charmos/blob/main/include/string.h)

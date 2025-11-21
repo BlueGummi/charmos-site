@@ -1,0 +1,32 @@
+{
+  "file": "charmos/include/structures/hashmap.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "hash",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*data"
+          },
+          {
+            "type": "uint64_t",
+            "name": "length"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 27
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

@@ -1,0 +1,12 @@
+{
+  "file": "charmos/include/linker/symbols.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

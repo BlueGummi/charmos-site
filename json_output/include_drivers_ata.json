@@ -1,0 +1,636 @@
+{
+  "file": "charmos/include/drivers/ata.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "ide_request",
+          "members": [
+            {
+              "name": "lba",
+              "type": "uint64_t",
+              "line": 64,
+              "index": 1
+            },
+            {
+              "name": "*buffer",
+              "type": "void",
+              "line": 65,
+              "index": 2
+            },
+            {
+              "name": "size",
+              "type": "uint64_t",
+              "line": 66,
+              "index": 3
+            },
+            {
+              "name": "sector_count",
+              "type": "uint64_t",
+              "line": 67,
+              "index": 4
+            },
+            {
+              "name": "current_sector",
+              "type": "uint16_t",
+              "line": 68,
+              "index": 5
+            },
+            {
+              "name": "write",
+              "type": "bool",
+              "line": 70,
+              "index": 6
+            },
+            {
+              "name": "done",
+              "type": "bool",
+              "line": 71,
+              "index": 7
+            },
+            {
+              "name": "status",
+              "type": "int",
+              "line": 72,
+              "index": 8
+            },
+            {
+              "name": "(*on_complete)(struct ide_request *)",
+              "type": "void",
+              "line": 74,
+              "index": 9
+            },
+            {
+              "name": "*user_data",
+              "type": "void",
+              "line": 75,
+              "index": 10
+            },
+            {
+              "name": "trigger_completion",
+              "type": "bool",
+              "line": 77,
+              "index": 11
+            },
+            {
+              "name": "*waiter",
+              "type": "struct thread",
+              "line": 78,
+              "index": 12
+            },
+            {
+              "name": "*next",
+              "type": "struct ide_request",
+              "line": 79,
+              "index": 13
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 80,
+              "index": 14
+            }
+          ],
+          "line": 63,
+          "start_byte": 1758,
+          "end_byte": 2130
+        },
+        {
+          "name": "ide_channel",
+          "members": [
+            {
+              "name": "*head",
+              "type": "struct ide_request",
+              "line": 84,
+              "index": 1
+            },
+            {
+              "name": "*tail",
+              "type": "struct ide_request",
+              "line": 85,
+              "index": 2
+            },
+            {
+              "name": "busy",
+              "type": "bool",
+              "line": 87,
+              "index": 3
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 88,
+              "index": 4
+            },
+            {
+              "name": "*current_drive",
+              "type": "struct ata_drive",
+              "line": 89,
+              "index": 5
+            }
+          ],
+          "line": 83,
+          "start_byte": 2133,
+          "end_byte": 2294
+        },
+        {
+          "name": "ata_drive",
+          "members": [
+            {
+              "name": "actually_exists",
+              "type": "bool",
+              "line": 93,
+              "index": 1
+            },
+            {
+              "name": "sector_size",
+              "type": "uint32_t",
+              "line": 94,
+              "index": 3
+            },
+            {
+              "name": "io_base",
+              "type": "uint16_t",
+              "line": 95,
+              "index": 4
+            },
+            {
+              "name": "ctrl_base",
+              "type": "uint16_t",
+              "line": 96,
+              "index": 5
+            },
+            {
+              "name": "slave",
+              "type": "uint16_t",
+              "line": 97,
+              "index": 6
+            },
+            {
+              "name": "type",
+              "type": "enum ide_type",
+              "line": 98,
+              "index": 7
+            },
+            {
+              "name": "*identify_data",
+              "type": "void",
+              "line": 99,
+              "index": 8
+            },
+            {
+              "name": "model[41]",
+              "type": "char",
+              "line": 101,
+              "index": 9
+            },
+            {
+              "name": "serial[21]",
+              "type": "char",
+              "line": 102,
+              "index": 11
+            },
+            {
+              "name": "firmware[9]",
+              "type": "char",
+              "line": 103,
+              "index": 13
+            },
+            {
+              "name": "total_sectors",
+              "type": "uint64_t",
+              "line": 104,
+              "index": 15
+            },
+            {
+              "name": "supports_lba48",
+              "type": "uint8_t",
+              "line": 105,
+              "index": 16
+            },
+            {
+              "name": "supports_dma",
+              "type": "uint8_t",
+              "line": 106,
+              "index": 17
+            },
+            {
+              "name": "udma_mode",
+              "type": "uint8_t",
+              "line": 107,
+              "index": 18
+            },
+            {
+              "name": "pio_mode",
+              "type": "uint8_t",
+              "line": 108,
+              "index": 19
+            },
+            {
+              "name": "irq",
+              "type": "uint8_t",
+              "line": 109,
+              "index": 20
+            },
+            {
+              "name": "channel",
+              "type": "struct ide_channel",
+              "line": 110,
+              "index": 21
+            }
+          ],
+          "line": 92,
+          "start_byte": 2297,
+          "end_byte": 2809
+        },
+        {
+          "name": "ata_identify",
+          "members": [
+            {
+              "name": "config",
+              "type": "uint16_t",
+              "line": 132,
+              "index": 1
+            },
+            {
+              "name": "cylinders",
+              "type": "uint16_t",
+              "line": 133,
+              "index": 2
+            },
+            {
+              "name": "reserved1",
+              "type": "uint16_t",
+              "line": 134,
+              "index": 3
+            },
+            {
+              "name": "heads",
+              "type": "uint16_t",
+              "line": 135,
+              "index": 4
+            },
+            {
+              "name": "vendor1[2]",
+              "type": "uint16_t",
+              "line": 136,
+              "index": 5
+            },
+            {
+              "name": "sectors_per_track",
+              "type": "uint16_t",
+              "line": 137,
+              "index": 6
+            },
+            {
+              "name": "vendor2[3]",
+              "type": "uint16_t",
+              "line": 138,
+              "index": 7
+            },
+            {
+              "name": "serial_number[10]",
+              "type": "uint16_t",
+              "line": 139,
+              "index": 8
+            },
+            {
+              "name": "vendor3[2]",
+              "type": "uint16_t",
+              "line": 140,
+              "index": 9
+            },
+            {
+              "name": "obsolete1",
+              "type": "uint16_t",
+              "line": 141,
+              "index": 10
+            },
+            {
+              "name": "firmware_revision[4]",
+              "type": "uint16_t",
+              "line": 142,
+              "index": 11
+            },
+            {
+              "name": "model_number[20]",
+              "type": "uint16_t",
+              "line": 143,
+              "index": 12
+            },
+            {
+              "name": "max_rw_multiple",
+              "type": "uint16_t",
+              "line": 144,
+              "index": 13
+            },
+            {
+              "name": "reserved2",
+              "type": "uint16_t",
+              "line": 145,
+              "index": 14
+            },
+            {
+              "name": "capabilities[2]",
+              "type": "uint16_t",
+              "line": 146,
+              "index": 15
+            },
+            {
+              "name": "obsolete2[2]",
+              "type": "uint16_t",
+              "line": 147,
+              "index": 16
+            },
+            {
+              "name": "field_validity",
+              "type": "uint16_t",
+              "line": 148,
+              "index": 17
+            },
+            {
+              "name": "current_cylinders",
+              "type": "uint16_t",
+              "line": 149,
+              "index": 18
+            },
+            {
+              "name": "current_heads",
+              "type": "uint16_t",
+              "line": 150,
+              "index": 19
+            },
+            {
+              "name": "current_sectors",
+              "type": "uint16_t",
+              "line": 151,
+              "index": 20
+            },
+            {
+              "name": "current_capacity_lo",
+              "type": "uint16_t",
+              "line": 152,
+              "index": 21
+            },
+            {
+              "name": "current_capacity_hi",
+              "type": "uint16_t",
+              "line": 153,
+              "index": 22
+            },
+            {
+              "name": "rw_multiple",
+              "type": "uint16_t",
+              "line": 154,
+              "index": 23
+            },
+            {
+              "name": "lba28_capacity",
+              "type": "uint32_t",
+              "line": 155,
+              "index": 24
+            },
+            {
+              "name": "dma_supported",
+              "type": "uint16_t",
+              "line": 156,
+              "index": 25
+            },
+            {
+              "name": "advanced_pio_modes",
+              "type": "uint16_t",
+              "line": 157,
+              "index": 26
+            },
+            {
+              "name": "min_dma_cycle_time",
+              "type": "uint16_t",
+              "line": 158,
+              "index": 27
+            },
+            {
+              "name": "recommended_dma_cycle_time",
+              "type": "uint16_t",
+              "line": 159,
+              "index": 28
+            },
+            {
+              "name": "min_pio_cycle_time",
+              "type": "uint16_t",
+              "line": 160,
+              "index": 29
+            },
+            {
+              "name": "min_pio_cycle_time_iordy",
+              "type": "uint16_t",
+              "line": 161,
+              "index": 30
+            },
+            {
+              "name": "additional_supported",
+              "type": "uint16_t",
+              "line": 162,
+              "index": 31
+            },
+            {
+              "name": "reserved3[5]",
+              "type": "uint16_t",
+              "line": 163,
+              "index": 32
+            },
+            {
+              "name": "queue_depth",
+              "type": "uint16_t",
+              "line": 164,
+              "index": 33
+            },
+            {
+              "name": "sata_capabilities",
+              "type": "uint16_t",
+              "line": 165,
+              "index": 34
+            },
+            {
+              "name": "sata_additional",
+              "type": "uint16_t",
+              "line": 166,
+              "index": 35
+            },
+            {
+              "name": "sata_features_supported",
+              "type": "uint16_t",
+              "line": 167,
+              "index": 36
+            },
+            {
+              "name": "sata_features_enabled",
+              "type": "uint16_t",
+              "line": 168,
+              "index": 37
+            },
+            {
+              "name": "major_version",
+              "type": "uint16_t",
+              "line": 169,
+              "index": 38
+            },
+            {
+              "name": "minor_version",
+              "type": "uint16_t",
+              "line": 170,
+              "index": 39
+            },
+            {
+              "name": "command_set_supported[3]",
+              "type": "uint16_t",
+              "line": 171,
+              "index": 40
+            },
+            {
+              "name": "command_set_enabled[3]",
+              "type": "uint16_t",
+              "line": 172,
+              "index": 41
+            },
+            {
+              "name": "features_supported_extension",
+              "type": "uint16_t",
+              "line": 173,
+              "index": 42
+            },
+            {
+              "name": "security_erase_time",
+              "type": "uint16_t",
+              "line": 174,
+              "index": 43
+            },
+            {
+              "name": "enhanced_security_erase_time",
+              "type": "uint16_t",
+              "line": 175,
+              "index": 44
+            },
+            {
+              "name": "current_advanced_power_mgmt",
+              "type": "uint16_t",
+              "line": 176,
+              "index": 45
+            },
+            {
+              "name": "master_password_revision",
+              "type": "uint16_t",
+              "line": 177,
+              "index": 46
+            },
+            {
+              "name": "hardware_reset_result",
+              "type": "uint16_t",
+              "line": 178,
+              "index": 47
+            },
+            {
+              "name": "acoustic_management",
+              "type": "uint16_t",
+              "line": 179,
+              "index": 48
+            },
+            {
+              "name": "stream_min_req_size",
+              "type": "uint16_t",
+              "line": 180,
+              "index": 49
+            },
+            {
+              "name": "stream_transfer_time_dma",
+              "type": "uint16_t",
+              "line": 181,
+              "index": 50
+            },
+            {
+              "name": "stream_access_latency",
+              "type": "uint16_t",
+              "line": 182,
+              "index": 51
+            },
+            {
+              "name": "streaming_performance_gran",
+              "type": "uint32_t",
+              "line": 183,
+              "index": 52
+            },
+            {
+              "name": "lba48_sector_count",
+              "type": "uint64_t",
+              "line": 184,
+              "index": 53
+            },
+            {
+              "name": "streaming_transfer_time",
+              "type": "uint16_t",
+              "line": 185,
+              "index": 54
+            },
+            {
+              "name": "dsm_cap",
+              "type": "uint16_t",
+              "line": 186,
+              "index": 55
+            },
+            {
+              "name": "phys_log_sector_size",
+              "type": "uint16_t",
+              "line": 187,
+              "index": 56
+            },
+            {
+              "name": "inter_seek_delay",
+              "type": "uint16_t",
+              "line": 188,
+              "index": 57
+            },
+            {
+              "name": "world_wide_name[4]",
+              "type": "uint16_t",
+              "line": 189,
+              "index": 58
+            },
+            {
+              "name": "reserved4[144]",
+              "type": "uint16_t",
+              "line": 190,
+              "index": 59
+            }
+          ],
+          "line": 131,
+          "start_byte": 3423,
+          "end_byte": 5346
+        }
+      ],
+      "enums": [
+        {
+          "name": "ide_type",
+          "members": [
+            {
+              "name": "IDE_TYPE_ATA",
+              "value": null,
+              "line": 59,
+              "index": 1
+            },
+            {
+              "name": "IDE_TYPE_ATAPI",
+              "value": null,
+              "line": 60,
+              "index": 3
+            }
+          ],
+          "line": 58,
+          "start_byte": 1700,
+          "end_byte": 1755
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

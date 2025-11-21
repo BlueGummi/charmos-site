@@ -1,3 +1,7 @@
-# [include/pit.h](https://github.com/bluegummi/charmos/blob/main/include/pit.h)
++++
+title = "pit"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from pit.h, do not edit manually -->
+# [include/pit.h](https://github.com/bluegummi/charmos/blob/main/include/pit.h)

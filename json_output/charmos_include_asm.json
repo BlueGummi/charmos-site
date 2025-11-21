@@ -1,0 +1,743 @@
+{
+  "file": "charmos/include/asm.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "inb",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 17
+      },
+      {
+        "name": "inw",
+        "return_type": "uint16_t",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 23
+      },
+      {
+        "name": "inl",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 29
+      },
+      {
+        "name": "insb",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          },
+          {
+            "type": "void",
+            "name": "*addr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 35
+      },
+      {
+        "name": "insw",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          },
+          {
+            "type": "void",
+            "name": "*addr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 39
+      },
+      {
+        "name": "insl",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          },
+          {
+            "type": "void",
+            "name": "*addr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 43
+      },
+      {
+        "name": "outb",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          },
+          {
+            "type": "uint8_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 59
+      },
+      {
+        "name": "outw",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          },
+          {
+            "type": "uint16_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 63
+      },
+      {
+        "name": "outl",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          },
+          {
+            "type": "uint32_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 67
+      },
+      {
+        "name": "outsw",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          },
+          {
+            "type": "void",
+            "name": "*addr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 71
+      },
+      {
+        "name": "outsb",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          },
+          {
+            "type": "void",
+            "name": "*addr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 75
+      },
+      {
+        "name": "outsl",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "port"
+          },
+          {
+            "type": "void",
+            "name": "*addr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 79
+      },
+      {
+        "name": "mmio_write_64",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*address"
+          },
+          {
+            "type": "uint64_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 95
+      },
+      {
+        "name": "mmio_write_32",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*address"
+          },
+          {
+            "type": "uint32_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 99
+      },
+      {
+        "name": "mmio_write_16",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*address"
+          },
+          {
+            "type": "uint16_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 103
+      },
+      {
+        "name": "mmio_write_8",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*address"
+          },
+          {
+            "type": "uint8_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 107
+      },
+      {
+        "name": "mmio_read_64",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*address"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 111
+      },
+      {
+        "name": "mmio_read_32",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*address"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 117
+      },
+      {
+        "name": "mmio_read_16",
+        "return_type": "uint16_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*address"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 123
+      },
+      {
+        "name": "mmio_read_8",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*address"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 129
+      },
+      {
+        "name": "write_cr8",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "cr8"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 147
+      },
+      {
+        "name": "rdtsc",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 151
+      },
+      {
+        "name": "cpuid_count",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint32_t",
+            "name": "leaf"
+          },
+          {
+            "type": "uint32_t",
+            "name": "subleaf"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*eax"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*ebx"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*ecx"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*edx"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 157
+      },
+      {
+        "name": "cpuid",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint32_t",
+            "name": "leaf"
+          },
+          {
+            "type": "uint32_t",
+            "name": "subleaf"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*eax"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*ebx"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*ecx"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*edx"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 164
+      },
+      {
+        "name": "read_cr4",
+        "return_type": "uint64_t",
+        "parameters": [],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 172
+      },
+      {
+        "name": "write_cr4",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "cr4"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 178
+      },
+      {
+        "name": "get_core_id",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 182
+      },
+      {
+        "name": "are_interrupts_enabled",
+        "return_type": "bool",
+        "parameters": [],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 193
+      },
+      {
+        "name": "wrmsr",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint32_t",
+            "name": "msr"
+          },
+          {
+            "type": "uint64_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 205
+      },
+      {
+        "name": "rdmsr",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "uint32_t",
+            "name": "msr"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 211
+      },
+      {
+        "name": "io_wait",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 217
+      },
+      {
+        "name": "clear_interrupts",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 221
+      },
+      {
+        "name": "restore_interrupts",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 225
+      },
+      {
+        "name": "enable_interrupts",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 229
+      },
+      {
+        "name": "disable_interrupts",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 233
+      },
+      {
+        "name": "invlpg",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "virt"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 237
+      },
+      {
+        "name": "read_cr3",
+        "return_type": "uint64_t",
+        "parameters": [],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 242
+      },
+      {
+        "name": "write_cr3",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "cr3"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 248
+      },
+      {
+        "name": "tlb_flush",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 252
+      },
+      {
+        "name": "cpu_relax",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 257
+      },
+      {
+        "name": "wait_for_interrupt",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 261
+      },
+      {
+        "name": "clz",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "a"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 265
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

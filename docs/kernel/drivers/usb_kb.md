@@ -1,6 +1,10 @@
-# [kernel/drivers/usb_kb.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb_kb.c)
++++
+title = "usb_kb"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from usb_kb.c, do not edit manually -->
+# [kernel/drivers/usb_kb.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb_kb.c)
 
 ### struct [`usb_kbd_report`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb_kb.c#L11)
 

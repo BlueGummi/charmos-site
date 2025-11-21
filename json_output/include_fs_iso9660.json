@@ -1,0 +1,345 @@
+{
+  "file": "charmos/include/fs/iso9660.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "iso9660_datetime",
+          "members": [
+            {
+              "name": "year",
+              "type": "uint8_t",
+              "line": 7,
+              "index": 1
+            },
+            {
+              "name": "month",
+              "type": "uint8_t",
+              "line": 8,
+              "index": 3
+            },
+            {
+              "name": "day",
+              "type": "uint8_t",
+              "line": 9,
+              "index": 5
+            },
+            {
+              "name": "hour",
+              "type": "uint8_t",
+              "line": 10,
+              "index": 7
+            },
+            {
+              "name": "minute",
+              "type": "uint8_t",
+              "line": 11,
+              "index": 9
+            },
+            {
+              "name": "second",
+              "type": "uint8_t",
+              "line": 12,
+              "index": 11
+            },
+            {
+              "name": "gmt_offset",
+              "type": "int8_t",
+              "line": 13,
+              "index": 13
+            }
+          ],
+          "line": 6,
+          "start_byte": 81,
+          "end_byte": 405
+        },
+        {
+          "name": "iso9660_dir_record",
+          "members": [
+            {
+              "name": "length",
+              "type": "uint8_t",
+              "line": 18,
+              "index": 1
+            },
+            {
+              "name": "ext_attr_length",
+              "type": "uint8_t",
+              "line": 19,
+              "index": 3
+            },
+            {
+              "name": "extent_lba_le",
+              "type": "uint32_t",
+              "line": 20,
+              "index": 5
+            },
+            {
+              "name": "extent_lba_be",
+              "type": "uint32_t",
+              "line": 21,
+              "index": 7
+            },
+            {
+              "name": "size_le",
+              "type": "uint32_t",
+              "line": 22,
+              "index": 8
+            },
+            {
+              "name": "size_be",
+              "type": "uint32_t",
+              "line": 23,
+              "index": 10
+            },
+            {
+              "name": "datetime",
+              "type": "struct iso9660_datetime",
+              "line": 24,
+              "index": 11
+            },
+            {
+              "name": "flags",
+              "type": "uint8_t",
+              "line": 25,
+              "index": 13
+            },
+            {
+              "name": "file_unit_size",
+              "type": "uint8_t",
+              "line": 26,
+              "index": 15
+            },
+            {
+              "name": "interleave_gap_size",
+              "type": "uint8_t",
+              "line": 27,
+              "index": 16
+            },
+            {
+              "name": "vol_seq_num_le",
+              "type": "uint16_t",
+              "line": 28,
+              "index": 17
+            },
+            {
+              "name": "vol_seq_num_be",
+              "type": "uint16_t",
+              "line": 29,
+              "index": 18
+            },
+            {
+              "name": "name_len",
+              "type": "uint8_t",
+              "line": 30,
+              "index": 19
+            },
+            {
+              "name": "name[]",
+              "type": "char",
+              "line": 31,
+              "index": 20
+            }
+          ],
+          "line": 17,
+          "start_byte": 452,
+          "end_byte": 1051
+        },
+        {
+          "name": "iso9660_pvd",
+          "members": [
+            {
+              "name": "type",
+              "type": "uint8_t",
+              "line": 36,
+              "index": 1
+            },
+            {
+              "name": "id[5]",
+              "type": "char",
+              "line": 37,
+              "index": 3
+            },
+            {
+              "name": "version",
+              "type": "uint8_t",
+              "line": 38,
+              "index": 5
+            },
+            {
+              "name": "unused1",
+              "type": "uint8_t",
+              "line": 39,
+              "index": 7
+            },
+            {
+              "name": "system_id[32]",
+              "type": "char",
+              "line": 40,
+              "index": 8
+            },
+            {
+              "name": "volume_id[32]",
+              "type": "char",
+              "line": 41,
+              "index": 9
+            },
+            {
+              "name": "unused2[8]",
+              "type": "uint8_t",
+              "line": 42,
+              "index": 10
+            },
+            {
+              "name": "volume_space_le",
+              "type": "uint32_t",
+              "line": 43,
+              "index": 11
+            },
+            {
+              "name": "volume_space_be",
+              "type": "uint32_t",
+              "line": 44,
+              "index": 12
+            },
+            {
+              "name": "unused3[32]",
+              "type": "uint8_t",
+              "line": 45,
+              "index": 13
+            },
+            {
+              "name": "vol_set_size_le",
+              "type": "uint16_t",
+              "line": 46,
+              "index": 14
+            },
+            {
+              "name": "vol_set_size_be",
+              "type": "uint16_t",
+              "line": 47,
+              "index": 15
+            },
+            {
+              "name": "vol_seq_num_le",
+              "type": "uint16_t",
+              "line": 48,
+              "index": 16
+            },
+            {
+              "name": "vol_seq_num_be",
+              "type": "uint16_t",
+              "line": 49,
+              "index": 17
+            },
+            {
+              "name": "logical_block_size_le",
+              "type": "uint16_t",
+              "line": 50,
+              "index": 18
+            },
+            {
+              "name": "logical_block_size_be",
+              "type": "uint16_t",
+              "line": 51,
+              "index": 19
+            },
+            {
+              "name": "path_table_size_le",
+              "type": "uint32_t",
+              "line": 52,
+              "index": 20
+            },
+            {
+              "name": "path_table_size_be",
+              "type": "uint32_t",
+              "line": 53,
+              "index": 21
+            },
+            {
+              "name": "l_path_table_loc",
+              "type": "uint32_t",
+              "line": 54,
+              "index": 22
+            },
+            {
+              "name": "opt_l_path_table_loc",
+              "type": "uint32_t",
+              "line": 55,
+              "index": 23
+            },
+            {
+              "name": "m_path_table_loc",
+              "type": "uint32_t",
+              "line": 56,
+              "index": 24
+            },
+            {
+              "name": "opt_m_path_table_loc",
+              "type": "uint32_t",
+              "line": 57,
+              "index": 25
+            },
+            {
+              "name": "root_dir_record",
+              "type": "struct iso9660_dir_record",
+              "line": 58,
+              "index": 26
+            }
+          ],
+          "line": 35,
+          "start_byte": 1108,
+          "end_byte": 1946
+        },
+        {
+          "name": "iso9660_fs",
+          "members": [
+            {
+              "name": "*partition",
+              "type": "struct generic_partition",
+              "line": 63,
+              "index": 1
+            },
+            {
+              "name": "*disk",
+              "type": "struct generic_disk",
+              "line": 64,
+              "index": 2
+            },
+            {
+              "name": "*pvd",
+              "type": "struct iso9660_pvd",
+              "line": 65,
+              "index": 3
+            },
+            {
+              "name": "root_lba",
+              "type": "uint32_t",
+              "line": 66,
+              "index": 4
+            },
+            {
+              "name": "root_size",
+              "type": "uint32_t",
+              "line": 67,
+              "index": 5
+            },
+            {
+              "name": "block_size",
+              "type": "uint32_t",
+              "line": 68,
+              "index": 6
+            }
+          ],
+          "line": 62,
+          "start_byte": 1949,
+          "end_byte": 2143
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

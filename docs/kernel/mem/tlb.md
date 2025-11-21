@@ -1,6 +1,10 @@
-# [kernel/mem/tlb.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/tlb.c)
++++
+title = "tlb"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from tlb.c, do not edit manually -->
+# [kernel/mem/tlb.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/tlb.c)
 
 - [`tlb_shootdown_internal()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/tlb.c#L10) — `static void tlb_shootdown_internal(void)`
 - [`tlb_shootdown_isr()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/tlb.c#L44) — `void tlb_shootdown_isr(void *ctx`,`uint8_t irq`,`void *rsp)`

@@ -1,6 +1,10 @@
-# [kernel/elf.c](https://github.com/bluegummi/charmos/blob/main/kernel/elf.c)
++++
+title = "elf"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from elf.c, do not edit manually -->
+# [kernel/elf.c](https://github.com/bluegummi/charmos/blob/main/kernel/elf.c)
 
 - [`elf_load()`](https://github.com/bluegummi/charmos/blob/main/kernel/elf.c#L15) — `uint64_t elf_load(void *elf_data)`
 - [`elf_map()`](https://github.com/bluegummi/charmos/blob/main/kernel/elf.c#L45) — `void elf_map(uintptr_t user_pml4_phys`,`void *elf_data)`

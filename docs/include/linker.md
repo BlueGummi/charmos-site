@@ -1,0 +1,26 @@
++++
+title = "symbols"
+author = "Unknown"
+status = "unknown"
++++
+
+# [include/linker/symbols.h](https://github.com/bluegummi/charmos/blob/main/include/linker/symbols.h)
+
+
++++
+title = "symbol_table"
+author = "Unknown"
+status = "unknown"
++++
+
+# [include/linker/symbol_table.h](https://github.com/bluegummi/charmos/blob/main/include/linker/symbol_table.h)
+
+### struct [`sym`](https://github.com/bluegummi/charmos/blob/main/include/linker/symbol_table.h#L4)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint64_t` | [`addr`](https://github.com/bluegummi/charmos/blob/main/include/linker/symbol_table.h#L5) |
+| `char` | [`*name`](https://github.com/bluegummi/charmos/blob/main/include/linker/symbol_table.h#L6) |
+
+
+

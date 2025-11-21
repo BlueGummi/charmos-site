@@ -1,6 +1,10 @@
-# [kernel/string.c](https://github.com/bluegummi/charmos/blob/main/kernel/string.c)
++++
+title = "string"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from string.c, do not edit manually -->
+# [kernel/string.c](https://github.com/bluegummi/charmos/blob/main/kernel/string.c)
 
 - [`memcpy()`](https://github.com/bluegummi/charmos/blob/main/kernel/string.c#L7) — `void * memcpy(void *dest`,`void *src`,`uint64_t n)`
 - [`memset()`](https://github.com/bluegummi/charmos/blob/main/kernel/string.c#L18) — `void * memset(void *s`,`int c`,`uint64_t n)`

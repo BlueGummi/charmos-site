@@ -1,0 +1,20 @@
+{
+  "file": "charmos/include/boot/tss.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "((packed))",
+        "return_type": "struct __attribute__((aligned)) __attribute__",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 4
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

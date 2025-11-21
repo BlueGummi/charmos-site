@@ -1,6 +1,10 @@
-# [include/profiling.h](https://github.com/bluegummi/charmos/blob/main/include/profiling.h)
++++
+title = "profiling"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from profiling.h, do not edit manually -->
+# [include/profiling.h](https://github.com/bluegummi/charmos/blob/main/include/profiling.h)
 
 ### struct [`profiling_entry`](https://github.com/bluegummi/charmos/blob/main/include/profiling.h#L9)
 

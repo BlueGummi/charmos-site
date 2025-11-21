@@ -1,6 +1,10 @@
-# [include/sch/sched.h](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h)
++++
+title = "sched"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from sched.h, do not edit manually -->
+# [include/sch/sched.h](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h)
 
 ### struct [`idle_thread_data`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L23)
 

@@ -1,6 +1,10 @@
-# [kernel/pit.c](https://github.com/bluegummi/charmos/blob/main/kernel/pit.c)
++++
+title = "pit"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from pit.c, do not edit manually -->
+# [kernel/pit.c](https://github.com/bluegummi/charmos/blob/main/kernel/pit.c)
 
 - [`pit_read_count()`](https://github.com/bluegummi/charmos/blob/main/kernel/pit.c#L8) — `static uint16_t pit_read_count()`
 - [`pit_wait_until_zero()`](https://github.com/bluegummi/charmos/blob/main/kernel/pit.c#L17) — `static void pit_wait_until_zero()`

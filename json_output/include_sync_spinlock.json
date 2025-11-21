@@ -1,0 +1,184 @@
+{
+  "file": "charmos/include/sync/spinlock.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "spinlock_init",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 16
+      },
+      {
+        "name": "spin_lock_raw",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 20
+      },
+      {
+        "name": "spin_unlock_raw",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 35
+      },
+      {
+        "name": "spin_unlock",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          },
+          {
+            "type": "enum irql",
+            "name": "old"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 40
+      },
+      {
+        "name": "spin_lock",
+        "return_type": "irql",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          }
+        ],
+        "qualifiers": [],
+        "line": 46
+      },
+      {
+        "name": "spin_lock_irq_disable",
+        "return_type": "irql",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          }
+        ],
+        "qualifiers": [],
+        "line": 55
+      },
+      {
+        "name": "spin_trylock_raw",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 62
+      },
+      {
+        "name": "spin_trylock",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          },
+          {
+            "type": "enum irql",
+            "name": "*out"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 69
+      },
+      {
+        "name": "spin_trylock_irq_disable",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          },
+          {
+            "type": "enum irql",
+            "name": "*out"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 83
+      },
+      {
+        "name": "spinlock_held",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 97
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "spinlock",
+          "members": [
+            {
+              "name": "state",
+              "type": "atomic_bool",
+              "line": 11,
+              "index": 1
+            }
+          ],
+          "line": 10,
+          "start_byte": 167,
+          "end_byte": 209
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

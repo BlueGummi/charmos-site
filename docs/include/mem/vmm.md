@@ -1,3 +1,7 @@
-# [include/mem/vmm.h](https://github.com/bluegummi/charmos/blob/main/include/mem/vmm.h)
++++
+title = "vmm"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from vmm.h, do not edit manually -->
+# [include/mem/vmm.h](https://github.com/bluegummi/charmos/blob/main/include/mem/vmm.h)

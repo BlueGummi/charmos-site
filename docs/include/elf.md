@@ -1,6 +1,10 @@
-# [include/elf.h](https://github.com/bluegummi/charmos/blob/main/include/elf.h)
++++
+title = "elf"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from elf.h, do not edit manually -->
+# [include/elf.h](https://github.com/bluegummi/charmos/blob/main/include/elf.h)
 
 ### struct [`elf64_ident`](https://github.com/bluegummi/charmos/blob/main/include/elf.h#L4)
 

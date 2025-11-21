@@ -1,6 +1,10 @@
-# [include/fs/mbr.h](https://github.com/bluegummi/charmos/blob/main/include/fs/mbr.h)
++++
+title = "mbr"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from mbr.h, do not edit manually -->
+# [include/fs/mbr.h](https://github.com/bluegummi/charmos/blob/main/include/fs/mbr.h)
 
 ### struct [`mbr_partition_entry`](https://github.com/bluegummi/charmos/blob/main/include/fs/mbr.h#L4)
 

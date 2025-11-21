@@ -1,0 +1,217 @@
+{
+  "file": "charmos/include/structures/list.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "INIT_LIST_HEAD",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*list"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 13
+      },
+      {
+        "name": "__list_add",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*new"
+          },
+          {
+            "type": "struct list_head",
+            "name": "*prev"
+          },
+          {
+            "type": "struct list_head",
+            "name": "*next"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 19
+      },
+      {
+        "name": "list_add",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*new"
+          },
+          {
+            "type": "struct list_head",
+            "name": "*head"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 27
+      },
+      {
+        "name": "list_add_tail",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*new"
+          },
+          {
+            "type": "struct list_head",
+            "name": "*head"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 31
+      },
+      {
+        "name": "__list_del",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*prev"
+          },
+          {
+            "type": "struct list_head",
+            "name": "*next"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 36
+      },
+      {
+        "name": "list_del",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*entry"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 41
+      },
+      {
+        "name": "list_del_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*entry"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 47
+      },
+      {
+        "name": "list_empty",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*head"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 52
+      },
+      {
+        "name": "list_pop_front",
+        "return_type": "struct list_head *",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*head"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 56
+      },
+      {
+        "name": "list_pop_front_init",
+        "return_type": "struct list_head *",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*head"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 65
+      },
+      {
+        "name": "list_splice_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct list_head",
+            "name": "*src"
+          },
+          {
+            "type": "struct list_head",
+            "name": "*dst"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 73
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "list_head",
+          "members": [
+            {
+              "name": "*next",
+              "type": "struct list_head",
+              "line": 6,
+              "index": 1
+            }
+          ],
+          "line": 5,
+          "start_byte": 56,
+          "end_byte": 111
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

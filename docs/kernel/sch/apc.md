@@ -1,6 +1,10 @@
-# [kernel/sch/apc.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/apc.c)
++++
+title = "apc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from apc.c, do not edit manually -->
+# [kernel/sch/apc.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/apc.c)
 
 - [`thread_has_apcs()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/apc.c#L9) — `static inline bool thread_has_apcs(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
 - [`apc_type_bit()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/apc.c#L13) — `static inline size_t apc_type_bit(`[`enum apc_type`](https://github.com/bluegummi/charmos/blob/main/include/sch/apc.h#L14)` t)`

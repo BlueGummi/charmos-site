@@ -1,6 +1,10 @@
-# [include/sch/apc.h](https://github.com/bluegummi/charmos/blob/main/include/sch/apc.h)
++++
+title = "apc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from apc.h, do not edit manually -->
+# [include/sch/apc.h](https://github.com/bluegummi/charmos/blob/main/include/sch/apc.h)
 
 ### struct [`apc`](https://github.com/bluegummi/charmos/blob/main/include/sch/apc.h#L35)
 

@@ -1,6 +1,10 @@
-# [kernel/sleep.c](https://github.com/bluegummi/charmos/blob/main/kernel/sleep.c)
++++
+title = "sleep"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from sleep.c, do not edit manually -->
+# [kernel/sleep.c](https://github.com/bluegummi/charmos/blob/main/kernel/sleep.c)
 
 - [`sleep_hpet_fs()`](https://github.com/bluegummi/charmos/blob/main/kernel/sleep.c#L9) — `static void sleep_hpet_fs(uint64_t femtoseconds)`
 - [`sleep_ms()`](https://github.com/bluegummi/charmos/blob/main/kernel/sleep.c#L19) — `void sleep_ms(uint64_t ms)`

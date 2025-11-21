@@ -1,0 +1,77 @@
+{
+  "file": "charmos/include/tests.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "kernel_test",
+          "members": [
+            {
+              "name": "*name",
+              "type": "char",
+              "line": 11,
+              "index": 1
+            },
+            {
+              "name": "func",
+              "type": "test_fn_t",
+              "line": 12,
+              "index": 2
+            },
+            {
+              "name": "is_integration",
+              "type": "bool",
+              "line": 13,
+              "index": 3
+            },
+            {
+              "name": "should_fail",
+              "type": "bool",
+              "line": 15,
+              "index": 4
+            },
+            {
+              "name": "success",
+              "type": "bool",
+              "line": 16,
+              "index": 5
+            },
+            {
+              "name": "skipped",
+              "type": "bool",
+              "line": 17,
+              "index": 6
+            },
+            {
+              "name": "message_count",
+              "type": "uint64_t",
+              "line": 19,
+              "index": 7
+            },
+            {
+              "name": "**messages",
+              "type": "char",
+              "line": 20,
+              "index": 8
+            }
+          ],
+          "line": 10,
+          "start_byte": 160,
+          "end_byte": 387
+        }
+      ],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "(*test_fn_t)",
+          "type": "void (void)",
+          "line": 8,
+          "start_byte": 126,
+          "end_byte": 158
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

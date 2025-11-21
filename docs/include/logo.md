@@ -1,3 +1,7 @@
-# [include/logo.h](https://github.com/bluegummi/charmos/blob/main/include/logo.h)
++++
+title = "logo"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from logo.h, do not edit manually -->
+# [include/logo.h](https://github.com/bluegummi/charmos/blob/main/include/logo.h)

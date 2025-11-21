@@ -1,6 +1,10 @@
-# [include/fs/devtmpfs.h](https://github.com/bluegummi/charmos/blob/main/include/fs/devtmpfs.h)
++++
+title = "devtmpfs"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from devtmpfs.h, do not edit manually -->
+# [include/fs/devtmpfs.h](https://github.com/bluegummi/charmos/blob/main/include/fs/devtmpfs.h)
 
 ### struct [`devtmpfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/devtmpfs.h#L11)
 

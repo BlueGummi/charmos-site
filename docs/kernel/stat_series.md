@@ -1,6 +1,10 @@
-# [kernel/stat_series.c](https://github.com/bluegummi/charmos/blob/main/kernel/stat_series.c)
++++
+title = "stat_series"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from stat_series.c, do not edit manually -->
+# [kernel/stat_series.c](https://github.com/bluegummi/charmos/blob/main/kernel/stat_series.c)
 
 - [`stat_series_init()`](https://github.com/bluegummi/charmos/blob/main/kernel/stat_series.c#L5) — `void stat_series_init(`[`struct stat_series`](https://github.com/bluegummi/charmos/blob/main/include/stat_series.h#L26)` *s`,[`struct stat_bucket`](https://github.com/bluegummi/charmos/blob/main/include/stat_series.h#L18)` *buckets`,`uint32_t nbuckets`,[`time_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L6)` bucket_us`,`stat_series_callback bucket_reset`,`void *private)`
 - [`stat_series_create()`](https://github.com/bluegummi/charmos/blob/main/kernel/stat_series.c#L22) — [`struct stat_series *`](https://github.com/bluegummi/charmos/blob/main/include/stat_series.h#L26)`stat_series_create(uint32_t nbuckets`,[`time_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L6)` bucket_us`,`stat_series_callback bucket_reset`,`void *private)`

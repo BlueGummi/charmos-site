@@ -1,0 +1,33 @@
+{
+  "file": "charmos/include/linker/symbol_table.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "sym",
+          "members": [
+            {
+              "name": "addr",
+              "type": "uint64_t",
+              "line": 5,
+              "index": 1
+            },
+            {
+              "name": "*name",
+              "type": "char",
+              "line": 6,
+              "index": 2
+            }
+          ],
+          "line": 4,
+          "start_byte": 34,
+          "end_byte": 89
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

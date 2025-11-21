@@ -1,0 +1,74 @@
+{
+  "file": "charmos/include/sync/mutex.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "mutex_simple",
+          "members": [
+            {
+              "name": "*owner",
+              "type": "struct thread",
+              "line": 7,
+              "index": 1
+            },
+            {
+              "name": "waiters",
+              "type": "struct thread_queue",
+              "line": 8,
+              "index": 2
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 9,
+              "index": 3
+            }
+          ],
+          "line": 6,
+          "start_byte": 92,
+          "end_byte": 200
+        },
+        {
+          "name": "mutex",
+          "members": [
+            {
+              "name": null,
+              "type": "union {\n        _Atomic(void *) lock_word_ptr;\n        _Atomic(uintptr_t) lock_word;\n    }",
+              "line": 41,
+              "index": 1
+            }
+          ],
+          "line": 40,
+          "start_byte": 950,
+          "end_byte": 1062
+        }
+      ],
+      "enums": [
+        {
+          "name": "mutex_bits",
+          "members": [
+            {
+              "name": "MUTEX_HELD_BIT",
+              "value": "1",
+              "line": 34,
+              "index": 1
+            },
+            {
+              "name": "MUTEX_WAITER_BIT",
+              "value": "1 << 1",
+              "line": 35,
+              "index": 3
+            }
+          ],
+          "line": 33,
+          "start_byte": 800,
+          "end_byte": 886
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

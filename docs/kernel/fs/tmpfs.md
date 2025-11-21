@@ -1,6 +1,10 @@
-# [kernel/fs/tmpfs.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/tmpfs.c)
++++
+title = "tmpfs"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from tmpfs.c, do not edit manually -->
+# [kernel/fs/tmpfs.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/tmpfs.c)
 
 - [`tmpfs_mkroot()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/tmpfs.c#L12) — [`struct vfs_node *`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)`tmpfs_mkroot(char *mount_point)`
 - [`tmpfs_to_vfs_mode()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/tmpfs.c#L29) — `static uint16_t tmpfs_to_vfs_mode(`[`enum tmpfs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/tmpfs.h#L7)` mode)`

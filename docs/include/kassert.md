@@ -1,3 +1,7 @@
-# [include/kassert.h](https://github.com/bluegummi/charmos/blob/main/include/kassert.h)
++++
+title = "kassert"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from kassert.h, do not edit manually -->
+# [include/kassert.h](https://github.com/bluegummi/charmos/blob/main/include/kassert.h)

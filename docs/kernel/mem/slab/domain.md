@@ -1,6 +1,10 @@
-# [kernel/mem/slab/domain.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/domain.c)
++++
+title = "domain"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from domain.c, do not edit manually -->
+# [kernel/mem/slab/domain.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/domain.c)
 
 - [`slab_domain_build_locality_lists()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/domain.c#L8) — `void slab_domain_build_locality_lists(`[`struct slab_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L423)` *sdom)`
 - [`slab_init_caches()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/domain.c#L47) — `void slab_init_caches(`[`struct slab_caches`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L279)` *caches`,`bool pageable)`

@@ -1,6 +1,10 @@
-# [include/mem/numa.h](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h)
++++
+title = "numa"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from numa.h, do not edit manually -->
+# [include/mem/numa.h](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h)
 
 ### struct [`numa_node`](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h#L6)
 

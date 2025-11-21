@@ -1,0 +1,341 @@
+{
+  "file": "charmos/include/sch/daemon.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "daemon_state_str",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "enum daemon_state",
+            "name": "s"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline",
+          "const"
+        ],
+        "line": 77
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "daemon_thread",
+          "members": [
+            {
+              "name": "list_node",
+              "type": "struct list_head",
+              "line": 21,
+              "index": 1
+            },
+            {
+              "name": "background",
+              "type": "bool",
+              "line": 22,
+              "index": 2
+            },
+            {
+              "name": "*thread",
+              "type": "struct thread",
+              "line": 23,
+              "index": 3
+            },
+            {
+              "name": "*daemon",
+              "type": "struct daemon",
+              "line": 24,
+              "index": 4
+            },
+            {
+              "name": "executing_work",
+              "type": "atomic_bool",
+              "line": 26,
+              "index": 6
+            },
+            {
+              "name": "command",
+              "type": "enum daemon_thread_command",
+              "line": 27,
+              "index": 7
+            }
+          ],
+          "line": 20,
+          "start_byte": 672,
+          "end_byte": 914
+        },
+        {
+          "name": "daemon_work",
+          "members": [
+            {
+              "name": "function",
+              "type": "daemon_fn",
+              "line": 40,
+              "index": 1
+            },
+            {
+              "name": "args",
+              "type": "struct work_args",
+              "line": 41,
+              "index": 2
+            },
+            {
+              "name": "*daemon",
+              "type": "struct daemon",
+              "line": 42,
+              "index": 3
+            },
+            {
+              "name": "*private",
+              "type": "void",
+              "line": 43,
+              "index": 4
+            }
+          ],
+          "line": 39,
+          "start_byte": 1253,
+          "end_byte": 1402
+        },
+        {
+          "name": "daemon_attributes",
+          "members": [
+            {
+              "name": "max_timesharing_threads",
+              "type": "size_t",
+              "line": 58,
+              "index": 1
+            },
+            {
+              "name": "timesharing_threads",
+              "type": "atomic_size_t",
+              "line": 59,
+              "index": 2
+            },
+            {
+              "name": "idle_timesharing_threads",
+              "type": "atomic_size_t",
+              "line": 60,
+              "index": 3
+            },
+            {
+              "name": "background_thread_present",
+              "type": "atomic_bool",
+              "line": 61,
+              "index": 4
+            },
+            {
+              "name": "thread_cpu",
+              "type": "int64_t",
+              "line": 66,
+              "index": 6
+            },
+            {
+              "name": "flags",
+              "type": "enum daemon_flags",
+              "line": 68,
+              "index": 7
+            }
+          ],
+          "line": 57,
+          "start_byte": 1785,
+          "end_byte": 2189
+        },
+        {
+          "name": "daemon",
+          "members": [
+            {
+              "name": "*name",
+              "type": "char",
+              "line": 87,
+              "index": 1
+            },
+            {
+              "name": "ts_sem",
+              "type": "struct semaphore",
+              "line": 88,
+              "index": 2
+            },
+            {
+              "name": "bg_sem",
+              "type": "struct semaphore",
+              "line": 89,
+              "index": 3
+            },
+            {
+              "name": "timesharing_threads",
+              "type": "struct list_head",
+              "line": 91,
+              "index": 4
+            },
+            {
+              "name": "*timesharing_work",
+              "type": "struct daemon_work",
+              "line": 92,
+              "index": 5
+            },
+            {
+              "name": "*background_thread",
+              "type": "struct daemon_thread",
+              "line": 94,
+              "index": 6
+            },
+            {
+              "name": "*background_work",
+              "type": "struct daemon_work",
+              "line": 95,
+              "index": 7
+            },
+            {
+              "name": "*workqueue",
+              "type": "struct workqueue",
+              "line": 97,
+              "index": 8
+            },
+            {
+              "name": "attrs",
+              "type": "struct daemon_attributes",
+              "line": 99,
+              "index": 9
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 101,
+              "index": 10
+            },
+            {
+              "name": "state",
+              "type": "enum daemon_state",
+              "line": 102,
+              "index": 11
+            }
+          ],
+          "line": 86,
+          "start_byte": 2552,
+          "end_byte": 2942
+        }
+      ],
+      "enums": [
+        {
+          "name": "daemon_thread_command",
+          "members": [
+            {
+              "name": "DAEMON_THREAD_COMMAND_NONE",
+              "value": null,
+              "line": 11,
+              "index": 1
+            },
+            {
+              "name": "DAEMON_THREAD_COMMAND_EXIT",
+              "value": null,
+              "line": 12,
+              "index": 3
+            },
+            {
+              "name": "DAEMON_THREAD_COMMAND_RESTART",
+              "value": null,
+              "line": 13,
+              "index": 6
+            },
+            {
+              "name": "DAEMON_THREAD_COMMAND_SLEEP",
+              "value": null,
+              "line": 14,
+              "index": 9
+            },
+            {
+              "name": "DAEMON_THREAD_COMMAND_DEFAULT",
+              "value": "DAEMON_THREAD_COMMAND_SLEEP",
+              "line": 15,
+              "index": 12
+            }
+          ],
+          "line": 10,
+          "start_byte": 263,
+          "end_byte": 669
+        },
+        {
+          "name": "daemon_flags",
+          "members": [
+            {
+              "name": "DAEMON_FLAG_HAS_WORKQUEUE",
+              "value": "1",
+              "line": 49,
+              "index": 1
+            },
+            {
+              "name": "DAEMON_FLAG_HAS_NAME",
+              "value": "1 << 1",
+              "line": 50,
+              "index": 3
+            },
+            {
+              "name": "DAEMON_FLAG_AUTO_SPAWN",
+              "value": "1 << 2",
+              "line": 51,
+              "index": 5
+            },
+            {
+              "name": "DAEMON_FLAG_NO_TS_THREADS",
+              "value": "1 << 3",
+              "line": 52,
+              "index": 7
+            },
+            {
+              "name": "DAEMON_FLAG_UNMIGRATABLE_THREADS",
+              "value": "1 << 4",
+              "line": 53,
+              "index": 9
+            },
+            {
+              "name": "DAEMON_FLAG_NONE",
+              "value": "0",
+              "line": 54,
+              "index": 11
+            }
+          ],
+          "line": 48,
+          "start_byte": 1541,
+          "end_byte": 1782
+        },
+        {
+          "name": "daemon_state",
+          "members": [
+            {
+              "name": "DAEMON_STATE_ACTIVE",
+              "value": null,
+              "line": 72,
+              "index": 1
+            },
+            {
+              "name": "DAEMON_STATE_DESTROYING",
+              "value": null,
+              "line": 73,
+              "index": 3
+            },
+            {
+              "name": "DAEMON_STATE_DEAD",
+              "value": null,
+              "line": 74,
+              "index": 5
+            }
+          ],
+          "line": 71,
+          "start_byte": 2192,
+          "end_byte": 2290
+        }
+      ],
+      "typedefs": [
+        {
+          "name": "(*daemon_fn)",
+          "type": "enum daemon_thread_command (struct daemon_work *work, struct daemon_thread *executor, void *arg, void *arg2)",
+          "line": 32,
+          "start_byte": 938,
+          "end_byte": 1251
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

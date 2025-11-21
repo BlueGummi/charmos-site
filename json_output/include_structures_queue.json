@@ -1,0 +1,12 @@
+{
+  "file": "charmos/include/structures/queue.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

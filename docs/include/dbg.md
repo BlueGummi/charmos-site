@@ -1,3 +1,7 @@
-# [include/dbg.h](https://github.com/bluegummi/charmos/blob/main/include/dbg.h)
++++
+title = "dbg"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from dbg.h, do not edit manually -->
+# [include/dbg.h](https://github.com/bluegummi/charmos/blob/main/include/dbg.h)

@@ -1,0 +1,856 @@
+{
+  "file": "charmos/include/fs/ext2.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "ext2_dealloc_inode",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*ino"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 294
+      },
+      {
+        "name": "ext2_get_block_group",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 298
+      },
+      {
+        "name": "ext2_get_inode_group",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "inode"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 303
+      },
+      {
+        "name": "ext2_fs_lock",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 308
+      },
+      {
+        "name": "ext2_fs_unlock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "bool",
+            "name": "b"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 312
+      },
+      {
+        "name": "ext2_prefetch_block",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 316
+      },
+      {
+        "name": "ext2_inode_lock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*ino"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 322
+      },
+      {
+        "name": "ext2_inode_unlock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*ino"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 326
+      },
+      {
+        "name": "ext2_create_bcache_ent",
+        "return_type": "uint8_t *",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block"
+          },
+          {
+            "type": "struct bcache_entry",
+            "name": "**out"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 330
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "ext2_sblock",
+          "members": [
+            {
+              "name": "inodes_count",
+              "type": "uint32_t",
+              "line": 107,
+              "index": 1
+            },
+            {
+              "name": "blocks_count",
+              "type": "uint32_t",
+              "line": 108,
+              "index": 2
+            },
+            {
+              "name": "r_blocks_count",
+              "type": "uint32_t",
+              "line": 109,
+              "index": 3
+            },
+            {
+              "name": "free_blocks_count",
+              "type": "uint32_t",
+              "line": 110,
+              "index": 4
+            },
+            {
+              "name": "free_inodes_count",
+              "type": "uint32_t",
+              "line": 111,
+              "index": 5
+            },
+            {
+              "name": "first_data_block",
+              "type": "uint32_t",
+              "line": 112,
+              "index": 6
+            },
+            {
+              "name": "log_block_size",
+              "type": "uint32_t",
+              "line": 113,
+              "index": 7
+            },
+            {
+              "name": "log_frag_size",
+              "type": "uint32_t",
+              "line": 114,
+              "index": 8
+            },
+            {
+              "name": "blocks_per_group",
+              "type": "uint32_t",
+              "line": 115,
+              "index": 9
+            },
+            {
+              "name": "frags_per_group",
+              "type": "uint32_t",
+              "line": 116,
+              "index": 10
+            },
+            {
+              "name": "inodes_per_group",
+              "type": "uint32_t",
+              "line": 117,
+              "index": 11
+            },
+            {
+              "name": "mtime",
+              "type": "uint32_t",
+              "line": 118,
+              "index": 12
+            },
+            {
+              "name": "wtime",
+              "type": "uint32_t",
+              "line": 119,
+              "index": 13
+            },
+            {
+              "name": "mnt_count",
+              "type": "uint16_t",
+              "line": 120,
+              "index": 14
+            },
+            {
+              "name": "max_mnt_count",
+              "type": "uint16_t",
+              "line": 121,
+              "index": 15
+            },
+            {
+              "name": "magic",
+              "type": "uint16_t",
+              "line": 122,
+              "index": 16
+            },
+            {
+              "name": "state",
+              "type": "uint16_t",
+              "line": 123,
+              "index": 17
+            },
+            {
+              "name": "errors",
+              "type": "uint16_t",
+              "line": 124,
+              "index": 18
+            },
+            {
+              "name": "minor_rev_level",
+              "type": "uint16_t",
+              "line": 125,
+              "index": 19
+            },
+            {
+              "name": "lastcheck",
+              "type": "uint32_t",
+              "line": 126,
+              "index": 20
+            },
+            {
+              "name": "checkinterval",
+              "type": "uint32_t",
+              "line": 127,
+              "index": 21
+            },
+            {
+              "name": "creator_os",
+              "type": "uint32_t",
+              "line": 128,
+              "index": 22
+            },
+            {
+              "name": "rev_level",
+              "type": "uint32_t",
+              "line": 129,
+              "index": 23
+            },
+            {
+              "name": "def_resuid",
+              "type": "uint16_t",
+              "line": 130,
+              "index": 24
+            },
+            {
+              "name": "def_resgid",
+              "type": "uint16_t",
+              "line": 131,
+              "index": 25
+            },
+            {
+              "name": "first_ino",
+              "type": "uint32_t",
+              "line": 132,
+              "index": 26
+            },
+            {
+              "name": "inode_size",
+              "type": "uint16_t",
+              "line": 133,
+              "index": 27
+            },
+            {
+              "name": "block_group_nr",
+              "type": "uint16_t",
+              "line": 134,
+              "index": 28
+            },
+            {
+              "name": "feature_compat",
+              "type": "uint32_t",
+              "line": 135,
+              "index": 29
+            },
+            {
+              "name": "feature_incompat",
+              "type": "uint32_t",
+              "line": 136,
+              "index": 30
+            },
+            {
+              "name": "feature_ro_compat",
+              "type": "uint32_t",
+              "line": 137,
+              "index": 31
+            },
+            {
+              "name": "uuid[16]",
+              "type": "uint8_t",
+              "line": 138,
+              "index": 32
+            },
+            {
+              "name": "volume_name[16]",
+              "type": "char",
+              "line": 139,
+              "index": 33
+            },
+            {
+              "name": "last_mounted[64]",
+              "type": "char",
+              "line": 140,
+              "index": 34
+            },
+            {
+              "name": "algorithm_usage_bitmap",
+              "type": "uint32_t",
+              "line": 141,
+              "index": 35
+            },
+            {
+              "name": "prealloc_blocks",
+              "type": "uint8_t",
+              "line": 142,
+              "index": 36
+            },
+            {
+              "name": "prealloc_dir_blocks",
+              "type": "uint8_t",
+              "line": 143,
+              "index": 37
+            },
+            {
+              "name": "padding",
+              "type": "uint16_t",
+              "line": 144,
+              "index": 38
+            },
+            {
+              "name": null,
+              "type": "union {\n        struct {\n            uint32_t journal_uuid[4];\n            uint32_t journal_inum;\n            uint32_t journal_dev;\n            uint32_t last_orphan;\n            uint32_t hash_seed[4];\n            uint8_t def_hash_version;\n            uint8_t journal_backup_type;\n            uint16_t desc_size;\n            uint32_t default_mount_opts;\n            uint32_t first_meta_bg;\n            uint32_t mkfs_time;\n            uint32_t journal_blocks[17];\n            uint32_t quota_group_inode;   // [4] → offset 0x258\n            uint32_t quota_project_inode; // [5] → offset 0x25C\n        };\n        uint32_t reserved[204];\n    }",
+              "line": 146,
+              "index": 39
+            }
+          ],
+          "line": 106,
+          "start_byte": 4763,
+          "end_byte": 6485
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "journal_uuid[4]",
+              "type": "uint32_t",
+              "line": 148,
+              "index": 1
+            },
+            {
+              "name": "journal_inum",
+              "type": "uint32_t",
+              "line": 149,
+              "index": 2
+            },
+            {
+              "name": "journal_dev",
+              "type": "uint32_t",
+              "line": 150,
+              "index": 3
+            },
+            {
+              "name": "last_orphan",
+              "type": "uint32_t",
+              "line": 151,
+              "index": 4
+            },
+            {
+              "name": "hash_seed[4]",
+              "type": "uint32_t",
+              "line": 152,
+              "index": 5
+            },
+            {
+              "name": "def_hash_version",
+              "type": "uint8_t",
+              "line": 153,
+              "index": 6
+            },
+            {
+              "name": "journal_backup_type",
+              "type": "uint8_t",
+              "line": 154,
+              "index": 7
+            },
+            {
+              "name": "desc_size",
+              "type": "uint16_t",
+              "line": 155,
+              "index": 8
+            },
+            {
+              "name": "default_mount_opts",
+              "type": "uint32_t",
+              "line": 156,
+              "index": 9
+            },
+            {
+              "name": "first_meta_bg",
+              "type": "uint32_t",
+              "line": 157,
+              "index": 10
+            },
+            {
+              "name": "mkfs_time",
+              "type": "uint32_t",
+              "line": 158,
+              "index": 11
+            },
+            {
+              "name": "journal_blocks[17]",
+              "type": "uint32_t",
+              "line": 159,
+              "index": 12
+            },
+            {
+              "name": "quota_group_inode",
+              "type": "uint32_t",
+              "line": 160,
+              "index": 13
+            },
+            {
+              "name": "quota_project_inode",
+              "type": "uint32_t",
+              "line": 161,
+              "index": 15
+            }
+          ],
+          "line": 147,
+          "start_byte": 5832,
+          "end_byte": 6419
+        },
+        {
+          "name": "ext2_group_desc",
+          "members": [
+            {
+              "name": "block_bitmap",
+              "type": "uint32_t",
+              "line": 168,
+              "index": 1
+            },
+            {
+              "name": "inode_bitmap",
+              "type": "uint32_t",
+              "line": 169,
+              "index": 2
+            },
+            {
+              "name": "inode_table",
+              "type": "uint32_t",
+              "line": 170,
+              "index": 3
+            },
+            {
+              "name": "free_blocks_count",
+              "type": "uint16_t",
+              "line": 171,
+              "index": 4
+            },
+            {
+              "name": "free_inodes_count",
+              "type": "uint16_t",
+              "line": 172,
+              "index": 5
+            },
+            {
+              "name": "used_dirs_count",
+              "type": "uint16_t",
+              "line": 173,
+              "index": 6
+            },
+            {
+              "name": "pad",
+              "type": "uint16_t",
+              "line": 174,
+              "index": 7
+            },
+            {
+              "name": "reserved[3]",
+              "type": "uint32_t",
+              "line": 175,
+              "index": 8
+            }
+          ],
+          "line": 167,
+          "start_byte": 6488,
+          "end_byte": 6760
+        },
+        {
+          "name": "ext2_inode",
+          "members": [
+            {
+              "name": "mode",
+              "type": "uint16_t",
+              "line": 179,
+              "index": 1
+            },
+            {
+              "name": "uid",
+              "type": "uint16_t",
+              "line": 180,
+              "index": 2
+            },
+            {
+              "name": "size",
+              "type": "uint32_t",
+              "line": 181,
+              "index": 3
+            },
+            {
+              "name": "atime",
+              "type": "uint32_t",
+              "line": 182,
+              "index": 4
+            },
+            {
+              "name": "ctime",
+              "type": "uint32_t",
+              "line": 183,
+              "index": 5
+            },
+            {
+              "name": "mtime",
+              "type": "uint32_t",
+              "line": 184,
+              "index": 6
+            },
+            {
+              "name": "dtime",
+              "type": "uint32_t",
+              "line": 185,
+              "index": 7
+            },
+            {
+              "name": "gid",
+              "type": "uint16_t",
+              "line": 186,
+              "index": 8
+            },
+            {
+              "name": "links_count",
+              "type": "uint16_t",
+              "line": 187,
+              "index": 9
+            },
+            {
+              "name": "blocks",
+              "type": "uint32_t",
+              "line": 188,
+              "index": 10
+            },
+            {
+              "name": "flags",
+              "type": "uint32_t",
+              "line": 189,
+              "index": 11
+            },
+            {
+              "name": "osd1",
+              "type": "uint32_t",
+              "line": 190,
+              "index": 12
+            },
+            {
+              "name": "block[EXT2_NBLOCKS]",
+              "type": "uint32_t",
+              "line": 192,
+              "index": 13
+            },
+            {
+              "name": "generation",
+              "type": "uint32_t",
+              "line": 193,
+              "index": 14
+            },
+            {
+              "name": "file_acl",
+              "type": "uint32_t",
+              "line": 194,
+              "index": 15
+            },
+            {
+              "name": "dir_acl",
+              "type": "uint32_t",
+              "line": 195,
+              "index": 16
+            },
+            {
+              "name": "faddr",
+              "type": "uint32_t",
+              "line": 196,
+              "index": 17
+            },
+            {
+              "name": "frag[16]",
+              "type": "uint8_t",
+              "line": 197,
+              "index": 18
+            },
+            {
+              "name": "osd2[12]",
+              "type": "uint8_t",
+              "line": 198,
+              "index": 19
+            }
+          ],
+          "line": 178,
+          "start_byte": 6763,
+          "end_byte": 7217
+        },
+        {
+          "name": "ext2_full_inode",
+          "members": [
+            {
+              "name": "node",
+              "type": "struct ext2_inode",
+              "line": 202,
+              "index": 1
+            },
+            {
+              "name": "inode_num",
+              "type": "uint32_t",
+              "line": 203,
+              "index": 2
+            },
+            {
+              "name": "*ent",
+              "type": "struct bcache_entry",
+              "line": 204,
+              "index": 3
+            }
+          ],
+          "line": 201,
+          "start_byte": 7220,
+          "end_byte": 7328
+        },
+        {
+          "name": "ext2_dir_entry",
+          "members": [
+            {
+              "name": "inode",
+              "type": "uint32_t",
+              "line": 208,
+              "index": 1
+            },
+            {
+              "name": "rec_len",
+              "type": "uint16_t",
+              "line": 209,
+              "index": 2
+            },
+            {
+              "name": "name_len",
+              "type": "uint8_t",
+              "line": 210,
+              "index": 3
+            },
+            {
+              "name": "file_type",
+              "type": "uint8_t",
+              "line": 211,
+              "index": 4
+            },
+            {
+              "name": "name[EXT2_NAME_LEN + 1]",
+              "type": "char",
+              "line": 212,
+              "index": 5
+            }
+          ],
+          "line": 207,
+          "start_byte": 7331,
+          "end_byte": 7501
+        },
+        {
+          "name": "ext2_fs",
+          "members": [
+            {
+              "name": "*partition",
+              "type": "struct generic_partition",
+              "line": 216,
+              "index": 1
+            },
+            {
+              "name": "*drive",
+              "type": "struct generic_disk",
+              "line": 217,
+              "index": 2
+            },
+            {
+              "name": "*sblock",
+              "type": "struct ext2_sblock",
+              "line": 218,
+              "index": 3
+            },
+            {
+              "name": "*group_desc",
+              "type": "struct ext2_group_desc",
+              "line": 219,
+              "index": 4
+            },
+            {
+              "name": "*sbcache_ent",
+              "type": "struct bcache_entry",
+              "line": 220,
+              "index": 5
+            },
+            {
+              "name": "*gdesc_cache_ent",
+              "type": "struct bcache_entry",
+              "line": 221,
+              "index": 6
+            },
+            {
+              "name": "num_groups",
+              "type": "uint32_t",
+              "line": 222,
+              "index": 7
+            },
+            {
+              "name": "inodes_count",
+              "type": "uint32_t",
+              "line": 223,
+              "index": 8
+            },
+            {
+              "name": "inodes_per_group",
+              "type": "uint32_t",
+              "line": 224,
+              "index": 9
+            },
+            {
+              "name": "blocks_per_group",
+              "type": "uint32_t",
+              "line": 225,
+              "index": 10
+            },
+            {
+              "name": "block_size",
+              "type": "uint32_t",
+              "line": 226,
+              "index": 11
+            },
+            {
+              "name": "sectors_per_block",
+              "type": "uint32_t",
+              "line": 227,
+              "index": 12
+            },
+            {
+              "name": "inode_size",
+              "type": "uint16_t",
+              "line": 228,
+              "index": 13
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 231,
+              "index": 15
+            }
+          ],
+          "line": 215,
+          "start_byte": 7504,
+          "end_byte": 7999
+        }
+      ],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "(*dir_entry_callback)",
+          "type": "bool (struct ext2_fs *fs, struct ext2_dir_entry *entry, void *ctx, uint32_t block_num, uint32_t entry_num, uint32_t entry_offset)",
+          "line": 234,
+          "start_byte": 8002,
+          "end_byte": 8266
+        },
+        {
+          "name": "(*ext2_block_visitor)",
+          "type": "void (struct ext2_fs *fs, struct ext2_inode *inode, uint32_t depth, uint32_t *block_ptr, void *user_data)",
+          "line": 239,
+          "start_byte": 8268,
+          "end_byte": 8473
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

@@ -1,6 +1,10 @@
-# [include/limine.h](https://github.com/bluegummi/charmos/blob/main/include/limine.h)
++++
+title = "limine"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from limine.h, do not edit manually -->
+# [include/limine.h](https://github.com/bluegummi/charmos/blob/main/include/limine.h)
 
 ### struct [`limine_uuid`](https://github.com/bluegummi/charmos/blob/main/include/limine.h#L73)
 

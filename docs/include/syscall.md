@@ -1,3 +1,7 @@
-# [include/syscall.h](https://github.com/bluegummi/charmos/blob/main/include/syscall.h)
++++
+title = "syscall"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from syscall.h, do not edit manually -->
+# [include/syscall.h](https://github.com/bluegummi/charmos/blob/main/include/syscall.h)

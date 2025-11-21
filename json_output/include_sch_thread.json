@@ -1,0 +1,1117 @@
+{
+  "file": "charmos/include/sch/thread.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "thread_get_state",
+        "return_type": "enum thread_state",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 378
+      },
+      {
+        "name": "thread_set_state",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum thread_state",
+            "name": "state"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 382
+      },
+      {
+        "name": "thread_get_flags",
+        "return_type": "enum thread_flags",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 386
+      },
+      {
+        "name": "thread_set_flags",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum thread_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 390
+      },
+      {
+        "name": "thread_or_flags",
+        "return_type": "enum thread_flags",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum thread_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 394
+      },
+      {
+        "name": "thread_and_flags",
+        "return_type": "enum thread_flags",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum thread_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 399
+      },
+      {
+        "name": "thread_get_last_ran",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 404
+      },
+      {
+        "name": "thread_set_last_ran",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "uint64_t",
+            "name": "new"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 408
+      },
+      {
+        "name": "thread_try_getref",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 412
+      },
+      {
+        "name": "thread_get",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 443
+      },
+      {
+        "name": "thread_put",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 447
+      },
+      {
+        "name": "thread_acquire",
+        "return_type": "enum irql",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 456
+      },
+      {
+        "name": "thread_release",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum irql",
+            "name": "irql"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 463
+      },
+      {
+        "name": "thread_is_rt",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 468
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "cpu_context",
+          "members": [
+            {
+              "name": "rbx",
+              "type": "uint64_t",
+              "line": 47,
+              "index": 1
+            },
+            {
+              "name": "rbp",
+              "type": "uint64_t",
+              "line": 48,
+              "index": 2
+            },
+            {
+              "name": "r12",
+              "type": "uint64_t",
+              "line": 49,
+              "index": 3
+            },
+            {
+              "name": "r13",
+              "type": "uint64_t",
+              "line": 50,
+              "index": 4
+            },
+            {
+              "name": "r14",
+              "type": "uint64_t",
+              "line": 51,
+              "index": 5
+            },
+            {
+              "name": "r15",
+              "type": "uint64_t",
+              "line": 52,
+              "index": 6
+            },
+            {
+              "name": "rsp",
+              "type": "uint64_t",
+              "line": 53,
+              "index": 7
+            },
+            {
+              "name": "rip",
+              "type": "uint64_t",
+              "line": 54,
+              "index": 8
+            }
+          ],
+          "line": 46,
+          "start_byte": 1451,
+          "end_byte": 1617
+        },
+        {
+          "name": "thread_event_association",
+          "members": [
+            {
+              "name": "reason",
+              "type": "uint8_t",
+              "line": 104,
+              "index": 1
+            },
+            {
+              "name": "cycle",
+              "type": "uint64_t",
+              "line": 105,
+              "index": 2
+            }
+          ],
+          "line": 103,
+          "start_byte": 3204,
+          "end_byte": 3317
+        },
+        {
+          "name": "thread_event_reason",
+          "members": [
+            {
+              "name": "reason",
+              "type": "uint8_t",
+              "line": 110,
+              "index": 1
+            },
+            {
+              "name": "associated_reason",
+              "type": "struct thread_event_association",
+              "line": 111,
+              "index": 2
+            },
+            {
+              "name": "timestamp",
+              "type": "time_t",
+              "line": 112,
+              "index": 3
+            },
+            {
+              "name": "cycle",
+              "type": "uint64_t",
+              "line": 113,
+              "index": 4
+            }
+          ],
+          "line": 109,
+          "start_byte": 3363,
+          "end_byte": 3510
+        },
+        {
+          "name": "thread_runtime_bucket",
+          "members": [
+            {
+              "name": "run_time_ms",
+              "type": "uint64_t",
+              "line": 137,
+              "index": 1
+            },
+            {
+              "name": "wall_clock_sec",
+              "type": "uint64_t",
+              "line": 138,
+              "index": 2
+            }
+          ],
+          "line": 136,
+          "start_byte": 4384,
+          "end_byte": 4471
+        },
+        {
+          "name": "thread_activity_bucket",
+          "members": [
+            {
+              "name": "cycle",
+              "type": "uint64_t",
+              "line": 142,
+              "index": 1
+            },
+            {
+              "name": "block_count",
+              "type": "uint32_t",
+              "line": 144,
+              "index": 2
+            },
+            {
+              "name": "sleep_count",
+              "type": "uint32_t",
+              "line": 145,
+              "index": 3
+            },
+            {
+              "name": "wake_count",
+              "type": "uint32_t",
+              "line": 146,
+              "index": 4
+            },
+            {
+              "name": "block_duration",
+              "type": "uint64_t",
+              "line": 148,
+              "index": 5
+            },
+            {
+              "name": "sleep_duration",
+              "type": "uint64_t",
+              "line": 149,
+              "index": 6
+            }
+          ],
+          "line": 141,
+          "start_byte": 4474,
+          "end_byte": 4664
+        },
+        {
+          "name": "thread_activity_stats",
+          "members": [
+            {
+              "name": "rt_buckets[THREAD_EVENT_RINGBUFFER_CAPACITY]",
+              "type": "struct thread_runtime_bucket",
+              "line": 154,
+              "index": 1
+            },
+            {
+              "name": "buckets[THREAD_ACTIVITY_BUCKET_COUNT]",
+              "type": "struct thread_activity_bucket",
+              "line": 155,
+              "index": 2
+            },
+            {
+              "name": "last_update_ms",
+              "type": "time_t",
+              "line": 156,
+              "index": 3
+            },
+            {
+              "name": "last_wake_index",
+              "type": "size_t",
+              "line": 157,
+              "index": 4
+            },
+            {
+              "name": "current_cycle",
+              "type": "uint64_t",
+              "line": 158,
+              "index": 5
+            },
+            {
+              "name": "current_bucket",
+              "type": "size_t",
+              "line": 159,
+              "index": 6
+            }
+          ],
+          "line": 153,
+          "start_byte": 4708,
+          "end_byte": 5041
+        },
+        {
+          "name": "thread_activity_data",
+          "members": [
+            {
+              "name": null,
+              "type": "MAKE_THREAD_RINGBUFFER(wake_reasons)",
+              "line": 167,
+              "index": 1
+            },
+            {
+              "name": null,
+              "type": "MAKE_THREAD_RINGBUFFER(block_reasons)",
+              "line": 168,
+              "index": 2
+            },
+            {
+              "name": null,
+              "type": "MAKE_THREAD_RINGBUFFER(sleep_reasons)",
+              "line": 169,
+              "index": 3
+            }
+          ],
+          "line": 166,
+          "start_byte": 5231,
+          "end_byte": 5390
+        },
+        {
+          "name": "thread_activity_metrics",
+          "members": [
+            {
+              "name": "run_ratio",
+              "type": "uint64_t",
+              "line": 182,
+              "index": 1
+            },
+            {
+              "name": "block_ratio",
+              "type": "uint64_t",
+              "line": 183,
+              "index": 2
+            },
+            {
+              "name": "sleep_ratio",
+              "type": "uint64_t",
+              "line": 184,
+              "index": 3
+            },
+            {
+              "name": "wake_freq",
+              "type": "uint64_t",
+              "line": 185,
+              "index": 4
+            }
+          ],
+          "line": 181,
+          "start_byte": 5634,
+          "end_byte": 5768
+        },
+        {
+          "name": "thread",
+          "members": [
+            {
+              "name": "id",
+              "type": "uint64_t",
+              "line": 190,
+              "index": 2
+            },
+            {
+              "name": "*name",
+              "type": "char",
+              "line": 191,
+              "index": 3
+            },
+            {
+              "name": "*stack",
+              "type": "void",
+              "line": 196,
+              "index": 6
+            },
+            {
+              "name": "stack_size",
+              "type": "size_t",
+              "line": 197,
+              "index": 7
+            },
+            {
+              "name": "regs",
+              "type": "struct cpu_context",
+              "line": 200,
+              "index": 9
+            },
+            {
+              "name": "tree_node",
+              "type": "struct rbt_node",
+              "line": 203,
+              "index": 11
+            },
+            {
+              "name": "list_node",
+              "type": "struct list_head",
+              "line": 204,
+              "index": 12
+            },
+            {
+              "name": "pairing_node",
+              "type": "struct pairing_node",
+              "line": 205,
+              "index": 13
+            },
+            {
+              "name": "state",
+              "type": "enum thread_state",
+              "line": 208,
+              "index": 15
+            },
+            {
+              "name": "dying",
+              "type": "atomic_bool",
+              "line": 209,
+              "index": 16
+            },
+            {
+              "name": "curr_core",
+              "type": "int64_t",
+              "line": 212,
+              "index": 18
+            },
+            {
+              "name": "core_to_wake_on",
+              "type": "int64_t",
+              "line": 214,
+              "index": 20
+            },
+            {
+              "name": "last_ran",
+              "type": "atomic_uint_fast64_t",
+              "line": 218,
+              "index": 22
+            },
+            {
+              "name": "run_start_time",
+              "type": "time_t",
+              "line": 220,
+              "index": 24
+            },
+            {
+              "name": "owner_domain",
+              "type": "size_t",
+              "line": 221,
+              "index": 26
+            },
+            {
+              "name": "allowed_cpus",
+              "type": "struct cpu_mask",
+              "line": 224,
+              "index": 29
+            },
+            {
+              "name": "flags",
+              "type": "(enum thread_flags)",
+              "line": 227,
+              "index": 31
+            },
+            {
+              "name": "activity_score",
+              "type": "thread_prio_t",
+              "line": 232,
+              "index": 34
+            },
+            {
+              "name": "dynamic_delta",
+              "type": "int32_t",
+              "line": 233,
+              "index": 35
+            },
+            {
+              "name": "weight",
+              "type": "size_t",
+              "line": 234,
+              "index": 37
+            },
+            {
+              "name": "has_pi_boost",
+              "type": "bool",
+              "line": 239,
+              "index": 39
+            },
+            {
+              "name": "saved_weight",
+              "type": "size_t",
+              "line": 240,
+              "index": 40
+            },
+            {
+              "name": "saved_class",
+              "type": "enum thread_prio_class",
+              "line": 241,
+              "index": 41
+            },
+            {
+              "name": "being_moved",
+              "type": "atomic_bool",
+              "line": 243,
+              "index": 42
+            },
+            {
+              "name": "last_class_change_ms",
+              "type": "time_t",
+              "line": 246,
+              "index": 45
+            },
+            {
+              "name": "effective_priority",
+              "type": "size_t",
+              "line": 248,
+              "index": 46
+            },
+            {
+              "name": "completed_period",
+              "type": "uint64_t",
+              "line": 251,
+              "index": 48
+            },
+            {
+              "name": "period_runtime_raw_ms",
+              "type": "time_t",
+              "line": 252,
+              "index": 49
+            },
+            {
+              "name": "budget_time_raw_ms",
+              "type": "time_t",
+              "line": 253,
+              "index": 51
+            },
+            {
+              "name": "timeslice_length_raw_ms",
+              "type": "time_t",
+              "line": 254,
+              "index": 53
+            },
+            {
+              "name": "virtual_period_runtime",
+              "type": "size_t",
+              "line": 256,
+              "index": 54
+            },
+            {
+              "name": "virtual_budget",
+              "type": "size_t",
+              "line": 257,
+              "index": 55
+            },
+            {
+              "name": "activity_class",
+              "type": "enum thread_activity_class",
+              "line": 261,
+              "index": 57
+            },
+            {
+              "name": "base_prio_class",
+              "type": "enum thread_prio_class",
+              "line": 263,
+              "index": 58
+            },
+            {
+              "name": "perceived_prio_class",
+              "type": "enum thread_prio_class",
+              "line": 265,
+              "index": 60
+            },
+            {
+              "name": "*activity_data",
+              "type": "struct thread_activity_data",
+              "line": 268,
+              "index": 62
+            },
+            {
+              "name": "*activity_stats",
+              "type": "struct thread_activity_stats",
+              "line": 269,
+              "index": 63
+            },
+            {
+              "name": "activity_metrics",
+              "type": "struct thread_activity_metrics",
+              "line": 272,
+              "index": 65
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 277,
+              "index": 68
+            },
+            {
+              "name": "refcount",
+              "type": "refcount_t",
+              "line": 278,
+              "index": 69
+            },
+            {
+              "name": "wake_reason",
+              "type": "enum wake_reason",
+              "line": 281,
+              "index": 71
+            },
+            {
+              "name": "wait_cookie",
+              "type": "size_t",
+              "line": 282,
+              "index": 72
+            },
+            {
+              "name": "executing_apc",
+              "type": "bool",
+              "line": 285,
+              "index": 74
+            },
+            {
+              "name": "apc_head[APC_TYPE_COUNT]",
+              "type": "struct list_head",
+              "line": 288,
+              "index": 77
+            },
+            {
+              "name": "apc_pending_mask",
+              "type": "atomic_uintptr_t",
+              "line": 291,
+              "index": 79
+            },
+            {
+              "name": "special_apc_disable",
+              "type": "uint32_t",
+              "line": 294,
+              "index": 82
+            },
+            {
+              "name": "kernel_apc_disable",
+              "type": "uint32_t",
+              "line": 295,
+              "index": 83
+            },
+            {
+              "name": "recent_event",
+              "type": "enum apc_event",
+              "line": 299,
+              "index": 85
+            },
+            {
+              "name": "on_event_apcs[APC_EVENT_COUNT]",
+              "type": "struct list_head",
+              "line": 312,
+              "index": 87
+            },
+            {
+              "name": "*turnstile",
+              "type": "struct turnstile",
+              "line": 314,
+              "index": 88
+            },
+            {
+              "name": "*blocked_on",
+              "type": "struct turnstile",
+              "line": 315,
+              "index": 90
+            },
+            {
+              "name": "context_switches",
+              "type": "size_t",
+              "line": 318,
+              "index": 93
+            },
+            {
+              "name": "preemptions",
+              "type": "size_t",
+              "line": 320,
+              "index": 95
+            },
+            {
+              "name": "creation_time_ms",
+              "type": "time_t",
+              "line": 322,
+              "index": 97
+            },
+            {
+              "name": "total_wake_count",
+              "type": "size_t",
+              "line": 324,
+              "index": 99
+            },
+            {
+              "name": "total_block_count",
+              "type": "size_t",
+              "line": 325,
+              "index": 101
+            },
+            {
+              "name": "total_sleep_count",
+              "type": "size_t",
+              "line": 326,
+              "index": 103
+            },
+            {
+              "name": "total_apcs_ran",
+              "type": "size_t",
+              "line": 327,
+              "index": 105
+            },
+            {
+              "name": "*private",
+              "type": "void",
+              "line": 332,
+              "index": 109
+            }
+          ],
+          "line": 188,
+          "start_byte": 5771,
+          "end_byte": 10183
+        }
+      ],
+      "enums": [
+        {
+          "name": "thread_state",
+          "members": [
+            {
+              "name": "THREAD_STATE_IDLE_THREAD",
+              "value": null,
+              "line": 58,
+              "index": 1
+            },
+            {
+              "name": "THREAD_STATE_READY",
+              "value": null,
+              "line": 59,
+              "index": 4
+            },
+            {
+              "name": "THREAD_STATE_RUNNING",
+              "value": null,
+              "line": 60,
+              "index": 7
+            },
+            {
+              "name": "THREAD_STATE_BLOCKED",
+              "value": null,
+              "line": 61,
+              "index": 10
+            },
+            {
+              "name": "THREAD_STATE_SLEEPING",
+              "value": null,
+              "line": 62,
+              "index": 13
+            },
+            {
+              "name": "THREAD_STATE_ZOMBIE",
+              "value": null,
+              "line": 63,
+              "index": 16
+            },
+            {
+              "name": "THREAD_STATE_TERMINATED",
+              "value": null,
+              "line": 64,
+              "index": 19
+            },
+            {
+              "name": "THREAD_STATE_HALTED",
+              "value": null,
+              "line": 65,
+              "index": 22
+            }
+          ],
+          "line": 57,
+          "start_byte": 1620,
+          "end_byte": 2190
+        },
+        {
+          "name": "thread_flags",
+          "members": [
+            {
+              "name": "THREAD_FLAGS_NO_STEAL",
+              "value": "1",
+              "line": 69,
+              "index": 1
+            }
+          ],
+          "line": 68,
+          "start_byte": 2193,
+          "end_byte": 2290
+        },
+        {
+          "name": "thread_prio_class",
+          "members": [
+            {
+              "name": "THREAD_PRIO_CLASS_URGENT",
+              "value": "0",
+              "line": 73,
+              "index": 1
+            },
+            {
+              "name": "THREAD_PRIO_CLASS_RT",
+              "value": "1",
+              "line": 74,
+              "index": 4
+            },
+            {
+              "name": "THREAD_PRIO_CLASS_TIMESHARE",
+              "value": "2",
+              "line": 75,
+              "index": 7
+            },
+            {
+              "name": "THREAD_PRIO_CLASS_BACKGROUND",
+              "value": "3",
+              "line": 76,
+              "index": 10
+            }
+          ],
+          "line": 72,
+          "start_byte": 2293,
+          "end_byte": 2588
+        },
+        {
+          "name": "thread_wake_reason",
+          "members": [
+            {
+              "name": "THREAD_WAKE_REASON_BLOCKING_IO",
+              "value": "1",
+              "line": 85,
+              "index": 1
+            },
+            {
+              "name": "THREAD_WAKE_REASON_BLOCKING_MANUAL",
+              "value": "2",
+              "line": 86,
+              "index": 3
+            },
+            {
+              "name": "THREAD_WAKE_REASON_SLEEP_TIMEOUT",
+              "value": "3",
+              "line": 87,
+              "index": 5
+            },
+            {
+              "name": "THREAD_WAKE_REASON_SLEEP_MANUAL",
+              "value": "4",
+              "line": 88,
+              "index": 7
+            }
+          ],
+          "line": 84,
+          "start_byte": 2771,
+          "end_byte": 2975
+        },
+        {
+          "name": "thread_block_reason",
+          "members": [
+            {
+              "name": "THREAD_BLOCK_REASON_IO",
+              "value": "5",
+              "line": 92,
+              "index": 1
+            },
+            {
+              "name": "THREAD_BLOCK_REASON_MANUAL",
+              "value": "6",
+              "line": 93,
+              "index": 3
+            }
+          ],
+          "line": 91,
+          "start_byte": 2978,
+          "end_byte": 3084
+        },
+        {
+          "name": "thread_sleep_reason",
+          "members": [
+            {
+              "name": "THREAD_SLEEP_REASON_MANUAL",
+              "value": "7",
+              "line": 97,
+              "index": 1
+            }
+          ],
+          "line": 96,
+          "start_byte": 3087,
+          "end_byte": 3162
+        },
+        {
+          "name": "wake_reason",
+          "members": [
+            {
+              "name": "WAKE_REASON_NONE",
+              "value": "0",
+              "line": 118,
+              "index": 1
+            },
+            {
+              "name": "WAKE_REASON_SIGNAL",
+              "value": "1",
+              "line": 119,
+              "index": 4
+            },
+            {
+              "name": "WAKE_REASON_TIMEOUT",
+              "value": "2",
+              "line": 120,
+              "index": 7
+            }
+          ],
+          "line": 117,
+          "start_byte": 3578,
+          "end_byte": 3753
+        },
+        {
+          "name": "thread_activity_class",
+          "members": [
+            {
+              "name": "THREAD_ACTIVITY_CLASS_CPU_BOUND",
+              "value": null,
+              "line": 174,
+              "index": 1
+            },
+            {
+              "name": "THREAD_ACTIVITY_CLASS_IO_BOUND",
+              "value": null,
+              "line": 175,
+              "index": 3
+            },
+            {
+              "name": "THREAD_ACTIVITY_CLASS_INTERACTIVE",
+              "value": null,
+              "line": 176,
+              "index": 5
+            },
+            {
+              "name": "THREAD_ACTIVITY_CLASS_SLEEPY",
+              "value": null,
+              "line": 177,
+              "index": 7
+            },
+            {
+              "name": "THREAD_ACTIVITY_CLASS_UNKNOWN",
+              "value": null,
+              "line": 178,
+              "index": 9
+            }
+          ],
+          "line": 173,
+          "start_byte": 5421,
+          "end_byte": 5631
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

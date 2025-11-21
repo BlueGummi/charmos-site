@@ -1,6 +1,10 @@
-# [include/fs/tmpfs.h](https://github.com/bluegummi/charmos/blob/main/include/fs/tmpfs.h)
++++
+title = "tmpfs"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from tmpfs.h, do not edit manually -->
+# [include/fs/tmpfs.h](https://github.com/bluegummi/charmos/blob/main/include/fs/tmpfs.h)
 
 ### struct [`tmpfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/tmpfs.h#L14)
 

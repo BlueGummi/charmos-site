@@ -1,6 +1,10 @@
-# [include/sch/thread.h](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h)
++++
+title = "thread"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from thread.h, do not edit manually -->
+# [include/sch/thread.h](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h)
 
 ### struct [`cpu_context`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L46)
 

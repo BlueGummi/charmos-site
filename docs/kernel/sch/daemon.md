@@ -1,6 +1,10 @@
-# [kernel/sch/daemon.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/daemon.c)
++++
+title = "daemon"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from daemon.c, do not edit manually -->
+# [kernel/sch/daemon.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/daemon.c)
 
 - [`current_daemon_thread()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/daemon.c#L6) — `static`[`struct daemon_thread *`](https://github.com/bluegummi/charmos/blob/main/include/sch/daemon.h#L20)`current_daemon_thread(void)`
 - [`mark_daemon_thread_executing()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/daemon.c#L10) — `static bool mark_daemon_thread_executing(`[`struct daemon_thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/daemon.h#L20)` *thread`,`bool state)`

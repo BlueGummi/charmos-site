@@ -1,6 +1,10 @@
-# [kernel/profiling.c](https://github.com/bluegummi/charmos/blob/main/kernel/profiling.c)
++++
+title = "profiling"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from profiling.c, do not edit manually -->
+# [kernel/profiling.c](https://github.com/bluegummi/charmos/blob/main/kernel/profiling.c)
 
 - [`profiling_init()`](https://github.com/bluegummi/charmos/blob/main/kernel/profiling.c#L7) — `void profiling_init(void)`
 - [`profiling_log_all()`](https://github.com/bluegummi/charmos/blob/main/kernel/profiling.c#L16) — `void profiling_log_all(void)`

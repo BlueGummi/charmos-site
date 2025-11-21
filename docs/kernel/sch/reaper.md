@@ -1,6 +1,10 @@
-# [kernel/sch/reaper.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/reaper.c)
++++
+title = "reaper"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from reaper.c, do not edit manually -->
+# [kernel/sch/reaper.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/reaper.c)
 
 - [`reaper_enqueue()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/reaper.c#L8) — `void reaper_enqueue(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
 - [`reaper_init()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/reaper.c#L13) — `void reaper_init(void)`

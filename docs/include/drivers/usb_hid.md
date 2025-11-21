@@ -1,3 +1,7 @@
-# [include/drivers/usb_hid.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb_hid.h)
++++
+title = "usb_hid"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from usb_hid.h, do not edit manually -->
+# [include/drivers/usb_hid.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb_hid.h)

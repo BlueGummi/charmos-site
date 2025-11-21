@@ -1,6 +1,10 @@
-# [kernel/drivers/pci.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c)
++++
+title = "pci"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from pci.c, do not edit manually -->
+# [kernel/drivers/pci.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c)
 
 - [`pci_class_name()`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L13) — `const char * pci_class_name(uint8_t class_code`,`uint8_t subclass)`
 - [`init_device()`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L39) — `static void init_device(`[`struct pci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h#L9)` *dev)`

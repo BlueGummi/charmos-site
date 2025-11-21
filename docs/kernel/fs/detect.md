@@ -1,6 +1,10 @@
-# [kernel/fs/detect.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c)
++++
+title = "detect"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from detect.c, do not edit manually -->
+# [kernel/fs/detect.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c)
 
 - [`detect_fstr()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L16) — `const char * detect_fstr(`[`enum fs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L4)` type)`
 - [`dummy_mount()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L33) — [`struct vfs_node *`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)`dummy_mount(`[`struct generic_partition`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L41)` *p)`

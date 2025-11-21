@@ -1,0 +1,883 @@
+{
+  "file": "charmos/include/drivers/ahci.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "ahci_get_port",
+        "return_type": "struct ahci_port *",
+        "parameters": [
+          {
+            "type": "struct ahci_device",
+            "name": "*dev"
+          },
+          {
+            "type": "int",
+            "name": "n"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 349
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "ahci_fis_reg_h2d",
+          "members": [
+            {
+              "name": "fis_type",
+              "type": "uint8_t",
+              "line": 93,
+              "index": 1
+            },
+            {
+              "name": "pmport",
+              "type": "uint8_t",
+              "line": 94,
+              "index": 3
+            },
+            {
+              "name": "reserved1",
+              "type": "uint8_t",
+              "line": 95,
+              "index": 4
+            },
+            {
+              "name": "c",
+              "type": "uint8_t",
+              "line": 96,
+              "index": 5
+            },
+            {
+              "name": "command",
+              "type": "uint8_t",
+              "line": 97,
+              "index": 6
+            },
+            {
+              "name": "featurel",
+              "type": "uint8_t",
+              "line": 98,
+              "index": 7
+            },
+            {
+              "name": "lba0",
+              "type": "uint8_t",
+              "line": 100,
+              "index": 8
+            },
+            {
+              "name": "lba1",
+              "type": "uint8_t",
+              "line": 101,
+              "index": 9
+            },
+            {
+              "name": "lba2",
+              "type": "uint8_t",
+              "line": 102,
+              "index": 10
+            },
+            {
+              "name": "device",
+              "type": "uint8_t",
+              "line": 103,
+              "index": 11
+            },
+            {
+              "name": "lba3",
+              "type": "uint8_t",
+              "line": 105,
+              "index": 12
+            },
+            {
+              "name": "lba4",
+              "type": "uint8_t",
+              "line": 106,
+              "index": 13
+            },
+            {
+              "name": "lba5",
+              "type": "uint8_t",
+              "line": 107,
+              "index": 14
+            },
+            {
+              "name": "featureh",
+              "type": "uint8_t",
+              "line": 108,
+              "index": 15
+            },
+            {
+              "name": "countl",
+              "type": "uint8_t",
+              "line": 110,
+              "index": 16
+            },
+            {
+              "name": "counth",
+              "type": "uint8_t",
+              "line": 111,
+              "index": 17
+            },
+            {
+              "name": "icc",
+              "type": "uint8_t",
+              "line": 112,
+              "index": 18
+            },
+            {
+              "name": "control",
+              "type": "uint8_t",
+              "line": 113,
+              "index": 19
+            },
+            {
+              "name": "reserved2[4]",
+              "type": "uint8_t",
+              "line": 114,
+              "index": 20
+            }
+          ],
+          "line": 92,
+          "start_byte": 3032,
+          "end_byte": 3459
+        },
+        {
+          "name": "ahci_fis_reg_d2h",
+          "members": [
+            {
+              "name": "fis_type",
+              "type": "uint8_t",
+              "line": 119,
+              "index": 2
+            },
+            {
+              "name": "pmport",
+              "type": "uint8_t",
+              "line": 121,
+              "index": 4
+            },
+            {
+              "name": "rsv0",
+              "type": "uint8_t",
+              "line": 122,
+              "index": 6
+            },
+            {
+              "name": "i",
+              "type": "uint8_t",
+              "line": 123,
+              "index": 8
+            },
+            {
+              "name": "rsv1",
+              "type": "uint8_t",
+              "line": 124,
+              "index": 10
+            },
+            {
+              "name": "status",
+              "type": "uint8_t",
+              "line": 126,
+              "index": 12
+            },
+            {
+              "name": "error",
+              "type": "uint8_t",
+              "line": 127,
+              "index": 14
+            },
+            {
+              "name": "lba0",
+              "type": "uint8_t",
+              "line": 130,
+              "index": 17
+            },
+            {
+              "name": "lba1",
+              "type": "uint8_t",
+              "line": 131,
+              "index": 19
+            },
+            {
+              "name": "lba2",
+              "type": "uint8_t",
+              "line": 132,
+              "index": 21
+            },
+            {
+              "name": "device",
+              "type": "uint8_t",
+              "line": 133,
+              "index": 23
+            },
+            {
+              "name": "lba3",
+              "type": "uint8_t",
+              "line": 136,
+              "index": 26
+            },
+            {
+              "name": "lba4",
+              "type": "uint8_t",
+              "line": 137,
+              "index": 28
+            },
+            {
+              "name": "lba5",
+              "type": "uint8_t",
+              "line": 138,
+              "index": 30
+            },
+            {
+              "name": "rsv2",
+              "type": "uint8_t",
+              "line": 139,
+              "index": 32
+            },
+            {
+              "name": "countl",
+              "type": "uint8_t",
+              "line": 142,
+              "index": 35
+            },
+            {
+              "name": "counth",
+              "type": "uint8_t",
+              "line": 143,
+              "index": 37
+            },
+            {
+              "name": "rsv3[2]",
+              "type": "uint8_t",
+              "line": 144,
+              "index": 39
+            },
+            {
+              "name": "rsv4[4]",
+              "type": "uint8_t",
+              "line": 147,
+              "index": 42
+            }
+          ],
+          "line": 117,
+          "start_byte": 3462,
+          "end_byte": 4331
+        },
+        {
+          "name": "ahci_prdt_entry",
+          "members": [
+            {
+              "name": "dba",
+              "type": "uint32_t",
+              "line": 151,
+              "index": 1
+            },
+            {
+              "name": "dbau",
+              "type": "uint32_t",
+              "line": 152,
+              "index": 3
+            },
+            {
+              "name": "reserved",
+              "type": "uint32_t",
+              "line": 153,
+              "index": 5
+            },
+            {
+              "name": "dbc",
+              "type": "uint32_t",
+              "line": 154,
+              "index": 6
+            },
+            {
+              "name": "reserved2",
+              "type": "uint32_t",
+              "line": 155,
+              "index": 8
+            },
+            {
+              "name": "i",
+              "type": "uint32_t",
+              "line": 156,
+              "index": 9
+            }
+          ],
+          "line": 150,
+          "start_byte": 4334,
+          "end_byte": 4612
+        },
+        {
+          "name": "ahci_cmd_table",
+          "members": [
+            {
+              "name": "cfis[AHCI_CMD_TABLE_FIS_SIZE]",
+              "type": "uint8_t",
+              "line": 160,
+              "index": 1
+            },
+            {
+              "name": "acmd[AHCI_CMD_TABLE_ATAPI_SIZE]",
+              "type": "uint8_t",
+              "line": 161,
+              "index": 3
+            },
+            {
+              "name": "reserved[48]",
+              "type": "uint8_t",
+              "line": 162,
+              "index": 5
+            },
+            {
+              "name": "prdt_entry[]",
+              "type": "struct ahci_prdt_entry",
+              "line": 163,
+              "index": 6
+            }
+          ],
+          "line": 159,
+          "start_byte": 4615,
+          "end_byte": 4885
+        },
+        {
+          "name": "ahci_full_port",
+          "members": [
+            {
+              "name": "*port",
+              "type": "struct ahci_port",
+              "line": 167,
+              "index": 1
+            },
+            {
+              "name": "*cmd_list_base",
+              "type": "void",
+              "line": 168,
+              "index": 2
+            },
+            {
+              "name": "*fis",
+              "type": "void",
+              "line": 169,
+              "index": 3
+            },
+            {
+              "name": "**cmd_tables",
+              "type": "struct ahci_cmd_table",
+              "line": 170,
+              "index": 4
+            },
+            {
+              "name": "**cmd_hdrs",
+              "type": "struct ahci_cmd_header",
+              "line": 171,
+              "index": 5
+            },
+            {
+              "name": "slot_bitmap",
+              "type": "atomic_uint",
+              "line": 173,
+              "index": 6
+            }
+          ],
+          "line": 166,
+          "start_byte": 4888,
+          "end_byte": 5099
+        },
+        {
+          "name": "ahci_port",
+          "members": [
+            {
+              "name": "clb",
+              "type": "uint32_t",
+              "line": 177,
+              "index": 1
+            },
+            {
+              "name": "clbu",
+              "type": "uint32_t",
+              "line": 178,
+              "index": 3
+            },
+            {
+              "name": "fb",
+              "type": "uint32_t",
+              "line": 179,
+              "index": 5
+            },
+            {
+              "name": "fbu",
+              "type": "uint32_t",
+              "line": 180,
+              "index": 7
+            },
+            {
+              "name": "is",
+              "type": "uint32_t",
+              "line": 181,
+              "index": 9
+            },
+            {
+              "name": "ie",
+              "type": "uint32_t",
+              "line": 182,
+              "index": 11
+            },
+            {
+              "name": "cmd",
+              "type": "uint32_t",
+              "line": 183,
+              "index": 13
+            },
+            {
+              "name": "rsv0",
+              "type": "uint32_t",
+              "line": 184,
+              "index": 15
+            },
+            {
+              "name": "tfd",
+              "type": "uint32_t",
+              "line": 185,
+              "index": 17
+            },
+            {
+              "name": "sig",
+              "type": "uint32_t",
+              "line": 186,
+              "index": 19
+            },
+            {
+              "name": "ssts",
+              "type": "uint32_t",
+              "line": 187,
+              "index": 21
+            },
+            {
+              "name": "sctl",
+              "type": "uint32_t",
+              "line": 188,
+              "index": 23
+            },
+            {
+              "name": "serr",
+              "type": "uint32_t",
+              "line": 189,
+              "index": 25
+            },
+            {
+              "name": "sact",
+              "type": "uint32_t",
+              "line": 190,
+              "index": 27
+            },
+            {
+              "name": "ci",
+              "type": "uint32_t",
+              "line": 191,
+              "index": 29
+            },
+            {
+              "name": "sntf",
+              "type": "uint32_t",
+              "line": 192,
+              "index": 31
+            },
+            {
+              "name": "fbs",
+              "type": "uint32_t",
+              "line": 193,
+              "index": 33
+            },
+            {
+              "name": "rsv1[11]",
+              "type": "uint32_t",
+              "line": 194,
+              "index": 35
+            },
+            {
+              "name": "vendor[4]",
+              "type": "uint32_t",
+              "line": 195,
+              "index": 37
+            }
+          ],
+          "line": 176,
+          "start_byte": 5102,
+          "end_byte": 6015
+        },
+        {
+          "name": "ahci_device",
+          "members": [
+            {
+              "name": "type",
+              "type": "uint8_t",
+              "line": 200,
+              "index": 1
+            },
+            {
+              "name": "signature",
+              "type": "uint32_t",
+              "line": 201,
+              "index": 3
+            },
+            {
+              "name": "sectors",
+              "type": "uint32_t",
+              "line": 202,
+              "index": 5
+            },
+            {
+              "name": "sector_size",
+              "type": "uint16_t",
+              "line": 203,
+              "index": 7
+            },
+            {
+              "name": "*ctrl",
+              "type": "struct ahci_controller",
+              "line": 204,
+              "index": 9
+            },
+            {
+              "name": "port_count",
+              "type": "uint64_t",
+              "line": 205,
+              "index": 10
+            },
+            {
+              "name": "*io_waiters[AHCI_MAX_PORTS][32]",
+              "type": "struct thread",
+              "line": 207,
+              "index": 11
+            },
+            {
+              "name": "io_statuses[AHCI_MAX_PORTS][32]",
+              "type": "uint16_t",
+              "line": 208,
+              "index": 12
+            },
+            {
+              "name": "*io_requests[AHCI_MAX_PORTS][32]",
+              "type": "struct ahci_request",
+              "line": 210,
+              "index": 13
+            },
+            {
+              "name": "irq_num",
+              "type": "uint8_t",
+              "line": 212,
+              "index": 14
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 213,
+              "index": 15
+            },
+            {
+              "name": "regs[32]",
+              "type": "struct ahci_full_port",
+              "line": 214,
+              "index": 16
+            }
+          ],
+          "line": 199,
+          "start_byte": 6036,
+          "end_byte": 6579
+        },
+        {
+          "name": "ahci_disk",
+          "members": [
+            {
+              "name": "*device",
+              "type": "struct ahci_device",
+              "line": 219,
+              "index": 1
+            },
+            {
+              "name": "port",
+              "type": "uint32_t",
+              "line": 220,
+              "index": 2
+            },
+            {
+              "name": "sector_size",
+              "type": "uint16_t",
+              "line": 221,
+              "index": 3
+            }
+          ],
+          "line": 218,
+          "start_byte": 6594,
+          "end_byte": 6715
+        },
+        {
+          "name": "ahci_controller",
+          "members": [
+            {
+              "name": "cap",
+              "type": "uint32_t",
+              "line": 225,
+              "index": 1
+            },
+            {
+              "name": "ghc",
+              "type": "uint32_t",
+              "line": 226,
+              "index": 3
+            },
+            {
+              "name": "is",
+              "type": "uint32_t",
+              "line": 227,
+              "index": 5
+            },
+            {
+              "name": "pi",
+              "type": "uint32_t",
+              "line": 228,
+              "index": 7
+            },
+            {
+              "name": "vs",
+              "type": "uint32_t",
+              "line": 229,
+              "index": 9
+            },
+            {
+              "name": "ccc_ctl",
+              "type": "uint32_t",
+              "line": 230,
+              "index": 11
+            },
+            {
+              "name": "ccc_ports",
+              "type": "uint32_t",
+              "line": 231,
+              "index": 13
+            },
+            {
+              "name": "em_loc",
+              "type": "uint32_t",
+              "line": 232,
+              "index": 15
+            },
+            {
+              "name": "em_ctl",
+              "type": "uint32_t",
+              "line": 233,
+              "index": 17
+            },
+            {
+              "name": "cap2",
+              "type": "uint32_t",
+              "line": 234,
+              "index": 19
+            },
+            {
+              "name": "bohc",
+              "type": "uint32_t",
+              "line": 235,
+              "index": 21
+            },
+            {
+              "name": "rsv[0xA0 - 0x2C]",
+              "type": "uint8_t",
+              "line": 236,
+              "index": 23
+            },
+            {
+              "name": "vendor[0x100 - 0xA0]",
+              "type": "uint8_t",
+              "line": 237,
+              "index": 24
+            }
+          ],
+          "line": 224,
+          "start_byte": 6718,
+          "end_byte": 7344
+        },
+        {
+          "name": "ahci_cmd_header",
+          "members": [
+            {
+              "name": "cfl",
+              "type": "uint8_t",
+              "line": 242,
+              "index": 2
+            },
+            {
+              "name": "a",
+              "type": "uint8_t",
+              "line": 243,
+              "index": 4
+            },
+            {
+              "name": "w",
+              "type": "uint8_t",
+              "line": 244,
+              "index": 6
+            },
+            {
+              "name": "p",
+              "type": "uint8_t",
+              "line": 245,
+              "index": 8
+            },
+            {
+              "name": "r",
+              "type": "uint8_t",
+              "line": 247,
+              "index": 10
+            },
+            {
+              "name": "b",
+              "type": "uint8_t",
+              "line": 248,
+              "index": 12
+            },
+            {
+              "name": "c",
+              "type": "uint8_t",
+              "line": 249,
+              "index": 14
+            },
+            {
+              "name": "rsv0",
+              "type": "uint8_t",
+              "line": 250,
+              "index": 16
+            },
+            {
+              "name": "pmp",
+              "type": "uint8_t",
+              "line": 251,
+              "index": 18
+            },
+            {
+              "name": "prdtl",
+              "type": "uint16_t",
+              "line": 253,
+              "index": 20
+            },
+            {
+              "name": "prdbc",
+              "type": "uint32_t",
+              "line": 256,
+              "index": 23
+            },
+            {
+              "name": "ctba",
+              "type": "uint32_t",
+              "line": 259,
+              "index": 26
+            },
+            {
+              "name": "ctbau",
+              "type": "uint32_t",
+              "line": 260,
+              "index": 28
+            },
+            {
+              "name": "rsv1[4]",
+              "type": "uint32_t",
+              "line": 263,
+              "index": 31
+            }
+          ],
+          "line": 240,
+          "start_byte": 7347,
+          "end_byte": 8131
+        },
+        {
+          "name": "ahci_request",
+          "members": [
+            {
+              "name": "port",
+              "type": "uint32_t",
+              "line": 273,
+              "index": 1
+            },
+            {
+              "name": "slot",
+              "type": "uint32_t",
+              "line": 274,
+              "index": 2
+            },
+            {
+              "name": "lba",
+              "type": "uint64_t",
+              "line": 275,
+              "index": 3
+            },
+            {
+              "name": "*buffer",
+              "type": "void",
+              "line": 276,
+              "index": 4
+            },
+            {
+              "name": "size",
+              "type": "uint64_t",
+              "line": 277,
+              "index": 5
+            },
+            {
+              "name": "sector_count",
+              "type": "uint64_t",
+              "line": 278,
+              "index": 6
+            },
+            {
+              "name": "write",
+              "type": "bool",
+              "line": 279,
+              "index": 7
+            },
+            {
+              "name": "trigger_completion",
+              "type": "bool",
+              "line": 280,
+              "index": 8
+            },
+            {
+              "name": "done",
+              "type": "bool",
+              "line": 282,
+              "index": 9
+            },
+            {
+              "name": "status",
+              "type": "int",
+              "line": 283,
+              "index": 10
+            },
+            {
+              "name": "(*on_complete)(struct ahci_request *)",
+              "type": "void",
+              "line": 285,
+              "index": 11
+            },
+            {
+              "name": "*user_data",
+              "type": "void",
+              "line": 286,
+              "index": 12
+            }
+          ],
+          "line": 272,
+          "start_byte": 8385,
+          "end_byte": 8684
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

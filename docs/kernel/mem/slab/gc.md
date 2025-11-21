@@ -1,6 +1,10 @@
-# [kernel/mem/slab/gc.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/gc.c)
++++
+title = "gc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from gc.c, do not edit manually -->
+# [kernel/mem/slab/gc.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/gc.c)
 
 - [`slab_gc_derive_target_gc_slabs()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/gc.c#L6) — `size_t slab_gc_derive_target_gc_slabs(`[`struct slab_gc`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L381)` *gc`,[`enum slab_gc_flags`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L353)` flags)`
 - [`slab_gc_score()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/gc.c#L18) — `size_t slab_gc_score(`[`struct slab`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L140)` *slab`,[`enum thread_flags`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L68)` flags)`

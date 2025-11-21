@@ -1,6 +1,10 @@
-# [kernel/time.c](https://github.com/bluegummi/charmos/blob/main/kernel/time.c)
++++
+title = "time"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from time.c, do not edit manually -->
+# [kernel/time.c](https://github.com/bluegummi/charmos/blob/main/kernel/time.c)
 
 - [`time_print_unix()`](https://github.com/bluegummi/charmos/blob/main/kernel/time.c#L13) — `void time_print_unix(uint32_t timestamp)`
 - [`time_print_current()`](https://github.com/bluegummi/charmos/blob/main/kernel/time.c#L53) — `void time_print_current()`

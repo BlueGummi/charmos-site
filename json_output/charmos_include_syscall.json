@@ -1,0 +1,12 @@
+{
+  "file": "charmos/include/syscall.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

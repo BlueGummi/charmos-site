@@ -1,3 +1,7 @@
-# [include/registry.h](https://github.com/bluegummi/charmos/blob/main/include/registry.h)
++++
+title = "registry"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from registry.h, do not edit manually -->
+# [include/registry.h](https://github.com/bluegummi/charmos/blob/main/include/registry.h)

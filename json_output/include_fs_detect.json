@@ -1,0 +1,93 @@
+{
+  "file": "charmos/include/fs/detect.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [],
+      "enums": [
+        {
+          "name": "fs_type",
+          "members": [
+            {
+              "name": "FS_DEVTMPFS",
+              "value": "-2",
+              "line": 5,
+              "index": 1
+            },
+            {
+              "name": "FS_TMPFS",
+              "value": "-1",
+              "line": 6,
+              "index": 3
+            },
+            {
+              "name": "FS_UNKNOWN",
+              "value": "0",
+              "line": 7,
+              "index": 5
+            },
+            {
+              "name": "FS_FAT32",
+              "value": "1",
+              "line": 8,
+              "index": 7
+            },
+            {
+              "name": "FS_FAT16",
+              "value": "2",
+              "line": 9,
+              "index": 9
+            },
+            {
+              "name": "FS_FAT12",
+              "value": "3",
+              "line": 10,
+              "index": 11
+            },
+            {
+              "name": "FS_EXFAT",
+              "value": "4",
+              "line": 11,
+              "index": 13
+            },
+            {
+              "name": "FS_EXT2",
+              "value": "5",
+              "line": 12,
+              "index": 15
+            },
+            {
+              "name": "FS_EXT3",
+              "value": "6",
+              "line": 13,
+              "index": 17
+            },
+            {
+              "name": "FS_EXT4",
+              "value": "7",
+              "line": 14,
+              "index": 19
+            },
+            {
+              "name": "FS_NTFS",
+              "value": "8",
+              "line": 15,
+              "index": 21
+            },
+            {
+              "name": "FS_ISO9660",
+              "value": "9",
+              "line": 16,
+              "index": 23
+            }
+          ],
+          "line": 4,
+          "start_byte": 35,
+          "end_byte": 271
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

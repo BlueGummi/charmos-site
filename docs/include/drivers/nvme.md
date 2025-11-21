@@ -1,6 +1,10 @@
-# [include/drivers/nvme.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h)
++++
+title = "nvme"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from nvme.h, do not edit manually -->
+# [include/drivers/nvme.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h)
 
 ### struct [`nvme_command`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L10)
 

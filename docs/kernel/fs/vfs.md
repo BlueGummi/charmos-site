@@ -1,6 +1,10 @@
-# [kernel/fs/vfs.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c)
++++
+title = "vfs"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from vfs.c, do not edit manually -->
+# [kernel/fs/vfs.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c)
 
 - [`mount_table_add()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L14) — `static void mount_table_add(`[`struct vfs_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L189)` *mnt)`
 - [`mount_table_remove()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L31) — `static void mount_table_remove(`[`struct vfs_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L189)` *mnt)`

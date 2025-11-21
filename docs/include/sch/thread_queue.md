@@ -1,6 +1,10 @@
-# [include/sch/thread_queue.h](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_queue.h)
++++
+title = "thread_queue"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from thread_queue.h, do not edit manually -->
+# [include/sch/thread_queue.h](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_queue.h)
 
 ### struct [`thread_queue`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_queue.h#L5)
 

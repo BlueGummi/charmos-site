@@ -1,3 +1,7 @@
-# [include/mem/pmm.h](https://github.com/bluegummi/charmos/blob/main/include/mem/pmm.h)
++++
+title = "pmm"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from pmm.h, do not edit manually -->
+# [include/mem/pmm.h](https://github.com/bluegummi/charmos/blob/main/include/mem/pmm.h)

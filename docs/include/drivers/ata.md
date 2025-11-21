@@ -1,6 +1,10 @@
-# [include/drivers/ata.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h)
++++
+title = "ata"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from ata.h, do not edit manually -->
+# [include/drivers/ata.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h)
 
 ### struct [`ide_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L63)
 

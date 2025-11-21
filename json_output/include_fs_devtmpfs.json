@@ -1,0 +1,96 @@
+{
+  "file": "charmos/include/fs/devtmpfs.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "devtmpfs_node",
+          "members": [
+            {
+              "name": "type",
+              "type": "enum devtmpfs_node_type",
+              "line": 12,
+              "index": 1
+            },
+            {
+              "name": "*vfs",
+              "type": "struct vfs_node",
+              "line": 13,
+              "index": 2
+            },
+            {
+              "name": "**children",
+              "type": "struct devtmpfs_node",
+              "line": 15,
+              "index": 4
+            },
+            {
+              "name": "*data",
+              "type": "char",
+              "line": 17,
+              "index": 6
+            },
+            {
+              "name": "size",
+              "type": "uint64_t",
+              "line": 18,
+              "index": 7
+            },
+            {
+              "name": "(*read)(struct vfs_node *, void *buf, uint64_t size,\n                       uint64_t offset, void *ctx)",
+              "type": "enum errno",
+              "line": 20,
+              "index": 8
+            },
+            {
+              "name": "(*write)(struct vfs_node *, const void *buf, uint64_t size,\n                        uint64_t offset, void *ctx)",
+              "type": "enum errno",
+              "line": 22,
+              "index": 9
+            },
+            {
+              "name": "*rw_ctx",
+              "type": "void",
+              "line": 24,
+              "index": 10
+            }
+          ],
+          "line": 11,
+          "start_byte": 143,
+          "end_byte": 623
+        }
+      ],
+      "enums": [
+        {
+          "name": "devtmpfs_node_type",
+          "members": [
+            {
+              "name": "DEVTMPFS_DIR",
+              "value": null,
+              "line": 6,
+              "index": 1
+            },
+            {
+              "name": "DEVTMPFS_FILE",
+              "value": null,
+              "line": 7,
+              "index": 3
+            },
+            {
+              "name": "DEVTMPFS_SYMLINK",
+              "value": null,
+              "line": 8,
+              "index": 5
+            }
+          ],
+          "line": 5,
+          "start_byte": 54,
+          "end_byte": 140
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

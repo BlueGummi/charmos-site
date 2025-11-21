@@ -1,3 +1,7 @@
-# [kernel/mem/slab/stat_internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/stat_internal.h)
++++
+title = "stat_internal"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from stat_internal.h, do not edit manually -->
+# [kernel/mem/slab/stat_internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/stat_internal.h)

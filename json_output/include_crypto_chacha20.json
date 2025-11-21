@@ -1,0 +1,12 @@
+{
+  "file": "charmos/include/crypto/chacha20.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

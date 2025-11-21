@@ -1,0 +1,109 @@
+{
+  "file": "charmos/include/stat_series.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "stat_bucket",
+          "members": [
+            {
+              "name": "*parent",
+              "type": "struct stat_series",
+              "line": 19,
+              "index": 1
+            },
+            {
+              "name": "count",
+              "type": "atomic_size_t",
+              "line": 20,
+              "index": 2
+            },
+            {
+              "name": "sum",
+              "type": "atomic_size_t",
+              "line": 21,
+              "index": 4
+            },
+            {
+              "name": "*private",
+              "type": "void",
+              "line": 22,
+              "index": 6
+            }
+          ],
+          "line": 18,
+          "start_byte": 417,
+          "end_byte": 628
+        },
+        {
+          "name": "stat_series",
+          "members": [
+            {
+              "name": "bucket_reset",
+              "type": "stat_series_callback",
+              "line": 27,
+              "index": 1
+            },
+            {
+              "name": "*buckets",
+              "type": "struct stat_bucket",
+              "line": 28,
+              "index": 3
+            },
+            {
+              "name": "nbuckets",
+              "type": "uint32_t",
+              "line": 29,
+              "index": 5
+            },
+            {
+              "name": "current",
+              "type": "atomic_uint_fast32_t",
+              "line": 30,
+              "index": 7
+            },
+            {
+              "name": "bucket_us",
+              "type": "time_t",
+              "line": 31,
+              "index": 9
+            },
+            {
+              "name": "last_update_us",
+              "type": "atomic_uint_fast64_t",
+              "line": 32,
+              "index": 11
+            },
+            {
+              "name": "*private",
+              "type": "void",
+              "line": 33,
+              "index": 13
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 34,
+              "index": 15
+            }
+          ],
+          "line": 26,
+          "start_byte": 699,
+          "end_byte": 1219
+        }
+      ],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "(*stat_series_callback)",
+          "type": "size_t (struct stat_bucket *bucket)",
+          "line": 24,
+          "start_byte": 630,
+          "end_byte": 697
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

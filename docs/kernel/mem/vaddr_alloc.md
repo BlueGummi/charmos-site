@@ -1,6 +1,10 @@
-# [kernel/mem/vaddr_alloc.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/vaddr_alloc.c)
++++
+title = "vaddr_alloc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from vaddr_alloc.c, do not edit manually -->
+# [kernel/mem/vaddr_alloc.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/vaddr_alloc.c)
 
 - [`vasrange_refill()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/vaddr_alloc.c#L11) — `static void vasrange_refill(`[`struct vas_space`](https://github.com/bluegummi/charmos/blob/main/include/mem/vaddr_alloc.h#L15)` *space)`
 - [`vasrange_alloc()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/vaddr_alloc.c#L26) — [`struct vas_range *`](https://github.com/bluegummi/charmos/blob/main/include/mem/vaddr_alloc.h#L8)`vasrange_alloc(`[`struct vas_space`](https://github.com/bluegummi/charmos/blob/main/include/mem/vaddr_alloc.h#L15)` *space)`

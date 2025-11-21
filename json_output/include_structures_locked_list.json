@@ -1,0 +1,157 @@
+{
+  "file": "charmos/include/structures/locked_list.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "locked_list_empty",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct locked_list",
+            "name": "*ll"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 23
+      },
+      {
+        "name": "locked_list_add",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct locked_list",
+            "name": "*ll"
+          },
+          {
+            "type": "struct list_head",
+            "name": "*lh"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 28
+      },
+      {
+        "name": "locked_list_del",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct locked_list",
+            "name": "*ll"
+          },
+          {
+            "type": "struct list_head",
+            "name": "*lh"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 34
+      },
+      {
+        "name": "locked_list_del_locked",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct locked_list",
+            "name": "*ll"
+          },
+          {
+            "type": "struct list_head",
+            "name": "*lh"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 40
+      },
+      {
+        "name": "locked_list_pop_front",
+        "return_type": "struct list_head *",
+        "parameters": [
+          {
+            "type": "struct locked_list",
+            "name": "*ll"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 47
+      },
+      {
+        "name": "locked_list_num_elems",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct locked_list",
+            "name": "*ll"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 52
+      },
+      {
+        "name": "locked_list_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct locked_list",
+            "name": "*ll"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 57
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "locked_list",
+          "members": [
+            {
+              "name": "list",
+              "type": "struct list_head",
+              "line": 8,
+              "index": 1
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 9,
+              "index": 2
+            },
+            {
+              "name": "num_elems",
+              "type": "atomic_size_t",
+              "line": 10,
+              "index": 3
+            }
+          ],
+          "line": 7,
+          "start_byte": 141,
+          "end_byte": 245
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

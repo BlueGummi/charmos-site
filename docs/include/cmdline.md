@@ -1,3 +1,7 @@
-# [include/cmdline.h](https://github.com/bluegummi/charmos/blob/main/include/cmdline.h)
++++
+title = "cmdline"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from cmdline.h, do not edit manually -->
+# [include/cmdline.h](https://github.com/bluegummi/charmos/blob/main/include/cmdline.h)

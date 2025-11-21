@@ -1,6 +1,10 @@
-# [include/mem/vaddr_alloc.h](https://github.com/bluegummi/charmos/blob/main/include/mem/vaddr_alloc.h)
++++
+title = "vaddr_alloc"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from vaddr_alloc.h, do not edit manually -->
+# [include/mem/vaddr_alloc.h](https://github.com/bluegummi/charmos/blob/main/include/mem/vaddr_alloc.h)
 
 ### struct [`vas_range`](https://github.com/bluegummi/charmos/blob/main/include/mem/vaddr_alloc.h#L8)
 

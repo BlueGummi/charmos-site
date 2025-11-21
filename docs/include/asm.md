@@ -1,6 +1,10 @@
-# [include/asm.h](https://github.com/bluegummi/charmos/blob/main/include/asm.h)
++++
+title = "asm"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from asm.h, do not edit manually -->
+# [include/asm.h](https://github.com/bluegummi/charmos/blob/main/include/asm.h)
 
 - [`inb()`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L17) — `static inline uint8_t inb(uint16_t port)`
 - [`inw()`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L23) — `static inline uint16_t inw(uint16_t port)`

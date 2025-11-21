@@ -1,0 +1,155 @@
+{
+  "file": "charmos/include/fs/gpt.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "gpt_header",
+          "members": [
+            {
+              "name": "signature",
+              "type": "uint64_t",
+              "line": 5,
+              "index": 1
+            },
+            {
+              "name": "revision",
+              "type": "uint32_t",
+              "line": 6,
+              "index": 2
+            },
+            {
+              "name": "header_size",
+              "type": "uint32_t",
+              "line": 7,
+              "index": 3
+            },
+            {
+              "name": "header_crc32",
+              "type": "uint32_t",
+              "line": 8,
+              "index": 4
+            },
+            {
+              "name": "reserved",
+              "type": "uint32_t",
+              "line": 9,
+              "index": 5
+            },
+            {
+              "name": "current_lba",
+              "type": "uint64_t",
+              "line": 10,
+              "index": 6
+            },
+            {
+              "name": "backup_lba",
+              "type": "uint64_t",
+              "line": 11,
+              "index": 7
+            },
+            {
+              "name": "first_usable_lba",
+              "type": "uint64_t",
+              "line": 12,
+              "index": 8
+            },
+            {
+              "name": "last_usable_lba",
+              "type": "uint64_t",
+              "line": 13,
+              "index": 9
+            },
+            {
+              "name": "disk_guid[16]",
+              "type": "uint8_t",
+              "line": 14,
+              "index": 10
+            },
+            {
+              "name": "partition_entry_lba",
+              "type": "uint64_t",
+              "line": 15,
+              "index": 11
+            },
+            {
+              "name": "num_partition_entries",
+              "type": "uint32_t",
+              "line": 16,
+              "index": 12
+            },
+            {
+              "name": "size_of_partition_entry",
+              "type": "uint32_t",
+              "line": 17,
+              "index": 13
+            },
+            {
+              "name": "partition_crc32",
+              "type": "uint32_t",
+              "line": 18,
+              "index": 14
+            },
+            {
+              "name": "reserved2[420]",
+              "type": "uint8_t",
+              "line": 19,
+              "index": 15
+            }
+          ],
+          "line": 4,
+          "start_byte": 34,
+          "end_byte": 507
+        },
+        {
+          "name": "gpt_partition_entry",
+          "members": [
+            {
+              "name": "type_guid[16]",
+              "type": "uint8_t",
+              "line": 23,
+              "index": 1
+            },
+            {
+              "name": "unique_guid[16]",
+              "type": "uint8_t",
+              "line": 24,
+              "index": 2
+            },
+            {
+              "name": "first_lba",
+              "type": "uint64_t",
+              "line": 25,
+              "index": 3
+            },
+            {
+              "name": "last_lba",
+              "type": "uint64_t",
+              "line": 26,
+              "index": 4
+            },
+            {
+              "name": "attributes",
+              "type": "uint64_t",
+              "line": 27,
+              "index": 5
+            },
+            {
+              "name": "name[36]",
+              "type": "uint16_t",
+              "line": 28,
+              "index": 6
+            }
+          ],
+          "line": 22,
+          "start_byte": 510,
+          "end_byte": 725
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

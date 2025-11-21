@@ -1,0 +1,61 @@
+{
+  "file": "charmos/include/mem/movealloc.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "movealloc_callback_node",
+          "members": [
+            {
+              "name": "callback",
+              "type": "movealloc_callback",
+              "line": 19,
+              "index": 1
+            },
+            {
+              "name": "*a",
+              "type": "void",
+              "line": 20,
+              "index": 2
+            },
+            {
+              "name": "list",
+              "type": "struct list_head",
+              "line": 21,
+              "index": 3
+            }
+          ],
+          "line": 18,
+          "start_byte": 631,
+          "end_byte": 771
+        },
+        {
+          "name": "movealloc_callback_chain",
+          "members": [
+            {
+              "name": "list",
+              "type": "struct list_head",
+              "line": 25,
+              "index": 1
+            }
+          ],
+          "line": 24,
+          "start_byte": 774,
+          "end_byte": 836
+        }
+      ],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "(*movealloc_callback)",
+          "type": "void (void *a, void *b)",
+          "line": 16,
+          "start_byte": 576,
+          "end_byte": 629
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

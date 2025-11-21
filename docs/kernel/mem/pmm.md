@@ -1,6 +1,10 @@
-# [kernel/mem/pmm.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/pmm.c)
++++
+title = "pmm"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from pmm.c, do not edit manually -->
+# [kernel/mem/pmm.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/pmm.c)
 
 ### type alias
 [`(*alloc_fn)`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/pmm.c#L14) : `paddr_t (size_t pages, enum alloc_flags f)`

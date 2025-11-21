@@ -1,0 +1,63 @@
+{
+  "file": "charmos/include/mem/tlb.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "tlb_shootdown_cpu",
+          "members": [
+            {
+              "name": "queue[TLB_QUEUE_SIZE]",
+              "type": "atomic_uintptr_t",
+              "line": 10,
+              "index": 1
+            },
+            {
+              "name": "head",
+              "type": "atomic_uint_fast32_t",
+              "line": 11,
+              "index": 2
+            },
+            {
+              "name": "tail",
+              "type": "atomic_uint_fast32_t",
+              "line": 12,
+              "index": 3
+            },
+            {
+              "name": "ipi_pending",
+              "type": "atomic_uint_fast8_t",
+              "line": 13,
+              "index": 4
+            },
+            {
+              "name": "ack_gen",
+              "type": "atomic_uint_fast64_t",
+              "line": 14,
+              "index": 5
+            },
+            {
+              "name": "flush_all",
+              "type": "atomic_uint_fast8_t",
+              "line": 15,
+              "index": 6
+            },
+            {
+              "name": "dpc_queued",
+              "type": "atomic_uint_fast8_t",
+              "line": 16,
+              "index": 7
+            }
+          ],
+          "line": 9,
+          "start_byte": 131,
+          "end_byte": 407
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

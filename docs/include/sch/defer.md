@@ -1,6 +1,10 @@
-# [include/sch/defer.h](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h)
++++
+title = "defer"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from defer.h, do not edit manually -->
+# [include/sch/defer.h](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h)
 
 ### struct [`work_args`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L17)
 

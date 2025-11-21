@@ -1,6 +1,10 @@
-# [include/drivers/usb.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h)
++++
+title = "usb"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from usb.h, do not edit manually -->
+# [include/drivers/usb.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h)
 
 ### struct [`usb_setup_packet`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L170)
 

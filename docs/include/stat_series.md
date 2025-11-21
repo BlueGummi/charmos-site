@@ -1,6 +1,10 @@
-# [include/stat_series.h](https://github.com/bluegummi/charmos/blob/main/include/stat_series.h)
++++
+title = "stat_series"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from stat_series.h, do not edit manually -->
+# [include/stat_series.h](https://github.com/bluegummi/charmos/blob/main/include/stat_series.h)
 
 ### struct [`stat_bucket`](https://github.com/bluegummi/charmos/blob/main/include/stat_series.h#L18)
 

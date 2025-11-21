@@ -1,6 +1,10 @@
-# [kernel/mem/slab/percpu.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c)
++++
+title = "percpu"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from percpu.c, do not edit manually -->
+# [kernel/mem/slab/percpu.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c)
 
 - [`slab_magazine_push_internal()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L7) — `bool slab_magazine_push_internal(`[`struct slab_magazine`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L182)` *mag`,[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` obj)`
 - [`slab_magazine_push()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L15) — `bool slab_magazine_push(`[`struct slab_magazine`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L182)` *mag`,[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` obj)`

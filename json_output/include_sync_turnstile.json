@@ -1,0 +1,136 @@
+{
+  "file": "charmos/include/sync/turnstile.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [
+        {
+          "name": "turnstile",
+          "members": [
+            {
+              "name": "*inheritor",
+              "type": "struct thread",
+              "line": 22,
+              "index": 1
+            },
+            {
+              "name": "applied_pi_boost",
+              "type": "bool",
+              "line": 23,
+              "index": 3
+            },
+            {
+              "name": "hash_list",
+              "type": "struct list_head",
+              "line": 24,
+              "index": 4
+            },
+            {
+              "name": "freelist",
+              "type": "struct list_head",
+              "line": 25,
+              "index": 5
+            },
+            {
+              "name": "waiters",
+              "type": "size_t",
+              "line": 26,
+              "index": 6
+            },
+            {
+              "name": "waiter_max_prio",
+              "type": "thread_prio_t",
+              "line": 27,
+              "index": 8
+            },
+            {
+              "name": "*lock_obj",
+              "type": "void",
+              "line": 28,
+              "index": 9
+            },
+            {
+              "name": "queues[TURNSTILE_NUM_QUEUES]",
+              "type": "struct pairing_heap",
+              "line": 29,
+              "index": 11
+            },
+            {
+              "name": "state",
+              "type": "enum turnstile_state",
+              "line": 30,
+              "index": 12
+            }
+          ],
+          "line": 21,
+          "start_byte": 681,
+          "end_byte": 1090
+        },
+        {
+          "name": "turnstile_hash_chain",
+          "members": [
+            {
+              "name": "list",
+              "type": "struct list_head",
+              "line": 40,
+              "index": 1
+            },
+            {
+              "name": "lock",
+              "type": "struct spinlock",
+              "line": 41,
+              "index": 2
+            }
+          ],
+          "line": 39,
+          "start_byte": 1386,
+          "end_byte": 1470
+        },
+        {
+          "name": "turnstile_hash_table",
+          "members": [
+            {
+              "name": "heads[TURNSTILE_HASH_SIZE]",
+              "type": "struct turnstile_hash_chain",
+              "line": 54,
+              "index": 1
+            }
+          ],
+          "line": 53,
+          "start_byte": 1859,
+          "end_byte": 1950
+        }
+      ],
+      "enums": [
+        {
+          "name": "turnstile_state",
+          "members": [
+            {
+              "name": "TURNSTILE_STATE_UNUSED",
+              "value": null,
+              "line": 10,
+              "index": 1
+            },
+            {
+              "name": "TURNSTILE_STATE_IN_HASH_TABLE",
+              "value": null,
+              "line": 12,
+              "index": 4
+            },
+            {
+              "name": "TURNSTILE_STATE_IN_FREE_LIST",
+              "value": null,
+              "line": 16,
+              "index": 7
+            }
+          ],
+          "line": 9,
+          "start_byte": 189,
+          "end_byte": 678
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

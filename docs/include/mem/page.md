@@ -1,6 +1,10 @@
-# [include/mem/page.h](https://github.com/bluegummi/charmos/blob/main/include/mem/page.h)
++++
+title = "page"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from page.h, do not edit manually -->
+# [include/mem/page.h](https://github.com/bluegummi/charmos/blob/main/include/mem/page.h)
 
 ### struct [`page`](https://github.com/bluegummi/charmos/blob/main/include/mem/page.h#L38)
 

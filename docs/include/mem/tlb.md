@@ -1,6 +1,10 @@
-# [include/mem/tlb.h](https://github.com/bluegummi/charmos/blob/main/include/mem/tlb.h)
++++
+title = "tlb"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from tlb.h, do not edit manually -->
+# [include/mem/tlb.h](https://github.com/bluegummi/charmos/blob/main/include/mem/tlb.h)
 
 ### struct [`tlb_shootdown_cpu`](https://github.com/bluegummi/charmos/blob/main/include/mem/tlb.h#L9)
 

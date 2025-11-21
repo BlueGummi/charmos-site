@@ -1,6 +1,10 @@
-# [kernel/sch/sched_profiling.h](https://github.com/bluegummi/charmos/blob/main/kernel/sch/sched_profiling.h)
++++
+title = "sched_profiling"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from sched_profiling.h, do not edit manually -->
+# [kernel/sch/sched_profiling.h](https://github.com/bluegummi/charmos/blob/main/kernel/sch/sched_profiling.h)
 
 ### struct [`scheduler_stats`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/sched_profiling.h#L3)
 

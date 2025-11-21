@@ -1,6 +1,10 @@
-# [kernel/sch/fair.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c)
++++
+title = "fair"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from fair.c, do not edit manually -->
+# [kernel/sch/fair.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c)
 
 - [`classify_activity()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L64) — `static`[`enum thread_activity_class`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L173)`classify_activity(`[`struct thread_activity_metrics`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L181)` m)`
 - [`thread_classify_activity()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L83) — `void thread_classify_activity(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t`,`uint64_t now_ms)`

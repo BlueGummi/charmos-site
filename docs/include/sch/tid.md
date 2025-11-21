@@ -1,6 +1,10 @@
-# [include/sch/tid.h](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h)
++++
+title = "tid"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from tid.h, do not edit manually -->
+# [include/sch/tid.h](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h)
 
 ### struct [`tid_range`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L7)
 

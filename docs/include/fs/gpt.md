@@ -1,6 +1,10 @@
-# [include/fs/gpt.h](https://github.com/bluegummi/charmos/blob/main/include/fs/gpt.h)
++++
+title = "gpt"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from gpt.h, do not edit manually -->
+# [include/fs/gpt.h](https://github.com/bluegummi/charmos/blob/main/include/fs/gpt.h)
 
 ### struct [`gpt_header`](https://github.com/bluegummi/charmos/blob/main/include/fs/gpt.h#L4)
 

@@ -1,0 +1,170 @@
+{
+  "file": "charmos/include/errno.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "errno_to_str",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "enum errno",
+            "name": "err"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline",
+          "const"
+        ],
+        "line": 33
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [
+        {
+          "name": "errno",
+          "members": [
+            {
+              "name": "ERR_OK",
+              "value": "0",
+              "line": 7,
+              "index": 1
+            },
+            {
+              "name": "ERR_UNKNOWN",
+              "value": "-1",
+              "line": 8,
+              "index": 4
+            },
+            {
+              "name": "ERR_NO_MEM",
+              "value": "-2",
+              "line": 9,
+              "index": 7
+            },
+            {
+              "name": "ERR_NO_DEV",
+              "value": "-3",
+              "line": 10,
+              "index": 10
+            },
+            {
+              "name": "ERR_NO_ENT",
+              "value": "-4",
+              "line": 11,
+              "index": 13
+            },
+            {
+              "name": "ERR_EXIST",
+              "value": "-5",
+              "line": 12,
+              "index": 16
+            },
+            {
+              "name": "ERR_IO",
+              "value": "-6",
+              "line": 13,
+              "index": 19
+            },
+            {
+              "name": "ERR_NOT_DIR",
+              "value": "-7",
+              "line": 14,
+              "index": 22
+            },
+            {
+              "name": "ERR_IS_DIR",
+              "value": "-8",
+              "line": 15,
+              "index": 25
+            },
+            {
+              "name": "ERR_INVAL",
+              "value": "-9",
+              "line": 16,
+              "index": 28
+            },
+            {
+              "name": "ERR_PERM",
+              "value": "-10",
+              "line": 17,
+              "index": 31
+            },
+            {
+              "name": "ERR_FAULT",
+              "value": "-11",
+              "line": 18,
+              "index": 34
+            },
+            {
+              "name": "ERR_BUSY",
+              "value": "-12",
+              "line": 19,
+              "index": 37
+            },
+            {
+              "name": "ERR_AGAIN",
+              "value": "-13",
+              "line": 20,
+              "index": 40
+            },
+            {
+              "name": "ERR_NOT_IMPL",
+              "value": "-14",
+              "line": 21,
+              "index": 43
+            },
+            {
+              "name": "ERR_NOSPC",
+              "value": "-15",
+              "line": 22,
+              "index": 46
+            },
+            {
+              "name": "ERR_OVERFLOW",
+              "value": "-16",
+              "line": 23,
+              "index": 49
+            },
+            {
+              "name": "ERR_NOT_EMPTY",
+              "value": "-17",
+              "line": 24,
+              "index": 52
+            },
+            {
+              "name": "ERR_FS_NO_INODE",
+              "value": "-100",
+              "line": 26,
+              "index": 55
+            },
+            {
+              "name": "ERR_FS_CORRUPT",
+              "value": "-101",
+              "line": 27,
+              "index": 58
+            },
+            {
+              "name": "ERR_FS_SYMLINK_LOOP",
+              "value": "-102",
+              "line": 28,
+              "index": 61
+            },
+            {
+              "name": "ERR_FS_INTERNAL",
+              "value": "-103",
+              "line": 29,
+              "index": 64
+            }
+          ],
+          "line": 6,
+          "start_byte": 91,
+          "end_byte": 1162
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

@@ -1,6 +1,10 @@
-# [include/drivers/pci.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h)
++++
+title = "pci"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from pci.h, do not edit manually -->
+# [include/drivers/pci.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h)
 
 ### struct [`pci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h#L9)
 

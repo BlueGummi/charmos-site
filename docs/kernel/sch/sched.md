@@ -1,3 +1,9 @@
++++
+title = "Turnstiles"
+author = "Unknown"
+status = "unknown"
++++
+
 # Big Idea: Turnstiles
 
 **Author:** Unknown | **Status:** unknown
@@ -55,8 +61,6 @@ here because this document is also in markdown and that would interfere with thi
 ---
 
 # [kernel/sch/sched.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/sched.c)
-
-<!-- Auto-generated from sched.c, do not edit manually -->
 
 - [`tick_disable()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/sched.c#L93) — `static inline void tick_disable()`
 - [`tick_enable()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/sched.c#L101) — `static inline void tick_enable()`

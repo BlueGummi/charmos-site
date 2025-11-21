@@ -1,0 +1,597 @@
+{
+  "file": "charmos/include/fs/fat.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "get_fileattr_string",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "enum fat_fileattr",
+            "name": "f"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline",
+          "const"
+        ],
+        "line": 35
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "fat12_16_ext_bpb",
+          "members": [
+            {
+              "name": "drive_number",
+              "type": "uint8_t",
+              "line": 48,
+              "index": 1
+            },
+            {
+              "name": "reserved",
+              "type": "uint8_t",
+              "line": 49,
+              "index": 2
+            },
+            {
+              "name": "boot_signature",
+              "type": "uint8_t",
+              "line": 50,
+              "index": 3
+            },
+            {
+              "name": "volume_id",
+              "type": "uint32_t",
+              "line": 51,
+              "index": 4
+            },
+            {
+              "name": "volume_label[11]",
+              "type": "uint8_t",
+              "line": 52,
+              "index": 5
+            },
+            {
+              "name": "fs_type[8]",
+              "type": "uint8_t",
+              "line": 53,
+              "index": 6
+            },
+            {
+              "name": "reserved1[448]",
+              "type": "uint8_t",
+              "line": 54,
+              "index": 7
+            }
+          ],
+          "line": 47,
+          "start_byte": 1226,
+          "end_byte": 1459
+        },
+        {
+          "name": "fat32_ext_bpb",
+          "members": [
+            {
+              "name": "fat_size_32",
+              "type": "uint32_t",
+              "line": 58,
+              "index": 1
+            },
+            {
+              "name": "ext_flags",
+              "type": "uint16_t",
+              "line": 59,
+              "index": 2
+            },
+            {
+              "name": "fs_version",
+              "type": "uint16_t",
+              "line": 60,
+              "index": 3
+            },
+            {
+              "name": "root_cluster",
+              "type": "uint32_t",
+              "line": 61,
+              "index": 4
+            },
+            {
+              "name": "fs_info",
+              "type": "uint16_t",
+              "line": 62,
+              "index": 5
+            },
+            {
+              "name": "backup_boot_sector",
+              "type": "uint16_t",
+              "line": 63,
+              "index": 6
+            },
+            {
+              "name": "reserved[12]",
+              "type": "uint8_t",
+              "line": 64,
+              "index": 7
+            },
+            {
+              "name": "drive_number",
+              "type": "uint8_t",
+              "line": 65,
+              "index": 8
+            },
+            {
+              "name": "reserved1",
+              "type": "uint8_t",
+              "line": 66,
+              "index": 9
+            },
+            {
+              "name": "boot_signature",
+              "type": "uint8_t",
+              "line": 67,
+              "index": 10
+            },
+            {
+              "name": "volume_id",
+              "type": "uint32_t",
+              "line": 68,
+              "index": 11
+            },
+            {
+              "name": "volume_label[11]",
+              "type": "uint8_t",
+              "line": 69,
+              "index": 12
+            },
+            {
+              "name": "fs_type[8]",
+              "type": "uint8_t",
+              "line": 70,
+              "index": 13
+            },
+            {
+              "name": "reserved2[420]",
+              "type": "uint8_t",
+              "line": 71,
+              "index": 14
+            }
+          ],
+          "line": 57,
+          "start_byte": 1462,
+          "end_byte": 1876
+        },
+        {
+          "name": "fat_bpb",
+          "members": [
+            {
+              "name": "jump_boot[3]",
+              "type": "uint8_t",
+              "line": 78,
+              "index": 1
+            },
+            {
+              "name": "oem_name[8]",
+              "type": "uint8_t",
+              "line": 79,
+              "index": 2
+            },
+            {
+              "name": "bytes_per_sector",
+              "type": "uint16_t",
+              "line": 80,
+              "index": 3
+            },
+            {
+              "name": "sectors_per_cluster",
+              "type": "uint8_t",
+              "line": 81,
+              "index": 4
+            },
+            {
+              "name": "reserved_sector_count",
+              "type": "uint16_t",
+              "line": 82,
+              "index": 5
+            },
+            {
+              "name": "num_fats",
+              "type": "uint8_t",
+              "line": 83,
+              "index": 6
+            },
+            {
+              "name": "root_entry_count",
+              "type": "uint16_t",
+              "line": 84,
+              "index": 7
+            },
+            {
+              "name": "total_sectors_16",
+              "type": "uint16_t",
+              "line": 85,
+              "index": 8
+            },
+            {
+              "name": "media",
+              "type": "uint8_t",
+              "line": 86,
+              "index": 9
+            },
+            {
+              "name": "fat_size_16",
+              "type": "uint16_t",
+              "line": 87,
+              "index": 10
+            },
+            {
+              "name": "sectors_per_track",
+              "type": "uint16_t",
+              "line": 88,
+              "index": 11
+            },
+            {
+              "name": "num_heads",
+              "type": "uint16_t",
+              "line": 89,
+              "index": 12
+            },
+            {
+              "name": "hidden_sectors",
+              "type": "uint32_t",
+              "line": 90,
+              "index": 13
+            },
+            {
+              "name": "total_sectors_32",
+              "type": "uint32_t",
+              "line": 91,
+              "index": 14
+            },
+            {
+              "name": null,
+              "type": "union {\n        struct fat32_ext_bpb ext_32;\n        struct fat12_16_ext_bpb ext_12_16;\n    }",
+              "line": 93,
+              "index": 15
+            }
+          ],
+          "line": 77,
+          "start_byte": 1980,
+          "end_byte": 2518
+        },
+        {
+          "name": "fat_date",
+          "members": [
+            {
+              "name": "day",
+              "type": "uint16_t",
+              "line": 100,
+              "index": 1
+            },
+            {
+              "name": "month",
+              "type": "uint16_t",
+              "line": 101,
+              "index": 2
+            },
+            {
+              "name": "year",
+              "type": "uint16_t",
+              "line": 102,
+              "index": 3
+            }
+          ],
+          "line": 99,
+          "start_byte": 2521,
+          "end_byte": 2609
+        },
+        {
+          "name": "fat_time",
+          "members": [
+            {
+              "name": "second",
+              "type": "uint16_t",
+              "line": 106,
+              "index": 1
+            },
+            {
+              "name": "minute",
+              "type": "uint16_t",
+              "line": 107,
+              "index": 2
+            },
+            {
+              "name": "hour",
+              "type": "uint16_t",
+              "line": 108,
+              "index": 3
+            }
+          ],
+          "line": 105,
+          "start_byte": 2612,
+          "end_byte": 2704
+        },
+        {
+          "name": "fat_dirent",
+          "members": [
+            {
+              "name": "name[11]",
+              "type": "char",
+              "line": 112,
+              "index": 1
+            },
+            {
+              "name": "attr",
+              "type": "enum fat_fileattr",
+              "line": 113,
+              "index": 2
+            },
+            {
+              "name": "ntres",
+              "type": "uint8_t",
+              "line": 114,
+              "index": 4
+            },
+            {
+              "name": "crttimetenth",
+              "type": "uint8_t",
+              "line": 115,
+              "index": 6
+            },
+            {
+              "name": "crttime",
+              "type": "struct fat_time",
+              "line": 116,
+              "index": 7
+            },
+            {
+              "name": "crtdate",
+              "type": "struct fat_date",
+              "line": 117,
+              "index": 8
+            },
+            {
+              "name": "lastaccess",
+              "type": "struct fat_date",
+              "line": 118,
+              "index": 9
+            },
+            {
+              "name": "high_cluster",
+              "type": "uint16_t",
+              "line": 119,
+              "index": 10
+            },
+            {
+              "name": "modtime",
+              "type": "struct fat_time",
+              "line": 120,
+              "index": 12
+            },
+            {
+              "name": "moddate",
+              "type": "struct fat_date",
+              "line": 121,
+              "index": 13
+            },
+            {
+              "name": "low_cluster",
+              "type": "uint16_t",
+              "line": 122,
+              "index": 14
+            },
+            {
+              "name": "filesize",
+              "type": "uint32_t",
+              "line": 123,
+              "index": 16
+            }
+          ],
+          "line": 111,
+          "start_byte": 2707,
+          "end_byte": 3175
+        },
+        {
+          "name": "fat_fs",
+          "members": [
+            {
+              "name": "type",
+              "type": "enum fat_fstype",
+              "line": 128,
+              "index": 1
+            },
+            {
+              "name": "*bpb",
+              "type": "struct fat_bpb",
+              "line": 129,
+              "index": 2
+            },
+            {
+              "name": "*partition",
+              "type": "struct generic_partition",
+              "line": 130,
+              "index": 3
+            },
+            {
+              "name": "*disk",
+              "type": "struct generic_disk",
+              "line": 131,
+              "index": 4
+            },
+            {
+              "name": "volume_base_lba",
+              "type": "uint32_t",
+              "line": 132,
+              "index": 5
+            },
+            {
+              "name": "total_clusters",
+              "type": "uint32_t",
+              "line": 133,
+              "index": 6
+            },
+            {
+              "name": "root_cluster",
+              "type": "uint32_t",
+              "line": 134,
+              "index": 7
+            },
+            {
+              "name": "cluster_size",
+              "type": "uint32_t",
+              "line": 135,
+              "index": 8
+            },
+            {
+              "name": "fsinfo_sector",
+              "type": "uint32_t",
+              "line": 136,
+              "index": 9
+            },
+            {
+              "name": "free_clusters",
+              "type": "uint32_t",
+              "line": 137,
+              "index": 10
+            },
+            {
+              "name": "last_alloc_cluster",
+              "type": "uint32_t",
+              "line": 138,
+              "index": 11
+            },
+            {
+              "name": "entries_per_cluster",
+              "type": "uint32_t",
+              "line": 139,
+              "index": 12
+            },
+            {
+              "name": "fat_size",
+              "type": "uint16_t",
+              "line": 142,
+              "index": 14
+            },
+            {
+              "name": "boot_signature",
+              "type": "uint8_t",
+              "line": 143,
+              "index": 15
+            },
+            {
+              "name": "drive_number",
+              "type": "uint8_t",
+              "line": 144,
+              "index": 16
+            },
+            {
+              "name": "volume_id",
+              "type": "uint32_t",
+              "line": 145,
+              "index": 17
+            },
+            {
+              "name": "volume_label[11]",
+              "type": "uint8_t",
+              "line": 146,
+              "index": 18
+            },
+            {
+              "name": "fs_type[8]",
+              "type": "uint8_t",
+              "line": 147,
+              "index": 19
+            }
+          ],
+          "line": 127,
+          "start_byte": 3231,
+          "end_byte": 3815
+        }
+      ],
+      "enums": [
+        {
+          "name": "fat_fstype",
+          "members": [
+            {
+              "name": "FAT_12",
+              "value": null,
+              "line": 21,
+              "index": 1
+            },
+            {
+              "name": "FAT_16",
+              "value": null,
+              "line": 22,
+              "index": 3
+            },
+            {
+              "name": "FAT_32",
+              "value": null,
+              "line": 23,
+              "index": 5
+            }
+          ],
+          "line": 20,
+          "start_byte": 642,
+          "end_byte": 707
+        },
+        {
+          "name": "fat_fileattr",
+          "members": [
+            {
+              "name": "FAT_RO",
+              "value": "0x01",
+              "line": 27,
+              "index": 1
+            },
+            {
+              "name": "FAT_HIDDEN",
+              "value": "0x02",
+              "line": 28,
+              "index": 3
+            },
+            {
+              "name": "FAT_SYSTEM",
+              "value": "0x04",
+              "line": 29,
+              "index": 5
+            },
+            {
+              "name": "FAT_VOL_ID",
+              "value": "0x08",
+              "line": 30,
+              "index": 7
+            },
+            {
+              "name": "FAT_DIR",
+              "value": "0x10",
+              "line": 31,
+              "index": 9
+            },
+            {
+              "name": "FAT_ARCHIVE",
+              "value": "0x20",
+              "line": 32,
+              "index": 11
+            }
+          ],
+          "line": 26,
+          "start_byte": 710,
+          "end_byte": 873
+        }
+      ],
+      "typedefs": [
+        {
+          "name": "(*fat_walk_callback)",
+          "type": "bool (struct fat_dirent *, uint32_t, void *)",
+          "line": 150,
+          "start_byte": 3818,
+          "end_byte": 3891
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

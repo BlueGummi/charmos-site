@@ -1,3 +1,7 @@
-# [include/mem/asan.h](https://github.com/bluegummi/charmos/blob/main/include/mem/asan.h)
++++
+title = "asan"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from asan.h, do not edit manually -->
+# [include/mem/asan.h](https://github.com/bluegummi/charmos/blob/main/include/mem/asan.h)

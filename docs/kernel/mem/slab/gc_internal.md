@@ -1,3 +1,7 @@
-# [kernel/mem/slab/gc_internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/gc_internal.h)
++++
+title = "gc_internal"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from gc_internal.h, do not edit manually -->
+# [kernel/mem/slab/gc_internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/gc_internal.h)

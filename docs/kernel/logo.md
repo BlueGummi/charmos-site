@@ -1,3 +1,7 @@
-# [kernel/logo.c](https://github.com/bluegummi/charmos/blob/main/kernel/logo.c)
++++
+title = "logo"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from logo.c, do not edit manually -->
+# [kernel/logo.c](https://github.com/bluegummi/charmos/blob/main/kernel/logo.c)

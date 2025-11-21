@@ -1,6 +1,10 @@
-# [include/drivers/ahci.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h)
++++
+title = "ahci"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from ahci.h, do not edit manually -->
+# [include/drivers/ahci.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h)
 
 ### struct [`ahci_fis_reg_h2d`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L92)
 

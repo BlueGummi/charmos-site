@@ -1,6 +1,10 @@
-# [kernel/sch/internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/sch/internal.h)
++++
+title = "internal"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from internal.h, do not edit manually -->
+# [kernel/sch/internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/sch/internal.h)
 
 - [`smp_core_scheduler()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/internal.h#L4) — `static inline`[`struct scheduler *`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)`smp_core_scheduler(void)`
 - [`smp_core_idle_thread()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/internal.h#L8) — `static inline`[`struct idle_thread_data *`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L23)`smp_core_idle_thread(void)`

@@ -1,6 +1,10 @@
-# [include/bootstage.h](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h)
++++
+title = "bootstage"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from bootstage.h, do not edit manually -->
+# [include/bootstage.h](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h)
 
 ### enum [`bootstage`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L4)
 

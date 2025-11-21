@@ -1,6 +1,10 @@
-# [kernel/mem/slab/slab.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/slab.c)
++++
+title = "slab"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from slab.c, do not edit manually -->
+# [kernel/mem/slab/slab.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/slab.c)
 
 - [`slab_map_new_page()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/slab.c#L160) — `void * slab_map_new_page(`[`struct slab_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L423)` *domain`,[`paddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L12)` *phys_out`,`bool pageable)`
 - [`slab_free_virt_and_phys()`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/slab.c#L206) — `static void slab_free_virt_and_phys(`[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` virt`,[`paddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L12)` phys)`

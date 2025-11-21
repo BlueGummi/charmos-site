@@ -1,3 +1,7 @@
-# [include/time.h](https://github.com/bluegummi/charmos/blob/main/include/time.h)
++++
+title = "time"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from time.h, do not edit manually -->
+# [include/time.h](https://github.com/bluegummi/charmos/blob/main/include/time.h)

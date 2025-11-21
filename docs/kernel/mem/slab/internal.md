@@ -1,6 +1,10 @@
-# [kernel/mem/slab/internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h)
++++
+title = "internal"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from internal.h, do not edit manually -->
+# [kernel/mem/slab/internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h)
 
 ### struct [`slab`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L140)
 

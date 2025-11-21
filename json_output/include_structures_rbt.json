@@ -1,0 +1,147 @@
+{
+  "file": "charmos/include/structures/rbt.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "rb_last",
+        "return_type": "struct rbt_node *",
+        "parameters": [
+          {
+            "type": "struct rbt",
+            "name": "*root"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 30
+      },
+      {
+        "name": "rbt_prev",
+        "return_type": "struct rbt_node *",
+        "parameters": [
+          {
+            "type": "struct rbt_node",
+            "name": "*node"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 39
+      },
+      {
+        "name": "rbt_init_node",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct rbt_node",
+            "name": "*n"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 58
+      },
+      {
+        "name": "rb_first",
+        "return_type": "struct rbt_node *",
+        "parameters": [
+          {
+            "type": "struct rbt",
+            "name": "*root"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 63
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "rbt_node",
+          "members": [
+            {
+              "name": "data",
+              "type": "uint64_t",
+              "line": 19,
+              "index": 1
+            },
+            {
+              "name": "color",
+              "type": "enum rbt_node_color",
+              "line": 20,
+              "index": 2
+            },
+            {
+              "name": "*left",
+              "type": "struct rbt_node",
+              "line": 21,
+              "index": 3
+            },
+            {
+              "name": "*right",
+              "type": "struct rbt_node",
+              "line": 22,
+              "index": 4
+            },
+            {
+              "name": "*parent",
+              "type": "struct rbt_node",
+              "line": 23,
+              "index": 5
+            }
+          ],
+          "line": 18,
+          "start_byte": 586,
+          "end_byte": 739
+        },
+        {
+          "name": "rbt",
+          "members": [
+            {
+              "name": "*root",
+              "type": "struct rbt_node",
+              "line": 27,
+              "index": 1
+            }
+          ],
+          "line": 26,
+          "start_byte": 742,
+          "end_byte": 783
+        }
+      ],
+      "enums": [
+        {
+          "name": "rbt_node_color",
+          "members": [
+            {
+              "name": "TREE_NODE_RED",
+              "value": null,
+              "line": 16,
+              "index": 1
+            },
+            {
+              "name": "TREE_NODE_BLACK",
+              "value": null,
+              "line": 16,
+              "index": 3
+            }
+          ],
+          "line": 16,
+          "start_byte": 529,
+          "end_byte": 583
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

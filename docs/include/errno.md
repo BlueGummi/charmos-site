@@ -1,6 +1,10 @@
-# [include/errno.h](https://github.com/bluegummi/charmos/blob/main/include/errno.h)
++++
+title = "errno"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from errno.h, do not edit manually -->
+# [include/errno.h](https://github.com/bluegummi/charmos/blob/main/include/errno.h)
 
 ### enum [`errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6)
 

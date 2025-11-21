@@ -1,3 +1,7 @@
-# [include/mem/domain.h](https://github.com/bluegummi/charmos/blob/main/include/mem/domain.h)
++++
+title = "domain"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from domain.h, do not edit manually -->
+# [include/mem/domain.h](https://github.com/bluegummi/charmos/blob/main/include/mem/domain.h)

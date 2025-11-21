@@ -1,6 +1,10 @@
-# [kernel/sch/init.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/init.c)
++++
+title = "init"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from init.c, do not edit manually -->
+# [kernel/sch/init.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/init.c)
 
 - [`scheduler_init()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/init.c#L10) — `void scheduler_init(void)`
 

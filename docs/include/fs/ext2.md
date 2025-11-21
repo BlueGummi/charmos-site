@@ -1,6 +1,10 @@
-# [include/fs/ext2.h](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h)
++++
+title = "ext2"
+author = "Unknown"
+status = "unknown"
++++
 
-<!-- Auto-generated from ext2.h, do not edit manually -->
+# [include/fs/ext2.h](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h)
 
 ### struct [`ext2_sblock`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L106)
 
