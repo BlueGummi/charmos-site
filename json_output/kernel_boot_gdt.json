@@ -1,0 +1,125 @@
+{
+  "file": "charmos/kernel/boot/gdt.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "gdt_set_tss",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct gdt_entry_tss",
+            "name": "*tss_desc"
+          },
+          {
+            "type": "uint64_t",
+            "name": "base"
+          },
+          {
+            "type": "uint32_t",
+            "name": "limit"
+          }
+        ],
+        "qualifiers": [],
+        "line": 10
+      },
+      {
+        "name": "gdt_set_gate",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct gdt_entry",
+            "name": "*gdt"
+          },
+          {
+            "type": "int",
+            "name": "num"
+          },
+          {
+            "type": "uint64_t",
+            "name": "base"
+          },
+          {
+            "type": "uint32_t",
+            "name": "limit"
+          },
+          {
+            "type": "uint8_t",
+            "name": "access"
+          },
+          {
+            "type": "uint8_t",
+            "name": "gran"
+          }
+        ],
+        "qualifiers": [],
+        "line": 23
+      },
+      {
+        "name": "gdt_load",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct gdt_entry",
+            "name": "*gdt"
+          },
+          {
+            "type": "uint64_t",
+            "name": "n_entries"
+          }
+        ],
+        "qualifiers": [],
+        "line": 34
+      },
+      {
+        "name": "reload_segment_registers",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "cs_selector"
+          },
+          {
+            "type": "uint16_t",
+            "name": "ds_selector"
+          }
+        ],
+        "qualifiers": [],
+        "line": 42
+      },
+      {
+        "name": "gdt_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct gdt_entry",
+            "name": "*gdt"
+          },
+          {
+            "type": "struct tss",
+            "name": "*tss"
+          }
+        ],
+        "qualifiers": [],
+        "line": 61
+      },
+      {
+        "name": "gdt_install",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 90
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

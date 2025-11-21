@@ -1,0 +1,399 @@
+{
+  "file": "charmos/kernel/console/printf.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "serial_init",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 24
+      },
+      {
+        "name": "serial_is_transmit_empty",
+        "return_type": "int",
+        "parameters": [],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 40
+      },
+      {
+        "name": "serial_putc",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "c"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 44
+      },
+      {
+        "name": "serial_puts",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct printf_cursor",
+            "name": "*csr"
+          },
+          {
+            "type": "char",
+            "name": "*str"
+          },
+          {
+            "type": "int",
+            "name": "len"
+          }
+        ],
+        "qualifiers": [],
+        "line": 51
+      },
+      {
+        "name": "double_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct flanterm_context",
+            "name": "*f"
+          },
+          {
+            "type": "struct printf_cursor",
+            "name": "*csr"
+          },
+          {
+            "type": "char",
+            "name": "*str"
+          },
+          {
+            "type": "int",
+            "name": "len"
+          }
+        ],
+        "qualifiers": [],
+        "line": 65
+      },
+      {
+        "name": "k_printf_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct limine_framebuffer",
+            "name": "*fb"
+          }
+        ],
+        "qualifiers": [],
+        "line": 72
+      },
+      {
+        "name": "print_signed",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*buffer"
+          },
+          {
+            "type": "int64_t",
+            "name": "num"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 84
+      },
+      {
+        "name": "print_unsigned",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint64_t",
+            "name": "num"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 113
+      },
+      {
+        "name": "print_hex",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint64_t",
+            "name": "num"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 130
+      },
+      {
+        "name": "print_hex_upper",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint64_t",
+            "name": "num"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 148
+      },
+      {
+        "name": "print_binary",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint64_t",
+            "name": "num"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 165
+      },
+      {
+        "name": "print_octal",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint64_t",
+            "name": "num"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 186
+      },
+      {
+        "name": "apply_padding",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*str"
+          },
+          {
+            "type": "int",
+            "name": "len"
+          },
+          {
+            "type": "int",
+            "name": "width"
+          },
+          {
+            "type": "bool",
+            "name": "left_align"
+          },
+          {
+            "type": "bool",
+            "name": "zero_pad"
+          },
+          {
+            "type": "struct printf_cursor",
+            "name": "*csr"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 209
+      },
+      {
+        "name": "handle_format_specifier",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct printf_cursor",
+            "name": "*csr"
+          },
+          {
+            "type": "char",
+            "name": "**format_ptr"
+          },
+          {
+            "type": "va_list",
+            "name": "args"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 237
+      },
+      {
+        "name": "v_k_printf",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct printf_cursor",
+            "name": "*csr"
+          },
+          {
+            "type": "char",
+            "name": "*format"
+          },
+          {
+            "type": "va_list",
+            "name": "args"
+          }
+        ],
+        "qualifiers": [],
+        "line": 402
+      },
+      {
+        "name": "k_printf",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*format"
+          }
+        ],
+        "qualifiers": [],
+        "line": 419
+      },
+      {
+        "name": "snprintf",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*buffer"
+          },
+          {
+            "type": "int",
+            "name": "buffer_len"
+          },
+          {
+            "type": "char",
+            "name": "*format"
+          }
+        ],
+        "qualifiers": [],
+        "line": 434
+      },
+      {
+        "name": "panic",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*format"
+          }
+        ],
+        "qualifiers": [],
+        "line": 456
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "printf_cursor",
+          "members": [
+            {
+              "name": "*buffer",
+              "type": "char",
+              "line": 19,
+              "index": 1
+            },
+            {
+              "name": "buffer_len",
+              "type": "int",
+              "line": 20,
+              "index": 2
+            },
+            {
+              "name": "cursor",
+              "type": "int",
+              "line": 21,
+              "index": 3
+            }
+          ],
+          "line": 18,
+          "start_byte": 320,
+          "end_byte": 398
+        }
+      ],
+      "enums": [
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "LEN_NONE",
+              "value": null,
+              "line": 263,
+              "index": 1
+            },
+            {
+              "name": "LEN_HH",
+              "value": null,
+              "line": 263,
+              "index": 3
+            },
+            {
+              "name": "LEN_H",
+              "value": null,
+              "line": 263,
+              "index": 5
+            },
+            {
+              "name": "LEN_L",
+              "value": null,
+              "line": 263,
+              "index": 7
+            },
+            {
+              "name": "LEN_LL",
+              "value": null,
+              "line": 263,
+              "index": 9
+            },
+            {
+              "name": "LEN_Z",
+              "value": null,
+              "line": 263,
+              "index": 11
+            }
+          ],
+          "line": 263,
+          "start_byte": 6081,
+          "end_byte": 6135
+        }
+      ],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

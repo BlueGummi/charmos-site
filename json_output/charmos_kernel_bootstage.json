@@ -1,0 +1,25 @@
+{
+  "file": "charmos/kernel/bootstage.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "bootstage_advance",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "enum bootstage",
+            "name": "new"
+          }
+        ],
+        "qualifiers": [],
+        "line": 18
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

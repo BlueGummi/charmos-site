@@ -1,0 +1,154 @@
+{
+  "file": "charmos/kernel/block/sched/coalesce.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "set_coalesced",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bio_request",
+            "name": "*into"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*from"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 10
+      },
+      {
+        "name": "try_do_coalesce",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*into"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*from"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 16
+      },
+      {
+        "name": "try_merge_candidates",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*iter"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*start"
+          },
+          {
+            "type": "struct bio_rqueue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 27
+      },
+      {
+        "name": "check_higher_queue",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct bio_scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct bio_rqueue",
+            "name": "*higher"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*candidate"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 55
+      },
+      {
+        "name": "coalesce_adjacent_queues",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bio_rqueue",
+            "name": "*lower"
+          },
+          {
+            "type": "struct bio_rqueue",
+            "name": "*higher"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 73
+      },
+      {
+        "name": "coalesce_priority_queue",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bio_rqueue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 106
+      },
+      {
+        "name": "bio_sched_try_coalesce",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct bio_scheduler",
+            "name": "*sched"
+          }
+        ],
+        "qualifiers": [],
+        "line": 135
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

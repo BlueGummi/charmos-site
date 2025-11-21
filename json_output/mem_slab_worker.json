@@ -1,0 +1,61 @@
+{
+  "file": "charmos/kernel/mem/slab/worker.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "slab_background_work",
+        "return_type": "enum daemon_thread_command",
+        "parameters": [
+          {
+            "type": "struct daemon_work",
+            "name": "*work"
+          },
+          {
+            "type": "struct daemon_thread",
+            "name": "*thread"
+          },
+          {
+            "type": "void",
+            "name": "*a"
+          },
+          {
+            "type": "void",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [],
+        "line": 14
+      },
+      {
+        "name": "slab_domain_init_daemon",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          }
+        ],
+        "qualifiers": [],
+        "line": 23
+      },
+      {
+        "name": "slab_domain_init_workqueue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          }
+        ],
+        "qualifiers": [],
+        "line": 40
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

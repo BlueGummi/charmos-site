@@ -1,0 +1,578 @@
+{
+  "file": "charmos/kernel/sch/apc.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "thread_has_apcs",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 9
+      },
+      {
+        "name": "apc_type_bit",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "enum apc_type",
+            "name": "t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 13
+      },
+      {
+        "name": "apc_list_empty",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum apc_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 17
+      },
+      {
+        "name": "apc_list_del",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct apc",
+            "name": "*a"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 21
+      },
+      {
+        "name": "apc_add_tail",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "struct apc",
+            "name": "*a"
+          },
+          {
+            "type": "enum apc_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 25
+      },
+      {
+        "name": "apc_list_unset_bitmask",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum apc_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 30
+      },
+      {
+        "name": "apc_set_cancelled",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct apc",
+            "name": "*a"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 35
+      },
+      {
+        "name": "apc_unset_cancelled",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct apc",
+            "name": "*a"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 39
+      },
+      {
+        "name": "apc_is_cancelled",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct apc",
+            "name": "*a"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 43
+      },
+      {
+        "name": "thread_can_exec_special_apcs",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 47
+      },
+      {
+        "name": "thread_can_exec_kernel_apcs",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 53
+      },
+      {
+        "name": "thread_is_dying",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 58
+      },
+      {
+        "name": "thread_apc_sanity_check",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 63
+      },
+      {
+        "name": "apc_execute",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct apc",
+            "name": "*a"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 73
+      },
+      {
+        "name": "deliver_apc_type",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum apc_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 88
+      },
+      {
+        "name": "add_apc_to_thread",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "struct apc",
+            "name": "*a"
+          },
+          {
+            "type": "enum apc_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 111
+      },
+      {
+        "name": "thread_is_active",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 120
+      },
+      {
+        "name": "wake_if_waiting",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 127
+      },
+      {
+        "name": "apc_enqueue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "struct apc",
+            "name": "*a"
+          },
+          {
+            "type": "enum apc_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [],
+        "line": 138
+      },
+      {
+        "name": "apc_enqueue_event_apc",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "struct apc",
+            "name": "*a"
+          },
+          {
+            "type": "enum apc_event",
+            "name": "evt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 160
+      },
+      {
+        "name": "apc_unlink",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct apc",
+            "name": "*apc"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 179
+      },
+      {
+        "name": "try_cancel_from_list",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "struct apc",
+            "name": "*a"
+          },
+          {
+            "type": "enum apc_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 185
+      },
+      {
+        "name": "update_pending_mask",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum apc_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 201
+      },
+      {
+        "name": "apc_cancel",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct apc",
+            "name": "*a"
+          }
+        ],
+        "qualifiers": [],
+        "line": 206
+      },
+      {
+        "name": "apc_enqueue_on_curr",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct apc",
+            "name": "*a"
+          },
+          {
+            "type": "enum apc_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [],
+        "line": 229
+      },
+      {
+        "name": "apc_create",
+        "return_type": "struct apc *",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 233
+      },
+      {
+        "name": "apc_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct apc",
+            "name": "*a"
+          },
+          {
+            "type": "apc_func_t",
+            "name": "fn"
+          },
+          {
+            "type": "void",
+            "name": "*arg1"
+          },
+          {
+            "type": "void",
+            "name": "*arg2"
+          }
+        ],
+        "qualifiers": [],
+        "line": 237
+      },
+      {
+        "name": "thread_free_event_apcs",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 247
+      },
+      {
+        "name": "thread_set_recent_apc_event",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum apc_event",
+            "name": "event"
+          }
+        ],
+        "qualifiers": [],
+        "line": 260
+      },
+      {
+        "name": "thread_exec_event_apcs",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 264
+      },
+      {
+        "name": "thread_disable_special_apcs",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 281
+      },
+      {
+        "name": "thread_enable_special_apcs",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 285
+      },
+      {
+        "name": "thread_disable_kernel_apcs",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 290
+      },
+      {
+        "name": "thread_enable_kernel_apcs",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 294
+      },
+      {
+        "name": "thread_exec_apcs",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 299
+      },
+      {
+        "name": "thread_check_and_deliver_apcs",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 309
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

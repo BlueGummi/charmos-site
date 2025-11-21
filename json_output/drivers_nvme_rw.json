@@ -1,0 +1,366 @@
+{
+  "file": "charmos/kernel/drivers/nvme/rw.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "enqueue_request",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct nvme_device",
+            "name": "*dev"
+          },
+          {
+            "type": "struct nvme_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 18
+      },
+      {
+        "name": "nvme_bio_fill_prps",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct nvme_bio_data",
+            "name": "*data"
+          },
+          {
+            "type": "void",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint64_t",
+            "name": "size"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 28
+      },
+      {
+        "name": "nvme_setup_prps",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct nvme_command",
+            "name": "*cmd"
+          },
+          {
+            "type": "struct nvme_bio_data",
+            "name": "*data"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 49
+      },
+      {
+        "name": "rw_send_command",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct nvme_request",
+            "name": "*req"
+          },
+          {
+            "type": "uint8_t",
+            "name": "opc"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 74
+      },
+      {
+        "name": "rw_sync",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint16_t",
+            "name": "count"
+          },
+          {
+            "type": "async_fn",
+            "name": "function"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 122
+      },
+      {
+        "name": "rw_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cnt"
+          },
+          {
+            "type": "sync_fn",
+            "name": "function"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 145
+      },
+      {
+        "name": "rw_async_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct nvme_request",
+            "name": "*req"
+          },
+          {
+            "type": "async_fn",
+            "name": "function"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 164
+      },
+      {
+        "name": "nvme_read_sector",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint16_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 193
+      },
+      {
+        "name": "nvme_write_sector",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint16_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 198
+      },
+      {
+        "name": "nvme_read_sector_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cnt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 203
+      },
+      {
+        "name": "nvme_write_sector_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cnt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 208
+      },
+      {
+        "name": "nvme_read_sector_async",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct nvme_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [],
+        "line": 213
+      },
+      {
+        "name": "nvme_write_sector_async",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct nvme_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [],
+        "line": 218
+      },
+      {
+        "name": "nvme_write_sector_async_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct nvme_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [],
+        "line": 223
+      },
+      {
+        "name": "nvme_read_sector_async_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct nvme_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [],
+        "line": 228
+      },
+      {
+        "name": "nvme_send_nvme_req",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*d"
+          },
+          {
+            "type": "struct nvme_request",
+            "name": "*r"
+          }
+        ],
+        "qualifiers": [],
+        "line": 233
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "(*sync_fn)",
+          "type": "bool (struct generic_disk *, uint64_t, uint8_t *, uint16_t)",
+          "line": 15,
+          "start_byte": 281,
+          "end_byte": 359
+        },
+        {
+          "name": "(*async_fn)",
+          "type": "bool (struct generic_disk *, struct nvme_request *)",
+          "line": 16,
+          "start_byte": 360,
+          "end_byte": 431
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

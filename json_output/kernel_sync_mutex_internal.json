@@ -1,0 +1,137 @@
+{
+  "file": "charmos/kernel/sync/mutex_internal.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "mutex_get_owner",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mtx"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 13
+      },
+      {
+        "name": "mutex_make_lock_word",
+        "return_type": "uintptr_t",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*owner"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 17
+      },
+      {
+        "name": "mutex_make_unlocked_word",
+        "return_type": "uintptr_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 21
+      },
+      {
+        "name": "mutex_try_lock",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mtx"
+          },
+          {
+            "type": "struct thread",
+            "name": "*self"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 25
+      },
+      {
+        "name": "mutex_lock_word_unlock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mtx"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 53
+      },
+      {
+        "name": "mutex_set_waiter_bit",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mtx"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 58
+      },
+      {
+        "name": "mutex_unset_waiter_bit",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mtx"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 64
+      },
+      {
+        "name": "mutex_get_waiter_bit",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mtx"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 70
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

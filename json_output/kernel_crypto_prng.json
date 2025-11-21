@@ -1,0 +1,32 @@
+{
+  "file": "charmos/kernel/crypto/prng.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "prng_seed",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "seed"
+          }
+        ],
+        "qualifiers": [],
+        "line": 5
+      },
+      {
+        "name": "prng_next",
+        "return_type": "uint64_t",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 10
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

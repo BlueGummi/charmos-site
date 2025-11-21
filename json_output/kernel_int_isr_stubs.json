@@ -1,0 +1,12 @@
+{
+  "file": "charmos/kernel/int/isr_stubs.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

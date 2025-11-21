@@ -1,0 +1,115 @@
+{
+  "file": "charmos/kernel/sch/workqueue/queue.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "signal_callback",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 3
+      },
+      {
+        "name": "signal_worker",
+        "return_type": "enum workqueue_error",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 9
+      },
+      {
+        "name": "dequeue_oneshot_task",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          },
+          {
+            "type": "struct work",
+            "name": "*out"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 31
+      },
+      {
+        "name": "workqueue_enqueue_oneshot",
+        "return_type": "enum workqueue_error",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          },
+          {
+            "type": "work_function",
+            "name": "func"
+          },
+          {
+            "type": "struct work_args",
+            "name": "args"
+          }
+        ],
+        "qualifiers": [],
+        "line": 62
+      },
+      {
+        "name": "workqueue_dequeue_task",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          },
+          {
+            "type": "struct work",
+            "name": "**out"
+          },
+          {
+            "type": "struct work",
+            "name": "*oneshot_task"
+          }
+        ],
+        "qualifiers": [],
+        "line": 97
+      },
+      {
+        "name": "workqueue_enqueue",
+        "return_type": "enum workqueue_error",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          },
+          {
+            "type": "struct work",
+            "name": "*work"
+          }
+        ],
+        "qualifiers": [],
+        "line": 117
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

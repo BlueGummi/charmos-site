@@ -1,0 +1,210 @@
+{
+  "file": "charmos/kernel/fs/ext2/delete.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "free_block_visitor",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_inode",
+            "name": "*inode"
+          },
+          {
+            "type": "uint32_t",
+            "name": "depth"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*block_ptr"
+          },
+          {
+            "type": "void",
+            "name": "*user_data"
+          }
+        ],
+        "qualifiers": [],
+        "line": 18
+      },
+      {
+        "name": "unlink_callback",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_dir_entry",
+            "name": "*entry"
+          },
+          {
+            "type": "void",
+            "name": "*arg"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block_num"
+          },
+          {
+            "type": "uint32_t",
+            "name": "e"
+          },
+          {
+            "type": "uint32_t",
+            "name": "entry_offset"
+          }
+        ],
+        "qualifiers": [],
+        "line": 27
+      },
+      {
+        "name": "unlink_adjust_neighbors",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*block"
+          },
+          {
+            "type": "uint32_t",
+            "name": "offset"
+          },
+          {
+            "type": "uint32_t",
+            "name": "prev_offset"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 53
+      },
+      {
+        "name": "unlink_target_update",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_inode",
+            "name": "*target_inode"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 70
+      },
+      {
+        "name": "unlink_free_blocks",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_inode",
+            "name": "*target_inode"
+          },
+          {
+            "type": "uint32_t",
+            "name": "inode_num"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 75
+      },
+      {
+        "name": "ext2_unlink_file",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*dir_inode"
+          },
+          {
+            "type": "char",
+            "name": "*name"
+          },
+          {
+            "type": "bool",
+            "name": "free_blocks"
+          },
+          {
+            "type": "bool",
+            "name": "decrement_links"
+          }
+        ],
+        "qualifiers": [],
+        "line": 83
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "unlink_ctx",
+          "members": [
+            {
+              "name": "*name",
+              "type": "char",
+              "line": 10,
+              "index": 1
+            },
+            {
+              "name": "found",
+              "type": "bool",
+              "line": 11,
+              "index": 2
+            },
+            {
+              "name": "inode_num",
+              "type": "uint32_t",
+              "line": 12,
+              "index": 3
+            },
+            {
+              "name": "block_num",
+              "type": "uint32_t",
+              "line": 13,
+              "index": 4
+            },
+            {
+              "name": "entry_offset",
+              "type": "uint32_t",
+              "line": 14,
+              "index": 5
+            },
+            {
+              "name": "prev_offset",
+              "type": "uint32_t",
+              "line": 15,
+              "index": 6
+            }
+          ],
+          "line": 9,
+          "start_byte": 146,
+          "end_byte": 306
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

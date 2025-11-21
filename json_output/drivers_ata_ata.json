@@ -1,0 +1,93 @@
+{
+  "file": "charmos/kernel/drivers/ata/ata.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "ata_select_drive",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ata_drive",
+            "name": "*ata_drive"
+          }
+        ],
+        "qualifiers": [],
+        "line": 12
+      },
+      {
+        "name": "ata_soft_reset",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ata_drive",
+            "name": "*ata_drive"
+          }
+        ],
+        "qualifiers": [],
+        "line": 19
+      },
+      {
+        "name": "ata_identify",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ata_drive",
+            "name": "*ata_drive"
+          }
+        ],
+        "qualifiers": [],
+        "line": 39
+      },
+      {
+        "name": "ata_setup_drive",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ata_drive",
+            "name": "*ide"
+          },
+          {
+            "type": "struct pci_device",
+            "name": "*devices"
+          },
+          {
+            "type": "uint64_t",
+            "name": "count"
+          },
+          {
+            "type": "int",
+            "name": "channel"
+          },
+          {
+            "type": "bool",
+            "name": "is_slave"
+          }
+        ],
+        "qualifiers": [],
+        "line": 66
+      },
+      {
+        "name": "ata_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct pci_device",
+            "name": "*devices"
+          },
+          {
+            "type": "uint64_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 130
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

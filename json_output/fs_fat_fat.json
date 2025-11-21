@@ -1,0 +1,101 @@
+{
+  "file": "charmos/kernel/fs/fat/fat.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "fat_write_fsinfo",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 10
+      },
+      {
+        "name": "fat_first_data_sector",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 28
+      },
+      {
+        "name": "fat_cluster_to_lba",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          }
+        ],
+        "qualifiers": [],
+        "line": 40
+      },
+      {
+        "name": "fat_read_bpb",
+        "return_type": "struct fat_bpb *",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*drive"
+          },
+          {
+            "type": "enum fat_fstype",
+            "name": "*out_type"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*out_lba"
+          },
+          {
+            "type": "uint32_t",
+            "name": "base_lba"
+          }
+        ],
+        "qualifiers": [],
+        "line": 53
+      },
+      {
+        "name": "fat_g_mount",
+        "return_type": "struct vfs_node *",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*p"
+          }
+        ],
+        "qualifiers": [],
+        "line": 130
+      },
+      {
+        "name": "fat_g_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*d"
+          }
+        ],
+        "qualifiers": [],
+        "line": 215
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

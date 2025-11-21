@@ -1,0 +1,231 @@
+{
+  "file": "charmos/kernel/drivers/pci.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "pci_class_name",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "class_code"
+          },
+          {
+            "type": "uint8_t",
+            "name": "subclass"
+          }
+        ],
+        "qualifiers": [
+          "const"
+        ],
+        "line": 13
+      },
+      {
+        "name": "init_device",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct pci_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 39
+      },
+      {
+        "name": "pci_init_devices",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct pci_device",
+            "name": "*devices"
+          },
+          {
+            "type": "uint64_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 57
+      },
+      {
+        "name": "pci_scan_devices",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct pci_device",
+            "name": "**devices_out"
+          },
+          {
+            "type": "uint64_t",
+            "name": "*count_out"
+          }
+        ],
+        "qualifiers": [],
+        "line": 69
+      },
+      {
+        "name": "pci_find_capability",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "cap_id"
+          }
+        ],
+        "qualifiers": [],
+        "line": 149
+      },
+      {
+        "name": "pci_read_bar",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "device"
+          },
+          {
+            "type": "uint8_t",
+            "name": "function"
+          },
+          {
+            "type": "uint8_t",
+            "name": "bar_index"
+          }
+        ],
+        "qualifiers": [],
+        "line": 164
+      },
+      {
+        "name": "pci_read_bar64",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "bar_index"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 170
+      },
+      {
+        "name": "pci_program_msix_entry",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint32_t",
+            "name": "table_index"
+          },
+          {
+            "type": "uint8_t",
+            "name": "vector"
+          },
+          {
+            "type": "uint8_t",
+            "name": "apic_id"
+          }
+        ],
+        "qualifiers": [],
+        "line": 182
+      },
+      {
+        "name": "pci_enable_msix_on_core",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "uint8_t",
+            "name": "vector_index"
+          },
+          {
+            "type": "uint8_t",
+            "name": "apic_id"
+          }
+        ],
+        "qualifiers": [],
+        "line": 234
+      },
+      {
+        "name": "pci_enable_msix",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          }
+        ],
+        "qualifiers": [],
+        "line": 280
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

@@ -1,0 +1,49 @@
+{
+  "file": "charmos/kernel/sch/preempt.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "scheduler_preemption_disable",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 3
+      },
+      {
+        "name": "scheduler_preemption_enable",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 15
+      },
+      {
+        "name": "scheduler_preemption_disabled",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 34
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

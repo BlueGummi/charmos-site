@@ -1,0 +1,11 @@
+# [include/mem/slab.h](https://github.com/bluegummi/charmos/blob/main/include/mem/slab.h)
+
+<!-- Auto-generated from slab.h, do not edit manually -->
+
+### struct [`slab_size_constant`](https://github.com/bluegummi/charmos/blob/main/include/mem/slab.h#L7)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `char` | [`*name`](https://github.com/bluegummi/charmos/blob/main/include/mem/slab.h#L8) |
+| `size_t` | [`size`](https://github.com/bluegummi/charmos/blob/main/include/mem/slab.h#L9) |
+

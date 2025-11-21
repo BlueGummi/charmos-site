@@ -1,0 +1,25 @@
+{
+  "file": "charmos/kernel/sch/init.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "scheduler_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 10
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

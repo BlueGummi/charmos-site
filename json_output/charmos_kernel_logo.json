@@ -1,0 +1,12 @@
+{
+  "file": "charmos/kernel/logo.c",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

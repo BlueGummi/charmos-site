@@ -1,0 +1,121 @@
+{
+  "file": "charmos/kernel/smp/mp.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "detect_llc",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct topology_cache_info",
+            "name": "*llc"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 17
+      },
+      {
+        "name": "init_smt_info",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct core",
+            "name": "*c"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 44
+      },
+      {
+        "name": "setup_cpu",
+        "return_type": "struct core *",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "cpu"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 71
+      },
+      {
+        "name": "set_core_awake",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 87
+      },
+      {
+        "name": "smp_wakeup",
+        "return_type": "__no_sanitize_address",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 95
+      },
+      {
+        "name": "smp_wakeup_processors",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct limine_mp_response",
+            "name": "*mpr"
+          }
+        ],
+        "qualifiers": [],
+        "line": 123
+      },
+      {
+        "name": "smp_complete_init",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 128
+      },
+      {
+        "name": "smp_setup_bsp",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 139
+      },
+      {
+        "name": "smp_movealloc",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*a"
+          },
+          {
+            "type": "void",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 163
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

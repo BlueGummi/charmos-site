@@ -1,0 +1,127 @@
+{
+  "file": "charmos/kernel/mem/pmm.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "pmm_early_init",
+        "return_type": "__no_sanitize_address",
+        "parameters": [
+          {
+            "type": "struct limine_memmap_request",
+            "name": "m"
+          }
+        ],
+        "qualifiers": [],
+        "line": 21
+      },
+      {
+        "name": "pmm_mid_init",
+        "return_type": "__no_sanitize_address",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 66
+      },
+      {
+        "name": "pmm_late_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 72
+      },
+      {
+        "name": "pmm_alloc_page",
+        "return_type": "paddr_t",
+        "parameters": [
+          {
+            "type": "enum alloc_flags",
+            "name": "f"
+          }
+        ],
+        "qualifiers": [],
+        "line": 78
+      },
+      {
+        "name": "pmm_free_page",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "paddr_t",
+            "name": "addr"
+          }
+        ],
+        "qualifiers": [],
+        "line": 82
+      },
+      {
+        "name": "pmm_alloc_pages",
+        "return_type": "paddr_t",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "count"
+          },
+          {
+            "type": "enum alloc_flags",
+            "name": "f"
+          }
+        ],
+        "qualifiers": [],
+        "line": 86
+      },
+      {
+        "name": "pmm_free_pages",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "paddr_t",
+            "name": "addr"
+          },
+          {
+            "type": "uint64_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 90
+      },
+      {
+        "name": "pmm_get_usable_ram",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 94
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "(*alloc_fn)",
+          "type": "paddr_t (size_t pages, enum alloc_flags f)",
+          "line": 14,
+          "start_byte": 292,
+          "end_byte": 354
+        },
+        {
+          "name": "(*free_fn)",
+          "type": "void (paddr_t addr, size_t pages)",
+          "line": 16,
+          "start_byte": 356,
+          "end_byte": 408
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

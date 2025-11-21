@@ -1,0 +1,37 @@
+{
+  "file": "charmos/kernel/assert.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "__assert_fail",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*assertion"
+          },
+          {
+            "type": "char",
+            "name": "*file"
+          },
+          {
+            "type": "unsigned int",
+            "name": "line"
+          },
+          {
+            "type": "char",
+            "name": "*function"
+          }
+        ],
+        "qualifiers": [],
+        "line": 3
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

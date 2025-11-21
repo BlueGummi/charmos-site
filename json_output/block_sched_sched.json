@@ -1,0 +1,115 @@
+{
+  "file": "charmos/kernel/block/sched/sched.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "try_rq_reorder",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bio_scheduler",
+            "name": "*sched"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 8
+      },
+      {
+        "name": "bio_sched_tick",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*ctx"
+          },
+          {
+            "type": "void",
+            "name": "*unused"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 16
+      },
+      {
+        "name": "try_early_submit",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct bio_scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 36
+      },
+      {
+        "name": "bio_sched_enqueue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [],
+        "line": 48
+      },
+      {
+        "name": "bio_sched_dequeue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*req"
+          },
+          {
+            "type": "bool",
+            "name": "already_locked"
+          }
+        ],
+        "qualifiers": [],
+        "line": 77
+      },
+      {
+        "name": "bio_sched_create",
+        "return_type": "struct bio_scheduler *",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bio_scheduler_ops",
+            "name": "*ops"
+          }
+        ],
+        "qualifiers": [],
+        "line": 90
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

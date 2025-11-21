@@ -1,0 +1,23 @@
+# [include/sch/tid.h](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h)
+
+<!-- Auto-generated from tid.h, do not edit manually -->
+
+### struct [`tid_range`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L7)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct rbt_node`](https://github.com/bluegummi/charmos/blob/main/include/structures/rbt.h#L18) | [`node`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L8) |
+| `uint64_t` | [`start`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L9) |
+| `uint64_t` | [`length`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L10) |
+| [`struct tid_range`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L7) | [`*next`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L11) |
+
+
+### struct [`tid_space`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L14)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct rbt`](https://github.com/bluegummi/charmos/blob/main/include/structures/rbt.h#L26) | [`tree`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L15) |
+| [`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10) | [`lock`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L16) |
+| [`struct tid_range`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L7) | [`reserve_pool[TID_RANGE_RESERVE_COUNT]`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L17) |
+| [`struct tid_range`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L7) | [`*reserve_free`](https://github.com/bluegummi/charmos/blob/main/include/sch/tid.h#L18) |
+

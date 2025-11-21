@@ -1,0 +1,343 @@
+{
+  "file": "charmos/kernel/smp/topology.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "cpu_mask_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct cpu_mask",
+            "name": "*m"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 22
+      },
+      {
+        "name": "print_topology_node",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct topology_node",
+            "name": "*node"
+          },
+          {
+            "type": "int",
+            "name": "depth"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 43
+      },
+      {
+        "name": "cpu_mask_create",
+        "return_type": "struct cpu_mask *",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 89
+      },
+      {
+        "name": "cpu_mask_init",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct cpu_mask",
+            "name": "*m"
+          },
+          {
+            "type": "size_t",
+            "name": "nbits"
+          }
+        ],
+        "qualifiers": [],
+        "line": 93
+      },
+      {
+        "name": "cpu_mask_set",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct cpu_mask",
+            "name": "*m"
+          },
+          {
+            "type": "size_t",
+            "name": "cpu"
+          }
+        ],
+        "qualifiers": [],
+        "line": 110
+      },
+      {
+        "name": "cpu_mask_clear",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct cpu_mask",
+            "name": "*m"
+          },
+          {
+            "type": "size_t",
+            "name": "cpu"
+          }
+        ],
+        "qualifiers": [],
+        "line": 118
+      },
+      {
+        "name": "cpu_mask_test",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct cpu_mask",
+            "name": "*m"
+          },
+          {
+            "type": "size_t",
+            "name": "cpu"
+          }
+        ],
+        "qualifiers": [],
+        "line": 126
+      },
+      {
+        "name": "cpu_mask_or",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct cpu_mask",
+            "name": "*dst"
+          },
+          {
+            "type": "struct cpu_mask",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [],
+        "line": 134
+      },
+      {
+        "name": "cpu_mask_set_all",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct cpu_mask",
+            "name": "*m"
+          }
+        ],
+        "qualifiers": [],
+        "line": 144
+      },
+      {
+        "name": "cpu_mask_empty",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct cpu_mask",
+            "name": "*mask"
+          }
+        ],
+        "qualifiers": [],
+        "line": 154
+      },
+      {
+        "name": "topology_dump",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 166
+      },
+      {
+        "name": "build_smt_nodes",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "n_cpus"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 178
+      },
+      {
+        "name": "build_core_nodes",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "n_cpus"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 222
+      },
+      {
+        "name": "cpu_mask_intersects",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct cpu_mask",
+            "name": "*a"
+          },
+          {
+            "type": "struct cpu_mask",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 268
+      },
+      {
+        "name": "build_numa_nodes",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "n_cores"
+          },
+          {
+            "type": "size_t",
+            "name": "n_llc"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 297
+      },
+      {
+        "name": "build_llc_nodes",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "n_cores"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 367
+      },
+      {
+        "name": "build_package_nodes",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "n_cores"
+          },
+          {
+            "type": "size_t",
+            "name": "n_llc"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 453
+      },
+      {
+        "name": "build_machine_node",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "n_packages"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 497
+      },
+      {
+        "name": "topology_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 521
+      },
+      {
+        "name": "topology_get_smts_under_numa",
+        "return_type": "struct core * *",
+        "parameters": [
+          {
+            "type": "struct topology_node",
+            "name": "*numa"
+          },
+          {
+            "type": "size_t",
+            "name": "*count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 548
+      },
+      {
+        "name": "topology_mark_core_idle",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "cpu_id"
+          },
+          {
+            "type": "bool",
+            "name": "idle"
+          }
+        ],
+        "qualifiers": [],
+        "line": 582
+      },
+      {
+        "name": "topology_find_idle_core",
+        "return_type": "struct core *",
+        "parameters": [
+          {
+            "type": "struct core",
+            "name": "*local_core"
+          },
+          {
+            "type": "enum topology_level",
+            "name": "max_search"
+          }
+        ],
+        "qualifiers": [],
+        "line": 599
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

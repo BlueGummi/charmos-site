@@ -1,0 +1,121 @@
+{
+  "file": "charmos/kernel/crypto/entropy_pool.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "entropy_pool_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct entropy_pool",
+            "name": "*pool"
+          }
+        ],
+        "qualifiers": [],
+        "line": 14
+      },
+      {
+        "name": "entropy_pool_add",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct entropy_pool",
+            "name": "*pool"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*data"
+          },
+          {
+            "type": "uint64_t",
+            "name": "len"
+          },
+          {
+            "type": "uint64_t",
+            "name": "entropy_bits"
+          }
+        ],
+        "qualifiers": [],
+        "line": 21
+      },
+      {
+        "name": "entropy_pool_extract",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "struct entropy_pool",
+            "name": "*pool"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*out"
+          },
+          {
+            "type": "uint64_t",
+            "name": "len"
+          }
+        ],
+        "qualifiers": [],
+        "line": 37
+      },
+      {
+        "name": "entropy_pool_bits",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "struct entropy_pool",
+            "name": "*pool"
+          }
+        ],
+        "qualifiers": [],
+        "line": 63
+      },
+      {
+        "name": "entropy_pool_decrease",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct entropy_pool",
+            "name": "*pool"
+          },
+          {
+            "type": "uint64_t",
+            "name": "bits"
+          }
+        ],
+        "qualifiers": [],
+        "line": 70
+      },
+      {
+        "name": "entropy_pool_seed",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct entropy_pool",
+            "name": "*pool"
+          }
+        ],
+        "qualifiers": [],
+        "line": 79
+      },
+      {
+        "name": "entropy_pool_reseed",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct entropy_pool",
+            "name": "*pool"
+          }
+        ],
+        "qualifiers": [],
+        "line": 91
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

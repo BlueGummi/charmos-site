@@ -1,0 +1,291 @@
+{
+  "file": "charmos/kernel/mem/vmm.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "vmm_tlb_shootdown",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "vaddr_t",
+            "name": "addr"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 25
+      },
+      {
+        "name": "sub_offset",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "a"
+          }
+        ],
+        "qualifiers": [],
+        "line": 30
+      },
+      {
+        "name": "alloc_pt",
+        "return_type": "struct page_table *",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 34
+      },
+      {
+        "name": "vmm_make_user_pml4",
+        "return_type": "uintptr_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 44
+      },
+      {
+        "name": "vmm_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct limine_memmap_response",
+            "name": "*memmap"
+          },
+          {
+            "type": "struct limine_executable_address_response",
+            "name": "*xa"
+          }
+        ],
+        "qualifiers": [],
+        "line": 58
+      },
+      {
+        "name": "vmm_is_table_empty",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct page_table",
+            "name": "*table"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 132
+      },
+      {
+        "name": "pte_init",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "pte_t",
+            "name": "*entry"
+          },
+          {
+            "type": "uint64_t",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 140
+      },
+      {
+        "name": "page_table_lock",
+        "return_type": "enum irql",
+        "parameters": [
+          {
+            "type": "struct page_table",
+            "name": "*pt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 151
+      },
+      {
+        "name": "page_table_unlock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct page_table",
+            "name": "*pt"
+          },
+          {
+            "type": "enum irql",
+            "name": "irql"
+          }
+        ],
+        "qualifiers": [],
+        "line": 157
+      },
+      {
+        "name": "vmm_map_2mb_page",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "uintptr_t",
+            "name": "virt"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "phys"
+          },
+          {
+            "type": "uint64_t",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [],
+        "line": 163
+      },
+      {
+        "name": "vmm_unmap_2mb_page",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uintptr_t",
+            "name": "virt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 220
+      },
+      {
+        "name": "vmm_map_page",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "uintptr_t",
+            "name": "virt"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "phys"
+          },
+          {
+            "type": "uint64_t",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [],
+        "line": 278
+      },
+      {
+        "name": "vmm_map_page_user",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uintptr_t",
+            "name": "pml4_phys"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "virt"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "phys"
+          },
+          {
+            "type": "uint64_t",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [],
+        "line": 327
+      },
+      {
+        "name": "vmm_unmap_page",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uintptr_t",
+            "name": "virt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 351
+      },
+      {
+        "name": "vmm_get_phys",
+        "return_type": "uintptr_t",
+        "parameters": [
+          {
+            "type": "uintptr_t",
+            "name": "virt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 407
+      },
+      {
+        "name": "vmm_get_phys_unsafe",
+        "return_type": "uintptr_t",
+        "parameters": [
+          {
+            "type": "uintptr_t",
+            "name": "virt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 466
+      },
+      {
+        "name": "vmm_map_phys",
+        "return_type": "void *",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "addr"
+          },
+          {
+            "type": "uint64_t",
+            "name": "len"
+          },
+          {
+            "type": "uint64_t",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [],
+        "line": 506
+      },
+      {
+        "name": "vmm_unmap_virt",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*addr"
+          },
+          {
+            "type": "uint64_t",
+            "name": "len"
+          }
+        ],
+        "qualifiers": [],
+        "line": 529
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

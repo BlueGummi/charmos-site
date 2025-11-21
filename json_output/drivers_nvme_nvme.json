@@ -1,0 +1,83 @@
+{
+  "file": "charmos/kernel/drivers/nvme/nvme.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "nvme_discover_device",
+        "return_type": "struct nvme_device *",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          }
+        ],
+        "qualifiers": [],
+        "line": 19
+      },
+      {
+        "name": "nvme_print_wrapper",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*d"
+          }
+        ],
+        "qualifiers": [],
+        "line": 151
+      },
+      {
+        "name": "nvme_create_generic",
+        "return_type": "struct generic_disk *",
+        "parameters": [
+          {
+            "type": "struct nvme_device",
+            "name": "*nvme"
+          }
+        ],
+        "qualifiers": [],
+        "line": 184
+      },
+      {
+        "name": "nvme_pci_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "device"
+          },
+          {
+            "type": "uint8_t",
+            "name": "function"
+          },
+          {
+            "type": "struct pci_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 209
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

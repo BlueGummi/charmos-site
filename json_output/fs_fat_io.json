@@ -1,0 +1,233 @@
+{
+  "file": "charmos/kernel/fs/fat/io.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "fat_write_cluster",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buffer"
+          }
+        ],
+        "qualifiers": [],
+        "line": 17
+      },
+      {
+        "name": "fat_write_fat_entry",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "uint32_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [],
+        "line": 31
+      },
+      {
+        "name": "fat12_write_fat_entry",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "uint32_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 40
+      },
+      {
+        "name": "fat16_write_fat_entry",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "uint32_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 108
+      },
+      {
+        "name": "fat32_write_fat_entry",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "uint32_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 143
+      },
+      {
+        "name": "fat_read_cluster",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buffer"
+          }
+        ],
+        "qualifiers": [],
+        "line": 187
+      },
+      {
+        "name": "fat_read_fat_entry",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          }
+        ],
+        "qualifiers": [],
+        "line": 199
+      },
+      {
+        "name": "fat12_read_fat_entry",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 208
+      },
+      {
+        "name": "fat16_read_fat_entry",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 250
+      },
+      {
+        "name": "fat32_read_fat_entry",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 271
+      },
+      {
+        "name": "fat_write_dirent",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "dir_cluster"
+          },
+          {
+            "type": "struct fat_dirent",
+            "name": "*dirent_to_write"
+          },
+          {
+            "type": "uint32_t",
+            "name": "entry_index"
+          }
+        ],
+        "qualifiers": [],
+        "line": 292
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

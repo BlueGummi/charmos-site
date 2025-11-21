@@ -1,0 +1,146 @@
+{
+  "file": "charmos/kernel/fs/ext2/create.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "link_callback",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_dir_entry",
+            "name": "*entry"
+          },
+          {
+            "type": "void",
+            "name": "*ctx_ptr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block_num"
+          },
+          {
+            "type": "uint32_t",
+            "name": "e"
+          },
+          {
+            "type": "uint32_t",
+            "name": "o"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 16
+      },
+      {
+        "name": "ext2_link_file",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*dir"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*inode"
+          },
+          {
+            "type": "char",
+            "name": "*name"
+          },
+          {
+            "type": "uint8_t",
+            "name": "type"
+          },
+          {
+            "type": "bool",
+            "name": "increment_links"
+          }
+        ],
+        "qualifiers": [],
+        "line": 52
+      },
+      {
+        "name": "ext2_create_file",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*parent_dir"
+          },
+          {
+            "type": "char",
+            "name": "*name"
+          },
+          {
+            "type": "uint16_t",
+            "name": "mode"
+          },
+          {
+            "type": "bool",
+            "name": "increment"
+          }
+        ],
+        "qualifiers": [],
+        "line": 100
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "link_ctx",
+          "members": [
+            {
+              "name": "*name",
+              "type": "char",
+              "line": 9,
+              "index": 1
+            },
+            {
+              "name": "inode",
+              "type": "uint32_t",
+              "line": 10,
+              "index": 2
+            },
+            {
+              "name": "dir_inode",
+              "type": "uint32_t",
+              "line": 11,
+              "index": 3
+            },
+            {
+              "name": "type",
+              "type": "uint8_t",
+              "line": 12,
+              "index": 4
+            },
+            {
+              "name": "success",
+              "type": "bool",
+              "line": 13,
+              "index": 5
+            }
+          ],
+          "line": 8,
+          "start_byte": 128,
+          "end_byte": 249
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

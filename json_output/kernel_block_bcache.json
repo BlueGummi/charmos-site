@@ -1,0 +1,492 @@
+{
+  "file": "charmos/kernel/block/bcache.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "insert",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          },
+          {
+            "type": "uint64_t",
+            "name": "key"
+          },
+          {
+            "type": "struct bcache_entry",
+            "name": "*value"
+          },
+          {
+            "type": "bool",
+            "name": "already_locked"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 25
+      },
+      {
+        "name": "get",
+        "return_type": "struct bcache_entry *",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          },
+          {
+            "type": "uint64_t",
+            "name": "key"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 66
+      },
+      {
+        "name": "can_remove_lba_group",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          },
+          {
+            "type": "uint64_t",
+            "name": "base_lba"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 85
+      },
+      {
+        "name": "remove",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          },
+          {
+            "type": "uint64_t",
+            "name": "key"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 112
+      },
+      {
+        "name": "prefetch_callback",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bio_request",
+            "name": "*bio"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 159
+      },
+      {
+        "name": "prefetch",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint64_t",
+            "name": "block_size"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 167
+      },
+      {
+        "name": "evict",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 201
+      },
+      {
+        "name": "stat",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          },
+          {
+            "type": "uint64_t",
+            "name": "*total_dirty_out"
+          },
+          {
+            "type": "uint64_t",
+            "name": "*total_present_out"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 237
+      },
+      {
+        "name": "write",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*d"
+          },
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          },
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 266
+      },
+      {
+        "name": "write_enqueue_cb",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bio_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 279
+      },
+      {
+        "name": "write_queue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*d"
+          },
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          },
+          {
+            "type": "enum bio_request_priority",
+            "name": "prio"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 289
+      },
+      {
+        "name": "bcache_destroy",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          }
+        ],
+        "qualifiers": [],
+        "line": 304
+      },
+      {
+        "name": "bcache_get",
+        "return_type": "void *",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint64_t",
+            "name": "block_size"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          },
+          {
+            "type": "bool",
+            "name": "no_evict"
+          },
+          {
+            "type": "struct bcache_entry",
+            "name": "**out_entry"
+          }
+        ],
+        "qualifiers": [],
+        "line": 324
+      },
+      {
+        "name": "bcache_insert",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          }
+        ],
+        "qualifiers": [],
+        "line": 339
+      },
+      {
+        "name": "bcache_evict",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          }
+        ],
+        "qualifiers": [],
+        "line": 349
+      },
+      {
+        "name": "bcache_writethrough",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          }
+        ],
+        "qualifiers": [],
+        "line": 353
+      },
+      {
+        "name": "bcache_write_queue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bcache_entry",
+            "name": "*ent"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          },
+          {
+            "type": "enum bio_request_priority",
+            "name": "prio"
+          }
+        ],
+        "qualifiers": [],
+        "line": 358
+      },
+      {
+        "name": "bcache_stat",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "*total_dirty_out"
+          },
+          {
+            "type": "uint64_t",
+            "name": "*total_present_out"
+          }
+        ],
+        "qualifiers": [],
+        "line": 363
+      },
+      {
+        "name": "bcache_create_ent",
+        "return_type": "void *",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint64_t",
+            "name": "block_size"
+          },
+          {
+            "type": "uint64_t",
+            "name": "sectors_per_block"
+          },
+          {
+            "type": "bool",
+            "name": "no_evict"
+          },
+          {
+            "type": "struct bcache_entry",
+            "name": "**out_entry"
+          }
+        ],
+        "qualifiers": [],
+        "line": 369
+      },
+      {
+        "name": "bcache_prefetch_async",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint64_t",
+            "name": "block_size"
+          },
+          {
+            "type": "uint64_t",
+            "name": "spb"
+          }
+        ],
+        "qualifiers": [],
+        "line": 406
+      },
+      {
+        "name": "bcache_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bcache",
+            "name": "*cache"
+          },
+          {
+            "type": "uint64_t",
+            "name": "capacity"
+          }
+        ],
+        "qualifiers": [],
+        "line": 411
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "bcache_pf_data",
+          "members": [
+            {
+              "name": "*new_entry",
+              "type": "struct bcache_entry",
+              "line": 155,
+              "index": 1
+            },
+            {
+              "name": "*cache",
+              "type": "struct bcache",
+              "line": 156,
+              "index": 2
+            }
+          ],
+          "line": 154,
+          "start_byte": 4448,
+          "end_byte": 4535
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

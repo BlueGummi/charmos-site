@@ -1,0 +1,43 @@
+{
+  "file": "charmos/kernel/pit.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "pit_read_count",
+        "return_type": "uint16_t",
+        "parameters": [],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 8
+      },
+      {
+        "name": "pit_wait_until_zero",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 17
+      },
+      {
+        "name": "measure_tsc_freq_pit",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 26
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

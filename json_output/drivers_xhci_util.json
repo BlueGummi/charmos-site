@@ -1,0 +1,93 @@
+{
+  "file": "charmos/kernel/drivers/xhci/util.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "xhci_map_mmio",
+        "return_type": "void *",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          }
+        ],
+        "qualifiers": [],
+        "line": 13
+      },
+      {
+        "name": "xhci_device_create",
+        "return_type": "struct xhci_device *",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*mmio"
+          }
+        ],
+        "qualifiers": [],
+        "line": 26
+      },
+      {
+        "name": "xhci_controller_stop",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct xhci_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [],
+        "line": 46
+      },
+      {
+        "name": "xhci_controller_reset",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct xhci_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [],
+        "line": 61
+      },
+      {
+        "name": "xhci_controller_start",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct xhci_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [],
+        "line": 77
+      },
+      {
+        "name": "xhci_controller_enable_ints",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct xhci_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [],
+        "line": 93
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

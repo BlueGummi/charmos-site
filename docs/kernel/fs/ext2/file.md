@@ -1,0 +1,22 @@
+# [kernel/fs/ext2/file.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c)
+
+<!-- Auto-generated from file.c, do not edit manually -->
+
+### struct [`file_read_ctx`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L67)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215) | [`*fs`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L68) |
+| [`struct ext2_inode`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L178) | [`*inode`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L69) |
+| `uint32_t` | [`offset`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L70) |
+| `uint32_t` | [`length`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L71) |
+| `uint8_t` | [`*buffer`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L72) |
+| `uint32_t` | [`bytes_read`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L73) |
+
+
+- [`ext2_write_file()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L7) — [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6)`ext2_write_file(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,[`struct ext2_full_inode`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L201)` *inode`,`uint32_t offset`,`uint8_t *src`,`uint32_t size)`
+- [`file_read_visitor()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L76) — `static void file_read_visitor(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,[`struct ext2_inode`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L178)` *inode`,`uint32_t depth`,`uint32_t *block_ptr`,`void *user_data)`
+- [`ext2_read_file()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L113) — [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6)`ext2_read_file(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,[`struct ext2_full_inode`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L201)` *inode`,`uint32_t offset`,`uint8_t *buffer`,`uint64_t length)`
+- [`ext2_chmod()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L137) — [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6)`ext2_chmod(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,[`struct ext2_full_inode`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L201)` *node`,`uint16_t new_mode)`
+- [`ext2_chown()`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/file.c#L151) — [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6)`ext2_chown(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,[`struct ext2_full_inode`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L201)` *node`,`uint32_t new_uid`,`uint32_t new_gid)`
+

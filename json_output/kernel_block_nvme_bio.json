@@ -1,0 +1,43 @@
+{
+  "file": "charmos/kernel/block/nvme_bio.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "nvme_on_bio_complete",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct nvme_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 11
+      },
+      {
+        "name": "nvme_submit_bio_request",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct bio_request",
+            "name": "*bio"
+          }
+        ],
+        "qualifiers": [],
+        "line": 26
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

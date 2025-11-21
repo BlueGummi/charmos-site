@@ -1,0 +1,165 @@
+{
+  "file": "charmos/kernel/fs/detect.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "detect_fstr",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "enum fs_type",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [
+          "const"
+        ],
+        "line": 16
+      },
+      {
+        "name": "dummy_mount",
+        "return_type": "struct vfs_node *",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*p"
+          }
+        ],
+        "qualifiers": [],
+        "line": 33
+      },
+      {
+        "name": "dummy_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*p"
+          }
+        ],
+        "qualifiers": [],
+        "line": 38
+      },
+      {
+        "name": "make_partition",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*part"
+          },
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "start_lba"
+          },
+          {
+            "type": "uint64_t",
+            "name": "sector_count"
+          },
+          {
+            "type": "uint8_t",
+            "name": "idx"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 43
+      },
+      {
+        "name": "detect_mbr_partitions",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*sector"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 57
+      },
+      {
+        "name": "detect_gpt_partitions",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*sector"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 91
+      },
+      {
+        "name": "detect_partition_fs",
+        "return_type": "enum fs_type",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "struct generic_partition",
+            "name": "*part"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*sector"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 141
+      },
+      {
+        "name": "assign_fs_ops",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*part"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 185
+      },
+      {
+        "name": "detect_fs",
+        "return_type": "enum fs_type",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          }
+        ],
+        "qualifiers": [],
+        "line": 198
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

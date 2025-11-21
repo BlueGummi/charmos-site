@@ -1,0 +1,20 @@
+# [include/bootstage.h](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h)
+
+<!-- Auto-generated from bootstage.h, do not edit manually -->
+
+### enum [`bootstage`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L4)
+
+| Name | Value |
+|------|-------|
+| [`BOOTSTAGE_EARLY_FB`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L5) | `None` |
+| [`BOOTSTAGE_EARLY_MP`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L7) | `None` |
+| [`BOOTSTAGE_EARLY_ALLOCATORS`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L9) | `None` |
+| [`BOOTSTAGE_EARLY_DEVICES`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L12) | `None` |
+| [`BOOTSTAGE_MID_SCHEDULER`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L14) | `None` |
+| [`BOOTSTAGE_MID_MP`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L16) | `None` |
+| [`BOOTSTAGE_MID_TOPOLOGY`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L18) | `None` |
+| [`BOOTSTAGE_MID_ALLOCATORS`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L20) | `None` |
+| [`BOOTSTAGE_LATE_DEVICES`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L22) | `None` |
+| [`BOOTSTAGE_COMPLETE`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L26) | `None` |
+| [`BOOTSTAGE_COUNT`](https://github.com/bluegummi/charmos/blob/main/include/bootstage.h#L28) | `None` |
+

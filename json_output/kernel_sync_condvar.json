@@ -1,0 +1,260 @@
+{
+  "file": "charmos/kernel/sync/condvar.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "condvar_lock_internal",
+        "return_type": "enum irql",
+        "parameters": [
+          {
+            "type": "struct condvar",
+            "name": "*cv"
+          },
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 4
+      },
+      {
+        "name": "do_block_on_queue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread_queue",
+            "name": "*q"
+          },
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          },
+          {
+            "type": "enum irql",
+            "name": "irql"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 12
+      },
+      {
+        "name": "condvar_wait",
+        "return_type": "enum wake_reason",
+        "parameters": [
+          {
+            "type": "struct condvar",
+            "name": "*cv"
+          },
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          },
+          {
+            "type": "enum irql",
+            "name": "irql"
+          },
+          {
+            "type": "enum irql",
+            "name": "*out"
+          }
+        ],
+        "qualifiers": [],
+        "line": 19
+      },
+      {
+        "name": "condvar_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct condvar",
+            "name": "*cv"
+          },
+          {
+            "type": "bool",
+            "name": "irq_disable"
+          }
+        ],
+        "qualifiers": [],
+        "line": 31
+      },
+      {
+        "name": "set_wake_reason_and_wake",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum wake_reason",
+            "name": "reason"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 36
+      },
+      {
+        "name": "nop_callback",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*unused"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 49
+      },
+      {
+        "name": "condvar_signal_callback",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct condvar",
+            "name": "*cv"
+          },
+          {
+            "type": "thread_action_callback",
+            "name": "tac"
+          }
+        ],
+        "qualifiers": [],
+        "line": 53
+      },
+      {
+        "name": "condvar_signal",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct condvar",
+            "name": "*cv"
+          }
+        ],
+        "qualifiers": [],
+        "line": 61
+      },
+      {
+        "name": "condvar_broadcast_callback",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct condvar",
+            "name": "*cv"
+          },
+          {
+            "type": "thread_action_callback",
+            "name": "tac"
+          }
+        ],
+        "qualifiers": [],
+        "line": 65
+      },
+      {
+        "name": "condvar_broadcast",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct condvar",
+            "name": "*cv"
+          }
+        ],
+        "qualifiers": [],
+        "line": 74
+      },
+      {
+        "name": "condvar_timeout_wakeup",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*arg"
+          },
+          {
+            "type": "void",
+            "name": "*arg2"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 85
+      },
+      {
+        "name": "condvar_wait_timeout",
+        "return_type": "enum wake_reason",
+        "parameters": [
+          {
+            "type": "struct condvar",
+            "name": "*cv"
+          },
+          {
+            "type": "struct spinlock",
+            "name": "*lock"
+          },
+          {
+            "type": "time_t",
+            "name": "timeout_ms"
+          },
+          {
+            "type": "enum irql",
+            "name": "irql"
+          },
+          {
+            "type": "enum irql",
+            "name": "*out"
+          }
+        ],
+        "qualifiers": [],
+        "line": 105
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "condvar_with_cb",
+          "members": [
+            {
+              "name": "*cv",
+              "type": "struct condvar",
+              "line": 79,
+              "index": 1
+            },
+            {
+              "name": "cb",
+              "type": "condvar_callback",
+              "line": 80,
+              "index": 2
+            },
+            {
+              "name": "*cb_arg",
+              "type": "void",
+              "line": 81,
+              "index": 3
+            },
+            {
+              "name": "cookie",
+              "type": "size_t",
+              "line": 82,
+              "index": 4
+            }
+          ],
+          "line": 78,
+          "start_byte": 2270,
+          "end_byte": 2382
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

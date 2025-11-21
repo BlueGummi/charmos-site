@@ -1,0 +1,69 @@
+{
+  "file": "charmos/kernel/fs/ext2/truncate.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "blocks_per_indirection",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 13
+      },
+      {
+        "name": "clear_block_pointer",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_inode",
+            "name": "*inode"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block_index"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 17
+      },
+      {
+        "name": "ext2_truncate_file",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*inode"
+          },
+          {
+            "type": "uint32_t",
+            "name": "new_size"
+          }
+        ],
+        "qualifiers": [],
+        "line": 102
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

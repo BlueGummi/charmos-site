@@ -1,0 +1,77 @@
+{
+  "file": "charmos/kernel/fs/ext2/ext2.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "ext2_read_superblock",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*p"
+          },
+          {
+            "type": "struct ext2_sblock",
+            "name": "*sblock"
+          }
+        ],
+        "qualifiers": [],
+        "line": 11
+      },
+      {
+        "name": "ext2_write_superblock",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 33
+      },
+      {
+        "name": "ext2_write_group_desc",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 37
+      },
+      {
+        "name": "ext2_g_mount",
+        "return_type": "struct vfs_node *",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*p"
+          }
+        ],
+        "qualifiers": [],
+        "line": 41
+      },
+      {
+        "name": "ext2_g_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*p"
+          }
+        ],
+        "qualifiers": [],
+        "line": 63
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

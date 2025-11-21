@@ -1,0 +1,139 @@
+{
+  "file": "charmos/kernel/fs/ext2/util.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "ext2_get_block",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block_num"
+          },
+          {
+            "type": "uint32_t",
+            "name": "depth"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block_index"
+          },
+          {
+            "type": "uint32_t",
+            "name": "new_block_num"
+          },
+          {
+            "type": "bool",
+            "name": "allocate"
+          },
+          {
+            "type": "bool",
+            "name": "*was_allocated"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 6
+      },
+      {
+        "name": "ext2_get_or_set_block",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_inode",
+            "name": "*inode"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block_index"
+          },
+          {
+            "type": "uint32_t",
+            "name": "new_block_num"
+          },
+          {
+            "type": "bool",
+            "name": "allocate"
+          },
+          {
+            "type": "bool",
+            "name": "*was_allocated"
+          }
+        ],
+        "qualifiers": [],
+        "line": 71
+      },
+      {
+        "name": "ext2_init_inode",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_inode",
+            "name": "*new_inode"
+          },
+          {
+            "type": "uint16_t",
+            "name": "mode"
+          }
+        ],
+        "qualifiers": [],
+        "line": 123
+      },
+      {
+        "name": "ext2_init_dirent",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_dir_entry",
+            "name": "*new_entry"
+          },
+          {
+            "type": "uint32_t",
+            "name": "inode_num"
+          },
+          {
+            "type": "char",
+            "name": "*name"
+          },
+          {
+            "type": "uint8_t",
+            "name": "type"
+          }
+        ],
+        "qualifiers": [],
+        "line": 135
+      },
+      {
+        "name": "ext2_extract_ftype",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "mode"
+          }
+        ],
+        "qualifiers": [],
+        "line": 144
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

@@ -1,0 +1,157 @@
+{
+  "file": "charmos/kernel/mem/buddy/init.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "pfn_usable_from_memmap",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "pfn"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 13
+      },
+      {
+        "name": "is_block_free",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "pfn"
+          },
+          {
+            "type": "uint64_t",
+            "name": "order"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 31
+      },
+      {
+        "name": "order_base_2",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "x"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 48
+      },
+      {
+        "name": "buddy_add_to_free_area",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct page",
+            "name": "*page"
+          },
+          {
+            "type": "struct free_area",
+            "name": "*area"
+          }
+        ],
+        "qualifiers": [],
+        "line": 52
+      },
+      {
+        "name": "buddy_remove_from_free_area",
+        "return_type": "struct page *",
+        "parameters": [
+          {
+            "type": "struct free_area",
+            "name": "*area"
+          }
+        ],
+        "qualifiers": [],
+        "line": 59
+      },
+      {
+        "name": "buddy_add_entry",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct page",
+            "name": "*page_array"
+          },
+          {
+            "type": "struct limine_memmap_entry",
+            "name": "*entry"
+          },
+          {
+            "type": "struct free_area",
+            "name": "*farea"
+          }
+        ],
+        "qualifiers": [],
+        "line": 70
+      },
+      {
+        "name": "fast_memset",
+        "return_type": "void *",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*dst"
+          },
+          {
+            "type": "int",
+            "name": "c"
+          },
+          {
+            "type": "size_t",
+            "name": "n"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 111
+      },
+      {
+        "name": "mid_init_buddy",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "pages_needed"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 137
+      },
+      {
+        "name": "buddy_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 168
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

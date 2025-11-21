@@ -1,0 +1,400 @@
+{
+  "file": "charmos/kernel/sch/sched.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "tick_disable",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 93
+      },
+      {
+        "name": "tick_enable",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 101
+      },
+      {
+        "name": "change_timeslice_duration",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "new_duration"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 109
+      },
+      {
+        "name": "scheduler_change_timeslice_duration",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "new_duration"
+          }
+        ],
+        "qualifiers": [],
+        "line": 122
+      },
+      {
+        "name": "update_core_current_thread",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*next"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 126
+      },
+      {
+        "name": "update_thread_before_save",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*thread"
+          },
+          {
+            "type": "time_t",
+            "name": "time"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 130
+      },
+      {
+        "name": "thread_done_for_period",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*thread"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 139
+      },
+      {
+        "name": "re_enqueue_thread",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct thread",
+            "name": "*thread"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 144
+      },
+      {
+        "name": "update_idle_thread",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "time_t",
+            "name": "time"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 164
+      },
+      {
+        "name": "update_min_steal_diff",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 169
+      },
+      {
+        "name": "save_thread",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct thread",
+            "name": "*curr"
+          },
+          {
+            "type": "time_t",
+            "name": "time"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 174
+      },
+      {
+        "name": "available_prio_level_from_bitmap",
+        "return_type": "enum thread_prio_class",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bitmap"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 188
+      },
+      {
+        "name": "pick_from_special_queues",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "enum thread_prio_class",
+            "name": "prio"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 193
+      },
+      {
+        "name": "pick_from_regular_queues",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "time_t",
+            "name": "now_ms"
+          },
+          {
+            "type": "enum thread_prio_class",
+            "name": "prio"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 209
+      },
+      {
+        "name": "pick_thread",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "time_t",
+            "name": "now_ms"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 225
+      },
+      {
+        "name": "load_thread",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct thread",
+            "name": "*next"
+          },
+          {
+            "type": "time_t",
+            "name": "time"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 246
+      },
+      {
+        "name": "load_idle_thread",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 269
+      },
+      {
+        "name": "change_timeslice",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct thread",
+            "name": "*next"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 289
+      },
+      {
+        "name": "context_switch",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct thread",
+            "name": "*curr"
+          },
+          {
+            "type": "struct thread",
+            "name": "*next"
+          },
+          {
+            "type": "enum irql",
+            "name": "irql"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 306
+      },
+      {
+        "name": "schedule",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 326
+      },
+      {
+        "name": "scheduler_yield",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 359
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": [
+    {
+      "path": "charmos/kernel/sch/sched.c",
+      "name": "Turnstiles",
+      "size": "big",
+      "start_line": 9,
+      "end_line": 72,
+      "raw_text": "/*\n * # Big Idea: Turnstiles (EXPERIMENTAL)\n *\n * # Alerts: This is still EXPERIMENTAL. Be wary of bugs that may be from this component.\n *\n * # Credits: Eleanor Semaphore\n *\n * # Audience: Synchronization subsystem authors and others interested. not necessary to read.\n *\n * # Overview: Turnstiles give us pointer sized adaptive mutexes (see \"Locking Philosophy\" [^1])...\n *\n * # Background: Turnstiles were invented by Solaris, and are used in FreeBSD and XNU...\n *\n * # Summary: Turnstiles give us a unified structure with functionalities... this functionality is provided by turnstile_block()...\n *\n * # API: Turnstiles expose these functions, use them like such...\n *\n * # Interactions: Turnstiles are used in our mutex implementation and are not to be used on their own outside of tests...\n *\n * # Constraints: Turnstiles must be efficient and avoid taking the slow blocking path too frequently...\n *\n * # Errors: Turnstiles don't \"fail\", but these things can...\n *\n * # Rationale: Turnstiles spin when the owner is running because it avoids a slowpath...\n *\n * # Diagrams:\n *\n * -- note: diagrams should have the 3 grave stones preceding and following them. this is omitted\n * ```\n * here because this document is also in markdown and that would interfere with this.\n *\n *                  Diagram A: Turnstile Donation\n *\n *              turnstile       ┌────────────┐      no existing\n *              ┌─exists────────│   Block    │───────turnstile┐\n *              │               └────────────┘                │\n *              │                                             │\n *              │                                             │\n *              │                                             │\n *              ▼                                             ▼\n *  ┌─────────────────────────┐                      ┌──────────────────┐\n *  │Add Turnstile to freelist│                      │ Donate Turnstile │\n *  └─────────────────────────┘                      └──────────────────┘\n * ```\n *\n * # Bugs:\n *   #44 \"missed wakeup\"\n *\n *\n * # Tests:\n *   `./kernel/tests/turnstile.c` - general turnstile tests\n *   `./kernel/tests/mutex.c` - general mutex tests that use turnstiles\n *\n * # References: [^1] \"Locking Philosophy\" `./docs/locking_idea.md`\n *\n * # Changelog:\n *   09/02/2005 - Eleanor Semaphore: Added second queue for rwlocks (commit 0b4e)\n *   09/01/2005 - Eleanor Semaphore: Created Idea (commit 62ef)\n *\n * # Notes:\n *   Here is some stuff you might be interested in reading regarding the history of turnstiles\n *\n */",
+      "content_md": "# Big Idea\nTurnstiles (EXPERIMENTAL)\n# Alerts\nThis is still EXPERIMENTAL. Be wary of bugs that may be from this component.\n# Credits\nEleanor Semaphore\n# Audience\nSynchronization subsystem authors and others interested. not necessary to read.\n# Overview\nTurnstiles give us pointer sized adaptive mutexes (see \"Locking Philosophy\" [^1])...\n# Background\nTurnstiles were invented by Solaris, and are used in FreeBSD and XNU...\n# Summary\nTurnstiles give us a unified structure with functionalities... this functionality is provided by turnstile_block()...\n# API\nTurnstiles expose these functions, use them like such...\n# Interactions\nTurnstiles are used in our mutex implementation and are not to be used on their own outside of tests...\n# Constraints\nTurnstiles must be efficient and avoid taking the slow blocking path too frequently...\n# Errors\nTurnstiles don't \"fail\", but these things can...\n# Rationale\nTurnstiles spin when the owner is running because it avoids a slowpath...\n# Diagrams\n-- note: diagrams should have the 3 grave stones preceding and following them. this is omitted\n```\nhere because this document is also in markdown and that would interfere with this.\n                 Diagram A: Turnstile Donation\n             turnstile       ┌────────────┐      no existing\n             ┌─exists────────│   Block    │───────turnstile┐\n             │               └────────────┘                │\n             │                                             │\n             │                                             │\n             │                                             │\n             ▼                                             ▼\n ┌─────────────────────────┐                      ┌──────────────────┐\n │Add Turnstile to freelist│                      │ Donate Turnstile │\n └─────────────────────────┘                      └──────────────────┘\n```\n# Bugs\n  #44 \"missed wakeup\"\n# Tests\n  `./kernel/tests/turnstile.c` - general turnstile tests\n  `./kernel/tests/mutex.c` - general mutex tests that use turnstiles\n# References\n[^1] \"Locking Philosophy\" `./docs/locking_idea.md`\n# Changelog\n  09/02/2005 - Eleanor Semaphore: Added second queue for rwlocks (commit 0b4e)\n  09/01/2005 - Eleanor Semaphore: Created Idea (commit 62ef)\n# Notes\n  Here is some stuff you might be interested in reading regarding the history of turnstiles",
+      "metadata": {
+        "name": null,
+        "status": null,
+        "author": null
+      },
+      "references": {
+        "functions": [
+          {
+            "name": "schedule",
+            "start_idx": 5028,
+            "end_idx": 5040,
+            "line": 209
+          }
+        ],
+        "files": [
+          {
+            "name": "./kernel/tests/turnstile.c",
+            "start_idx": 1902,
+            "end_idx": 1928
+          },
+          {
+            "name": "./kernel/tests/mutex.c",
+            "start_idx": 1959,
+            "end_idx": 1981
+          },
+          {
+            "name": "./docs/locking_idea.md",
+            "start_idx": 2065,
+            "end_idx": 2087
+          }
+        ],
+        "bugs": [],
+        "commits": [],
+        "idea_refs": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# [include/mem/numa.h](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h)
+
+<!-- Auto-generated from numa.h, do not edit manually -->
+
+### struct [`numa_node`](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h#L6)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct topology_node`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L43) | [`*topo`](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h#L7) |
+| `uint64_t` | [`mem_base`](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h#L8) |
+| `uint64_t` | [`mem_size`](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h#L9) |
+| `uint64_t` | [`distances_cnt`](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h#L11) |
+| `uint8_t` | [`*distance`](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h#L12) |
+

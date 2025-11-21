@@ -1,0 +1,53 @@
+{
+  "file": "charmos/kernel/mem/domain/free_queue.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "domain_free_queue_enqueue",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct domain_free_queue",
+            "name": "*fq"
+          },
+          {
+            "type": "paddr_t",
+            "name": "addr"
+          },
+          {
+            "type": "size_t",
+            "name": "pages"
+          }
+        ],
+        "qualifiers": [],
+        "line": 10
+      },
+      {
+        "name": "domain_free_queue_dequeue",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct domain_free_queue",
+            "name": "*fq"
+          },
+          {
+            "type": "paddr_t",
+            "name": "*addr_out"
+          },
+          {
+            "type": "size_t",
+            "name": "*pages_out"
+          }
+        ],
+        "qualifiers": [],
+        "line": 30
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

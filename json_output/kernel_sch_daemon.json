@@ -1,0 +1,457 @@
+{
+  "file": "charmos/kernel/sch/daemon.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "current_daemon_thread",
+        "return_type": "struct daemon_thread *",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 6
+      },
+      {
+        "name": "mark_daemon_thread_executing",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct daemon_thread",
+            "name": "*thread"
+          },
+          {
+            "type": "bool",
+            "name": "state"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 10
+      },
+      {
+        "name": "total_ts_workers",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 15
+      },
+      {
+        "name": "idle_ts_workers",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 19
+      },
+      {
+        "name": "max_ts_workers",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 23
+      },
+      {
+        "name": "bg_present",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 27
+      },
+      {
+        "name": "set_bg_present",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          },
+          {
+            "type": "bool",
+            "name": "state"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 31
+      },
+      {
+        "name": "ts_busy",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*d"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 35
+      },
+      {
+        "name": "daemon_list_add",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          },
+          {
+            "type": "struct daemon_thread",
+            "name": "*thread"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 40
+      },
+      {
+        "name": "daemon_list_del",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          },
+          {
+            "type": "struct daemon_thread",
+            "name": "*thread"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 47
+      },
+      {
+        "name": "daemon_thread_exit",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          },
+          {
+            "type": "struct daemon_thread",
+            "name": "*self"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 54
+      },
+      {
+        "name": "daemon_needs_spawn_worker",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*d"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 70
+      },
+      {
+        "name": "work_on_thread",
+        "return_type": "struct daemon_work *",
+        "parameters": [
+          {
+            "type": "struct daemon_thread",
+            "name": "*thread"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 76
+      },
+      {
+        "name": "daemon_work_execute",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon_work",
+            "name": "*w"
+          },
+          {
+            "type": "struct daemon_thread",
+            "name": "*self"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 81
+      },
+      {
+        "name": "daemon_wait",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          },
+          {
+            "type": "struct daemon_thread",
+            "name": "*self"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 94
+      },
+      {
+        "name": "daemon_main",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 108
+      },
+      {
+        "name": "daemon_thread_create",
+        "return_type": "struct daemon_thread *",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [],
+        "line": 138
+      },
+      {
+        "name": "daemon_thread_create_bg",
+        "return_type": "struct daemon_thread *",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 159
+      },
+      {
+        "name": "daemon_thread_spawn",
+        "return_type": "struct daemon_thread *",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          },
+          {
+            "type": "struct daemon_thread",
+            "name": "*(*create)(struct daemon *)"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 169
+      },
+      {
+        "name": "daemon_thread_destroy_unsafe",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon_thread",
+            "name": "*dt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 190
+      },
+      {
+        "name": "daemon_create",
+        "return_type": "struct daemon *",
+        "parameters": [
+          {
+            "type": "struct daemon_attributes",
+            "name": "*attrs"
+          },
+          {
+            "type": "struct daemon_work",
+            "name": "*timesharing_work"
+          },
+          {
+            "type": "struct daemon_work",
+            "name": "*background_work"
+          },
+          {
+            "type": "struct workqueue_attributes",
+            "name": "*wq_attrs"
+          },
+          {
+            "type": "char",
+            "name": "*fmt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 195
+      },
+      {
+        "name": "boost_bg_thread_to_ts",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 281
+      },
+      {
+        "name": "daemon_destroy",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [],
+        "line": 288
+      },
+      {
+        "name": "daemon_spawn_worker",
+        "return_type": "struct daemon_thread *",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [],
+        "line": 326
+      },
+      {
+        "name": "daemon_submit_oneshot_work",
+        "return_type": "enum workqueue_error",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          },
+          {
+            "type": "work_function",
+            "name": "function"
+          },
+          {
+            "type": "struct work_args",
+            "name": "args"
+          }
+        ],
+        "qualifiers": [],
+        "line": 334
+      },
+      {
+        "name": "daemon_submit_work",
+        "return_type": "enum workqueue_error",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          },
+          {
+            "type": "struct work",
+            "name": "*work"
+          }
+        ],
+        "qualifiers": [],
+        "line": 342
+      },
+      {
+        "name": "daemon_wake_background_worker",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [],
+        "line": 349
+      },
+      {
+        "name": "daemon_wake_timesharing_worker",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [],
+        "line": 353
+      },
+      {
+        "name": "daemon_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct daemon",
+            "name": "*daemon"
+          }
+        ],
+        "qualifiers": [],
+        "line": 360
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

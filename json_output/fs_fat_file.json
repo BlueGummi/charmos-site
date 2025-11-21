@@ -1,0 +1,69 @@
+{
+  "file": "charmos/kernel/fs/fat/file.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "fat_read_file",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct fat_dirent",
+            "name": "*ent"
+          },
+          {
+            "type": "uint32_t",
+            "name": "offset"
+          },
+          {
+            "type": "uint32_t",
+            "name": "size"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*out_buf"
+          }
+        ],
+        "qualifiers": [],
+        "line": 7
+      },
+      {
+        "name": "fat_write_file",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct fat_dirent",
+            "name": "*ent"
+          },
+          {
+            "type": "uint32_t",
+            "name": "offset"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*data"
+          },
+          {
+            "type": "uint32_t",
+            "name": "size"
+          }
+        ],
+        "qualifiers": [],
+        "line": 60
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

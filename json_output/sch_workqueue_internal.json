@@ -1,0 +1,250 @@
+{
+  "file": "charmos/kernel/sch/workqueue/internal.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "workqueue_current_worker_count",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*q"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 23
+      },
+      {
+        "name": "workqueue_works_empty",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 27
+      },
+      {
+        "name": "workqueue_empty",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 34
+      },
+      {
+        "name": "workqueue_set_needs_spawn",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          },
+          {
+            "type": "bool",
+            "name": "needs"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 38
+      },
+      {
+        "name": "workqueue_needs_spawn",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 43
+      },
+      {
+        "name": "workqueue_get",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 47
+      },
+      {
+        "name": "workqueue_put",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 51
+      },
+      {
+        "name": "worklist_get",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct worklist",
+            "name": "*wlist"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 56
+      },
+      {
+        "name": "worklist_put",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct worklist",
+            "name": "*wlist"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 60
+      },
+      {
+        "name": "workqueue_add_worker",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*wq"
+          },
+          {
+            "type": "struct worker",
+            "name": "*wker"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 67
+      },
+      {
+        "name": "workqueue_remove_worker",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*wq"
+          },
+          {
+            "type": "struct worker",
+            "name": "*worker"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 74
+      },
+      {
+        "name": "ignore_timeouts",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*q"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 81
+      },
+      {
+        "name": "workqueue_usable",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*q"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 85
+      },
+      {
+        "name": "workqueue_workers",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*wq"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 89
+      },
+      {
+        "name": "workqueue_idlers",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct workqueue",
+            "name": "*wq"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 93
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

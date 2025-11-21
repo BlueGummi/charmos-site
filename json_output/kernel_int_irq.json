@@ -1,0 +1,49 @@
+{
+  "file": "charmos/kernel/int/irq.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "irq_mark_self_in_interrupt",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "bool",
+            "name": "new"
+          }
+        ],
+        "qualifiers": [],
+        "line": 3
+      },
+      {
+        "name": "irq_in_interrupt",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 7
+      },
+      {
+        "name": "irq_in_thread_context",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 11
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

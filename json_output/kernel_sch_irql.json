@@ -1,0 +1,49 @@
+{
+  "file": "charmos/kernel/sch/irql.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "irql_get",
+        "return_type": "enum irql",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 5
+      },
+      {
+        "name": "irql_raise",
+        "return_type": "enum irql",
+        "parameters": [
+          {
+            "type": "enum irql",
+            "name": "new_level"
+          }
+        ],
+        "qualifiers": [],
+        "line": 9
+      },
+      {
+        "name": "irql_lower",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "enum irql",
+            "name": "new_level"
+          }
+        ],
+        "qualifiers": [],
+        "line": 37
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

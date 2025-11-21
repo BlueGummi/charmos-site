@@ -1,0 +1,52 @@
+{
+  "file": "charmos/kernel/tests/mem.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "mt_kmalloc_worker",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 122
+      },
+      {
+        "name": "stress_worker",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 288
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "stress_arg",
+          "members": [
+            {
+              "name": "id",
+              "type": "int",
+              "line": 282,
+              "index": 1
+            },
+            {
+              "name": "*done_flag",
+              "type": "int",
+              "line": 283,
+              "index": 2
+            }
+          ],
+          "line": 281,
+          "start_byte": 8477,
+          "end_byte": 8539
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

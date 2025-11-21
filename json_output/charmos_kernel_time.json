@@ -1,0 +1,179 @@
+{
+  "file": "charmos/kernel/time.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "time_print_unix",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint32_t",
+            "name": "timestamp"
+          }
+        ],
+        "qualifiers": [],
+        "line": 13
+      },
+      {
+        "name": "time_print_current",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 53
+      },
+      {
+        "name": "is_leap",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "int",
+            "name": "year"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 57
+      },
+      {
+        "name": "days_in_month",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "int",
+            "name": "year"
+          },
+          {
+            "type": "int",
+            "name": "month"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 61
+      },
+      {
+        "name": "datetime_to_unix",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "int",
+            "name": "year"
+          },
+          {
+            "type": "int",
+            "name": "month"
+          },
+          {
+            "type": "int",
+            "name": "day"
+          },
+          {
+            "type": "int",
+            "name": "hour"
+          },
+          {
+            "type": "int",
+            "name": "minute"
+          },
+          {
+            "type": "int",
+            "name": "second"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 68
+      },
+      {
+        "name": "cmos_read",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "reg"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 89
+      },
+      {
+        "name": "is_updating",
+        "return_type": "bool",
+        "parameters": [],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 94
+      },
+      {
+        "name": "bcd_to_bin",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bcd"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 99
+      },
+      {
+        "name": "time_get_unix",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 125
+      },
+      {
+        "name": "time_get_ms",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 131
+      },
+      {
+        "name": "time_get_us",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 135
+      },
+      {
+        "name": "tsc_calibrate",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 158
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

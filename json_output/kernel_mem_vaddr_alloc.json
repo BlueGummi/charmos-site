@@ -1,0 +1,123 @@
+{
+  "file": "charmos/kernel/mem/vaddr_alloc.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "vasrange_refill",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct vas_space",
+            "name": "*space"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 11
+      },
+      {
+        "name": "vasrange_alloc",
+        "return_type": "struct vas_range *",
+        "parameters": [
+          {
+            "type": "struct vas_space",
+            "name": "*space"
+          }
+        ],
+        "qualifiers": [],
+        "line": 26
+      },
+      {
+        "name": "vasrange_free",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct vas_space",
+            "name": "*space"
+          },
+          {
+            "type": "struct vas_range",
+            "name": "*r"
+          }
+        ],
+        "qualifiers": [],
+        "line": 36
+      },
+      {
+        "name": "vas_space_bootstrap",
+        "return_type": "vas_space *",
+        "parameters": [
+          {
+            "type": "vaddr_t",
+            "name": "base"
+          },
+          {
+            "type": "vaddr_t",
+            "name": "limit"
+          }
+        ],
+        "qualifiers": [],
+        "line": 42
+      },
+      {
+        "name": "vas_space_init",
+        "return_type": "struct vas_space *",
+        "parameters": [
+          {
+            "type": "vaddr_t",
+            "name": "base"
+          },
+          {
+            "type": "vaddr_t",
+            "name": "limit"
+          }
+        ],
+        "qualifiers": [],
+        "line": 61
+      },
+      {
+        "name": "vas_alloc",
+        "return_type": "vaddr_t",
+        "parameters": [
+          {
+            "type": "struct vas_space",
+            "name": "*vas"
+          },
+          {
+            "type": "size_t",
+            "name": "size"
+          },
+          {
+            "type": "size_t",
+            "name": "align"
+          }
+        ],
+        "qualifiers": [],
+        "line": 73
+      },
+      {
+        "name": "vas_free",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct vas_space",
+            "name": "*vas"
+          },
+          {
+            "type": "vaddr_t",
+            "name": "addr"
+          }
+        ],
+        "qualifiers": [],
+        "line": 110
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

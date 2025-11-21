@@ -1,0 +1,235 @@
+{
+  "file": "charmos/kernel/mem/domain/free.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "try_push_page_onto_arena",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct domain_arena",
+            "name": "*arena"
+          },
+          {
+            "type": "paddr_t",
+            "name": "address"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 6
+      },
+      {
+        "name": "try_push_page_onto_domain_arenas",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*domain"
+          },
+          {
+            "type": "paddr_t",
+            "name": "address"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 12
+      },
+      {
+        "name": "free_from_local_domain_buddy",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*local"
+          },
+          {
+            "type": "paddr_t",
+            "name": "address"
+          },
+          {
+            "type": "size_t",
+            "name": "page_count"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 28
+      },
+      {
+        "name": "free_from_remote_domain_buddy",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*remote"
+          },
+          {
+            "type": "paddr_t",
+            "name": "address"
+          },
+          {
+            "type": "size_t",
+            "name": "page_count"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 55
+      },
+      {
+        "name": "domain_first_arena",
+        "return_type": "struct domain_arena *",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*domain"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 71
+      },
+      {
+        "name": "get_next_domain_arena",
+        "return_type": "struct domain_arena *",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*domain"
+          },
+          {
+            "type": "size_t",
+            "name": "*current_arena_idx"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 76
+      },
+      {
+        "name": "find_non_full_arena",
+        "return_type": "struct domain_arena *",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*domain"
+          },
+          {
+            "type": "size_t",
+            "name": "*current_arena_idx"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 85
+      },
+      {
+        "name": "compute_min_elements_to_free",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*domain"
+          },
+          {
+            "type": "struct domain_free_queue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 98
+      },
+      {
+        "name": "flush_free_queue_internal",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*domain"
+          },
+          {
+            "type": "struct domain_free_queue",
+            "name": "*queue"
+          },
+          {
+            "type": "size_t",
+            "name": "minimum_to_free"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 115
+      },
+      {
+        "name": "domain_flush_free_queue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*domain"
+          },
+          {
+            "type": "struct domain_free_queue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [],
+        "line": 166
+      },
+      {
+        "name": "domain_free",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "paddr_t",
+            "name": "address"
+          },
+          {
+            "type": "size_t",
+            "name": "page_count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 179
+      },
+      {
+        "name": "domain_flush_thread",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 200
+      },
+      {
+        "name": "domain_enqueue_flush_worker",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_flush_worker",
+            "name": "*worker"
+          }
+        ],
+        "qualifiers": [],
+        "line": 212
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

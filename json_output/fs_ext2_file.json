@@ -1,0 +1,188 @@
+{
+  "file": "charmos/kernel/fs/ext2/file.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "ext2_write_file",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*inode"
+          },
+          {
+            "type": "uint32_t",
+            "name": "offset"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*src"
+          },
+          {
+            "type": "uint32_t",
+            "name": "size"
+          }
+        ],
+        "qualifiers": [],
+        "line": 7
+      },
+      {
+        "name": "file_read_visitor",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_inode",
+            "name": "*inode"
+          },
+          {
+            "type": "uint32_t",
+            "name": "depth"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*block_ptr"
+          },
+          {
+            "type": "void",
+            "name": "*user_data"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 76
+      },
+      {
+        "name": "ext2_read_file",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*inode"
+          },
+          {
+            "type": "uint32_t",
+            "name": "offset"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buffer"
+          },
+          {
+            "type": "uint64_t",
+            "name": "length"
+          }
+        ],
+        "qualifiers": [],
+        "line": 113
+      },
+      {
+        "name": "ext2_chmod",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*node"
+          },
+          {
+            "type": "uint16_t",
+            "name": "new_mode"
+          }
+        ],
+        "qualifiers": [],
+        "line": 137
+      },
+      {
+        "name": "ext2_chown",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*node"
+          },
+          {
+            "type": "uint32_t",
+            "name": "new_uid"
+          },
+          {
+            "type": "uint32_t",
+            "name": "new_gid"
+          }
+        ],
+        "qualifiers": [],
+        "line": 151
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "file_read_ctx",
+          "members": [
+            {
+              "name": "*fs",
+              "type": "struct ext2_fs",
+              "line": 68,
+              "index": 1
+            },
+            {
+              "name": "*inode",
+              "type": "struct ext2_inode",
+              "line": 69,
+              "index": 2
+            },
+            {
+              "name": "offset",
+              "type": "uint32_t",
+              "line": 70,
+              "index": 3
+            },
+            {
+              "name": "length",
+              "type": "uint32_t",
+              "line": 71,
+              "index": 4
+            },
+            {
+              "name": "*buffer",
+              "type": "uint8_t",
+              "line": 72,
+              "index": 5
+            },
+            {
+              "name": "bytes_read",
+              "type": "uint32_t",
+              "line": 73,
+              "index": 6
+            }
+          ],
+          "line": 67,
+          "start_byte": 1986,
+          "end_byte": 2152
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

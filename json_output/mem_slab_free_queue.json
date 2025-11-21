@@ -1,0 +1,281 @@
+{
+  "file": "charmos/kernel/mem/slab/free_queue.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "slab_free_queue_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          },
+          {
+            "type": "struct slab_free_queue",
+            "name": "*q"
+          },
+          {
+            "type": "size_t",
+            "name": "capacity"
+          }
+        ],
+        "qualifiers": [],
+        "line": 13
+      },
+      {
+        "name": "slab_free_queue_ringbuffer_enqueue",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue",
+            "name": "*q"
+          },
+          {
+            "type": "vaddr_t",
+            "name": "addr"
+          }
+        ],
+        "qualifiers": [],
+        "line": 33
+      },
+      {
+        "name": "slab_free_queue_ringbuffer_dequeue",
+        "return_type": "vaddr_t",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue",
+            "name": "*q"
+          }
+        ],
+        "qualifiers": [],
+        "line": 65
+      },
+      {
+        "name": "slab_free_queue_list_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue_list",
+            "name": "*list"
+          }
+        ],
+        "qualifiers": [],
+        "line": 96
+      },
+      {
+        "name": "slab_free_queue_list_empty",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue_list",
+            "name": "*q"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 103
+      },
+      {
+        "name": "free_queue_list_add_internal",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue_list",
+            "name": "*q"
+          },
+          {
+            "type": "struct slab_free_queue_list_node",
+            "name": "*n"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 107
+      },
+      {
+        "name": "slab_free_queue_detach_list",
+        "return_type": "struct slab_free_queue_list_node *",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [],
+        "line": 122
+      },
+      {
+        "name": "slab_free_queue_enqueue_chain",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue",
+            "name": "*queue"
+          },
+          {
+            "type": "struct slab_free_queue_list",
+            "name": "*chain"
+          }
+        ],
+        "qualifiers": [],
+        "line": 137
+      },
+      {
+        "name": "slab_free_queue_list_enqueue",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue",
+            "name": "*q"
+          },
+          {
+            "type": "vaddr_t",
+            "name": "addr"
+          }
+        ],
+        "qualifiers": [],
+        "line": 149
+      },
+      {
+        "name": "slab_free_queue_list_dequeue",
+        "return_type": "vaddr_t",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue",
+            "name": "*q"
+          }
+        ],
+        "qualifiers": [],
+        "line": 163
+      },
+      {
+        "name": "slab_free_queue_enqueue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue",
+            "name": "*q"
+          },
+          {
+            "type": "vaddr_t",
+            "name": "addr"
+          }
+        ],
+        "qualifiers": [],
+        "line": 187
+      },
+      {
+        "name": "slab_free_queue_dequeue",
+        "return_type": "vaddr_t",
+        "parameters": [
+          {
+            "type": "struct slab_free_queue",
+            "name": "*q"
+          }
+        ],
+        "qualifiers": [],
+        "line": 192
+      },
+      {
+        "name": "page_is_pageable",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct page",
+            "name": "*page"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 202
+      },
+      {
+        "name": "slab_free_queue_drain",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab_percpu_cache",
+            "name": "*cache"
+          },
+          {
+            "type": "struct slab_free_queue",
+            "name": "*queue"
+          },
+          {
+            "type": "size_t",
+            "name": "target"
+          },
+          {
+            "type": "bool",
+            "name": "flush_to_cache"
+          }
+        ],
+        "qualifiers": [],
+        "line": 219
+      },
+      {
+        "name": "slab_free_queue_flush",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          },
+          {
+            "type": "struct slab_free_queue",
+            "name": "*queue"
+          }
+        ],
+        "qualifiers": [],
+        "line": 275
+      },
+      {
+        "name": "slab_free_queue_get_target_drain",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          },
+          {
+            "type": "size_t",
+            "name": "pct"
+          }
+        ],
+        "qualifiers": [],
+        "line": 298
+      },
+      {
+        "name": "slab_free_queue_drain_limited",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab_percpu_cache",
+            "name": "*pc"
+          },
+          {
+            "type": "struct slab_domain",
+            "name": "*dom"
+          },
+          {
+            "type": "size_t",
+            "name": "pct"
+          }
+        ],
+        "qualifiers": [],
+        "line": 309
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

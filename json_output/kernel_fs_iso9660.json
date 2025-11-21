@@ -1,0 +1,183 @@
+{
+  "file": "charmos/kernel/fs/iso9660.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "iso9660_read_file",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct iso9660_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint32_t",
+            "name": "size"
+          },
+          {
+            "type": "void",
+            "name": "*out_buf"
+          }
+        ],
+        "qualifiers": [],
+        "line": 11
+      },
+      {
+        "name": "iso9660_parse_pvd",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*p"
+          },
+          {
+            "type": "struct iso9660_pvd",
+            "name": "*out_pvd"
+          }
+        ],
+        "qualifiers": [],
+        "line": 23
+      },
+      {
+        "name": "print_str",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*label"
+          },
+          {
+            "type": "char",
+            "name": "*src"
+          },
+          {
+            "type": "uint64_t",
+            "name": "len"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 53
+      },
+      {
+        "name": "iso9660_pvd_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct iso9660_pvd",
+            "name": "*pvd"
+          }
+        ],
+        "qualifiers": [],
+        "line": 60
+      },
+      {
+        "name": "iso9660_mount",
+        "return_type": "struct vfs_node *",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*p"
+          }
+        ],
+        "qualifiers": [],
+        "line": 84
+      },
+      {
+        "name": "iso9660_ls",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct iso9660_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint32_t",
+            "name": "size"
+          }
+        ],
+        "qualifiers": [],
+        "line": 107
+      },
+      {
+        "name": "iso9660_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_partition",
+            "name": "*disk"
+          }
+        ],
+        "qualifiers": [],
+        "line": 151
+      },
+      {
+        "name": "iso9660_find",
+        "return_type": "struct iso9660_dir_record *",
+        "parameters": [
+          {
+            "type": "struct iso9660_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "char",
+            "name": "*target_name"
+          },
+          {
+            "type": "uint32_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint32_t",
+            "name": "size"
+          }
+        ],
+        "qualifiers": [],
+        "line": 163
+      },
+      {
+        "name": "iso9660_read_and_print_file",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct iso9660_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "char",
+            "name": "*name"
+          }
+        ],
+        "qualifiers": [],
+        "line": 210
+      },
+      {
+        "name": "iso9660_get_current_date",
+        "return_type": "struct iso9660_datetime",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 241
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

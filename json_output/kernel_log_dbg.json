@@ -1,0 +1,59 @@
+{
+  "file": "charmos/kernel/log/dbg.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "find_symbol",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "addr"
+          },
+          {
+            "type": "uint64_t",
+            "name": "*out_sym_addr"
+          }
+        ],
+        "qualifiers": [
+          "const"
+        ],
+        "line": 8
+      },
+      {
+        "name": "debug_print_stack",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 25
+      },
+      {
+        "name": "debug_print_memory",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*addr"
+          },
+          {
+            "type": "uint64_t",
+            "name": "size"
+          }
+        ],
+        "qualifiers": [],
+        "line": 63
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

@@ -1,0 +1,87 @@
+{
+  "file": "charmos/kernel/drivers/ahci/ahci.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "ahci_discover_device",
+        "return_type": "struct ahci_disk *",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "device"
+          },
+          {
+            "type": "uint8_t",
+            "name": "function"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*out_disk_count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 12
+      },
+      {
+        "name": "ahci_print_wrapper",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*d"
+          }
+        ],
+        "qualifiers": [],
+        "line": 54
+      },
+      {
+        "name": "ahci_create_generic",
+        "return_type": "struct generic_disk *",
+        "parameters": [
+          {
+            "type": "struct ahci_disk",
+            "name": "*disk"
+          }
+        ],
+        "qualifiers": [],
+        "line": 84
+      },
+      {
+        "name": "ahci_pci_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bus"
+          },
+          {
+            "type": "uint8_t",
+            "name": "slot"
+          },
+          {
+            "type": "uint8_t",
+            "name": "func"
+          },
+          {
+            "type": "struct pci_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 109
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

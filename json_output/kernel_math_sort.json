@@ -1,0 +1,156 @@
+{
+  "file": "charmos/kernel/math/sort.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "heapsort",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*vbase"
+          },
+          {
+            "type": "size_t",
+            "name": "nmemb"
+          },
+          {
+            "type": "size_t",
+            "name": "size"
+          },
+          {
+            "type": "int",
+            "name": "(*compar)(const void *, const void *)"
+          }
+        ],
+        "qualifiers": [],
+        "line": 126
+      },
+      {
+        "name": "swapfunc",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*a"
+          },
+          {
+            "type": "char",
+            "name": "*b"
+          },
+          {
+            "type": "size_t",
+            "name": "n"
+          },
+          {
+            "type": "size_t",
+            "name": "swaptype"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 212
+      },
+      {
+        "name": "med3",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*a"
+          },
+          {
+            "type": "char",
+            "name": "*b"
+          },
+          {
+            "type": "char",
+            "name": "*c"
+          },
+          {
+            "type": "cmp_t",
+            "name": "*cmp"
+          },
+          {
+            "type": "void",
+            "name": "*thunk"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 239
+      },
+      {
+        "name": "flsl_like",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "unsigned long",
+            "name": "x"
+          }
+        ],
+        "qualifiers": [],
+        "line": 249
+      },
+      {
+        "name": "_qsort",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*a"
+          },
+          {
+            "type": "size_t",
+            "name": "n"
+          },
+          {
+            "type": "size_t",
+            "name": "es"
+          },
+          {
+            "type": "I_AM_QSORT_R",
+            "name": "*thunk"
+          },
+          {
+            "type": "thunk",
+            "name": "*cmp"
+          },
+          {
+            "type": "int",
+            "name": "depth_limit"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 261
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "cmp_t",
+          "type": "int (void *, void *, void *)",
+          "line": 180,
+          "start_byte": 8613,
+          "end_byte": 8667
+        },
+        {
+          "name": "cmp_t",
+          "type": "int (void *, void *)",
+          "line": 182,
+          "start_byte": 8674,
+          "end_byte": 8720
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

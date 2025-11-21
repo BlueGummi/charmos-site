@@ -1,0 +1,211 @@
+{
+  "file": "charmos/kernel/sync/mutex.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "try_acquire_simple_mutex",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct mutex_simple",
+            "name": "*m"
+          },
+          {
+            "type": "struct thread",
+            "name": "*curr"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 13
+      },
+      {
+        "name": "should_spin_on_mutex",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct mutex_simple",
+            "name": "*m"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 25
+      },
+      {
+        "name": "spin_wait_simple_mutex",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct mutex_simple",
+            "name": "*m"
+          },
+          {
+            "type": "struct thread",
+            "name": "*curr"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 33
+      },
+      {
+        "name": "block_on_simple_mutex",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct mutex_simple",
+            "name": "*m"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 42
+      },
+      {
+        "name": "mutex_simple_lock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct mutex_simple",
+            "name": "*m"
+          }
+        ],
+        "qualifiers": [],
+        "line": 49
+      },
+      {
+        "name": "mutex_simple_unlock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct mutex_simple",
+            "name": "*m"
+          }
+        ],
+        "qualifiers": [],
+        "line": 64
+      },
+      {
+        "name": "mutex_simple_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct mutex_simple",
+            "name": "*m"
+          }
+        ],
+        "qualifiers": [],
+        "line": 83
+      },
+      {
+        "name": "mutex_lock_get_backoff",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "current_backoff"
+          }
+        ],
+        "qualifiers": [],
+        "line": 87
+      },
+      {
+        "name": "backoff_jitter",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "backoff"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 100
+      },
+      {
+        "name": "mutex_lock_delay",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "backoff"
+          }
+        ],
+        "qualifiers": [],
+        "line": 110
+      },
+      {
+        "name": "mutex_owner_running",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mutex"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 124
+      },
+      {
+        "name": "mutex_sanity_check",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 139
+      },
+      {
+        "name": "mutex_lock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mutex"
+          }
+        ],
+        "qualifiers": [],
+        "line": 145
+      },
+      {
+        "name": "mutex_unlock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mutex"
+          }
+        ],
+        "qualifiers": [],
+        "line": 233
+      },
+      {
+        "name": "mutex_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct mutex",
+            "name": "*mtx"
+          }
+        ],
+        "qualifiers": [],
+        "line": 259
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

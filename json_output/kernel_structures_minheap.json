@@ -1,0 +1,147 @@
+{
+  "file": "charmos/kernel/structures/minheap.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "minheap_swap",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct minheap",
+            "name": "*heap"
+          },
+          {
+            "type": "uint32_t",
+            "name": "a"
+          },
+          {
+            "type": "uint32_t",
+            "name": "b"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 7
+      },
+      {
+        "name": "minheap_sift_up",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct minheap",
+            "name": "*heap"
+          },
+          {
+            "type": "uint32_t",
+            "name": "idx"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 16
+      },
+      {
+        "name": "minheap_sift_down",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct minheap",
+            "name": "*heap"
+          },
+          {
+            "type": "uint32_t",
+            "name": "idx"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 27
+      },
+      {
+        "name": "minheap_create",
+        "return_type": "struct minheap *",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 51
+      },
+      {
+        "name": "minheap_expand",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct minheap",
+            "name": "*heap"
+          },
+          {
+            "type": "uint32_t",
+            "name": "new_size"
+          }
+        ],
+        "qualifiers": [],
+        "line": 59
+      },
+      {
+        "name": "minheap_insert",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct minheap",
+            "name": "*heap"
+          },
+          {
+            "type": "struct minheap_node",
+            "name": "*node"
+          },
+          {
+            "type": "uint64_t",
+            "name": "key"
+          }
+        ],
+        "qualifiers": [],
+        "line": 77
+      },
+      {
+        "name": "minheap_remove",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct minheap",
+            "name": "*heap"
+          },
+          {
+            "type": "struct minheap_node",
+            "name": "*node"
+          }
+        ],
+        "qualifiers": [],
+        "line": 104
+      },
+      {
+        "name": "minheap_pop",
+        "return_type": "struct minheap_node *",
+        "parameters": [
+          {
+            "type": "struct minheap",
+            "name": "*heap"
+          }
+        ],
+        "qualifiers": [],
+        "line": 125
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

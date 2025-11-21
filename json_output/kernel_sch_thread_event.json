@@ -1,0 +1,601 @@
+{
+  "file": "charmos/kernel/sch/thread_event.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "thread_wake_is_from_block",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "wake_reason"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 7
+      },
+      {
+        "name": "thread_wake_is_from_sleep",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "wake_reason"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 12
+      },
+      {
+        "name": "thread_prio_class_str",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "enum thread_prio_class",
+            "name": "c"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "const"
+        ],
+        "line": 17
+      },
+      {
+        "name": "reason_str",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "reason"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "const"
+        ],
+        "line": 27
+      },
+      {
+        "name": "print_ringbuffer",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "bool",
+            "name": "wake_reasons"
+          },
+          {
+            "type": "char",
+            "name": "*label"
+          },
+          {
+            "type": "struct thread_event_reason",
+            "name": "*buf"
+          },
+          {
+            "type": "size_t",
+            "name": "head"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 41
+      },
+      {
+        "name": "thread_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 74
+      },
+      {
+        "name": "most_recent",
+        "return_type": "struct thread_event_reason *",
+        "parameters": [
+          {
+            "type": "struct thread_event_reason",
+            "name": "*reasons"
+          },
+          {
+            "type": "size_t",
+            "name": "head"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 144
+      },
+      {
+        "name": "wake_reason_associated_reason",
+        "return_type": "struct thread_event_reason *",
+        "parameters": [
+          {
+            "type": "struct thread_activity_data",
+            "name": "*data"
+          },
+          {
+            "type": "struct thread_event_reason",
+            "name": "*wake"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 150
+      },
+      {
+        "name": "thread_event_reason_is_valid",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct thread_activity_data",
+            "name": "*data"
+          },
+          {
+            "type": "struct thread_event_reason",
+            "name": "*reason"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 163
+      },
+      {
+        "name": "is_block",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "reason"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 170
+      },
+      {
+        "name": "is_sleep",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "reason"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 175
+      },
+      {
+        "name": "get_bucket_index",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "time_t",
+            "name": "timestamp_ms"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 179
+      },
+      {
+        "name": "clear_bucket",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread_activity_bucket",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 184
+      },
+      {
+        "name": "clear_bucket_set_cycle",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread_activity_bucket",
+            "name": "*b"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cycle"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 192
+      },
+      {
+        "name": "advance_to_next_bucket",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread_activity_stats",
+            "name": "*stats"
+          },
+          {
+            "type": "size_t",
+            "name": "steps"
+          },
+          {
+            "type": "time_t",
+            "name": "now"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 198
+      },
+      {
+        "name": "advance_buckets_to_time",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread_activity_stats",
+            "name": "*stats"
+          },
+          {
+            "type": "time_t",
+            "name": "ts"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 219
+      },
+      {
+        "name": "clear_event_slot",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread_event_reason",
+            "name": "*slot"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 243
+      },
+      {
+        "name": "thread_add_event_reason",
+        "return_type": "struct thread_event_reason *",
+        "parameters": [
+          {
+            "type": "struct thread_event_reason",
+            "name": "*ring"
+          },
+          {
+            "type": "size_t",
+            "name": "*head"
+          },
+          {
+            "type": "uint8_t",
+            "name": "reason"
+          },
+          {
+            "type": "uint64_t",
+            "name": "time"
+          },
+          {
+            "type": "struct thread_activity_stats",
+            "name": "*stats"
+          }
+        ],
+        "qualifiers": [],
+        "line": 250
+      },
+      {
+        "name": "link_wake_reason",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread_event_reason",
+            "name": "*target_reason"
+          },
+          {
+            "type": "struct thread_event_reason",
+            "name": "*this_reason"
+          },
+          {
+            "type": "size_t",
+            "name": "target_link"
+          },
+          {
+            "type": "size_t",
+            "name": "this_link"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 280
+      },
+      {
+        "name": "update_bucket_data",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread_event_reason",
+            "name": "*wake"
+          },
+          {
+            "type": "struct thread_activity_bucket",
+            "name": "*bucket"
+          },
+          {
+            "type": "uint64_t",
+            "name": "overlap"
+          },
+          {
+            "type": "uint32_t",
+            "name": "current_cycle"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 293
+      },
+      {
+        "name": "find_overlap",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "time_t",
+            "name": "effective_start"
+          },
+          {
+            "type": "time_t",
+            "name": "effective_end"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 306
+      },
+      {
+        "name": "update_bucket",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread_activity_stats",
+            "name": "*stats"
+          },
+          {
+            "type": "struct thread_event_reason",
+            "name": "*wake"
+          },
+          {
+            "type": "time_t",
+            "name": "start"
+          },
+          {
+            "type": "time_t",
+            "name": "end"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 312
+      },
+      {
+        "name": "thread_update_activity_stats",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "uint64_t",
+            "name": "time"
+          }
+        ],
+        "qualifiers": [],
+        "line": 338
+      },
+      {
+        "name": "thread_add_wake_reason",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "uint8_t",
+            "name": "reason"
+          }
+        ],
+        "qualifiers": [],
+        "line": 381
+      },
+      {
+        "name": "thread_update_runtime_buckets",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*thread"
+          },
+          {
+            "type": "uint64_t",
+            "name": "time"
+          }
+        ],
+        "qualifiers": [],
+        "line": 414
+      },
+      {
+        "name": "thread_add_block_reason",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "uint8_t",
+            "name": "reason"
+          }
+        ],
+        "qualifiers": [],
+        "line": 450
+      },
+      {
+        "name": "thread_add_sleep_reason",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "uint8_t",
+            "name": "reason"
+          }
+        ],
+        "qualifiers": [],
+        "line": 457
+      },
+      {
+        "name": "set_state_and_update_reason",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "uint8_t",
+            "name": "reason"
+          },
+          {
+            "type": "enum thread_state",
+            "name": "state"
+          },
+          {
+            "type": "void",
+            "name": "(*callback)(struct thread *,\n                                                         uint8_t)"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 464
+      },
+      {
+        "name": "thread_wake",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum thread_wake_reason",
+            "name": "r"
+          }
+        ],
+        "qualifiers": [],
+        "line": 477
+      },
+      {
+        "name": "thread_set_timesharing",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 482
+      },
+      {
+        "name": "thread_set_background",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 487
+      },
+      {
+        "name": "thread_block",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum thread_block_reason",
+            "name": "r"
+          }
+        ],
+        "qualifiers": [],
+        "line": 492
+      },
+      {
+        "name": "thread_sleep",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum thread_sleep_reason",
+            "name": "r"
+          }
+        ],
+        "qualifiers": [],
+        "line": 497
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

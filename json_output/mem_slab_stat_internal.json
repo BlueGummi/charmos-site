@@ -1,0 +1,12 @@
+{
+  "file": "charmos/kernel/mem/slab/stat_internal.h",
+  "c_parse": {
+    "functions": [],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

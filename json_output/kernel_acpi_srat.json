@@ -1,0 +1,49 @@
+{
+  "file": "charmos/kernel/acpi/srat.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "srat_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 12
+      },
+      {
+        "name": "numa_dump",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 126
+      },
+      {
+        "name": "slit_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 151
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

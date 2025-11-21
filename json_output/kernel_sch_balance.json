@@ -1,0 +1,25 @@
+{
+  "file": "charmos/kernel/sch/balance.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "scheduler_find_idle_core_in_domain",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 7
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

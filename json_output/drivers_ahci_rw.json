@@ -1,0 +1,386 @@
+{
+  "file": "charmos/kernel/drivers/ahci/rw.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "ahci_set_lba_cmd",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct ahci_fis_reg_h2d",
+            "name": "*fis"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint16_t",
+            "name": "sector_count"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 9
+      },
+      {
+        "name": "rw_async",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint16_t",
+            "name": "count"
+          },
+          {
+            "type": "struct ahci_request",
+            "name": "*req"
+          },
+          {
+            "type": "bool",
+            "name": "write"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 29
+      },
+      {
+        "name": "rw_sync",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint16_t",
+            "name": "count"
+          },
+          {
+            "type": "async_fn",
+            "name": "function"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 57
+      },
+      {
+        "name": "rw_sync_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cnt"
+          },
+          {
+            "type": "sync_fn",
+            "name": "function"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 86
+      },
+      {
+        "name": "rw_async_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cnt"
+          },
+          {
+            "type": "struct ahci_request",
+            "name": "*req"
+          },
+          {
+            "type": "async_fn",
+            "name": "function"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 105
+      },
+      {
+        "name": "ahci_read_sector_async",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint16_t",
+            "name": "count"
+          },
+          {
+            "type": "struct ahci_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [],
+        "line": 124
+      },
+      {
+        "name": "ahci_write_sector_async",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*in_buf"
+          },
+          {
+            "type": "uint16_t",
+            "name": "count"
+          },
+          {
+            "type": "struct ahci_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [],
+        "line": 130
+      },
+      {
+        "name": "ahci_read_sector_blocking",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint16_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 136
+      },
+      {
+        "name": "ahci_write_sector_blocking",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint16_t",
+            "name": "count"
+          }
+        ],
+        "qualifiers": [],
+        "line": 141
+      },
+      {
+        "name": "ahci_read_sector_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cnt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 146
+      },
+      {
+        "name": "ahci_write_sector_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cnt"
+          }
+        ],
+        "qualifiers": [],
+        "line": 151
+      },
+      {
+        "name": "ahci_write_sector_async_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cnt"
+          },
+          {
+            "type": "struct ahci_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [],
+        "line": 157
+      },
+      {
+        "name": "ahci_read_sector_async_wrapper",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct generic_disk",
+            "name": "*disk"
+          },
+          {
+            "type": "uint64_t",
+            "name": "lba"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*buf"
+          },
+          {
+            "type": "uint64_t",
+            "name": "cnt"
+          },
+          {
+            "type": "struct ahci_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [],
+        "line": 164
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "(*async_fn)",
+          "type": "bool (struct generic_disk *, uint64_t, uint8_t *, uint16_t, struct ahci_request *)",
+          "line": 24,
+          "start_byte": 708,
+          "end_byte": 835
+        },
+        {
+          "name": "(*sync_fn)",
+          "type": "bool (struct generic_disk *, uint64_t, uint8_t *, uint16_t)",
+          "line": 27,
+          "start_byte": 837,
+          "end_byte": 915
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

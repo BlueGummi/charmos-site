@@ -1,0 +1,81 @@
+{
+  "file": "charmos/kernel/mem/movealloc.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "movealloc_init_chain",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 13
+      },
+      {
+        "name": "movealloc_exec_all",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 23
+      },
+      {
+        "name": "phys_get_virt",
+        "return_type": "vaddr_t",
+        "parameters": [
+          {
+            "type": "paddr_t",
+            "name": "phys"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 33
+      },
+      {
+        "name": "change_slab_backing_page",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*ptr"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 37
+      },
+      {
+        "name": "movealloc",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "new_domain"
+          },
+          {
+            "type": "void",
+            "name": "*ptr"
+          }
+        ],
+        "qualifiers": [],
+        "line": 44
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

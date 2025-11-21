@@ -1,0 +1,29 @@
+{
+  "file": "charmos/kernel/math/levenshtein.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "levenshtein_distance",
+        "return_type": "int64_t",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*s1"
+          },
+          {
+            "type": "char",
+            "name": "*s2"
+          }
+        ],
+        "qualifiers": [],
+        "line": 7
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

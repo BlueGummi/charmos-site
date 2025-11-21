@@ -1,0 +1,204 @@
+# [include/drivers/usb.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h)
+
+<!-- Auto-generated from usb.h, do not edit manually -->
+
+### struct [`usb_setup_packet`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L170)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`bitmap_request_type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L171) |
+| [`enum usb_rq_code`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L129) | [`request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L172) |
+| `uint16_t` | [`value`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L173) |
+| `union { uint16_t index; uint16_t offset; }` | [`None`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L175) |
+| `uint16_t` | [`length`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L180) |
+
+
+### struct [`usb_device_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L185)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`length`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L186) |
+| `uint8_t` | [`type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L187) |
+| `uint16_t` | [`usb_num_bcd`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L188) |
+| `uint8_t` | [`class`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L191) |
+| `uint8_t` | [`subclass`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L192) |
+| `uint8_t` | [`protocol`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L193) |
+| `uint8_t` | [`max_packet_size`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L194) |
+| `uint16_t` | [`vendor_id`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L196) |
+| `uint16_t` | [`product_id`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L197) |
+| `uint16_t` | [`device_num_bcd`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L198) |
+| `uint8_t` | [`manufacturer`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L200) |
+| `uint8_t` | [`product`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L201) |
+| `uint8_t` | [`serial_num`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L202) |
+| `uint8_t` | [`num_configs`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L204) |
+
+
+### struct [`usb_interface_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L208)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`length`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L209) |
+| `uint8_t` | [`type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L210) |
+| `uint8_t` | [`interface_number`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L211) |
+| `uint8_t` | [`alternate_setting`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L214) |
+| `uint8_t` | [`num_endpoints`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L217) |
+| `uint8_t` | [`class`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L218) |
+| `uint8_t` | [`subclass`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L219) |
+| `uint8_t` | [`protocol`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L221) |
+| `uint8_t` | [`interface`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L224) |
+
+
+### struct [`usb_config_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L229)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`length`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L230) |
+| `uint8_t` | [`descriptor_type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L231) |
+| `uint16_t` | [`total_length`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L232) |
+| `uint8_t` | [`num_interfaces`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L233) |
+| `uint8_t` | [`configuration_value`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L234) |
+| `uint8_t` | [`configuration`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L237) |
+| `uint8_t` | [`bitmap_attributes`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L238) |
+| `uint8_t` | [`max_power`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L240) |
+
+
+### struct [`usb_endpoint_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L244)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`length`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L245) |
+| `uint8_t` | [`type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L246) |
+| `uint8_t` | [`address`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L247) |
+| `uint8_t` | [`attributes`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L248) |
+| `uint16_t` | [`max_packet_size`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L250) |
+| `uint8_t` | [`interval`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L252) |
+
+
+### struct [`usb_endpoint`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L256)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct usb_endpoint_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L244) | [`*desc`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L257) |
+| `uint8_t` | [`type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L261) |
+| `uint8_t` | [`number`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L262) |
+| `bool` | [`in`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L263) |
+| `uint8_t` | [`*transfer_buffer`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L264) |
+| `uint16_t` | [`transfer_len`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L265) |
+| `uint16_t` | [`max_packet_size`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L266) |
+| `uint8_t` | [`address`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L267) |
+| `uint8_t` | [`attributes`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L268) |
+| `uint8_t` | [`interval`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L269) |
+| `void` | [`*hc_data`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L271) |
+
+
+### struct [`usb_packet`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L292)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct usb_endpoint`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L256) | [`*ep`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L293) |
+| [`enum usb_transfer_type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L276) | [`type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L295) |
+| [`struct usb_setup_packet`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L170) | [`*setup`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L297) |
+| `void` | [`*data`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L298) |
+| `size_t` | [`length`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L299) |
+| `bool` | [`direction_in`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L300) |
+| `void` | [`(*completion_cb)(void *ctx, bool success)`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L302) |
+| `void` | [`*context`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L303) |
+
+
+### struct [`usb_controller_ops`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L307)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `bool` | [`(*submit_control_transfer)(struct usb_device *dev,
+                                    struct usb_packet *pkt)`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L308) |
+| `bool` | [`(*submit_bulk_transfer)(struct usb_device *dev,
+                                 struct usb_packet *pkt)`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L311) |
+| `bool` | [`(*submit_interrupt_transfer)(struct usb_device *dev,
+                                      struct usb_packet *pkt)`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L314) |
+| `bool` | [`(*reset_port)(struct usb_device *dev)`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L317) |
+| `bool` | [`(*setup_interrupt_endpoint)(
+        struct usb_controller *ctrl, uint8_t port, struct usb_endpoint *ep,
+        void (*callback)(void *ctx, uint8_t *data, size_t len), void *ctx)`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L319) |
+
+
+### struct [`usb_controller`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L324)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`enum usb_controller_type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L164) | [`type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L325) |
+| [`struct usb_controller_ops`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L307) | [`ops`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L326) |
+| `void` | [`*driver_data`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L327) |
+
+
+### struct [`usb_driver`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L330)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `char` | [`*name`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L331) |
+| `uint8_t` | [`class_code`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L332) |
+| `uint8_t` | [`subclass`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L333) |
+| `uint8_t` | [`protocol`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L334) |
+| `bool` | [`(*probe)(struct usb_device *dev)`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L336) |
+| `void` | [`(*disconnect)(struct usb_device *dev)`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L337) |
+
+
+### struct [`usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`address`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L353) |
+| `uint8_t` | [`speed`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L354) |
+| `uint8_t` | [`port`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L355) |
+| `uint8_t` | [`slot_id`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L356) |
+| `uint8_t` | [`max_packet_size`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L357) |
+| [`struct usb_device_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L185) | [`*descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L359) |
+| [`struct usb_config_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L229) | [`config`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L360) |
+| [`struct usb_endpoint`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L256) | [`**endpoints`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L362) |
+| `uint8_t` | [`num_endpoints`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L363) |
+| [`struct usb_controller`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L324) | [`*host`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L365) |
+| [`struct usb_interface_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L208) | [`**interfaces`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L367) |
+| `uint8_t` | [`num_interfaces`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L368) |
+| [`struct usb_driver`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L330) | [`*driver`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L370) |
+| `void` | [`*driver_private`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L372) |
+| `bool` | [`configured`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L374) |
+
+
+### enum [`usb_rq_code`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L129)
+
+| Name | Value |
+|------|-------|
+| [`USB_RQ_CODE_GET_STATUS`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L130) | `0` |
+| [`USB_RQ_CODE_CLEAR_FEATURE`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L131) | `1` |
+| [`USB_RQ_CODE_SET_FEATURE`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L132) | `3` |
+| [`USB_RQ_CODE_SET_ADDR`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L133) | `5` |
+| [`USB_RQ_CODE_GET_DESCRIPTOR`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L135) | `6` |
+| [`USB_RQ_CODE_SET_DESCRIPTOR`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L136) | `7` |
+| [`USB_RQ_CODE_GET_CONFIG`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L138) | `8` |
+| [`USB_RQ_CODE_SET_CONFIG`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L139) | `9` |
+| [`USB_RQ_CODE_GET_INTERFACE`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L141) | `10` |
+| [`USB_RQ_CODE_SET_INTERFACE`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L142) | `11` |
+| [`USB_RQ_CODE_SYNCH_FRAME`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L144) | `12` |
+
+
+### enum [`usb_controller_type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L164)
+
+| Name | Value |
+|------|-------|
+| [`USB_CONTROLLER_UHCI`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L165) | `None` |
+| [`USB_CONTROLLER_EHCI`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L166) | `None` |
+| [`USB_CONTROLLER_XHCI`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L167) | `None` |
+
+
+### enum [`usb_transfer_type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L276)
+
+| Name | Value |
+|------|-------|
+| [`USB_TRANSFER_CONTROL`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L277) | `None` |
+| [`USB_TRANSFER_BULK`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L278) | `None` |
+| [`USB_TRANSFER_INTERRUPT`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L279) | `None` |
+
+
+- [`usb_rq_code_str()`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L147) — `static inline const char * usb_rq_code_str(`[`enum usb_rq_code`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L129)` code)`
+- [`usb_transfer_type_str()`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L282) — `static inline const char * usb_transfer_type_str(`[`enum usb_transfer_type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L276)` type)`
+- [`get_ep_index()`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L386) — `static inline uint8_t get_ep_index(`[`struct usb_endpoint`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L256)` *ep)`
+

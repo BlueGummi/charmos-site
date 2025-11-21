@@ -1,0 +1,27 @@
+{
+  "file": "charmos/kernel/tests/bio.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "bio_callback",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct bio_request",
+            "name": "*req"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 25
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

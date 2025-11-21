@@ -1,0 +1,336 @@
+{
+  "file": "charmos/kernel/mem/domain/init.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "compare_zonelist_entries",
+        "return_type": "int",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*a"
+          },
+          {
+            "type": "void",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 14
+      },
+      {
+        "name": "domain_build_zonelist",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*dom"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 27
+      },
+      {
+        "name": "domain_buddy_track_pages",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*dom"
+          }
+        ],
+        "qualifiers": [],
+        "line": 44
+      },
+      {
+        "name": "remove_block_from_global",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "start_pfn"
+          },
+          {
+            "type": "int",
+            "name": "order"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 60
+      },
+      {
+        "name": "buddy_add_block_to_global",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "start_pfn"
+          },
+          {
+            "type": "int",
+            "name": "order"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 76
+      },
+      {
+        "name": "domain_buddy_split_for_domain",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*dom"
+          },
+          {
+            "type": "size_t",
+            "name": "start_pfn"
+          },
+          {
+            "type": "int",
+            "name": "order"
+          },
+          {
+            "type": "size_t",
+            "name": "domain_start"
+          },
+          {
+            "type": "size_t",
+            "name": "domain_end"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 86
+      },
+      {
+        "name": "domain_buddy_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*dom"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 139
+      },
+      {
+        "name": "alloc_up",
+        "return_type": "void *",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "size"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 169
+      },
+      {
+        "name": "domain_structs_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*dom"
+          },
+          {
+            "type": "size_t",
+            "name": "arena_capacity"
+          },
+          {
+            "type": "size_t",
+            "name": "fq_capacity"
+          },
+          {
+            "type": "struct domain",
+            "name": "*core_domain"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 173
+      },
+      {
+        "name": "compute_arena_max",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "domain_total_pages"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 224
+      },
+      {
+        "name": "compute_freequeue_max",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "system_total_pages"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 232
+      },
+      {
+        "name": "domain_init_worker",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*domain"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 240
+      },
+      {
+        "name": "link_domain_cores_to_buddy",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain",
+            "name": "*cd"
+          },
+          {
+            "type": "struct domain_buddy",
+            "name": "*bd"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 256
+      },
+      {
+        "name": "pages_to_bytes",
+        "return_type": "uint64_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "pages"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 263
+      },
+      {
+        "name": "late_init_from_numa",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "domain_count"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 267
+      },
+      {
+        "name": "late_init_non_numa",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "domain_count"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 286
+      },
+      {
+        "name": "domain_buddies_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 317
+      },
+      {
+        "name": "domain_buddy_dump",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 345
+      },
+      {
+        "name": "move_buddy",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct domain_buddy",
+            "name": "*buddy"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 357
+      },
+      {
+        "name": "domain_buddy_movealloc",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*a"
+          },
+          {
+            "type": "void",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 370
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

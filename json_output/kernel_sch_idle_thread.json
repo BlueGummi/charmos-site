@@ -1,0 +1,25 @@
+{
+  "file": "charmos/kernel/sch/idle_thread.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "scheduler_idle_main",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 8
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

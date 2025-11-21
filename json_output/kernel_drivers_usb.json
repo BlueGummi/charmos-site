@@ -1,0 +1,195 @@
+{
+  "file": "charmos/kernel/drivers/usb.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "usb_construct_rq_bitmap",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "transfer"
+          },
+          {
+            "type": "uint8_t",
+            "name": "type"
+          },
+          {
+            "type": "uint8_t",
+            "name": "recip"
+          }
+        ],
+        "qualifiers": [],
+        "line": 7
+      },
+      {
+        "name": "get_desc_bitmap",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 15
+      },
+      {
+        "name": "usb_get_string_descriptor",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct usb_device",
+            "name": "*dev"
+          },
+          {
+            "type": "uint8_t",
+            "name": "string_idx"
+          },
+          {
+            "type": "char",
+            "name": "*out"
+          },
+          {
+            "type": "size_t",
+            "name": "max_len"
+          }
+        ],
+        "qualifiers": [],
+        "line": 21
+      },
+      {
+        "name": "usb_get_device_descriptor",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct usb_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [],
+        "line": 59
+      },
+      {
+        "name": "match_interfaces",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct usb_driver",
+            "name": "*driver"
+          },
+          {
+            "type": "struct usb_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 103
+      },
+      {
+        "name": "usb_try_bind_driver",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct usb_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [],
+        "line": 122
+      },
+      {
+        "name": "usb_register_dev_interface",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct usb_device",
+            "name": "*dev"
+          },
+          {
+            "type": "struct usb_interface_descriptor",
+            "name": "*interface"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 130
+      },
+      {
+        "name": "usb_register_dev_ep",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct usb_device",
+            "name": "*dev"
+          },
+          {
+            "type": "struct usb_endpoint_descriptor",
+            "name": "*endpoint"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 143
+      },
+      {
+        "name": "setup_config_descriptor",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct usb_device",
+            "name": "*dev"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*ptr"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*end"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 164
+      },
+      {
+        "name": "usb_parse_config_descriptor",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct usb_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [],
+        "line": 182
+      },
+      {
+        "name": "usb_set_configuration",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct usb_device",
+            "name": "*dev"
+          }
+        ],
+        "qualifiers": [],
+        "line": 229
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

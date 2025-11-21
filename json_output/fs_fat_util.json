@@ -1,0 +1,83 @@
+{
+  "file": "charmos/kernel/fs/fat/util.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "fat_eoc",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 7
+      },
+      {
+        "name": "fat_is_eoc",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          }
+        ],
+        "qualifiers": [],
+        "line": 16
+      },
+      {
+        "name": "fat_format_filename_83",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "char",
+            "name": "*name"
+          },
+          {
+            "type": "char",
+            "name": "out[11]"
+          }
+        ],
+        "qualifiers": [],
+        "line": 25
+      },
+      {
+        "name": "fat_get_dir_cluster",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_dirent",
+            "name": "*d"
+          }
+        ],
+        "qualifiers": [],
+        "line": 47
+      },
+      {
+        "name": "fat_get_current_time",
+        "return_type": "struct fat_time",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 51
+      },
+      {
+        "name": "fat_get_current_date",
+        "return_type": "struct fat_date",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 58
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

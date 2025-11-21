@@ -1,0 +1,185 @@
+{
+  "file": "charmos/kernel/fs/fat/create.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "fat12_16_root_dir_lba",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 9
+      },
+      {
+        "name": "fat12_16_root_dir_sectors",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 14
+      },
+      {
+        "name": "fat_find_free_dirent_slot",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "dir_cluster"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*dir_buf"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*out_cluster"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*out_offset"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*out_prev_cluster"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 19
+      },
+      {
+        "name": "fat_extend_directory",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "prev_cluster"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*new_cluster_out"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*dir_buf"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 70
+      },
+      {
+        "name": "fat_initialize_dirent",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct fat_dirent",
+            "name": "*ent"
+          },
+          {
+            "type": "char",
+            "name": "*filename"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "enum fat_fileattr",
+            "name": "attr"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 99
+      },
+      {
+        "name": "fat_create",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "dir_cluster"
+          },
+          {
+            "type": "char",
+            "name": "*filename"
+          },
+          {
+            "type": "struct fat_dirent",
+            "name": "*out_dirent"
+          },
+          {
+            "type": "enum fat_fileattr",
+            "name": "attr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "*out_cluster"
+          }
+        ],
+        "qualifiers": [],
+        "line": 128
+      },
+      {
+        "name": "fat_mkdir",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "parent_cluster"
+          },
+          {
+            "type": "char",
+            "name": "*name"
+          },
+          {
+            "type": "struct fat_dirent",
+            "name": "*out_dirent"
+          }
+        ],
+        "qualifiers": [],
+        "line": 191
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

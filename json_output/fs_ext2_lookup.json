@@ -1,0 +1,268 @@
+{
+  "file": "charmos/kernel/fs/ext2/lookup.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "search_callback",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_dir_entry",
+            "name": "*entry"
+          },
+          {
+            "type": "void",
+            "name": "*ctx_ptr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "b"
+          },
+          {
+            "type": "uint32_t",
+            "name": "e_num"
+          },
+          {
+            "type": "uint32_t",
+            "name": "offset"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 29
+      },
+      {
+        "name": "contains_callback",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_dir_entry",
+            "name": "*entry"
+          },
+          {
+            "type": "void",
+            "name": "*ctx_ptr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "b"
+          },
+          {
+            "type": "uint32_t",
+            "name": "e"
+          },
+          {
+            "type": "uint32_t",
+            "name": "offset"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 63
+      },
+      {
+        "name": "readdir_callback",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_dir_entry",
+            "name": "*entry"
+          },
+          {
+            "type": "void",
+            "name": "*ctx_ptr"
+          },
+          {
+            "type": "uint32_t",
+            "name": "block"
+          },
+          {
+            "type": "uint32_t",
+            "name": "entry_num"
+          },
+          {
+            "type": "uint32_t",
+            "name": "entry_offset"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 86
+      },
+      {
+        "name": "ext2_find_file_in_dir",
+        "return_type": "struct ext2_full_inode *",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*dir_inode"
+          },
+          {
+            "type": "char",
+            "name": "*fname"
+          },
+          {
+            "type": "uint8_t",
+            "name": "*type_out"
+          }
+        ],
+        "qualifiers": [],
+        "line": 106
+      },
+      {
+        "name": "ext2_dir_contains_file",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*dir_inode"
+          },
+          {
+            "type": "char",
+            "name": "*fname"
+          }
+        ],
+        "qualifiers": [],
+        "line": 127
+      },
+      {
+        "name": "ext2_readdir",
+        "return_type": "enum errno",
+        "parameters": [
+          {
+            "type": "struct ext2_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "struct ext2_full_inode",
+            "name": "*dir_inode"
+          },
+          {
+            "type": "struct ext2_dir_entry",
+            "name": "*out"
+          },
+          {
+            "type": "uint32_t",
+            "name": "entry_offset"
+          }
+        ],
+        "qualifiers": [],
+        "line": 137
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": "search_ctx",
+          "members": [
+            {
+              "name": "*target",
+              "type": "char",
+              "line": 10,
+              "index": 1
+            },
+            {
+              "name": "*result",
+              "type": "struct ext2_full_inode",
+              "line": 11,
+              "index": 2
+            },
+            {
+              "name": "type",
+              "type": "uint8_t",
+              "line": 12,
+              "index": 3
+            },
+            {
+              "name": "found",
+              "type": "bool",
+              "line": 13,
+              "index": 4
+            }
+          ],
+          "line": 9,
+          "start_byte": 126,
+          "end_byte": 241
+        },
+        {
+          "name": "contains_ctx",
+          "members": [
+            {
+              "name": "*target",
+              "type": "char",
+              "line": 17,
+              "index": 1
+            },
+            {
+              "name": "found",
+              "type": "bool",
+              "line": 18,
+              "index": 2
+            }
+          ],
+          "line": 16,
+          "start_byte": 244,
+          "end_byte": 307
+        },
+        {
+          "name": "readdir_ctx",
+          "members": [
+            {
+              "name": "entry_offset",
+              "type": "uint32_t",
+              "line": 22,
+              "index": 1
+            },
+            {
+              "name": "*out",
+              "type": "struct ext2_dir_entry",
+              "line": 23,
+              "index": 2
+            },
+            {
+              "name": "found",
+              "type": "bool",
+              "line": 24,
+              "index": 3
+            },
+            {
+              "name": "count",
+              "type": "uint32_t",
+              "line": 25,
+              "index": 4
+            }
+          ],
+          "line": 21,
+          "start_byte": 310,
+          "end_byte": 427
+        }
+      ],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

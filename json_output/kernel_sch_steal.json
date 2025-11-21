@@ -1,0 +1,220 @@
+{
+  "file": "charmos/kernel/sch/steal.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "scheduler_can_steal_thread",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "core"
+          },
+          {
+            "type": "struct thread",
+            "name": "*target"
+          }
+        ],
+        "qualifiers": [],
+        "line": 11
+      },
+      {
+        "name": "scheduler_pick_victim",
+        "return_type": "struct scheduler *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*self"
+          }
+        ],
+        "qualifiers": [],
+        "line": 24
+      },
+      {
+        "name": "scheduler_has_no_timesharing_threads",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 64
+      },
+      {
+        "name": "steal_from_thread_rbt",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*victim"
+          },
+          {
+            "type": "struct rbt",
+            "name": "*tree"
+          },
+          {
+            "type": "int",
+            "name": "level"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 69
+      },
+      {
+        "name": "steal_from_ts_threads",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*victim"
+          },
+          {
+            "type": "int",
+            "name": "level"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 90
+      },
+      {
+        "name": "steal_from_special_threads",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*victim"
+          },
+          {
+            "type": "struct thread_queue",
+            "name": "*q"
+          },
+          {
+            "type": "int",
+            "name": "level"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 107
+      },
+      {
+        "name": "scheduler_steal_work",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*victim"
+          }
+        ],
+        "qualifiers": [],
+        "line": 136
+      },
+      {
+        "name": "begin_steal",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 169
+      },
+      {
+        "name": "try_begin_steal",
+        "return_type": "bool",
+        "parameters": [],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 173
+      },
+      {
+        "name": "stop_steal",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct scheduler",
+            "name": "*victim"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 184
+      },
+      {
+        "name": "scheduler_try_do_steal",
+        "return_type": "struct thread *",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          }
+        ],
+        "qualifiers": [],
+        "line": 193
+      },
+      {
+        "name": "ilog2",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "x"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 220
+      },
+      {
+        "name": "scheduler_compute_steal_threshold",
+        "return_type": "uint64_t",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 227
+      },
+      {
+        "name": "scheduler_can_steal_work",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          }
+        ],
+        "qualifiers": [],
+        "line": 241
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

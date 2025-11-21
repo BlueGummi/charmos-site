@@ -1,0 +1,545 @@
+{
+  "file": "charmos/kernel/mem/slab/gc.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "slab_gc_derive_target_gc_slabs",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab_gc",
+            "name": "*gc"
+          },
+          {
+            "type": "enum slab_gc_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [],
+        "line": 6
+      },
+      {
+        "name": "slab_gc_score",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          },
+          {
+            "type": "enum thread_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [],
+        "line": 18
+      },
+      {
+        "name": "scale_bias",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "uint8_t",
+            "name": "bias"
+          },
+          {
+            "type": "size_t",
+            "name": "pct"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 37
+      },
+      {
+        "name": "slab_gc_should_recycle",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          },
+          {
+            "type": "uint8_t",
+            "name": "bias_destroy"
+          }
+        ],
+        "qualifiers": [],
+        "line": 41
+      },
+      {
+        "name": "slab_gc_get_total_free_for",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab_caches",
+            "name": "*caches"
+          },
+          {
+            "type": "size_t",
+            "name": "*free_per_order"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 66
+      },
+      {
+        "name": "slab_gc_get_inv_free",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "total_free"
+          },
+          {
+            "type": "uint32_t",
+            "name": "bias_bitmap"
+          },
+          {
+            "type": "size_t",
+            "name": "order"
+          },
+          {
+            "type": "size_t",
+            "name": "*free_per_order"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 77
+      },
+      {
+        "name": "slab_gc_get_order_score",
+        "return_type": "int64_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "inv_free"
+          },
+          {
+            "type": "size_t",
+            "name": "order"
+          },
+          {
+            "type": "size_t",
+            "name": "*slabs_recycled"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 95
+      },
+      {
+        "name": "score_order",
+        "return_type": "int64_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "total_free"
+          },
+          {
+            "type": "uint32_t",
+            "name": "bias_map"
+          },
+          {
+            "type": "size_t",
+            "name": "order"
+          },
+          {
+            "type": "size_t",
+            "name": "*free_per_order"
+          },
+          {
+            "type": "size_t",
+            "name": "*recycled"
+          },
+          {
+            "type": "size_t",
+            "name": "original_order"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 108
+      },
+      {
+        "name": "slab_gc_pick_caches",
+        "return_type": "struct slab_caches *",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          },
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 127
+      },
+      {
+        "name": "slab_recycle",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_cache",
+            "name": "*best"
+          },
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          },
+          {
+            "type": "size_t",
+            "name": "*slabs_recycled"
+          },
+          {
+            "type": "size_t",
+            "name": "idx"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 136
+      },
+      {
+        "name": "slab_gc_recycle",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          },
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          },
+          {
+            "type": "size_t",
+            "name": "*slabs_recycled"
+          },
+          {
+            "type": "uint32_t",
+            "name": "bias_bitmap"
+          }
+        ],
+        "qualifiers": [],
+        "line": 149
+      },
+      {
+        "name": "slab_gc_destroy",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_gc",
+            "name": "*gc"
+          },
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 176
+      },
+      {
+        "name": "slab_flags_get_bias",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "type": "enum slab_gc_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 181
+      },
+      {
+        "name": "slab_flags_get_order_bias_bitmap",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "type": "enum slab_gc_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 187
+      },
+      {
+        "name": "slab_do_gc",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct slab_gc",
+            "name": "*gc"
+          },
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          },
+          {
+            "type": "enum slab_gc_flags",
+            "name": "flags"
+          },
+          {
+            "type": "size_t",
+            "name": "*slabs_recycled"
+          },
+          {
+            "type": "size_t",
+            "name": "*destroyed"
+          },
+          {
+            "type": "size_t",
+            "name": "destroy_target"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 194
+      },
+      {
+        "name": "slab_gc_derive_threshold_score",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab_gc",
+            "name": "*gc"
+          },
+          {
+            "type": "enum slab_gc_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 222
+      },
+      {
+        "name": "slab_gc_get_max_unfit_slabs",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "size_t",
+            "name": "target"
+          },
+          {
+            "type": "enum slab_gc_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 248
+      },
+      {
+        "name": "slab_gc_run",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab_gc",
+            "name": "*gc"
+          },
+          {
+            "type": "enum slab_gc_flags",
+            "name": "flags"
+          }
+        ],
+        "qualifiers": [],
+        "line": 257
+      },
+      {
+        "name": "slab_gc_enqueue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          },
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          }
+        ],
+        "qualifiers": [],
+        "line": 299
+      },
+      {
+        "name": "slab_gc_dequeue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          },
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          }
+        ],
+        "qualifiers": [],
+        "line": 317
+      },
+      {
+        "name": "gc_do_op",
+        "return_type": "struct slab *",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          },
+          {
+            "type": "struct rbt_node",
+            "name": "*(*op)(const struct rbt *tree)"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 331
+      },
+      {
+        "name": "slab_gc_get_newest",
+        "return_type": "struct slab *",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          }
+        ],
+        "qualifiers": [],
+        "line": 351
+      },
+      {
+        "name": "gc_search_for_first_pageable",
+        "return_type": "struct rbt_node *",
+        "parameters": [
+          {
+            "type": "struct rbt",
+            "name": "*rbt"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 355
+      },
+      {
+        "name": "gc_search_for_first_nonpageable",
+        "return_type": "struct rbt_node *",
+        "parameters": [
+          {
+            "type": "struct rbt",
+            "name": "*rbt"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 367
+      },
+      {
+        "name": "slab_gc_get_newest_pageable",
+        "return_type": "struct slab *",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          }
+        ],
+        "qualifiers": [],
+        "line": 379
+      },
+      {
+        "name": "slab_gc_get_newest_nonpageable",
+        "return_type": "struct slab *",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          }
+        ],
+        "qualifiers": [],
+        "line": 383
+      },
+      {
+        "name": "slab_gc_get_oldest",
+        "return_type": "struct slab *",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          }
+        ],
+        "qualifiers": [],
+        "line": 387
+      },
+      {
+        "name": "slab_gc_num_slabs",
+        "return_type": "size_t",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*domain"
+          }
+        ],
+        "qualifiers": [],
+        "line": 391
+      },
+      {
+        "name": "slab_gc_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_domain",
+            "name": "*dom"
+          }
+        ],
+        "qualifiers": [],
+        "line": 395
+      },
+      {
+        "name": "slab_should_enqueue_gc",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct slab",
+            "name": "*slab"
+          }
+        ],
+        "qualifiers": [],
+        "line": 403
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

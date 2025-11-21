@@ -1,0 +1,103 @@
+{
+  "file": "charmos/kernel/tests/sched.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "workqueue_fn",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*arg"
+          },
+          {
+            "type": "void",
+            "name": "*unused"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 12
+      },
+      {
+        "name": "sleepy_entry",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 48
+      },
+      {
+        "name": "wq_test_2",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*a"
+          },
+          {
+            "type": "void",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 63
+      },
+      {
+        "name": "enqueue_thread",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 73
+      },
+      {
+        "name": "daemon_work",
+        "return_type": "enum daemon_thread_command",
+        "parameters": [
+          {
+            "type": "struct daemon_work",
+            "name": "*work"
+          },
+          {
+            "type": "struct daemon_thread",
+            "name": "*thread"
+          },
+          {
+            "type": "void",
+            "name": "*a"
+          },
+          {
+            "type": "void",
+            "name": "*b"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 120
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

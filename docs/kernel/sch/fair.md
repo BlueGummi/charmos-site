@@ -1,0 +1,24 @@
+# [kernel/sch/fair.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c)
+
+<!-- Auto-generated from fair.c, do not edit manually -->
+
+- [`classify_activity()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L64) — `static`[`enum thread_activity_class`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L173)`classify_activity(`[`struct thread_activity_metrics`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L181)` m)`
+- [`thread_classify_activity()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L83) — `void thread_classify_activity(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t`,`uint64_t now_ms)`
+- [`calc_activity_metrics()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L92) — `static`[`struct thread_activity_metrics`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L181)`calc_activity_metrics(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
+- [`thread_calculate_activity_data()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L127) — `void thread_calculate_activity_data(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
+- [`derive_timeshare_prio_range()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L135) — `static void derive_timeshare_prio_range(`[`enum thread_activity_class`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L173)` cls`,`uint32_t *min`,`uint32_t *max)`
+- [`compute_activity_score_pct()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L161) — `static uint32_t compute_activity_score_pct(`[`struct thread_activity_metrics`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L181)` *m)`
+- [`jitter_for_thread()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L180) — `static inline int32_t jitter_for_thread(void)`
+- [`get_class_multiplier()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L187) — `static int get_class_multiplier(`[`enum thread_activity_class`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L173)` class)`
+- [`thread_apply_wake_boost()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L199) — `void thread_apply_wake_boost(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
+- [`compute_cpu_penalty()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L218) — `static int32_t compute_cpu_penalty(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t`,`int32_t base_penalty)`
+- [`thread_apply_cpu_penalty()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L233) — `void thread_apply_cpu_penalty(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
+- [`base_weight_of()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L249) — `static int64_t base_weight_of(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
+- [`thread_update_effective_priority()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L265) — `void thread_update_effective_priority(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
+- [`compute_period()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L278) — `static uint64_t compute_period(`[`struct scheduler`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)` *s)`
+- [`map_activity_score()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L285) — `static uint64_t map_activity_score(uint64_t score)`
+- [`thread_derive_slice_count()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L298) — `static uint64_t thread_derive_slice_count(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
+- [`allocate_slices()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L320) — `static void allocate_slices(`[`struct scheduler`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)` *s`,`uint64_t now_ms)`
+- [`scheduler_update_thread_weights()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L355) — `static void scheduler_update_thread_weights(`[`struct scheduler`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)` *s)`
+- [`scheduler_period_start()`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/fair.c#L366) — `void scheduler_period_start(`[`struct scheduler`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)` *s`,`uint64_t now_ms)`
+

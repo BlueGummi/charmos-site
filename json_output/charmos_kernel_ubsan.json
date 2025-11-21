@@ -1,0 +1,807 @@
+{
+  "file": "charmos/kernel/ubsan.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "kind_to_type",
+        "return_type": "char *",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "kind"
+          }
+        ],
+        "qualifiers": [
+          "const"
+        ],
+        "line": 91
+      },
+      {
+        "name": "info_to_bits",
+        "return_type": "unsigned int",
+        "parameters": [
+          {
+            "type": "uint16_t",
+            "name": "info"
+          }
+        ],
+        "qualifiers": [],
+        "line": 101
+      },
+      {
+        "name": "__ubsan_handle_load_invalid_value",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_load_invalid_value_t",
+            "name": "*data"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "value"
+          }
+        ],
+        "qualifiers": [],
+        "line": 104
+      },
+      {
+        "name": "__ubsan_handle_nonnull_arg",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_nonnull_arg_t",
+            "name": "*data"
+          }
+        ],
+        "qualifiers": [],
+        "line": 111
+      },
+      {
+        "name": "__ubsan_handle_nullability_arg",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_nonnull_arg_t",
+            "name": "*data"
+          }
+        ],
+        "qualifiers": [],
+        "line": 117
+      },
+      {
+        "name": "__ubsan_handle_nonnull_return_v1",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_only_location_t",
+            "name": "*data\n                                      [[maybe_unused]]"
+          },
+          {
+            "type": "source_location_t",
+            "name": "*location"
+          }
+        ],
+        "qualifiers": [],
+        "line": 123
+      },
+      {
+        "name": "__ubsan_handle_nullability_return_v1",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_only_location_t",
+            "name": "*data\n                                          [[maybe_unused]]"
+          },
+          {
+            "type": "source_location_t",
+            "name": "*location"
+          }
+        ],
+        "qualifiers": [],
+        "line": 130
+      },
+      {
+        "name": "__ubsan_handle_vla_bound_not_positive",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_location_type_t",
+            "name": "*data"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "bound"
+          }
+        ],
+        "qualifiers": [],
+        "line": 137
+      },
+      {
+        "name": "__ubsan_handle_add_overflow",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_location_type_t",
+            "name": "*data"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "lhs"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "rhs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 147
+      },
+      {
+        "name": "__ubsan_handle_sub_overflow",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_location_type_t",
+            "name": "*data"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "lhs"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "rhs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 157
+      },
+      {
+        "name": "__ubsan_handle_mul_overflow",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_location_type_t",
+            "name": "*data"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "lhs"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "rhs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 167
+      },
+      {
+        "name": "__ubsan_handle_function_type_mismatch",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*data_raw"
+          },
+          {
+            "type": "void",
+            "name": "*value_raw"
+          }
+        ],
+        "qualifiers": [],
+        "line": 177
+      },
+      {
+        "name": "__ubsan_handle_divrem_overflow",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_location_type_t",
+            "name": "*data"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "lhs"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "rhs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 185
+      },
+      {
+        "name": "__ubsan_handle_negate_overflow",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_location_type_t",
+            "name": "*data"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "old"
+          }
+        ],
+        "qualifiers": [],
+        "line": 194
+      },
+      {
+        "name": "__ubsan_handle_shift_out_of_bounds",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_shift_out_of_bounds_t",
+            "name": "*data"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "lhs"
+          },
+          {
+            "type": "uintptr_t",
+            "name": "rhs"
+          }
+        ],
+        "qualifiers": [],
+        "line": 202
+      },
+      {
+        "name": "__ubsan_handle_out_of_bounds",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_out_of_bounds_t",
+            "name": "*data"
+          },
+          {
+            "type": "uint64_t",
+            "name": "index"
+          }
+        ],
+        "qualifiers": [],
+        "line": 214
+      },
+      {
+        "name": "__ubsan_handle_type_mismatch",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_type_mismatch_t",
+            "name": "*data"
+          },
+          {
+            "type": "void",
+            "name": "*pointer"
+          }
+        ],
+        "qualifiers": [],
+        "line": 226
+      },
+      {
+        "name": "__ubsan_handle_type_mismatch_v1",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_type_mismatch_t",
+            "name": "*data"
+          },
+          {
+            "type": "void",
+            "name": "*pointer"
+          }
+        ],
+        "qualifiers": [],
+        "line": 262
+      },
+      {
+        "name": "__ubsan_handle_alignment_assumption",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_alignment_assumption_t",
+            "name": "*data"
+          },
+          {
+            "type": "void",
+            "name": "*"
+          },
+          {
+            "type": "void",
+            "name": "*"
+          },
+          {
+            "type": "void",
+            "name": "*"
+          }
+        ],
+        "qualifiers": [],
+        "line": 300
+      },
+      {
+        "name": "__ubsan_handle_implicit_conversion",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_implicit_conversion_t",
+            "name": "*data"
+          },
+          {
+            "type": "void",
+            "name": "*"
+          },
+          {
+            "type": "void",
+            "name": "*"
+          }
+        ],
+        "qualifiers": [],
+        "line": 307
+      },
+      {
+        "name": "__ubsan_handle_invalid_builtin",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_invalid_builtin_t",
+            "name": "*data"
+          }
+        ],
+        "qualifiers": [],
+        "line": 313
+      },
+      {
+        "name": "__ubsan_handle_pointer_overflow",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_only_location_t",
+            "name": "*data"
+          },
+          {
+            "type": "void",
+            "name": "*"
+          },
+          {
+            "type": "void",
+            "name": "*"
+          }
+        ],
+        "qualifiers": [],
+        "line": 318
+      },
+      {
+        "name": "__ubsan_handle_builtin_unreachable",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_only_location_t",
+            "name": "*data"
+          }
+        ],
+        "qualifiers": [],
+        "line": 324
+      },
+      {
+        "name": "__ubsan_handle_missing_return",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "data_only_location_t",
+            "name": "*data"
+          }
+        ],
+        "qualifiers": [],
+        "line": 330
+      }
+    ],
+    "types": {
+      "structs": [
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "*filename",
+              "type": "char",
+              "line": 20,
+              "index": 1
+            },
+            {
+              "name": "line",
+              "type": "uint32_t",
+              "line": 21,
+              "index": 2
+            },
+            {
+              "name": "column",
+              "type": "uint32_t",
+              "line": 22,
+              "index": 3
+            }
+          ],
+          "line": 19,
+          "start_byte": 337,
+          "end_byte": 413
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "kind",
+              "type": "uint16_t",
+              "line": 26,
+              "index": 1
+            },
+            {
+              "name": "info",
+              "type": "uint16_t",
+              "line": 27,
+              "index": 2
+            },
+            {
+              "name": "name[]",
+              "type": "char",
+              "line": 28,
+              "index": 3
+            }
+          ],
+          "line": 25,
+          "start_byte": 442,
+          "end_byte": 507
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 32,
+              "index": 1
+            }
+          ],
+          "line": 31,
+          "start_byte": 536,
+          "end_byte": 578
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 36,
+              "index": 1
+            },
+            {
+              "name": "*type",
+              "type": "type_descriptor_t",
+              "line": 37,
+              "index": 2
+            }
+          ],
+          "line": 35,
+          "start_byte": 610,
+          "end_byte": 681
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 41,
+              "index": 1
+            },
+            {
+              "name": "*type",
+              "type": "type_descriptor_t",
+              "line": 42,
+              "index": 2
+            }
+          ],
+          "line": 40,
+          "start_byte": 713,
+          "end_byte": 784
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 46,
+              "index": 1
+            },
+            {
+              "name": "attr_location",
+              "type": "source_location_t",
+              "line": 47,
+              "index": 2
+            },
+            {
+              "name": "arg_index",
+              "type": "int",
+              "line": 48,
+              "index": 3
+            }
+          ],
+          "line": 45,
+          "start_byte": 821,
+          "end_byte": 919
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 52,
+              "index": 1
+            },
+            {
+              "name": "*lhs_type",
+              "type": "type_descriptor_t",
+              "line": 53,
+              "index": 2
+            },
+            {
+              "name": "*rhs_type",
+              "type": "type_descriptor_t",
+              "line": 54,
+              "index": 3
+            }
+          ],
+          "line": 51,
+          "start_byte": 949,
+          "end_byte": 1057
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 58,
+              "index": 1
+            },
+            {
+              "name": "*array_type",
+              "type": "type_descriptor_t",
+              "line": 59,
+              "index": 2
+            },
+            {
+              "name": "*index_type",
+              "type": "type_descriptor_t",
+              "line": 60,
+              "index": 3
+            }
+          ],
+          "line": 57,
+          "start_byte": 1095,
+          "end_byte": 1207
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 64,
+              "index": 1
+            },
+            {
+              "name": "*type",
+              "type": "type_descriptor_t",
+              "line": 65,
+              "index": 2
+            },
+            {
+              "name": "alignment",
+              "type": "uint8_t",
+              "line": 66,
+              "index": 3
+            },
+            {
+              "name": "type_check_kind",
+              "type": "uint8_t",
+              "line": 67,
+              "index": 4
+            }
+          ],
+          "line": 63,
+          "start_byte": 1239,
+          "end_byte": 1362
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 71,
+              "index": 1
+            },
+            {
+              "name": "assumption_location",
+              "type": "source_location_t",
+              "line": 72,
+              "index": 2
+            },
+            {
+              "name": "*type",
+              "type": "type_descriptor_t",
+              "line": 73,
+              "index": 3
+            }
+          ],
+          "line": 70,
+          "start_byte": 1394,
+          "end_byte": 1508
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 77,
+              "index": 1
+            },
+            {
+              "name": "*from_type",
+              "type": "type_descriptor_t",
+              "line": 78,
+              "index": 2
+            },
+            {
+              "name": "*to_type",
+              "type": "type_descriptor_t",
+              "line": 79,
+              "index": 3
+            },
+            {
+              "name": "kind",
+              "type": "uint8_t",
+              "line": 80,
+              "index": 4
+            }
+          ],
+          "line": 76,
+          "start_byte": 1547,
+          "end_byte": 1673
+        },
+        {
+          "name": null,
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 84,
+              "index": 1
+            },
+            {
+              "name": "kind",
+              "type": "uint8_t",
+              "line": 85,
+              "index": 2
+            }
+          ],
+          "line": 83,
+          "start_byte": 1711,
+          "end_byte": 1771
+        },
+        {
+          "name": "ubsan_function_type_mismatch_data",
+          "members": [
+            {
+              "name": "location",
+              "type": "source_location_t",
+              "line": 88,
+              "index": 1
+            },
+            {
+              "name": "*type",
+              "type": "struct type_descriptor_t",
+              "line": 89,
+              "index": 2
+            }
+          ],
+          "line": 87,
+          "start_byte": 1796,
+          "end_byte": 1908
+        }
+      ],
+      "enums": [],
+      "typedefs": [
+        {
+          "name": "source_location_t",
+          "type": "struct {\n    const char *filename;\n    uint32_t line;\n    uint32_t column;\n}",
+          "line": 19,
+          "start_byte": 329,
+          "end_byte": 432
+        },
+        {
+          "name": "type_descriptor_t",
+          "type": "struct {\n    uint16_t kind;\n    uint16_t info;\n    char name[];\n}",
+          "line": 25,
+          "start_byte": 434,
+          "end_byte": 526
+        },
+        {
+          "name": "data_only_location_t",
+          "type": "struct {\n    source_location_t location;\n}",
+          "line": 31,
+          "start_byte": 528,
+          "end_byte": 600
+        },
+        {
+          "name": "data_location_type_t",
+          "type": "struct {\n    source_location_t location;\n    type_descriptor_t *type;\n}",
+          "line": 35,
+          "start_byte": 602,
+          "end_byte": 703
+        },
+        {
+          "name": "data_load_invalid_value_t",
+          "type": "struct {\n    source_location_t location;\n    type_descriptor_t *type;\n}",
+          "line": 40,
+          "start_byte": 705,
+          "end_byte": 811
+        },
+        {
+          "name": "data_nonnull_arg_t",
+          "type": "struct {\n    source_location_t location;\n    source_location_t attr_location;\n    int arg_index;\n}",
+          "line": 45,
+          "start_byte": 813,
+          "end_byte": 939
+        },
+        {
+          "name": "data_shift_out_of_bounds_t",
+          "type": "struct {\n    source_location_t location;\n    type_descriptor_t *lhs_type;\n    type_descriptor_t *rhs_type;\n}",
+          "line": 51,
+          "start_byte": 941,
+          "end_byte": 1085
+        },
+        {
+          "name": "data_out_of_bounds_t",
+          "type": "struct {\n    source_location_t location;\n    type_descriptor_t *array_type;\n    type_descriptor_t *index_type;\n}",
+          "line": 57,
+          "start_byte": 1087,
+          "end_byte": 1229
+        },
+        {
+          "name": "data_type_mismatch_t",
+          "type": "struct {\n    source_location_t location;\n    type_descriptor_t *type;\n    uint8_t alignment;\n    uint8_t type_check_kind;\n}",
+          "line": 63,
+          "start_byte": 1231,
+          "end_byte": 1384
+        },
+        {
+          "name": "data_alignment_assumption_t",
+          "type": "struct {\n    source_location_t location;\n    source_location_t assumption_location;\n    type_descriptor_t *type;\n}",
+          "line": 70,
+          "start_byte": 1386,
+          "end_byte": 1537
+        },
+        {
+          "name": "data_implicit_conversion_t",
+          "type": "struct {\n    source_location_t location;\n    type_descriptor_t *from_type;\n    type_descriptor_t *to_type;\n    uint8_t kind;\n}",
+          "line": 76,
+          "start_byte": 1539,
+          "end_byte": 1701
+        },
+        {
+          "name": "data_invalid_builtin_t",
+          "type": "struct {\n    source_location_t location;\n    uint8_t kind;\n}",
+          "line": 83,
+          "start_byte": 1703,
+          "end_byte": 1795
+        }
+      ]
+    }
+  },
+  "ideas": []
+}

@@ -1,0 +1,89 @@
+{
+  "file": "charmos/kernel/fs/fat/walk.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "fat32_walk_cluster",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "fat_walk_callback",
+            "name": "callback"
+          },
+          {
+            "type": "void",
+            "name": "*ctx"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 9
+      },
+      {
+        "name": "fat12_16_walk_cluster",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "fat_walk_callback",
+            "name": "callback"
+          },
+          {
+            "type": "void",
+            "name": "*ctx"
+          }
+        ],
+        "qualifiers": [
+          "static"
+        ],
+        "line": 33
+      },
+      {
+        "name": "fat_walk_cluster",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "cluster"
+          },
+          {
+            "type": "fat_walk_callback",
+            "name": "cb"
+          },
+          {
+            "type": "void",
+            "name": "*ctx"
+          }
+        ],
+        "qualifiers": [],
+        "line": 91
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

@@ -1,0 +1,448 @@
+{
+  "file": "charmos/kernel/acpi/uacpi_interface.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "uacpi_init",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uint64_t",
+            "name": "rsdp"
+          }
+        ],
+        "qualifiers": [],
+        "line": 33
+      },
+      {
+        "name": "uacpi_print_devs",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 43
+      },
+      {
+        "name": "uacpi_kernel_get_rsdp",
+        "return_type": "uacpi_status",
+        "parameters": [
+          {
+            "type": "uacpi_phys_addr",
+            "name": "*out_rsdp_address"
+          }
+        ],
+        "qualifiers": [],
+        "line": 49
+      },
+      {
+        "name": "uacpi_kernel_map",
+        "return_type": "void *",
+        "parameters": [
+          {
+            "type": "uacpi_phys_addr",
+            "name": "addr"
+          },
+          {
+            "type": "uacpi_size",
+            "name": "len"
+          }
+        ],
+        "qualifiers": [],
+        "line": 61
+      },
+      {
+        "name": "uacpi_kernel_unmap",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*addr"
+          },
+          {
+            "type": "uacpi_size",
+            "name": "len"
+          }
+        ],
+        "qualifiers": [],
+        "line": 66
+      },
+      {
+        "name": "uacpi_kernel_log",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_log_level",
+            "name": "level"
+          },
+          {
+            "type": "uacpi_char",
+            "name": "*data"
+          }
+        ],
+        "qualifiers": [],
+        "line": 70
+      },
+      {
+        "name": "uacpi_kernel_alloc",
+        "return_type": "void *",
+        "parameters": [
+          {
+            "type": "uacpi_size",
+            "name": "size"
+          }
+        ],
+        "qualifiers": [],
+        "line": 80
+      },
+      {
+        "name": "uacpi_kernel_free",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "void",
+            "name": "*mem"
+          }
+        ],
+        "qualifiers": [],
+        "line": 85
+      },
+      {
+        "name": "uacpi_kernel_io_map",
+        "return_type": "uacpi_status",
+        "parameters": [
+          {
+            "type": "uacpi_io_addr",
+            "name": "base"
+          },
+          {
+            "type": "uacpi_size",
+            "name": "len"
+          },
+          {
+            "type": "uacpi_handle",
+            "name": "*out_handle"
+          }
+        ],
+        "qualifiers": [],
+        "line": 89
+      },
+      {
+        "name": "uacpi_kernel_io_unmap",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": "h"
+          }
+        ],
+        "qualifiers": [],
+        "line": 109
+      },
+      {
+        "name": "uacpi_kernel_get_nanoseconds_since_boot",
+        "return_type": "uacpi_u64",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 118
+      },
+      {
+        "name": "uacpi_kernel_stall",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_u8",
+            "name": "usec"
+          }
+        ],
+        "qualifiers": [],
+        "line": 123
+      },
+      {
+        "name": "uacpi_kernel_sleep",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_u64",
+            "name": "msec"
+          }
+        ],
+        "qualifiers": [],
+        "line": 132
+      },
+      {
+        "name": "uacpi_kernel_install_interrupt_handler",
+        "return_type": "uacpi_status",
+        "parameters": [
+          {
+            "type": "uacpi_u32",
+            "name": "irq"
+          },
+          {
+            "type": "uacpi_interrupt_handler",
+            "name": "handler"
+          },
+          {
+            "type": "uacpi_handle",
+            "name": "ctx"
+          },
+          {
+            "type": "uacpi_handle",
+            "name": "*out_irq_handle"
+          }
+        ],
+        "qualifiers": [],
+        "line": 138
+      },
+      {
+        "name": "uacpi_kernel_uninstall_interrupt_handler",
+        "return_type": "uacpi_status",
+        "parameters": [
+          {
+            "type": "uacpi_interrupt_handler",
+            "name": "handler"
+          },
+          {
+            "type": "uacpi_handle",
+            "name": "irq_handle"
+          }
+        ],
+        "qualifiers": [],
+        "line": 154
+      },
+      {
+        "name": "uacpi_kernel_create_spinlock",
+        "return_type": "uacpi_handle",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 172
+      },
+      {
+        "name": "uacpi_kernel_free_spinlock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": "a"
+          }
+        ],
+        "qualifiers": [],
+        "line": 177
+      },
+      {
+        "name": "uacpi_kernel_create_mutex",
+        "return_type": "uacpi_handle",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 181
+      },
+      {
+        "name": "uacpi_kernel_free_mutex",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": "a"
+          }
+        ],
+        "qualifiers": [],
+        "line": 187
+      },
+      {
+        "name": "uacpi_kernel_acquire_mutex",
+        "return_type": "uacpi_status",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": "m"
+          },
+          {
+            "type": "uacpi_u16",
+            "name": "b"
+          }
+        ],
+        "qualifiers": [],
+        "line": 191
+      },
+      {
+        "name": "uacpi_kernel_release_mutex",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": "m"
+          }
+        ],
+        "qualifiers": [],
+        "line": 197
+      },
+      {
+        "name": "uacpi_kernel_lock_spinlock",
+        "return_type": "uacpi_cpu_flags",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": "a"
+          }
+        ],
+        "qualifiers": [],
+        "line": 201
+      },
+      {
+        "name": "uacpi_kernel_unlock_spinlock",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": "a"
+          },
+          {
+            "type": "uacpi_cpu_flags",
+            "name": "b"
+          }
+        ],
+        "qualifiers": [],
+        "line": 205
+      },
+      {
+        "name": "uacpi_kernel_get_thread_id",
+        "return_type": "uacpi_thread_id",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 209
+      },
+      {
+        "name": "uacpi_kernel_schedule_work",
+        "return_type": "uacpi_status",
+        "parameters": [
+          {
+            "type": "uacpi_work_type",
+            "name": null
+          },
+          {
+            "type": "uacpi_work_handler",
+            "name": null
+          },
+          {
+            "type": "uacpi_handle",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 224
+      },
+      {
+        "name": "uacpi_kernel_wait_for_work_completion",
+        "return_type": "uacpi_status",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 229
+      },
+      {
+        "name": "uacpi_kernel_create_event",
+        "return_type": "uacpi_handle",
+        "parameters": [
+          {
+            "type": "void",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 234
+      },
+      {
+        "name": "uacpi_kernel_free_event",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": "a"
+          }
+        ],
+        "qualifiers": [],
+        "line": 238
+      },
+      {
+        "name": "uacpi_kernel_wait_for_event",
+        "return_type": "uacpi_bool",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": null
+          },
+          {
+            "type": "uacpi_u16",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 243
+      },
+      {
+        "name": "uacpi_kernel_signal_event",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 246
+      },
+      {
+        "name": "uacpi_kernel_reset_event",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "uacpi_handle",
+            "name": null
+          }
+        ],
+        "qualifiers": [],
+        "line": 248
+      },
+      {
+        "name": "uacpi_kernel_handle_firmware_request",
+        "return_type": "uacpi_status",
+        "parameters": [
+          {
+            "type": "uacpi_firmware_request",
+            "name": "*"
+          }
+        ],
+        "qualifiers": [],
+        "line": 250
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

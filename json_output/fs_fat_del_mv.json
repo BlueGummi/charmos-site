@@ -1,0 +1,57 @@
+{
+  "file": "charmos/kernel/fs/fat/del_mv.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "fat_delete",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "dir_cluster"
+          },
+          {
+            "type": "char",
+            "name": "*filename"
+          }
+        ],
+        "qualifiers": [],
+        "line": 9
+      },
+      {
+        "name": "fat_rename",
+        "return_type": "bool",
+        "parameters": [
+          {
+            "type": "struct fat_fs",
+            "name": "*fs"
+          },
+          {
+            "type": "uint32_t",
+            "name": "dir_cluster"
+          },
+          {
+            "type": "char",
+            "name": "*filename"
+          },
+          {
+            "type": "char",
+            "name": "*new_filename"
+          }
+        ],
+        "qualifiers": [],
+        "line": 29
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

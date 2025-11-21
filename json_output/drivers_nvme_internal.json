@@ -1,0 +1,32 @@
+{
+  "file": "charmos/kernel/drivers/nvme/internal.h",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "nvme_work_enqueue",
+        "return_type": "enum workqueue_error",
+        "parameters": [
+          {
+            "type": "struct nvme_device",
+            "name": "*dev"
+          },
+          {
+            "type": "struct work",
+            "name": "*work"
+          }
+        ],
+        "qualifiers": [
+          "static",
+          "inline"
+        ],
+        "line": 46
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

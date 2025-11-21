@@ -1,0 +1,32 @@
+{
+  "file": "charmos/kernel/mem/slab/stat.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "slab_domain_bucket_print",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct slab_domain_bucket",
+            "name": "*bucket"
+          }
+        ],
+        "qualifiers": [],
+        "line": 3
+      },
+      {
+        "name": "slab_domains_print",
+        "return_type": "void",
+        "parameters": [],
+        "qualifiers": [],
+        "line": 33
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

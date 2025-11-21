@@ -1,0 +1,101 @@
+{
+  "file": "charmos/kernel/sch/queue.c",
+  "c_parse": {
+    "functions": [
+      {
+        "name": "scheduler_add_thread",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct thread",
+            "name": "*task"
+          },
+          {
+            "type": "bool",
+            "name": "lock_held"
+          }
+        ],
+        "qualifiers": [],
+        "line": 13
+      },
+      {
+        "name": "scheduler_remove_thread",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct scheduler",
+            "name": "*sched"
+          },
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "bool",
+            "name": "lock_held"
+          }
+        ],
+        "qualifiers": [],
+        "line": 51
+      },
+      {
+        "name": "scheduler_enqueue",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          }
+        ],
+        "qualifiers": [],
+        "line": 78
+      },
+      {
+        "name": "scheduler_enqueue_on_core",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "uint64_t",
+            "name": "core_id"
+          }
+        ],
+        "qualifiers": [],
+        "line": 107
+      },
+      {
+        "name": "scheduler_wake",
+        "return_type": "void",
+        "parameters": [
+          {
+            "type": "struct thread",
+            "name": "*t"
+          },
+          {
+            "type": "enum thread_wake_reason",
+            "name": "reason"
+          },
+          {
+            "type": "enum thread_prio_class",
+            "name": "prio"
+          }
+        ],
+        "qualifiers": [],
+        "line": 112
+      }
+    ],
+    "types": {
+      "structs": [],
+      "enums": [],
+      "typedefs": []
+    }
+  },
+  "ideas": []
+}

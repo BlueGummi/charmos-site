@@ -1,0 +1,199 @@
+# [include/drivers/ahci.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h)
+
+<!-- Auto-generated from ahci.h, do not edit manually -->
+
+### struct [`ahci_fis_reg_h2d`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L92)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`fis_type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L93) |
+| `uint8_t` | [`pmport`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L94) |
+| `uint8_t` | [`reserved1`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L95) |
+| `uint8_t` | [`c`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L96) |
+| `uint8_t` | [`command`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L97) |
+| `uint8_t` | [`featurel`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L98) |
+| `uint8_t` | [`lba0`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L100) |
+| `uint8_t` | [`lba1`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L101) |
+| `uint8_t` | [`lba2`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L102) |
+| `uint8_t` | [`device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L103) |
+| `uint8_t` | [`lba3`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L105) |
+| `uint8_t` | [`lba4`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L106) |
+| `uint8_t` | [`lba5`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L107) |
+| `uint8_t` | [`featureh`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L108) |
+| `uint8_t` | [`countl`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L110) |
+| `uint8_t` | [`counth`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L111) |
+| `uint8_t` | [`icc`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L112) |
+| `uint8_t` | [`control`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L113) |
+| `uint8_t` | [`reserved2[4]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L114) |
+
+
+### struct [`ahci_fis_reg_d2h`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L117)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`fis_type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L119) |
+| `uint8_t` | [`pmport`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L121) |
+| `uint8_t` | [`rsv0`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L122) |
+| `uint8_t` | [`i`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L123) |
+| `uint8_t` | [`rsv1`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L124) |
+| `uint8_t` | [`status`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L126) |
+| `uint8_t` | [`error`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L127) |
+| `uint8_t` | [`lba0`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L130) |
+| `uint8_t` | [`lba1`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L131) |
+| `uint8_t` | [`lba2`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L132) |
+| `uint8_t` | [`device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L133) |
+| `uint8_t` | [`lba3`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L136) |
+| `uint8_t` | [`lba4`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L137) |
+| `uint8_t` | [`lba5`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L138) |
+| `uint8_t` | [`rsv2`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L139) |
+| `uint8_t` | [`countl`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L142) |
+| `uint8_t` | [`counth`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L143) |
+| `uint8_t` | [`rsv3[2]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L144) |
+| `uint8_t` | [`rsv4[4]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L147) |
+
+
+### struct [`ahci_prdt_entry`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L150)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint32_t` | [`dba`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L151) |
+| `uint32_t` | [`dbau`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L152) |
+| `uint32_t` | [`reserved`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L153) |
+| `uint32_t` | [`dbc`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L154) |
+| `uint32_t` | [`reserved2`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L155) |
+| `uint32_t` | [`i`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L156) |
+
+
+### struct [`ahci_cmd_table`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L159)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`cfis[AHCI_CMD_TABLE_FIS_SIZE]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L160) |
+| `uint8_t` | [`acmd[AHCI_CMD_TABLE_ATAPI_SIZE]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L161) |
+| `uint8_t` | [`reserved[48]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L162) |
+| [`struct ahci_prdt_entry`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L150) | [`prdt_entry[]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L163) |
+
+
+### struct [`ahci_full_port`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L166)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct ahci_port`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L176) | [`*port`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L167) |
+| `void` | [`*cmd_list_base`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L168) |
+| `void` | [`*fis`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L169) |
+| [`struct ahci_cmd_table`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L159) | [`**cmd_tables`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L170) |
+| [`struct ahci_cmd_header`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L240) | [`**cmd_hdrs`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L171) |
+| `atomic_uint` | [`slot_bitmap`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L173) |
+
+
+### struct [`ahci_port`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L176)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint32_t` | [`clb`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L177) |
+| `uint32_t` | [`clbu`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L178) |
+| `uint32_t` | [`fb`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L179) |
+| `uint32_t` | [`fbu`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L180) |
+| `uint32_t` | [`is`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L181) |
+| `uint32_t` | [`ie`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L182) |
+| `uint32_t` | [`cmd`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L183) |
+| `uint32_t` | [`rsv0`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L184) |
+| `uint32_t` | [`tfd`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L185) |
+| `uint32_t` | [`sig`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L186) |
+| `uint32_t` | [`ssts`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L187) |
+| `uint32_t` | [`sctl`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L188) |
+| `uint32_t` | [`serr`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L189) |
+| `uint32_t` | [`sact`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L190) |
+| `uint32_t` | [`ci`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L191) |
+| `uint32_t` | [`sntf`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L192) |
+| `uint32_t` | [`fbs`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L193) |
+| `uint32_t` | [`rsv1[11]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L194) |
+| `uint32_t` | [`vendor[4]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L195) |
+
+
+### struct [`ahci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L199)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`type`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L200) |
+| `uint32_t` | [`signature`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L201) |
+| `uint32_t` | [`sectors`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L202) |
+| `uint16_t` | [`sector_size`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L203) |
+| [`struct ahci_controller`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L224) | [`*ctrl`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L204) |
+| `uint64_t` | [`port_count`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L205) |
+| [`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188) | [`*io_waiters[AHCI_MAX_PORTS][32]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L207) |
+| `uint16_t` | [`io_statuses[AHCI_MAX_PORTS][32]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L208) |
+| [`struct ahci_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L272) | [`*io_requests[AHCI_MAX_PORTS][32]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L210) |
+| `uint8_t` | [`irq_num`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L212) |
+| [`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10) | [`lock`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L213) |
+| [`struct ahci_full_port`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L166) | [`regs[32]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L214) |
+
+
+### struct [`ahci_disk`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L218)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct ahci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L199) | [`*device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L219) |
+| `uint32_t` | [`port`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L220) |
+| `uint16_t` | [`sector_size`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L221) |
+
+
+### struct [`ahci_controller`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L224)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint32_t` | [`cap`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L225) |
+| `uint32_t` | [`ghc`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L226) |
+| `uint32_t` | [`is`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L227) |
+| `uint32_t` | [`pi`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L228) |
+| `uint32_t` | [`vs`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L229) |
+| `uint32_t` | [`ccc_ctl`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L230) |
+| `uint32_t` | [`ccc_ports`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L231) |
+| `uint32_t` | [`em_loc`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L232) |
+| `uint32_t` | [`em_ctl`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L233) |
+| `uint32_t` | [`cap2`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L234) |
+| `uint32_t` | [`bohc`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L235) |
+| `uint8_t` | [`rsv[0xA0 - 0x2C]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L236) |
+| `uint8_t` | [`vendor[0x100 - 0xA0]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L237) |
+
+
+### struct [`ahci_cmd_header`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L240)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`cfl`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L242) |
+| `uint8_t` | [`a`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L243) |
+| `uint8_t` | [`w`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L244) |
+| `uint8_t` | [`p`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L245) |
+| `uint8_t` | [`r`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L247) |
+| `uint8_t` | [`b`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L248) |
+| `uint8_t` | [`c`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L249) |
+| `uint8_t` | [`rsv0`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L250) |
+| `uint8_t` | [`pmp`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L251) |
+| `uint16_t` | [`prdtl`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L253) |
+| `uint32_t` | [`prdbc`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L256) |
+| `uint32_t` | [`ctba`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L259) |
+| `uint32_t` | [`ctbau`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L260) |
+| `uint32_t` | [`rsv1[4]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L263) |
+
+
+### struct [`ahci_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L272)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint32_t` | [`port`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L273) |
+| `uint32_t` | [`slot`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L274) |
+| `uint64_t` | [`lba`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L275) |
+| `void` | [`*buffer`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L276) |
+| `uint64_t` | [`size`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L277) |
+| `uint64_t` | [`sector_count`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L278) |
+| `bool` | [`write`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L279) |
+| `bool` | [`trigger_completion`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L280) |
+| `bool` | [`done`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L282) |
+| `int` | [`status`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L283) |
+| `void` | [`(*on_complete)(struct ahci_request *)`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L285) |
+| `void` | [`*user_data`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L286) |
+
+
+- [`ahci_get_port()`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L349) — `static inline`[`struct ahci_port *`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L176)`ahci_get_port(`[`struct ahci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L199)` *dev`,`int n)`
+
