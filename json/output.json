@@ -1,0 +1,45 @@
+[
+  {
+    "path": "test.c",
+    "name": "Turnstiles",
+    "size": "big",
+    "start_line": 1,
+    "end_line": 65,
+    "raw_text": "/*\n * # Big Idea: Turnstiles (EXPERIMENTAL)\n *\n * # Alerts: This is still EXPERIMENTAL. Be wary of bugs that may be from this component.\n *\n * # Credits: Eleanor Semaphore\n *\n * # Audience: Synchronization subsystem authors and others interested. not necessary to read.\n *\n * # Overview: Turnstiles give us pointer sized adaptive mutexes (see \"Locking Philosophy\" [^1])...\n *\n * # Background: Turnstiles were invented by Solaris, and are used in FreeBSD and XNU...\n *\n * # Summary: Turnstiles give us a unified structure with functionalities... this functionality is provided by turnstile_block()...\n *\n * # API: Turnstiles expose these functions, use them like such...\n *\n * # Interactions: Turnstiles are used in our mutex implementation and are not to be used on their own outside of tests...\n *\n * # Constraints: Turnstiles must be efficient and avoid taking the slow blocking path too frequently...\n *\n * # Errors: Turnstiles don't \"fail\", but these things can... `reference()`\n *\n * #67\n *\n * # Rationale: Turnstiles spin when the owner is running because it avoids a slowpath...\n *\n * # Diagrams:\n *\n * -- note: diagrams should have the 3 grave stones preceding and following them. this is omitted\n * here because this document is also in markdown and that would interfere with this.\n *```\n *                  Diagram A: Turnstile Donation\n *\n *              turnstile       ┌────────────┐      no existing\n *              ┌─exists────────│   Block    │───────turnstile┐\n *              │               └────────────┘                │\n *              │                                             │\n *              │                                             │\n *              │                                             │\n *              ▼                                             ▼\n *  ┌─────────────────────────┐                      ┌──────────────────┐\n *  │Add Turnstile to freelist│                      │ Donate Turnstile │\n *  └─────────────────────────┘                      └──────────────────┘\n *```\n\n * # Bugs:\n *   Issue #44 \"missed wakeup\"\n *\n *\n * # Tests:\n *   `./kernel/tests/turnstile.c` - general turnstile tests\n *   `./kernel/tests/mutex.c` - general mutex tests that use turnstiles\n *\n * # References: [^1] \"Locking Philosophy\" `./docs/locking_idea.md`\n *\n * # Changelog:\n *   09/02/2005 - Eleanor Semaphore: Added second queue for rwlocks (commit 0b4e)\n *   09/01/2005 - Eleanor Semaphore: Created Idea (commit 62ef)\n *\n * # Notes:\n *   Here is some stuff you might be interested in reading regarding the history of turnstiles\n *\n */",
+    "content_md": "\n# Big Idea\nTurnstiles (EXPERIMENTAL)\n\n# Alerts\nThis is still EXPERIMENTAL. Be wary of bugs that may be from this component.\n\n# Credits\nEleanor Semaphore\n\n# Audience\nSynchronization subsystem authors and others interested. not necessary to read.\n\n# Overview\nTurnstiles give us pointer sized adaptive mutexes (see \"Locking Philosophy\" [^1])...\n\n# Background\nTurnstiles were invented by Solaris, and are used in FreeBSD and XNU...\n\n# Summary\nTurnstiles give us a unified structure with functionalities... this functionality is provided by turnstile_block()...\n\n# API\nTurnstiles expose these functions, use them like such...\n\n# Interactions\nTurnstiles are used in our mutex implementation and are not to be used on their own outside of tests...\n\n# Constraints\nTurnstiles must be efficient and avoid taking the slow blocking path too frequently...\n\n# Errors\nTurnstiles don't \"fail\", but these things can... `reference()`\n\n#67\n\n# Rationale\nTurnstiles spin when the owner is running because it avoids a slowpath...\n\n# Diagrams\n\n-- note: diagrams should have the 3 grave stones preceding and following them. this is omitted\nhere because this document is also in markdown and that would interfere with this.\n```\n                 Diagram A: Turnstile Donation\n\n             turnstile       ┌────────────┐      no existing\n             ┌─exists────────│   Block    │───────turnstile┐\n             │               └────────────┘                │\n             │                                             │\n             │                                             │\n             │                                             │\n             ▼                                             ▼\n ┌─────────────────────────┐                      ┌──────────────────┐\n │Add Turnstile to freelist│                      │ Donate Turnstile │\n └─────────────────────────┘                      └──────────────────┘\n```\n\n# Bugs\n  Issue #44 \"missed wakeup\"\n\n\n# Tests\n  `./kernel/tests/turnstile.c` - general turnstile tests\n  `./kernel/tests/mutex.c` - general mutex tests that use turnstiles\n\n# References\n[^1] \"Locking Philosophy\" `./docs/locking_idea.md`\n\n# Changelog\n  09/02/2005 - Eleanor Semaphore: Added second queue for rwlocks (commit 0b4e)\n  09/01/2005 - Eleanor Semaphore: Created Idea (commit 62ef)\n\n# Notes\n  Here is some stuff you might be interested in reading regarding the history of turnstiles\n\n/",
+    "references": {
+      "functions": [
+        {
+          "name": "reference",
+          "start_idx": 903,
+          "end_idx": 916,
+          "line": 33
+        }
+      ],
+      "files": [
+        {
+          "name": "./kernel/tests/turnstile.c",
+          "start_idx": 1945,
+          "end_idx": 1971
+        },
+        {
+          "name": "./kernel/tests/mutex.c",
+          "start_idx": 2002,
+          "end_idx": 2024
+        },
+        {
+          "name": "./docs/locking_idea.md",
+          "start_idx": 2109,
+          "end_idx": 2131
+        }
+      ],
+      "bugs": [
+        {
+          "start_idx": 1912,
+          "end_idx": 1915,
+          "number": 44
+        }
+      ]
+    }
+  }
+]
