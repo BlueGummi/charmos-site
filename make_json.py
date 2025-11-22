@@ -21,6 +21,12 @@ META_CREDITS_RE = re.compile(
     re.IGNORECASE
 )
 
+FILE_TITLE_RE = re.compile(
+    r'/\*\s*@title:\s*(.+?)\s*\*/',
+    re.IGNORECASE | re.DOTALL
+)
+
+
 IDEA_REF_RE = re.compile(r'\]:\s*"([^"]+)"')
 IDEA_SIGNATURE_RE = re.compile(r'/\*\s*@idea:(small|big|huge)\s+(.+?)\s*\*/', re.UNICODE)
 FILE_RE = re.compile(r'([./\w\-]+?\.(c|h|rs|cpp|txt|md))', re.UNICODE)
@@ -31,6 +37,18 @@ COMMIT_RE = re.compile(r'(?:\*?\s*)commit\s+([0-9a-f]{7,40})', re.IGNORECASE)
 IGNORE_DIRS = ['uACPI', 'flanterm']
 
 parser = get_parser("c")
+
+def extract_file_title(text: str):
+    m = FILE_TITLE_RE.search(text)
+    if not m:
+        return None
+
+    title = m.group(1).strip()
+
+    title = re.sub(r'^\*\s*', '', title).strip()
+
+    return title
+
 
 def print_single_line(*args, **kwargs):
     text = " ".join(str(arg) for arg in args)
@@ -509,11 +527,15 @@ def main():
         print(f"Error: {input_file} does not exist or is not a file.")
         sys.exit(1)
 
+    full_text = Path(input_file).read_text(encoding="utf-8")
+
+    title = extract_file_title(full_text)
     ideas = extract_ideas_from_file(input_file)
     type_info = parse_c_types_and_functions(str(input_file))
 
     output = {
         "file": str(input_file),
+        "title": title,
         "c_parse": type_info,
         "ideas": ideas
     }

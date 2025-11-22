@@ -125,7 +125,7 @@ status: "unknown"
 | `uint16_t` | [`sector_size`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L203) |
 | [`struct ahci_controller`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L224) | [`*ctrl`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L204) |
 | `uint64_t` | [`port_count`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L205) |
-| [`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188) | [`*io_waiters[AHCI_MAX_PORTS][32]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L207) |
+| [`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/thread.h#L188) | [`*io_waiters[AHCI_MAX_PORTS][32]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L207) |
 | `uint16_t` | [`io_statuses[AHCI_MAX_PORTS][32]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L208) |
 | [`struct ahci_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L272) | [`*io_requests[AHCI_MAX_PORTS][32]`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L210) |
 | `uint8_t` | [`irq_num`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L212) |

@@ -97,14 +97,11 @@ def run_make_json():
         
         print_single_line(f"parsed source {f.relative_to(CLONE_DIR)} → {json_out_path.name}", progress=progress)
 
-    print("JSON parsing completed")
-
 def run_make_md():
     subprocess.check_call([
         "python3", "make_md.py",
         str(JSON_OUT)
     ])
-    print("Markdown generated")
 
 def delete_empty_markdown():
     for path in MD_OUT.glob("**/*.md"):
@@ -112,6 +109,48 @@ def delete_empty_markdown():
         if not content:
             print_single_line(f" removing empty: {path}")
             path.unlink()
+
+def copy_directory_indexes(src_root: Path, docs_root: Path):
+    count = len(list(src_root.rglob("index.mdx")))
+    for (i, index_file) in enumerate(src_root.rglob("index.mdx")):
+        rel = index_file.relative_to(src_root)
+
+        dest_path = docs_root / rel
+
+        dest_path.parent.mkdir(parents=True, exist_ok=True)
+
+        shutil.copy2(index_file, dest_path)
+        print_single_line(f"copied {index_file} → {dest_path}", progress = i / count)
+
+
+
+def rename_directories_from_namefiles(root: Path):
+    subdirs = [d for d in root.iterdir() if d.is_dir()]
+    count = len(subdirs)
+
+    for i, subdir in enumerate(subdirs):
+        name_file = subdir / "dir_doc_name"
+
+        if name_file.is_file():
+            new_name = name_file.read_text(encoding="utf-8").strip()
+
+            if new_name and new_name != subdir.name:
+                new_path = subdir.parent / new_name
+
+                if not new_path.exists():
+                    print_single_line(
+                        f"renaming {subdir} → {new_path}",
+                        progress=i / max(count, 1)
+                    )
+                    subdir.rename(new_path)
+                    subdir = new_path
+                else:
+                    print_single_line(
+                        f"[SKIP exists] {subdir} → {new_path}",
+                        progress=i / max(count, 1)
+                    )
+
+        rename_directories_from_namefiles(subdir)
 
 def main():
     subprocess.check_call([
@@ -123,14 +162,20 @@ def main():
     ])
 
     clone_repo()
+    print("initial repo clone and setup complete")
+    rename_directories_from_namefiles(Path("charmos"))
+    print("directory rename completed")
     prepare_output_dirs()
+    print("output directory setup completed")
     run_make_json()
+    print("JSON parsing completed")
     run_make_md()
+    print("markdown generated")
     delete_empty_markdown()
-    subprocess.check_call([
-        "python3", "cleanup.py",
-    ])
-    print("Files merged")
+    print("markdown cleaned")
+    copy_directory_indexes(Path("charmos/include"), Path("docs"))
+    print("directory indexes copied")
+
     print("complete.")
 
 

@@ -10,7 +10,7 @@ status: "unknown"
 
 | Member Type | Member Name |
 |-------------|-------------|
-| [`struct thread_queue`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_queue.h#L5) | [`waiters`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L12) |
+| [`struct thread_queue`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/thread_queue.h#L5) | [`waiters`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L12) |
 | `bool` | [`irq_disable`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L13) |
 
 
@@ -18,6 +18,6 @@ status: "unknown"
 [`(*condvar_callback)`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L8) : `void (void *)`
 ### type alias
 [`(*thread_action_callback)`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L9) : `void (struct thread *woke)`
-- [`struct thread *`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)[`condvar_signal`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L20)`(`[`struct condvar`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L11)` *cv)`
-- [`struct thread *`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)[`condvar_signal_callback`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L21)`(`[`struct condvar`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L11)` *cv`,`thread_action_callback cb)`
+- [`struct thread *`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/thread.h#L188)[`condvar_signal`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L20)`(`[`struct condvar`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L11)` *cv)`
+- [`struct thread *`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/thread.h#L188)[`condvar_signal_callback`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L21)`(`[`struct condvar`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L11)` *cv`,`thread_action_callback cb)`
 

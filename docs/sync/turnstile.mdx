@@ -10,7 +10,7 @@ status: "unknown"
 
 | Member Type | Member Name |
 |-------------|-------------|
-| [`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188) | [`*inheritor`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L22) |
+| [`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/thread.h#L188) | [`*inheritor`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L22) |
 | `bool` | [`applied_pi_boost`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L23) |
 | [`struct list_head`](https://github.com/bluegummi/charmos/blob/main/include/structures/list.h#L5) | [`hash_list`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L24) |
 | [`struct list_head`](https://github.com/bluegummi/charmos/blob/main/include/structures/list.h#L5) | [`freelist`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L25) |
@@ -47,6 +47,6 @@ status: "unknown"
 
 - [`struct turnstile *`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L21)[`turnstile_create`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L58)`(void)`
 - [`struct turnstile *`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L21)[`turnstile_init`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L60)`(`[`struct turnstile`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L21)` *ts)`
-- [`struct turnstile *`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L21)[`turnstile_block`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L61)`(`[`struct turnstile`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L21)` *ts`,`size_t queue_num`,`void *lock_obj`,[`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h#L2)` lock_irql)`
-- [`struct turnstile *`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L21)[`turnstile_lookup`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L63)`(void *obj`,[`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h#L2)` *irql_out)`
+- [`struct turnstile *`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L21)[`turnstile_block`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L61)`(`[`struct turnstile`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L21)` *ts`,`size_t queue_num`,`void *lock_obj`,[`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/irql.h#L2)` lock_irql)`
+- [`struct turnstile *`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L21)[`turnstile_lookup`](https://github.com/bluegummi/charmos/blob/main/include/sync/turnstile.h#L63)`(void *obj`,[`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/irql.h#L2)` *irql_out)`
 

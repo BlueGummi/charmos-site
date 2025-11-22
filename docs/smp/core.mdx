@@ -12,11 +12,11 @@ status: "unknown"
 |-------------|-------------|
 | [`struct core`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L15) | [`*self`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L16) |
 | `size_t` | [`id`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L17) |
-| [`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188) | [`*current_thread`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L18) |
+| [`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/thread.h#L188) | [`*current_thread`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L18) |
 | `size_t` | [`domain_cpu_id`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L20) |
 | `atomic_bool` | [`idle`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L22) |
 | `bool` | [`in_interrupt`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L24) |
-| [`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h#L2) | [`current_irql`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L25) |
+| [`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/irql.h#L2) | [`current_irql`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L25) |
 | `atomic_bool` | [`needs_resched`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L27) |
 | `atomic_bool` | [`in_resched`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L28) |
 | `atomic_uint_fast32_t` | [`scheduler_preemption_disable_depth`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L29) |
@@ -40,7 +40,7 @@ status: "unknown"
 | `uint64_t` | [`tsc_hz`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L53) |
 | `uint64_t` | [`last_us`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L54) |
 | `uint64_t` | [`last_tsc`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L55) |
-| [`struct dpc`](https://github.com/bluegummi/charmos/blob/main/include/sch/dpc.h#L9) | [`*tlb_shootdown_dpc`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L57) |
+| [`struct dpc`](https://github.com/bluegummi/charmos/blob/main/include/Scheduler/dpc.h#L9) | [`*tlb_shootdown_dpc`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L57) |
 
 
 - `static inline uint64_t `[`smp_core_id`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L60)`()`

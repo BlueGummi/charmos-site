@@ -290,6 +290,8 @@ def generate_docs(json_dir: Path):
         with open(json_file, "r", encoding="utf-8") as f:
             data = json.load(f)
     
+        json_title = data.get("title")
+
         source_path = Path(data["file"])
         try:
             relative_path = source_path.relative_to("charmos/include")
@@ -302,16 +304,26 @@ def generate_docs(json_dir: Path):
         # Gather ideas for this file
         file_ideas = ideas_by_file.get(str(source_path), [])
         
-        if file_ideas:
+        # First priority: file-level title from JSON
+        if json_title:
+            title = json_title
+            author = "Unknown"
+            status = "unknown"
+        
+        # Second priority: first idea in the file
+        elif file_ideas:
             first_idea = file_ideas[0]
             title = first_idea.get("name", md_out_path.stem)
             author = first_idea.get("author", "Unknown")
             status = first_idea.get("status", "unknown")
+        
+        # Fallback: filename
         else:
             title = md_out_path.stem
             author = "Unknown"
             status = "unknown"
-                
+        
+                        
         front_matter_lines = [
             "---\n",
             f'title: "{title}"\n',
@@ -320,9 +332,6 @@ def generate_docs(json_dir: Path):
             "---\n\n"
         ]
 
-        
-            
-                # Build the combined Markdown
         combined_lines = []
     
         for idea in file_ideas:
