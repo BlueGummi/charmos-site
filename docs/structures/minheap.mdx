@@ -1,0 +1,31 @@
+---
+title: "minheap"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/structures/minheap.h](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h)
+
+### struct [`minheap_node`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L13)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10) | [`lock`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L14) |
+| `atomic_uint_fast64_t` | [`key`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L15) |
+| `atomic_uint_fast32_t` | [`index`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L16) |
+
+
+### struct [`minheap`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L20)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct minheap_node`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L13) | [`**nodes`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L21) |
+| `atomic_uint_fast32_t` | [`capacity`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L22) |
+| `atomic_uint_fast32_t` | [`size`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L23) |
+
+
+- [`struct minheap *`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L20)[`minheap_create`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L26)`(void)`
+- `static inline`[`struct minheap_node *`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L13)[`minheap_peek`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L47)`(`[`struct minheap`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L20)` *heap)`
+- [`struct minheap_node *`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L13)[`minheap_pop`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L51)`(`[`struct minheap`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L20)` *heap)`
+- `static inline bool `[`minheap_node_valid`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L53)`(`[`struct minheap_node`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L13)` *node)`
+

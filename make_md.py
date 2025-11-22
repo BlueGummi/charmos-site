@@ -31,7 +31,7 @@ def print_single_line(*args, progress: float = None, **kwargs):
 def make_docs_path(idea_path: str, md_root: Path = DOCS_ROOT) -> Path:
     src_path = Path(idea_path)
     try:
-        relative_path = src_path.relative_to("charmos")
+        relative_path = src_path.relative_to("charmos/include")
     except ValueError:
         relative_path = src_path
 
@@ -282,8 +282,8 @@ def generate_docs(json_dir: Path):
         for fn in idea.get("references", {}).get("functions", []):
             functions_map[fn["name"]] = generate_github_link_safe(idea["path"], fn.get("line"))
 
-    for f in idea.get("references", {}).get("files", []):
-        files_map[f["name"]] = generate_github_link_safe(f["name"])
+        for f in idea.get("references", {}).get("files", []):
+            files_map[f["name"]] = generate_github_link_safe(f["name"])
 
     # Step 2: For each JSON file, write the Markdown with ideas on top
     for i, json_file in enumerate(json_dir.glob("*.json"), start = 1):
@@ -292,7 +292,7 @@ def generate_docs(json_dir: Path):
     
         source_path = Path(data["file"])
         try:
-            relative_path = source_path.relative_to("charmos")
+            relative_path = source_path.relative_to("charmos/include")
         except ValueError:
             relative_path = source_path
     

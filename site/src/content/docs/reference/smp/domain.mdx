@@ -1,0 +1,22 @@
+---
+title: "domain"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/smp/domain.h](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h)
+
+### struct [`domain`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L9)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `size_t` | [`id`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L10) |
+| `size_t` | [`num_cores`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L11) |
+| [`struct core`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L15) | [`**cores`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L12) |
+| [`struct numa_node`](https://github.com/bluegummi/charmos/blob/main/include/mem/numa.h#L6) | [`*associated_node`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L13) |
+
+
+- `static inline`[`struct domain *`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L9)[`domain_local`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L16)`(void)`
+- `static inline size_t `[`domain_local_id`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L20)`(void)`
+- [`struct cpu_mask *`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)[`domain_create_cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L25)`(`[`struct domain`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L9)` *domain)`
+

@@ -1,0 +1,28 @@
+---
+title: "detect"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/fs/detect.h](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h)
+
+### enum [`fs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L4)
+
+| Name | Value |
+|------|-------|
+| [`FS_DEVTMPFS`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L5) | `-2` |
+| [`FS_TMPFS`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L6) | `-1` |
+| [`FS_UNKNOWN`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L7) | `0` |
+| [`FS_FAT32`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L8) | `1` |
+| [`FS_FAT16`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L9) | `2` |
+| [`FS_FAT12`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L10) | `3` |
+| [`FS_EXFAT`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L11) | `4` |
+| [`FS_EXT2`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L12) | `5` |
+| [`FS_EXT3`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L13) | `6` |
+| [`FS_EXT4`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L14) | `7` |
+| [`FS_NTFS`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L15) | `8` |
+| [`FS_ISO9660`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L16) | `9` |
+
+
+- `const char * `[`detect_fstr`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L19)`(`[`enum fs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L4)` type)`
+

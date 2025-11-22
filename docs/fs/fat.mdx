@@ -1,0 +1,150 @@
+---
+title: "fat"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/fs/fat.h](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h)
+
+### struct [`fat12_16_ext_bpb`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L47)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`drive_number`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L48) |
+| `uint8_t` | [`reserved`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L49) |
+| `uint8_t` | [`boot_signature`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L50) |
+| `uint32_t` | [`volume_id`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L51) |
+| `uint8_t` | [`volume_label[11]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L52) |
+| `uint8_t` | [`fs_type[8]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L53) |
+| `uint8_t` | [`reserved1[448]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L54) |
+
+
+### struct [`fat32_ext_bpb`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L57)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint32_t` | [`fat_size_32`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L58) |
+| `uint16_t` | [`ext_flags`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L59) |
+| `uint16_t` | [`fs_version`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L60) |
+| `uint32_t` | [`root_cluster`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L61) |
+| `uint16_t` | [`fs_info`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L62) |
+| `uint16_t` | [`backup_boot_sector`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L63) |
+| `uint8_t` | [`reserved[12]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L64) |
+| `uint8_t` | [`drive_number`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L65) |
+| `uint8_t` | [`reserved1`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L66) |
+| `uint8_t` | [`boot_signature`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L67) |
+| `uint32_t` | [`volume_id`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L68) |
+| `uint8_t` | [`volume_label[11]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L69) |
+| `uint8_t` | [`fs_type[8]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L70) |
+| `uint8_t` | [`reserved2[420]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L71) |
+
+
+### struct [`fat_bpb`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L77)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`jump_boot[3]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L78) |
+| `uint8_t` | [`oem_name[8]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L79) |
+| `uint16_t` | [`bytes_per_sector`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L80) |
+| `uint8_t` | [`sectors_per_cluster`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L81) |
+| `uint16_t` | [`reserved_sector_count`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L82) |
+| `uint8_t` | [`num_fats`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L83) |
+| `uint16_t` | [`root_entry_count`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L84) |
+| `uint16_t` | [`total_sectors_16`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L85) |
+| `uint8_t` | [`media`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L86) |
+| `uint16_t` | [`fat_size_16`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L87) |
+| `uint16_t` | [`sectors_per_track`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L88) |
+| `uint16_t` | [`num_heads`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L89) |
+| `uint32_t` | [`hidden_sectors`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L90) |
+| `uint32_t` | [`total_sectors_32`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L91) |
+| `union { struct fat32_ext_bpb ext_32; struct fat12_16_ext_bpb ext_12_16; }` | [`None`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L93) |
+
+
+### struct [`fat_date`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L99)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint16_t` | [`day`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L100) |
+| `uint16_t` | [`month`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L101) |
+| `uint16_t` | [`year`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L102) |
+
+
+### struct [`fat_time`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L105)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint16_t` | [`second`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L106) |
+| `uint16_t` | [`minute`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L107) |
+| `uint16_t` | [`hour`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L108) |
+
+
+### struct [`fat_dirent`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L111)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `char` | [`name[11]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L112) |
+| [`enum fat_fileattr`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L26) | [`attr`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L113) |
+| `uint8_t` | [`ntres`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L114) |
+| `uint8_t` | [`crttimetenth`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L115) |
+| [`struct fat_time`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L105) | [`crttime`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L116) |
+| [`struct fat_date`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L99) | [`crtdate`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L117) |
+| [`struct fat_date`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L99) | [`lastaccess`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L118) |
+| `uint16_t` | [`high_cluster`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L119) |
+| [`struct fat_time`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L105) | [`modtime`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L120) |
+| [`struct fat_date`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L99) | [`moddate`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L121) |
+| `uint16_t` | [`low_cluster`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L122) |
+| `uint32_t` | [`filesize`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L123) |
+
+
+### struct [`fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`enum fat_fstype`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L20) | [`type`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L128) |
+| [`struct fat_bpb`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L77) | [`*bpb`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L129) |
+| [`struct generic_partition`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L41) | [`*partition`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L130) |
+| [`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68) | [`*disk`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L131) |
+| `uint32_t` | [`volume_base_lba`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L132) |
+| `uint32_t` | [`total_clusters`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L133) |
+| `uint32_t` | [`root_cluster`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L134) |
+| `uint32_t` | [`cluster_size`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L135) |
+| `uint32_t` | [`fsinfo_sector`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L136) |
+| `uint32_t` | [`free_clusters`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L137) |
+| `uint32_t` | [`last_alloc_cluster`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L138) |
+| `uint32_t` | [`entries_per_cluster`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L139) |
+| `uint16_t` | [`fat_size`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L142) |
+| `uint8_t` | [`boot_signature`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L143) |
+| `uint8_t` | [`drive_number`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L144) |
+| `uint32_t` | [`volume_id`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L145) |
+| `uint8_t` | [`volume_label[11]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L146) |
+| `uint8_t` | [`fs_type[8]`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L147) |
+
+
+### enum [`fat_fstype`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L20)
+
+| Name | Value |
+|------|-------|
+| [`FAT_12`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L21) | `None` |
+| [`FAT_16`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L22) | `None` |
+| [`FAT_32`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L23) | `None` |
+
+
+### enum [`fat_fileattr`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L26)
+
+| Name | Value |
+|------|-------|
+| [`FAT_RO`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L27) | `0x01` |
+| [`FAT_HIDDEN`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L28) | `0x02` |
+| [`FAT_SYSTEM`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L29) | `0x04` |
+| [`FAT_VOL_ID`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L30) | `0x08` |
+| [`FAT_DIR`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L31) | `0x10` |
+| [`FAT_ARCHIVE`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L32) | `0x20` |
+
+
+### type alias
+[`(*fat_walk_callback)`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L150) : `bool (struct fat_dirent *, uint32_t, void *)`
+- `static inline const char * `[`get_fileattr_string`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L35)`(`[`enum fat_fileattr`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L26)` f)`
+- [`struct fat_bpb *`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L77)[`fat32_read_bpb`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L160)`(`[`struct generic_partition`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L41)` *)`
+- [`struct vfs_node *`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)[`fat_g_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L185)`(`[`struct generic_partition`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L41)` *p)`
+- [`struct fat_dirent *`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L111)[`fat_lookup`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L245)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster`,`char *f`,`uint32_t *out_index)`
+

@@ -1,0 +1,145 @@
+---
+title: "vfs"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/fs/vfs.h](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h)
+
+### struct [`vfs_stat`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L78)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint16_t` | [`mode`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L79) |
+| `uint64_t` | [`size`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L80) |
+| `uint64_t` | [`inode`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L82) |
+| `uint32_t` | [`nlink`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L83) |
+| `uint64_t` | [`atime`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L86) |
+| `uint64_t` | [`mtime`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L89) |
+| `uint64_t` | [`ctime`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L92) |
+| `uint16_t` | [`present_mask`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L95) |
+
+
+### struct [`vfs_dirent`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L98)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `char` | [`name[VFS_NAME_MAX]`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L99) |
+| `uint16_t` | [`mode`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L100) |
+| [`struct vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198) | [`*node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L101) |
+| `void` | [`*dirent_data`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L102) |
+
+
+### struct [`vfs_ops`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L106)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*read)(struct vfs_node *node, void *buf, uint64_t size,
+                       uint64_t offset)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L109) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*write)(struct vfs_node *node, const void *buf, uint64_t size,
+                        uint64_t offset)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L113) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*open)(struct vfs_node *node, uint32_t flags)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L117) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*close)(struct vfs_node *node)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L120) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*create)(struct vfs_node *parent, const char *name,
+                         uint16_t mode)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L123) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*mknod)(struct vfs_node *parent, const char *name,
+                        uint16_t mode, uint32_t dev)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L127) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*symlink)(struct vfs_node *parent, const char *target,
+                          const char *link_name)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L131) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*mount)(struct vfs_node *mountpoint, struct vfs_node *target,
+                        const char *name)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L135) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*unmount)(struct vfs_mount *mountpoint)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L139) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*stat)(struct vfs_node *node, struct vfs_stat *out)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L142) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*readdir)(struct vfs_node *node, struct vfs_dirent *out,
+                          uint64_t index)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L145) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*mkdir)(struct vfs_node *parent, const char *name,
+                        uint16_t mode)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L149) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*rmdir)(struct vfs_node *parent, const char *name)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L153) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*unlink)(struct vfs_node *parent, const char *name)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L156) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*rename)(struct vfs_node *old_parent, const char *old_name,
+                         struct vfs_node *new_parent, const char *new_name)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L159) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*truncate)(struct vfs_node *node, uint64_t length)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L163) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*readlink)(struct vfs_node *node, char *buf, uint64_t size)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L166) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*link)(struct vfs_node *parent, struct vfs_node *target,
+                       const char *link_name)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L169) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*chmod)(struct vfs_node *node, uint16_t mode)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L173) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*chown)(struct vfs_node *node, uint32_t uid, uint32_t gid)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L176) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*utime)(struct vfs_node *node, uint64_t atime, uint64_t mtime)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L179) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*destroy)(struct vfs_node *node)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L182) |
+| [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6) | [`(*finddir)(struct vfs_node *node, const char *name,
+                          struct vfs_dirent *out)`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L185) |
+
+
+### struct [`vfs_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L189)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198) | [`*mount_point`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L190) |
+| [`struct vfs_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L189) | [`*mount_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L191) |
+| [`struct vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198) | [`*root`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L192) |
+| [`struct vfs_ops`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L106) | [`*ops`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L193) |
+| `char` | [`name[256]`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L194) |
+| `void` | [`*fs_data`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L195) |
+
+
+### struct [`vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`enum fs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L4) | [`fs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L199) |
+| `uint64_t` | [`open_handles`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L200) |
+| `uint64_t` | [`unique_id`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L201) |
+| `uint32_t` | [`flags`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L202) |
+| `uint16_t` | [`mode`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L203) |
+| `uint64_t` | [`size`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L204) |
+| `uint32_t` | [`uid`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L205) |
+| `uint32_t` | [`gid`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L206) |
+| `uint64_t` | [`mtime`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L207) |
+| `uint64_t` | [`atime`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L208) |
+| `void` | [`*fs_data`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L210) |
+| `void` | [`*fs_node_data`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L211) |
+| [`struct vfs_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L189) | [`*child_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L212) |
+| [`struct vfs_ops`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L106) | [`*ops`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L214) |
+
+
+### enum [`vfs_node_flags`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L42)
+
+| Name | Value |
+|------|-------|
+| [`VFS_NODE_NONE`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L43) | `0x0000` |
+| [`VFS_NODE_MOUNTPOINT`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L44) | `0x0001` |
+| [`VFS_NODE_SYMLINK`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L45) | `0x0002` |
+| [`VFS_NODE_HIDDEN`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L46) | `0x0004` |
+| [`VFS_NODE_DEVICE`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L47) | `0x0008` |
+| [`VFS_NODE_PIPE`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L48) | `0x0010` |
+| [`VFS_NODE_SOCKET`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L49) | `0x0020` |
+| [`VFS_NODE_SYNC`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L50) | `0x0030` |
+| [`VFS_NODE_TEMPORARY`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L51) | `0x0040` |
+| [`VFS_NODE_NOATIME`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L52) | `0x0080` |
+| [`VFS_NODE_APPENDONLY`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L53) | `0x0100` |
+| [`VFS_NODE_IMMUTABLE`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L54) | `0x0200` |
+| [`VFS_NODE_NOFOLLOW`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L55) | `0x0400` |
+| [`VFS_NODE_IN_USE`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L56) | `0x0800` |
+| [`VFS_NODE_DIRSYNC`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L57) | `0x1000` |
+
+
+### enum [`vfs_open_opts`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L61)
+
+| Name | Value |
+|------|-------|
+| [`VFS_OPEN_READ`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L62) | `0x01` |
+| [`VFS_OPEN_WRITE`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L63) | `0x02` |
+| [`VFS_OPEN_RDWR`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L64) | `VFS_OPEN_READ | VFS_OPEN_WRITE` |
+| [`VFS_OPEN_APPEND`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L66) | `0x04` |
+| [`VFS_OPEN_CREAT`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L67) | `0x08` |
+| [`VFS_OPEN_TRUNC`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L68) | `0x10` |
+| [`VFS_OPEN_EXCL`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L69) | `0x20` |
+| [`VFS_OPEN_DIR`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L70) | `0x40` |
+| [`VFS_OPEN_SYMLINK_NOFOLLOW`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L71) | `0x80` |
+| [`VFS_OPEN_NONBLOCK`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L73) | `0x100` |
+| [`VFS_OPEN_SYNC`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L74) | `0x200` |
+| [`VFS_OPEN_NOATIME`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L75) | `0x400` |
+
+
+- [`struct vfs_node *`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)[`vfs_finddir`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L221)`(`[`struct vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)` *node`,`char *fname)`
+

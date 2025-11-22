@@ -198,7 +198,24 @@ def parse_c_types_and_functions(filename):
                     "qualifiers": qualifiers,
                     "line": node.start_point[0] + 1
                 })
+
+        elif node.type in ("declaration", "function_declaration"):
+            declarator = node.child_by_field_name("declarator")
+            type_node = node.child_by_field_name("type")
         
+            if declarator and any(child.type == "function_declarator" for child in declarator.children):
+                return_type = get_full_return_type(type_node, declarator, code_bytes)
+                qualifiers = extract_function_qualifiers(node, code_bytes)
+                func_name, parameters = extract_function_name_and_params(declarator, code_bytes)
+        
+                functions.append({
+                    "name": func_name,
+                    "return_type": return_type,
+                    "parameters": parameters,
+                    "qualifiers": qualifiers,
+                    "line": node.start_point[0] + 1,
+                    "prototype": True
+                })
 
         elif node.type == "struct_specifier":
             name_node = node.child_by_field_name("name")

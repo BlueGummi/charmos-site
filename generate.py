@@ -29,7 +29,7 @@ def print_single_line(*args, progress: float = None, **kwargs):
         sys.stdout.flush()
 
 SOURCE_DIRS = [
-    "kernel",   
+#    "kernel",   
     "include", 
 ]
 

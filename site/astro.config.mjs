@@ -15,10 +15,12 @@ export default defineConfig({
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Example Guide', slug: 'guides/example' },
 					],
+                    collapsed: true,
 				},
 				{
 					label: 'Reference',
 					autogenerate: { directory: 'reference' },
+                    collapsed: true,
 				},
 			],
 		}),

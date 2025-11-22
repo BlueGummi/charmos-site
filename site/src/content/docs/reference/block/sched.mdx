@@ -1,0 +1,51 @@
+---
+title: "sched"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/block/sched.h](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h)
+
+### struct [`bio_rqueue`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L122)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct list_head`](https://github.com/bluegummi/charmos/blob/main/include/structures/list.h#L5) | [`list`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L123) |
+| `uint64_t` | [`request_count`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L125) |
+| `bool` | [`dirty`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L128) |
+
+
+### struct [`bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68) | [`*disk`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L132) |
+| [`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10) | [`lock`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L133) |
+| `uint64_t` | [`total_requests`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L134) |
+| [`struct bio_rqueue`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L122) | [`queues[BIO_SCHED_LEVELS]`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L135) |
+| `bool` | [`defer_pending`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L136) |
+
+
+### struct [`bio_scheduler_ops`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L139)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `bool` | [`(*should_coalesce)(struct generic_disk *dev,
+                            const struct bio_request *a,
+                            const struct bio_request *b)`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L140) |
+| `void` | [`(*do_coalesce)(struct generic_disk *dev, struct bio_request *into,
+                        struct bio_request *from)`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L144) |
+| `void` | [`(*reorder)(struct generic_disk *dev)`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L147) |
+| `uint32_t` | [`max_wait_time[BIO_SCHED_LEVELS]`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L150) |
+| `uint32_t` | [`dispatch_threshold`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L154) |
+| `uint64_t` | [`boost_occupance_limit[BIO_SCHED_LEVELS]`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L158) |
+| `uint64_t` | [`tick_ms`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L162) |
+| `uint64_t` | [`min_wait_ms`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L171) |
+
+
+- [`struct bio_scheduler *`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)[`bio_sched_create`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L203)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct bio_scheduler_ops`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L139)` *ops)`
+- `static inline void `[`update_request_timestamp`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L206)`(`[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+- `static inline bool `[`submit_if_urgent`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L210)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+- `static inline bool `[`sched_is_empty`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L220)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched)`
+- `static inline bool `[`submit_if_skip_sched`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L228)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+

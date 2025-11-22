@@ -1,0 +1,57 @@
+---
+title: "bcache"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/block/bcache.h](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h)
+
+### struct [`bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint8_t` | [`*buffer`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L20) |
+| `uint64_t` | [`size`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L22) |
+| `uint64_t` | [`lba`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L25) |
+| `uint64_t` | [`access_time`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L28) |
+| [`struct mutex`](https://github.com/bluegummi/charmos/blob/main/include/sync/mutex.h#L40) | [`lock`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L29) |
+| `bool` | [`dirty`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L30) |
+| `bool` | [`no_evict`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L31) |
+| [`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36) | [`*request`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L34) |
+| [`refcount_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L11) | [`refcount`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L36) |
+
+
+### struct [`bcache_wrapper`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L39)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint64_t` | [`key`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L40) |
+| [`struct bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18) | [`*value`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L41) |
+| `bool` | [`occupied`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L42) |
+| [`struct bcache_wrapper`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L39) | [`*next`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L43) |
+
+
+### struct [`bcache`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L47)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct bcache_wrapper`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L39) | [`**entries`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L48) |
+| `atomic_uint_fast64_t` | [`ticks`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L49) |
+| `uint64_t` | [`capacity`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L50) |
+| `uint64_t` | [`count`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L51) |
+| `uint64_t` | [`spb`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L52) |
+| [`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10) | [`lock`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L53) |
+
+
+- `static inline uint64_t `[`bcache_hash`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L56)`(uint64_t x`,`uint64_t capacity)`
+- `void * `[`bcache_get`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L67)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint64_t block_size`,`uint64_t spb`,`bool no_evict`,[`struct bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18)` **out_entry)`
+- `void * `[`bcache_create_ent`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L87)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint64_t block_size`,`uint64_t sectors_per_block`,`bool no_evict`,[`struct bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18)` **out_entry)`
+- `static inline void `[`bcache_increment_ticks`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L91)`(`[`struct bcache`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L47)` *cache)`
+- `static inline uint64_t `[`bcache_get_ticks`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L95)`(`[`struct bcache`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L47)` *cache)`
+- `static inline void `[`bcache_ent_lock`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L99)`(`[`struct bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18)` *ent)`
+- `static inline void `[`bcache_ent_unlock`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L103)`(`[`struct bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18)` *ent)`
+- `static inline void `[`bcache_ent_pin`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L107)`(`[`struct bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18)` *ent)`
+- `static inline void `[`bcache_ent_unpin`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L111)`(`[`struct bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18)` *ent)`
+- `static inline void `[`bcache_ent_acquire`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L115)`(`[`struct bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18)` *ent)`
+- `static inline void `[`bcache_ent_release`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L120)`(`[`struct bcache_entry`](https://github.com/bluegummi/charmos/blob/main/include/block/bcache.h#L18)` *ent)`
+
