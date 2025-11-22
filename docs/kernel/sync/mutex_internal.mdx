@@ -1,0 +1,17 @@
+---
+title: "mutex_internal"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/sync/mutex_internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/sync/mutex_internal.h)
+
+- `static inline`[`struct thread *`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)[`mutex_get_owner`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/mutex_internal.h#L13)`(`[`struct mutex`](https://github.com/bluegummi/charmos/blob/main/include/sync/mutex.h#L40)` *mtx)`
+- `static inline uintptr_t `[`mutex_make_lock_word`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/mutex_internal.h#L17)`(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *owner)`
+- `static inline uintptr_t `[`mutex_make_unlocked_word`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/mutex_internal.h#L21)`(void)`
+- `static inline bool `[`mutex_try_lock`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/mutex_internal.h#L25)`(`[`struct mutex`](https://github.com/bluegummi/charmos/blob/main/include/sync/mutex.h#L40)` *mtx`,[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *self)`
+- `static inline void `[`mutex_lock_word_unlock`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/mutex_internal.h#L53)`(`[`struct mutex`](https://github.com/bluegummi/charmos/blob/main/include/sync/mutex.h#L40)` *mtx)`
+- `static inline bool `[`mutex_set_waiter_bit`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/mutex_internal.h#L58)`(`[`struct mutex`](https://github.com/bluegummi/charmos/blob/main/include/sync/mutex.h#L40)` *mtx)`
+- `static inline bool `[`mutex_unset_waiter_bit`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/mutex_internal.h#L64)`(`[`struct mutex`](https://github.com/bluegummi/charmos/blob/main/include/sync/mutex.h#L40)` *mtx)`
+- `static inline bool `[`mutex_get_waiter_bit`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/mutex_internal.h#L70)`(`[`struct mutex`](https://github.com/bluegummi/charmos/blob/main/include/sync/mutex.h#L40)` *mtx)`
+

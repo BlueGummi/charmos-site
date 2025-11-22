@@ -1,0 +1,17 @@
+---
+title: "semaphore"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/sync/semaphore.h](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h)
+
+### struct [`semaphore`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L9)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `atomic_int` | [`count`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L10) |
+| `bool` | [`irq_disable`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L11) |
+| [`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10) | [`lock`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L13) |
+| [`struct condvar`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L11) | [`cv`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L14) |
+

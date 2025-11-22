@@ -1,7 +1,0 @@
-+++
-title = "domain"
-author = "Unknown"
-status = "unknown"
-+++
-
-# [include/mem/domain.h](https://github.com/bluegummi/charmos/blob/main/include/mem/domain.h)

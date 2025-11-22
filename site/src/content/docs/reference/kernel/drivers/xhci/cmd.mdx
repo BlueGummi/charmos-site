@@ -1,0 +1,21 @@
+---
+title: "cmd"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/xhci/cmd.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c)
+
+### type alias
+[`(*xhci_wait_cb)`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L36) : `uint64_t (struct xhci_device *, struct xhci_trb *evt, uint8_t slot_id, uint32_t *dq_idx, struct xhci_ring *evt_ring, uint8_t expected_cycle, bool *success_out)`
+- `void `[`xhci_advance_enqueue`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L14)`(`[`struct xhci_ring`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L451)` *cmd_ring)`
+- `void `[`xhci_send_command`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L22)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev`,`uint64_t parameter`,`uint32_t control)`
+- `static uint64_t `[`xhci_generic_wait`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L41)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev`,`uint8_t slot_id`,`xhci_wait_cb callback)`
+- `static uint64_t `[`wait_for_response`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L64)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev`,[`struct xhci_trb`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L443)` *evt`,`uint8_t slot_id`,`uint32_t *dq_idx`,[`struct xhci_ring`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L451)` *event_ring`,`uint8_t expected_cycle`,`bool *success_out)`
+- `static uint64_t `[`wait_for_transfer_event`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L86)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev`,[`struct xhci_trb`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L443)` *evt`,`uint8_t slot_id`,`uint32_t *dq_idx`,[`struct xhci_ring`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L451)` *event_ring`,`uint8_t expected_cycle`,`bool *success_out)`
+- `static uint64_t `[`wait_for_interrupt_event`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L121)`(`[`struct xhci_trb`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L443)` *evt`,`uint8_t slot_id`,`uint32_t *dq_idx`,[`struct xhci_ring`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L451)` *event_ring`,`uint8_t expected_cycle`,`bool *success_out`,`uint8_t ep_id)`
+- `static bool `[`xhci_wait_for_interrupt`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L152)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *xhci`,`uint8_t slot_id`,`uint8_t ep_id)`
+- `uint64_t `[`xhci_wait_for_response`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L175)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev)`
+- `bool `[`xhci_wait_for_transfer_event`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L179)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev`,`uint8_t slot_id)`
+- `bool `[`xhci_submit_interrupt_transfer`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/cmd.c#L184)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev`,[`struct usb_packet`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L292)` *packet)`
+

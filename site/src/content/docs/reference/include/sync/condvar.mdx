@@ -1,0 +1,20 @@
+---
+title: "condvar"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/sync/condvar.h](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h)
+
+### struct [`condvar`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L11)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct thread_queue`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_queue.h#L5) | [`waiters`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L12) |
+| `bool` | [`irq_disable`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L13) |
+
+
+### type alias
+[`(*condvar_callback)`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L8) : `void (void *)`
+### type alias
+[`(*thread_action_callback)`](https://github.com/bluegummi/charmos/blob/main/include/sync/condvar.h#L9) : `void (struct thread *woke)`

@@ -1,0 +1,18 @@
+---
+title: "domain"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/smp/domain.c](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c)
+
+- `static void `[`init_global_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c#L9)`(uint64_t domain_count)`
+- `static void `[`construct_domains_from_numa_nodes`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c#L28)`(void)`
+- `static void `[`construct_domains_from_cores`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c#L47)`(void)`
+- `void `[`domain_dump`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c#L82)`(void)`
+- `void `[`domain_init`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c#L109)`(void)`
+- `void `[`domain_set_cpu_mask`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c#L126)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *mask`,[`struct domain`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L9)` *domain)`
+- [`struct cpu_mask *`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)[`domain_create_cpu_mask`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c#L132)`(`[`struct domain`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L9)` *domain)`
+- `static void `[`domains_move`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c#L150)`(void *a`,`void *b)`
+- `bool `[`domain_idle`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/domain.c#L158)`(`[`struct domain`](https://github.com/bluegummi/charmos/blob/main/include/smp/domain.h#L9)` *domain)`
+

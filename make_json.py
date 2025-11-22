@@ -2,7 +2,7 @@
 
 import re
 import json
-import sys
+import sys, shutil
 from pathlib import Path
 import tempfile
 import subprocess
@@ -31,6 +31,19 @@ COMMIT_RE = re.compile(r'(?:\*?\s*)commit\s+([0-9a-f]{7,40})', re.IGNORECASE)
 IGNORE_DIRS = ['uACPI', 'flanterm']
 
 parser = get_parser("c")
+
+def print_single_line(*args, **kwargs):
+    text = " ".join(str(arg) for arg in args)
+    terminal_width = shutil.get_terminal_size((80, 20)).columns
+    spaces_to_clear = max(terminal_width - len(text), 0)
+    output = "\r" + text + " " * spaces_to_clear
+
+    flush = kwargs.get("flush", True)
+
+    sys.stdout.write(output)
+    if flush:
+        sys.stdout.flush()
+
 
 def extract_metadata(md_text: str):
     name = None
@@ -473,7 +486,6 @@ def main():
     output_json = Path(sys.argv[2])
 
     if should_ignore_file(input_file):
-        print(f"Skipping {input_file}")
         sys.exit(0)
 
     if not input_file.is_file():

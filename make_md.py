@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import json
 import sys
-import re
+import re, shutil
 from pathlib import Path
 from collections import defaultdict
 
@@ -11,6 +11,23 @@ DOCS_ROOT = Path("./docs")
 
 IGNORED_KEYWORDS = {"if", "for", "while", "switch", "return", "sizeof"}
 
+def print_single_line(*args, progress: float = None, **kwargs):
+    text = " ".join(str(arg) for arg in args)
+    terminal_width = shutil.get_terminal_size((80, 20)).columns
+
+    if progress is not None:
+        progress_str = f"{int(progress * 100)}%"
+        space_to_progress = max(terminal_width - len(text) - len(progress_str), 1)
+        output = "\r" + text + " " * space_to_progress + progress_str
+    else:
+        spaces_to_clear = max(terminal_width - len(text), 0)
+        output = "\r" + text + " " * spaces_to_clear
+
+    flush = kwargs.get("flush", True)
+    sys.stdout.write(output)
+    if flush:
+        sys.stdout.flush()
+
 def make_docs_path(idea_path: str, md_root: Path = DOCS_ROOT) -> Path:
     src_path = Path(idea_path)
     try:
@@ -18,7 +35,7 @@ def make_docs_path(idea_path: str, md_root: Path = DOCS_ROOT) -> Path:
     except ValueError:
         relative_path = src_path
 
-    md_file = relative_path.with_suffix(".md").name  
+    md_file = relative_path.with_suffix(".mdx").name  
     md_path = md_root / md_file
     md_path.parent.mkdir(parents=True, exist_ok=True)
     return md_path
@@ -253,6 +270,8 @@ def generate_docs(json_dir: Path):
     idea_doc_paths = {}
     ideas_by_file = defaultdict(list)
     collision_counter = defaultdict(int)
+    json_files = list(json_dir.glob("*.json")) 
+    total_files = len(json_files)
 
     for idea in ideas:
         src_file = idea["path"]
@@ -267,7 +286,7 @@ def generate_docs(json_dir: Path):
         files_map[f["name"]] = generate_github_link_safe(f["name"])
 
     # Step 2: For each JSON file, write the Markdown with ideas on top
-    for json_file in json_dir.glob("*.json"):
+    for i, json_file in enumerate(json_dir.glob("*.json"), start = 1):
         with open(json_file, "r", encoding="utf-8") as f:
             data = json.load(f)
     
@@ -277,7 +296,7 @@ def generate_docs(json_dir: Path):
         except ValueError:
             relative_path = source_path
     
-        md_out_path = DOCS_ROOT / relative_path.parent / (relative_path.stem + ".md")
+        md_out_path = DOCS_ROOT / relative_path.parent / (relative_path.stem + ".mdx")
         md_out_path.parent.mkdir(parents=True, exist_ok=True)
     
         # Gather ideas for this file
@@ -294,11 +313,11 @@ def generate_docs(json_dir: Path):
             status = "unknown"
                 
         front_matter_lines = [
-            "+++\n",
-            f'title = "{title}"\n',
-            f'author = "{author}"\n', 
-            f'status = "{status}"\n',
-            "+++\n\n"
+            "---\n",
+            f'title: "{title}"\n',
+            f'author: "{author}"\n', 
+            f'status: "{status}"\n',
+            "---\n\n"
         ]
 
         
@@ -377,9 +396,8 @@ def generate_docs(json_dir: Path):
             for f in data["c_parse"].get("functions", []):
                 if not f.get("name"):
                     continue
-                signature_md = format_function_signature(f, type_table)
-                f_url = generate_github_link_safe(data["file"], f.get("line"))
-                lines.append(f"- [`{f['name']}()`]({f_url}) — {signature_md}")
+                signature_md = format_function_signature(data, f, type_table)
+                lines.append(f"- {signature_md}")
     
             if data["c_parse"].get("functions"):
                 lines.append("\n")
@@ -391,10 +409,10 @@ def generate_docs(json_dir: Path):
     
         # Write combined Markdown to single file
         md_out_path.write_text("".join(front_matter_lines) + "\n".join(combined_lines), encoding="utf-8")
-        print(f"Wrote combined Markdown to {md_out_path}")
+        print_single_line("compiled JSON " + str(json_dir) + " → " + str(md_out_path), progress = i / total_files)
     
 
-def format_function_signature_raw(f, type_table):
+def format_function_signature_raw(data, f, type_table):
     qualifiers = " ".join(f.get("qualifiers", []))
     return_type = f.get("return_type") or "void"
 
@@ -408,7 +426,9 @@ def format_function_signature_raw(f, type_table):
 
     parts.append(ret_type_full)
 
-    parts.append(f['name'])
+    f_url = generate_github_link_safe(data["file"], f.get("line"))
+    parts.append(f"[`{f['name']}`]({f_url})")
+
     parts.append("(")
 
     param_strs = []
@@ -479,8 +499,8 @@ def clean_string(input_string):
     cleaned_string = ' '.join(line.lstrip() for line in input_string.splitlines())
     return cleaned_string
 
-def format_function_signature(f, type_table):
-    raw = format_function_signature_raw(f, type_table)
+def format_function_signature(data, f, type_table):
+    raw = format_function_signature_raw(data, f, type_table)
     final = retick_segmentwise(raw)
     final = re.sub('`{2,}', '', final)
     return final

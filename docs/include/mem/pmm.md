@@ -1,7 +1,0 @@
-+++
-title = "pmm"
-author = "Unknown"
-status = "unknown"
-+++
-
-# [include/mem/pmm.h](https://github.com/bluegummi/charmos/blob/main/include/mem/pmm.h)

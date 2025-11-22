@@ -1,0 +1,15 @@
+---
+title: "atapi"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/ata/atapi.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/atapi.c)
+
+- `bool `[`atapi_identify`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/atapi.c#L13)`(`[`struct ata_drive`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L92)` *ide)`
+- `bool `[`atapi_read_sector`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/atapi.c#L40)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buffer`,`uint64_t sector_count)`
+- `bool `[`atapi_write_sector`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/atapi.c#L111)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buffer`,`uint64_t sector_count)`
+- `bool `[`atapi_read_sector_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/atapi.c#L121)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t start_lba`,`uint8_t *buffer`,`uint64_t sector_count)`
+- `void `[`atapi_print_info`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/atapi.c#L133)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk)`
+- [`struct generic_disk *`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)[`atapi_create_generic`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/atapi.c#L138)`(`[`struct ata_drive`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L92)` *d)`
+

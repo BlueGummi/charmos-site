@@ -1,7 +1,0 @@
-+++
-title = "oom"
-author = "Unknown"
-status = "unknown"
-+++
-
-# [include/mem/oom.h](https://github.com/bluegummi/charmos/blob/main/include/mem/oom.h)

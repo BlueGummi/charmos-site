@@ -1,0 +1,35 @@
+---
+title: "idt"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/int/idt.h](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h)
+
+### struct [`idt_entry`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L8)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint16_t` | [`base_low`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L9) |
+| `uint16_t` | [`selector`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L10) |
+| `uint8_t` | [`ist`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L11) |
+| `uint8_t` | [`flags`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L12) |
+| `uint16_t` | [`base_mid`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L13) |
+| `uint32_t` | [`base_high`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L14) |
+| `uint32_t` | [`reserved`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L15) |
+
+
+### struct [`idt_table`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L18)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct idt_entry`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L8) | [`entries[IDT_ENTRIES]`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L19) |
+
+
+### struct [`idt_ptr`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L22)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint16_t` | [`limit`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L23) |
+| `uint64_t` | [`base`](https://github.com/bluegummi/charmos/blob/main/include/int/idt.h#L24) |
+

@@ -2,7 +2,7 @@
 import subprocess
 import shutil
 from pathlib import Path
-import os
+import os, sys
 
 REPO_URL = "https://github.com/bluegummi/charmos.git"
 CLONE_DIR = Path("./charmos")
@@ -11,6 +11,23 @@ MD_OUT = Path("./docs")
 LIMINE_URL = "https://github.com/limine-bootloader/limine"
 LIMINE_DIR = Path("./limine")
 
+def print_single_line(*args, progress: float = None, **kwargs):
+    text = " ".join(str(arg) for arg in args)
+    terminal_width = shutil.get_terminal_size((80, 20)).columns
+
+    if progress is not None:
+        progress_str = f"{int(progress * 100)}%"
+        space_to_progress = max(terminal_width - len(text) - len(progress_str), 1)
+        output = "\r" + text + " " * space_to_progress + progress_str
+    else:
+        spaces_to_clear = max(terminal_width - len(text), 0)
+        output = "\r" + text + " " * spaces_to_clear
+
+    flush = kwargs.get("flush", True)
+    sys.stdout.write(output)
+    if flush:
+        sys.stdout.flush()
+
 SOURCE_DIRS = [
     "kernel",   
     "include", 
@@ -18,7 +35,7 @@ SOURCE_DIRS = [
 
 def clone_repo():
     if CLONE_DIR.exists():
-        return;
+        return
 
     subprocess.check_call([
         "git", "clone", "--depth=1",
@@ -69,27 +86,31 @@ def run_make_json():
     if not files:
         return
 
-    for f in files:
+    for i, f in enumerate(files, start=1):
         json_out_path = json_filename_for_source(f)
-        print(f"  → {f.relative_to(CLONE_DIR)} → {json_out_path.name}")
-
+        progress = i / len(files)
         subprocess.check_call([
             "python3", "make_json.py",
             str(f),
             str(json_out_path)
         ])
+        
+        print_single_line(f"parsed source {f.relative_to(CLONE_DIR)} → {json_out_path.name}", progress=progress)
+
+    print("JSON parsing completed")
 
 def run_make_md():
     subprocess.check_call([
         "python3", "make_md.py",
         str(JSON_OUT)
     ])
+    print("Markdown generated")
 
 def delete_empty_markdown():
     for path in MD_OUT.glob("**/*.md"):
         content = path.read_text(encoding="utf-8").strip()
         if not content:
-            print(f"  → Removing empty: {path}")
+            print_single_line(f" removing empty: {path}")
             path.unlink()
 
 def main():
@@ -109,9 +130,9 @@ def main():
     subprocess.check_call([
         "python3", "cleanup.py",
     ])
+    print("Files merged")
+    print("complete.")
 
-
-    print("SUCCESS")
 
 if __name__ == "__main__":
     main()

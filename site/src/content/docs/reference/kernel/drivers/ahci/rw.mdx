@@ -1,0 +1,26 @@
+---
+title: "rw"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/ahci/rw.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c)
+
+### type alias
+[`(*async_fn)`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L24) : `bool (struct generic_disk *, uint64_t, uint8_t *, uint16_t, struct ahci_request *)`
+### type alias
+[`(*sync_fn)`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L27) : `bool (struct generic_disk *, uint64_t, uint8_t *, uint16_t)`
+- `static void `[`ahci_set_lba_cmd`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L9)`(`[`struct ahci_fis_reg_h2d`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L92)` *fis`,`uint64_t lba`,`uint16_t sector_count)`
+- `static bool `[`rw_async`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L29)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint16_t count`,[`struct ahci_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L272)` *req`,`bool write)`
+- `static bool `[`rw_sync`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L57)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint16_t count`,`async_fn function)`
+- `static bool `[`rw_sync_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L86)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt`,`sync_fn function)`
+- `static bool `[`rw_async_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L105)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt`,[`struct ahci_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L272)` *req`,`async_fn function)`
+- `bool `[`ahci_read_sector_async`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L124)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint16_t count`,[`struct ahci_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L272)` *req)`
+- `bool `[`ahci_write_sector_async`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L130)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *in_buf`,`uint16_t count`,[`struct ahci_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L272)` *req)`
+- `bool `[`ahci_read_sector_blocking`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L136)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint16_t count)`
+- `bool `[`ahci_write_sector_blocking`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L141)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint16_t count)`
+- `bool `[`ahci_read_sector_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L146)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt)`
+- `bool `[`ahci_write_sector_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L151)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt)`
+- `bool `[`ahci_write_sector_async_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L157)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt`,[`struct ahci_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L272)` *req)`
+- `bool `[`ahci_read_sector_async_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ahci/rw.c#L164)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt`,[`struct ahci_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ahci.h#L272)` *req)`
+

@@ -1,0 +1,41 @@
+---
+title: "uacpi_interface"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/acpi/uacpi_interface.c](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c)
+
+- `void `[`uacpi_init`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L33)`(uint64_t rsdp)`
+- `void `[`uacpi_print_devs`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L43)`()`
+- `uacpi_status `[`uacpi_kernel_get_rsdp`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L49)`(uacpi_phys_addr *out_rsdp_address)`
+- `void * `[`uacpi_kernel_map`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L61)`(uacpi_phys_addr addr`,`uacpi_size len)`
+- `void `[`uacpi_kernel_unmap`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L66)`(void *addr`,`uacpi_size len)`
+- `void `[`uacpi_kernel_log`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L70)`(uacpi_log_level level`,`uacpi_char *data)`
+- `void * `[`uacpi_kernel_alloc`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L80)`(uacpi_size size)`
+- `void `[`uacpi_kernel_free`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L85)`(void *mem)`
+- `uacpi_status `[`uacpi_kernel_io_map`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L89)`(uacpi_io_addr base`,`uacpi_size len`,`uacpi_handle *out_handle)`
+- `void `[`uacpi_kernel_io_unmap`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L109)`(uacpi_handle h)`
+- `uacpi_u64 `[`uacpi_kernel_get_nanoseconds_since_boot`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L118)`(void)`
+- `void `[`uacpi_kernel_stall`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L123)`(uacpi_u8 usec)`
+- `void `[`uacpi_kernel_sleep`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L132)`(uacpi_u64 msec)`
+- `uacpi_status `[`uacpi_kernel_install_interrupt_handler`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L138)`(uacpi_u32 irq`,`uacpi_interrupt_handler handler`,`uacpi_handle ctx`,`uacpi_handle *out_irq_handle)`
+- `uacpi_status `[`uacpi_kernel_uninstall_interrupt_handler`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L154)`(uacpi_interrupt_handler handler`,`uacpi_handle irq_handle)`
+- `uacpi_handle `[`uacpi_kernel_create_spinlock`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L172)`(void)`
+- `void `[`uacpi_kernel_free_spinlock`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L177)`(uacpi_handle a)`
+- `uacpi_handle `[`uacpi_kernel_create_mutex`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L181)`(void)`
+- `void `[`uacpi_kernel_free_mutex`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L187)`(uacpi_handle a)`
+- `uacpi_status `[`uacpi_kernel_acquire_mutex`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L191)`(uacpi_handle m`,`uacpi_u16 b)`
+- `void `[`uacpi_kernel_release_mutex`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L197)`(uacpi_handle m)`
+- `uacpi_cpu_flags `[`uacpi_kernel_lock_spinlock`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L201)`(uacpi_handle a)`
+- `void `[`uacpi_kernel_unlock_spinlock`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L205)`(uacpi_handle a`,`uacpi_cpu_flags b)`
+- `uacpi_thread_id `[`uacpi_kernel_get_thread_id`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L209)`(void)`
+- `uacpi_status `[`uacpi_kernel_schedule_work`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L224)`(uacpi_work_type`,`uacpi_work_handler`,`uacpi_handle)`
+- `uacpi_status `[`uacpi_kernel_wait_for_work_completion`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L229)`(void)`
+- `uacpi_handle `[`uacpi_kernel_create_event`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L234)`(void)`
+- `void `[`uacpi_kernel_free_event`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L238)`(uacpi_handle a)`
+- `uacpi_bool `[`uacpi_kernel_wait_for_event`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L243)`(uacpi_handle`,`uacpi_u16)`
+- `void `[`uacpi_kernel_signal_event`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L246)`(uacpi_handle)`
+- `void `[`uacpi_kernel_reset_event`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L248)`(uacpi_handle)`
+- `uacpi_status `[`uacpi_kernel_handle_firmware_request`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/uacpi_interface.c#L250)`(uacpi_firmware_request *)`
+

@@ -1,0 +1,26 @@
+---
+title: "spinlock"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/sync/spinlock.h](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h)
+
+### struct [`spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `atomic_bool` | [`state`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L11) |
+
+
+- `static inline __no_sanitize_address `[`spinlock_init`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L16)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock)`
+- `static inline __no_sanitize_address `[`spin_lock_raw`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L20)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock)`
+- `static inline __no_sanitize_address `[`spin_unlock_raw`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L35)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock)`
+- `static inline __no_sanitize_address `[`spin_unlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L40)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock`,[`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h#L2)` old)`
+- `irql `[`spin_lock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L46)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock)`
+- `irql `[`spin_lock_irq_disable`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L55)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock)`
+- `static inline __no_sanitize_address `[`spin_trylock_raw`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L62)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock)`
+- `static inline __no_sanitize_address `[`spin_trylock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L69)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock`,[`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h#L2)` *out)`
+- `static inline __no_sanitize_address `[`spin_trylock_irq_disable`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L83)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock`,[`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h#L2)` *out)`
+- `static inline __no_sanitize_address `[`spinlock_held`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L97)`(`[`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10)` *lock)`
+

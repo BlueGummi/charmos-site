@@ -1,0 +1,56 @@
+---
+title: "thread_request"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/sch/thread_request.h](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h)
+
+### struct [`thread_request_list`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L65)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct locked_list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L7) | [`lists[THREAD_REQUEST_PRIORITY_COUNT]`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L66) |
+
+
+### struct [`thread_request`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L69)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct list_head`](https://github.com/bluegummi/charmos/blob/main/include/structures/list.h#L5) | [`list_node`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L70) |
+| `thread_request_callback` | [`callback`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L71) |
+| `void` | [`(*thread_entry)(void)`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L72) |
+| `void` | [`*data`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L73) |
+| [`enum thread_request_priority`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L53) | [`prio`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L74) |
+| [`enum thread_request_state`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L59) | [`state`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L75) |
+| [`struct thread_request_list`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L65) | [`*_Atomic parent_internal`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L78) |
+
+
+### enum [`thread_request_decision`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L44)
+
+| Name | Value |
+|------|-------|
+| [`THREAD_REQUEST_DECISION_KEEP`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L45) | `None` |
+| [`THREAD_REQUEST_DECISION_DESTROY`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L46) | `None` |
+
+
+### enum [`thread_request_priority`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L53)
+
+| Name | Value |
+|------|-------|
+| [`THREAD_REQUEST_PRIORITY_LOW`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L54) | `None` |
+| [`THREAD_REQUEST_PRIORITY_HIGH`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L55) | `None` |
+| [`THREAD_REQUEST_PRIORITY_COUNT`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L56) | `None` |
+
+
+### enum [`thread_request_state`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L59)
+
+| Name | Value |
+|------|-------|
+| [`THREAD_REQUEST_PENDING`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L60) | `None` |
+| [`THREAD_REQUEST_FULFILLED`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L61) | `None` |
+| [`THREAD_REQUEST_CANCELLED`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L62) | `None` |
+
+
+### type alias
+[`(*thread_request_callback)`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread_request.h#L50) : `enum thread_request_decision (struct thread *, void *data)`

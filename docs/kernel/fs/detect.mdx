@@ -1,0 +1,18 @@
+---
+title: "detect"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/fs/detect.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c)
+
+- `const char * `[`detect_fstr`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L16)`(`[`enum fs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L4)` type)`
+- [`struct vfs_node *`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)[`dummy_mount`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L33)`(`[`struct generic_partition`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L41)` *p)`
+- `void `[`dummy_print`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L38)`(`[`struct generic_partition`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L41)` *p)`
+- `static void `[`make_partition`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L43)`(`[`struct generic_partition`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L41)` *part`,[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t start_lba`,`uint64_t sector_count`,`uint8_t idx)`
+- `static`[`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6)[`detect_mbr_partitions`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L57)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint8_t *sector)`
+- `static bool `[`detect_gpt_partitions`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L91)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint8_t *sector)`
+- `static`[`enum fs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L4)[`detect_partition_fs`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L141)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct generic_partition`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L41)` *part`,`uint8_t *sector)`
+- `static void `[`assign_fs_ops`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L185)`(`[`struct generic_partition`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L41)` *part)`
+- [`enum fs_type`](https://github.com/bluegummi/charmos/blob/main/include/fs/detect.h#L4)[`detect_fs`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/detect.c#L198)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk)`
+

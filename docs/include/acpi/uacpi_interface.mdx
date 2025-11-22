@@ -1,0 +1,14 @@
+---
+title: "uacpi_interface"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/acpi/uacpi_interface.h](https://github.com/bluegummi/charmos/blob/main/include/acpi/uacpi_interface.h)
+
+### type alias
+[`uacpi_pci_device`](https://github.com/bluegummi/charmos/blob/main/include/acpi/uacpi_interface.h#L6) : `struct { // typedefing it because of consistency with uacpi naming uint8_t bus, slot, func; bool is_open; }`
+### type alias
+[`uacpi_io_handle`](https://github.com/bluegummi/charmos/blob/main/include/acpi/uacpi_interface.h#L11) : `struct { uacpi_io_addr base; uacpi_size len; bool valid; }`
+### type alias
+[`irq_entry_t`](https://github.com/bluegummi/charmos/blob/main/include/acpi/uacpi_interface.h#L17) : `struct { uacpi_interrupt_handler handler; uacpi_handle ctx; bool installed; }`

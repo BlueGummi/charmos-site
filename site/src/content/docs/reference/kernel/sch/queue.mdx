@@ -1,0 +1,14 @@
+---
+title: "queue"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/sch/queue.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c)
+
+- `void `[`scheduler_add_thread`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c#L13)`(`[`struct scheduler`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)` *sched`,[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *task`,`bool lock_held)`
+- `void `[`scheduler_remove_thread`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c#L51)`(`[`struct scheduler`](https://github.com/bluegummi/charmos/blob/main/include/sch/sched.h#L31)` *sched`,[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t`,`bool lock_held)`
+- `void `[`scheduler_enqueue`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c#L78)`(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t)`
+- `void `[`scheduler_enqueue_on_core`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c#L107)`(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t`,`uint64_t core_id)`
+- `void `[`scheduler_wake`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/queue.c#L112)`(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *t`,[`enum thread_wake_reason`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L84)` reason`,[`enum thread_prio_class`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L72)` prio)`
+

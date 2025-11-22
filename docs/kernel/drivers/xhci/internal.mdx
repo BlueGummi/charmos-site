@@ -1,0 +1,15 @@
+---
+title: "internal"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/xhci/internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/internal.h)
+
+- `static inline void `[`xhci_clear_interrupt_pending`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/internal.h#L6)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev)`
+- `static inline void `[`xhci_interrupt_enable_ints`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/internal.h#L12)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev)`
+- `static inline uint8_t `[`usb_to_xhci_ep_type`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/internal.h#L17)`(bool in`,`uint8_t type)`
+- `static inline void `[`xhci_ring_doorbell`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/internal.h#L51)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev`,`uint32_t slot_id`,`uint32_t ep_id)`
+- `static inline void `[`xhci_advance_dequeue`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/internal.h#L57)`(`[`struct xhci_ring`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L451)` *event_ring`,`uint32_t *dq_idx`,`uint8_t *expected_cycle)`
+- `static inline void `[`xhci_controller_restart`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/internal.h#L70)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev)`
+

@@ -1,7 +1,0 @@
-+++
-title = "logo"
-author = "Unknown"
-status = "unknown"
-+++
-
-# [include/logo.h](https://github.com/bluegummi/charmos/blob/main/include/logo.h)

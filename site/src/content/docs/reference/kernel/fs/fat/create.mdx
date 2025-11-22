@@ -1,0 +1,16 @@
+---
+title: "create"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/fs/fat/create.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/create.c)
+
+- `static inline uint32_t `[`fat12_16_root_dir_lba`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/create.c#L9)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs)`
+- `static inline uint32_t `[`fat12_16_root_dir_sectors`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/create.c#L14)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs)`
+- `static bool `[`fat_find_free_dirent_slot`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/create.c#L19)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t dir_cluster`,`uint8_t *dir_buf`,`uint32_t *out_cluster`,`uint32_t *out_offset`,`uint32_t *out_prev_cluster)`
+- `static bool `[`fat_extend_directory`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/create.c#L70)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t prev_cluster`,`uint32_t *new_cluster_out`,`uint8_t *dir_buf)`
+- `static void `[`fat_initialize_dirent`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/create.c#L99)`(`[`struct fat_dirent`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L111)` *ent`,`char *filename`,`uint32_t cluster`,[`enum fat_fileattr`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L26)` attr)`
+- `bool `[`fat_create`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/create.c#L128)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t dir_cluster`,`char *filename`,[`struct fat_dirent`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L111)` *out_dirent`,[`enum fat_fileattr`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L26)` attr`,`uint32_t *out_cluster)`
+- `bool `[`fat_mkdir`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/create.c#L191)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t parent_cluster`,`char *name`,[`struct fat_dirent`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L111)` *out_dirent)`
+

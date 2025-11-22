@@ -1,0 +1,31 @@
+---
+title: "topology"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/smp/topology.c](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c)
+
+- `static void `[`cpu_mask_print`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L22)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *m)`
+- `static void `[`print_topology_node`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L43)`(`[`struct topology_node`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L43)` *node`,`int depth)`
+- [`struct cpu_mask *`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)[`cpu_mask_create`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L89)`(void)`
+- `bool `[`cpu_mask_init`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L93)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *m`,`size_t nbits)`
+- `void `[`cpu_mask_set`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L110)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *m`,`size_t cpu)`
+- `void `[`cpu_mask_clear`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L118)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *m`,`size_t cpu)`
+- `bool `[`cpu_mask_test`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L126)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *m`,`size_t cpu)`
+- `void `[`cpu_mask_or`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L134)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *dst`,[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *b)`
+- `void `[`cpu_mask_set_all`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L144)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *m)`
+- `bool `[`cpu_mask_empty`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L154)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *mask)`
+- `void `[`topology_dump`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L166)`(void)`
+- `static size_t `[`build_smt_nodes`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L178)`(size_t n_cpus)`
+- `static size_t `[`build_core_nodes`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L222)`(size_t n_cpus)`
+- `static bool `[`cpu_mask_intersects`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L268)`(`[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *a`,[`struct cpu_mask`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L21)` *b)`
+- `static size_t `[`build_numa_nodes`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L297)`(size_t n_cores`,`size_t n_llc)`
+- `static size_t `[`build_llc_nodes`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L367)`(size_t n_cores)`
+- `static size_t `[`build_package_nodes`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L453)`(size_t n_cores`,`size_t n_llc)`
+- `static void `[`build_machine_node`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L497)`(size_t n_packages)`
+- `void `[`topology_init`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L521)`(void)`
+- [`struct core * *`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L15)[`topology_get_smts_under_numa`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L548)`(`[`struct topology_node`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L43)` *numa`,`size_t *count)`
+- `void `[`topology_mark_core_idle`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L582)`(size_t cpu_id`,`bool idle)`
+- [`struct core *`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L15)[`topology_find_idle_core`](https://github.com/bluegummi/charmos/blob/main/kernel/smp/topology.c#L599)`(`[`struct core`](https://github.com/bluegummi/charmos/blob/main/include/smp/core.h#L15)` *local_core`,[`enum topology_level`](https://github.com/bluegummi/charmos/blob/main/include/smp/topology.h#L7)` max_search)`
+

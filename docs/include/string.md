@@ -1,7 +1,0 @@
-+++
-title = "string"
-author = "Unknown"
-status = "unknown"
-+++
-
-# [include/string.h](https://github.com/bluegummi/charmos/blob/main/include/string.h)

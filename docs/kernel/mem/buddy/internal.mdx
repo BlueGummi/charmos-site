@@ -1,0 +1,19 @@
+---
+title: "internal"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/mem/buddy/internal.h](https://github.com/bluegummi/charmos/blob/main/kernel/mem/buddy/internal.h)
+
+### struct [`free_area`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/buddy/internal.h#L12)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct page`](https://github.com/bluegummi/charmos/blob/main/include/mem/page.h#L38) | [`*next`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/buddy/internal.h#L13) |
+| `uint64_t` | [`nr_free`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/buddy/internal.h#L14) |
+
+
+- `static inline bool `[`page_pfn_allocated_in_boot_bitmap`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/buddy/internal.h#L19)`(uint64_t pfn)`
+- `static inline bool `[`page_pfn_available`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/buddy/internal.h#L23)`(uint64_t pfn)`
+

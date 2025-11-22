@@ -1,0 +1,17 @@
+---
+title: "vfs"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/fs/vfs.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c)
+
+- `static void `[`mount_table_add`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L14)`(`[`struct vfs_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L189)` *mnt)`
+- `static void `[`mount_table_remove`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L31)`(`[`struct vfs_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L189)` *mnt)`
+- `void `[`vfs_node_print`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L40)`(`[`struct vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)` *node)`
+- `static`[`struct vfs_mount *`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L189)[`find_mount_for_node`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L58)`(`[`struct vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)` *node)`
+- [`struct vfs_node *`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)[`vfs_finddir`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L66)`(`[`struct vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)` *node`,`char *fname)`
+- [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6)[`vfs_mount`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L90)`(`[`struct vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)` *mountpoint`,[`struct vfs_node`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L198)` *target`,`char *name)`
+- [`enum errno`](https://github.com/bluegummi/charmos/blob/main/include/errno.h#L6)[`vfs_unmount`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L116)`(`[`struct vfs_mount`](https://github.com/bluegummi/charmos/blob/main/include/fs/vfs.h#L189)` *mnt)`
+- `void `[`vfs_clear_mounts`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/vfs.c#L128)`(void)`
+

@@ -1,0 +1,25 @@
+---
+title: "irq"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/int/irq.h](https://github.com/bluegummi/charmos/blob/main/include/int/irq.h)
+
+### struct [`irq_entry`](https://github.com/bluegummi/charmos/blob/main/include/int/irq.h#L7)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `irq_handler_t` | [`handler`](https://github.com/bluegummi/charmos/blob/main/include/int/irq.h#L8) |
+| `void` | [`*ctx`](https://github.com/bluegummi/charmos/blob/main/include/int/irq.h#L9) |
+
+
+### struct [`irq_context`](https://github.com/bluegummi/charmos/blob/main/include/int/irq.h#L25)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint64_t` | [`rax`](https://github.com/bluegummi/charmos/blob/main/include/int/irq.h#L26) |
+
+
+### type alias
+[`(*irq_handler_t)`](https://github.com/bluegummi/charmos/blob/main/include/int/irq.h#L5) : `void (void *ctx, uint8_t vector, void *rsp)`

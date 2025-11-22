@@ -1,0 +1,19 @@
+---
+title: "pci"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/pci.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c)
+
+- `const char * `[`pci_class_name`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L13)`(uint8_t class_code`,`uint8_t subclass)`
+- `static void `[`init_device`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L39)`(`[`struct pci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h#L9)` *dev)`
+- `void `[`pci_init_devices`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L57)`(`[`struct pci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h#L9)` *devices`,`uint64_t count)`
+- `void `[`pci_scan_devices`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L69)`(`[`struct pci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h#L9)` **devices_out`,`uint64_t *count_out)`
+- `uint8_t `[`pci_find_capability`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L149)`(uint8_t bus`,`uint8_t slot`,`uint8_t func`,`uint8_t cap_id)`
+- `uint32_t `[`pci_read_bar`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L164)`(uint8_t bus`,`uint8_t device`,`uint8_t function`,`uint8_t bar_index)`
+- `static uint64_t `[`pci_read_bar64`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L170)`(uint8_t bus`,`uint8_t slot`,`uint8_t func`,`uint8_t bar_index)`
+- `void `[`pci_program_msix_entry`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L182)`(uint8_t bus`,`uint8_t slot`,`uint8_t func`,`uint32_t table_index`,`uint8_t vector`,`uint8_t apic_id)`
+- `void `[`pci_enable_msix_on_core`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L234)`(uint8_t bus`,`uint8_t slot`,`uint8_t func`,`uint8_t vector_index`,`uint8_t apic_id)`
+- `void `[`pci_enable_msix`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/pci.c#L280)`(uint8_t bus`,`uint8_t slot`,`uint8_t func)`
+

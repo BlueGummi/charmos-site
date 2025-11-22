@@ -1,0 +1,13 @@
+---
+title: "refcount"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/types/refcount.h](https://github.com/bluegummi/charmos/blob/main/include/types/refcount.h)
+
+- `static inline void `[`refcount_init`](https://github.com/bluegummi/charmos/blob/main/include/types/refcount.h#L9)`(`[`refcount_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L11)` *rc`,`unsigned int val)`
+- `static inline bool `[`refcount_inc`](https://github.com/bluegummi/charmos/blob/main/include/types/refcount.h#L13)`(`[`refcount_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L11)` *rc)`
+- `static inline bool `[`refcount_inc_not_zero`](https://github.com/bluegummi/charmos/blob/main/include/types/refcount.h#L25)`(`[`refcount_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L11)` *rc)`
+- `static inline bool `[`refcount_dec_and_test`](https://github.com/bluegummi/charmos/blob/main/include/types/refcount.h#L39)`(`[`refcount_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L11)` *rc)`
+

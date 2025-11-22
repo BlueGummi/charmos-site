@@ -1,0 +1,20 @@
+---
+title: "usb"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/usb.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c)
+
+- `uint8_t `[`usb_construct_rq_bitmap`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L7)`(uint8_t transfer`,`uint8_t type`,`uint8_t recip)`
+- `static uint8_t `[`get_desc_bitmap`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L15)`(void)`
+- `bool `[`usb_get_string_descriptor`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L21)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev`,`uint8_t string_idx`,`char *out`,`size_t max_len)`
+- `void `[`usb_get_device_descriptor`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L59)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev)`
+- `static void `[`match_interfaces`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L103)`(`[`struct usb_driver`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L330)` *driver`,[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev)`
+- `void `[`usb_try_bind_driver`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L122)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev)`
+- `static void `[`usb_register_dev_interface`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L130)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev`,[`struct usb_interface_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L208)` *interface)`
+- `static void `[`usb_register_dev_ep`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L143)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev`,[`struct usb_endpoint_descriptor`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L244)` *endpoint)`
+- `static void `[`setup_config_descriptor`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L164)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev`,`uint8_t *ptr`,`uint8_t *end)`
+- `bool `[`usb_parse_config_descriptor`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L182)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev)`
+- `bool `[`usb_set_configuration`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/usb.c#L229)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev)`
+

@@ -1,0 +1,12 @@
+---
+title: "boost"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/sch/boost.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/boost.c)
+
+- `static bool `[`scheduler_boost_thread_internal`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/boost.c#L5)`(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *boosted`,`size_t new_weight`,[`enum thread_prio_class`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L72)` new_class)`
+- `bool `[`scheduler_inherit_priority`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/boost.c#L29)`(`[`struct thread`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L188)` *boosted`,`size_t new_weight`,[`enum thread_prio_class`](https://github.com/bluegummi/charmos/blob/main/include/sch/thread.h#L72)` new_class)`
+- `void `[`scheduler_uninherit_priority`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/boost.c#L66)`()`
+

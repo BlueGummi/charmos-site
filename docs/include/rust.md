@@ -1,7 +1,0 @@
-+++
-title = "rust"
-author = "Unknown"
-status = "unknown"
-+++
-
-# [include/rust.h](https://github.com/bluegummi/charmos/blob/main/include/rust.h)

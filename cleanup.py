@@ -1,9 +1,21 @@
 #!/usr/bin/env python3
-import os
+import os, sys, shutil
 from pathlib import Path
 
 DOCS_ROOT = Path("./docs")
 MAX_LINES = 300
+
+def print_single_line(*args, **kwargs):
+    text = " ".join(str(arg) for arg in args)
+    terminal_width = shutil.get_terminal_size((80, 20)).columns
+    spaces_to_clear = max(terminal_width - len(text), 0)
+    output = "\r" + text + " " * spaces_to_clear
+
+    flush = kwargs.get("flush", True)
+
+    sys.stdout.write(output)
+    if flush:
+        sys.stdout.flush()
 
 def merge_small_dirs(root: Path):
     for dirpath, dirnames, filenames in os.walk(root, topdown=False):
@@ -36,7 +48,7 @@ def merge_small_dirs(root: Path):
                 f.unlink()
             dir_path.rmdir()
 
-            print(f"Merged {len(file_contents)} files into {merged_file_path}")
+            print_single_line(f"merged {len(file_contents)} files → {merged_file_path}")
 
 if __name__ == "__main__":
     merge_small_dirs(DOCS_ROOT)

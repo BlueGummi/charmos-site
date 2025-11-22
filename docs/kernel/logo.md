@@ -1,7 +1,0 @@
-+++
-title = "logo"
-author = "Unknown"
-status = "unknown"
-+++
-
-# [kernel/logo.c](https://github.com/bluegummi/charmos/blob/main/kernel/logo.c)

@@ -1,0 +1,27 @@
+---
+title: "rw"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/ata/rw.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c)
+
+### type alias
+[`(*sync_fn)`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L13) : `bool (struct ata_drive *, uint64_t, uint8_t *, uint8_t)`
+- `static`[`enum bio_request_status`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L18)[`translate_status`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L15)`(uint8_t status`,`uint8_t error)`
+- `void `[`ide_irq_handler`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L34)`(void *ctx`,`uint8_t irq_num`,`void *rsp)`
+- `static void `[`ide_on_complete`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L103)`(`[`struct ide_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L63)` *req)`
+- `static void `[`ide_wait_ready`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L114)`(`[`struct ata_drive`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L92)` *d)`
+- `static void `[`ide_start_next`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L119)`(`[`struct ide_channel`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L83)` *chan`,`bool locked)`
+- `static void `[`enqueue_request`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L153)`(`[`struct ide_channel`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L83)` *chan`,[`struct ide_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L63)` *req`,`bool locked)`
+- `static void `[`submit_async`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L166)`(`[`struct ata_drive`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L92)` *d`,[`struct ide_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L63)` *req)`
+- `static inline void `[`submit_and_wait`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L175)`(`[`struct ata_drive`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L92)` *d`,[`struct ide_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L63)` *req)`
+- `static`[`struct ide_request *`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L63)[`request_init`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L185)`(uint64_t lba`,`uint8_t *buffer`,`uint8_t count`,`bool write)`
+- `bool `[`ide_submit_bio_async`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L203)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *bio)`
+- `static bool `[`rw_sync`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L231)`(`[`struct ata_drive`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L92)` *d`,`uint64_t lba`,`uint8_t *b`,`uint8_t cnt`,`bool write)`
+- `static bool `[`rw_sync_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L244)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *d`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt`,`sync_fn function)`
+- `bool `[`ide_read_sector`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L264)`(`[`struct ata_drive`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L92)` *d`,`uint64_t lba`,`uint8_t *b`,`uint8_t count)`
+- `bool `[`ide_write_sector`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L269)`(`[`struct ata_drive`](https://github.com/bluegummi/charmos/blob/main/include/drivers/ata.h#L92)` *d`,`uint64_t lba`,`uint8_t *b`,`uint8_t count)`
+- `bool `[`ide_read_sector_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L274)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *d`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt)`
+- `bool `[`ide_write_sector_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/ata/rw.c#L279)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *d`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt)`
+

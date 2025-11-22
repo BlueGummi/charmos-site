@@ -1,0 +1,51 @@
+---
+title: "asm"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/asm.h](https://github.com/bluegummi/charmos/blob/main/include/asm.h)
+
+- `static inline uint8_t `[`inb`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L17)`(uint16_t port)`
+- `static inline uint16_t `[`inw`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L23)`(uint16_t port)`
+- `static inline uint32_t `[`inl`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L29)`(uint16_t port)`
+- `static inline void `[`insb`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L35)`(uint16_t port`,`void *addr`,`uint32_t count)`
+- `static inline void `[`insw`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L39)`(uint16_t port`,`void *addr`,`uint32_t count)`
+- `static inline void `[`insl`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L43)`(uint16_t port`,`void *addr`,`uint32_t count)`
+- `static inline void `[`outb`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L59)`(uint16_t port`,`uint8_t value)`
+- `static inline void `[`outw`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L63)`(uint16_t port`,`uint16_t value)`
+- `static inline void `[`outl`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L67)`(uint16_t port`,`uint32_t value)`
+- `static inline void `[`outsw`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L71)`(uint16_t port`,`void *addr`,`uint32_t count)`
+- `static inline void `[`outsb`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L75)`(uint16_t port`,`void *addr`,`uint32_t count)`
+- `static inline void `[`outsl`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L79)`(uint16_t port`,`void *addr`,`uint32_t count)`
+- `static inline void `[`mmio_write_64`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L95)`(void *address`,`uint64_t value)`
+- `static inline void `[`mmio_write_32`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L99)`(void *address`,`uint32_t value)`
+- `static inline void `[`mmio_write_16`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L103)`(void *address`,`uint16_t value)`
+- `static inline void `[`mmio_write_8`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L107)`(void *address`,`uint8_t value)`
+- `static inline uint64_t `[`mmio_read_64`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L111)`(void *address)`
+- `static inline uint32_t `[`mmio_read_32`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L117)`(void *address)`
+- `static inline uint16_t `[`mmio_read_16`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L123)`(void *address)`
+- `static inline uint8_t `[`mmio_read_8`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L129)`(void *address)`
+- `static inline void `[`write_cr8`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L147)`(uint64_t cr8)`
+- `static inline uint64_t `[`rdtsc`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L151)`(void)`
+- `static inline void `[`cpuid_count`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L157)`(uint32_t leaf`,`uint32_t subleaf`,`uint32_t *eax`,`uint32_t *ebx`,`uint32_t *ecx`,`uint32_t *edx)`
+- `static inline void `[`cpuid`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L164)`(uint32_t leaf`,`uint32_t subleaf`,`uint32_t *eax`,`uint32_t *ebx`,`uint32_t *ecx`,`uint32_t *edx)`
+- `static inline uint64_t `[`read_cr4`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L172)`()`
+- `static inline void `[`write_cr4`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L178)`(uint64_t cr4)`
+- `static inline uint32_t `[`get_core_id`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L182)`(void)`
+- `static inline bool `[`are_interrupts_enabled`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L193)`()`
+- `static inline void `[`wrmsr`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L205)`(uint32_t msr`,`uint64_t value)`
+- `static inline uint64_t `[`rdmsr`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L211)`(uint32_t msr)`
+- `static inline void `[`io_wait`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L217)`(void)`
+- `static inline void `[`clear_interrupts`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L221)`(void)`
+- `static inline void `[`restore_interrupts`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L225)`(void)`
+- `static inline void `[`enable_interrupts`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L229)`(void)`
+- `static inline void `[`disable_interrupts`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L233)`(void)`
+- `static inline void `[`invlpg`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L237)`(uint64_t virt)`
+- `static inline uint64_t `[`read_cr3`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L242)`()`
+- `static inline void `[`write_cr3`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L248)`(uint64_t cr3)`
+- `static inline void `[`tlb_flush`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L252)`()`
+- `static inline void `[`cpu_relax`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L257)`(void)`
+- `static inline void `[`wait_for_interrupt`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L261)`(void)`
+- `static inline int `[`clz`](https://github.com/bluegummi/charmos/blob/main/include/asm.h#L265)`(uint8_t a)`
+

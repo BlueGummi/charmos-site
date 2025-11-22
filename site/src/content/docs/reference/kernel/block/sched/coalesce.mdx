@@ -1,0 +1,16 @@
+---
+title: "coalesce"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/block/sched/coalesce.c](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/coalesce.c)
+
+- `static inline void `[`set_coalesced`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/coalesce.c#L10)`(`[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *into`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *from)`
+- `static bool `[`try_do_coalesce`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/coalesce.c#L16)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *into`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *from)`
+- `static bool `[`try_merge_candidates`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/coalesce.c#L27)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *iter`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *start`,[`struct bio_rqueue`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L122)` *queue)`
+- `static bool `[`check_higher_queue`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/coalesce.c#L55)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched`,[`struct bio_rqueue`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L122)` *higher`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *candidate)`
+- `static bool `[`coalesce_adjacent_queues`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/coalesce.c#L73)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct bio_rqueue`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L122)` *lower`,[`struct bio_rqueue`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L122)` *higher)`
+- `static bool `[`coalesce_priority_queue`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/coalesce.c#L106)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct bio_rqueue`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L122)` *queue)`
+- `bool `[`bio_sched_try_coalesce`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/coalesce.c#L135)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched)`
+

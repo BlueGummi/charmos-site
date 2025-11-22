@@ -1,0 +1,25 @@
+---
+title: "locked_list"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/structures/locked_list.h](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h)
+
+### struct [`locked_list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L7)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct list_head`](https://github.com/bluegummi/charmos/blob/main/include/structures/list.h#L5) | [`list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L8) |
+| [`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10) | [`lock`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L9) |
+| `atomic_size_t` | [`num_elems`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L10) |
+
+
+- `static inline bool `[`locked_list_empty`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L23)`(`[`struct locked_list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L7)` *ll)`
+- `static inline void `[`locked_list_add`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L28)`(`[`struct locked_list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L7)` *ll`,[`struct list_head`](https://github.com/bluegummi/charmos/blob/main/include/structures/list.h#L5)` *lh)`
+- `static inline void `[`locked_list_del`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L34)`(`[`struct locked_list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L7)` *ll`,[`struct list_head`](https://github.com/bluegummi/charmos/blob/main/include/structures/list.h#L5)` *lh)`
+- `static inline void `[`locked_list_del_locked`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L40)`(`[`struct locked_list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L7)` *ll`,[`struct list_head`](https://github.com/bluegummi/charmos/blob/main/include/structures/list.h#L5)` *lh)`
+- `static inline`[`struct list_head *`](https://github.com/bluegummi/charmos/blob/main/include/structures/list.h#L5)[`locked_list_pop_front`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L47)`(`[`struct locked_list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L7)` *ll)`
+- `static inline size_t `[`locked_list_num_elems`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L52)`(`[`struct locked_list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L7)` *ll)`
+- `static inline void `[`locked_list_init`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L57)`(`[`struct locked_list`](https://github.com/bluegummi/charmos/blob/main/include/structures/locked_list.h#L7)` *ll)`
+

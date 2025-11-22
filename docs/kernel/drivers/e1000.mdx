@@ -1,0 +1,19 @@
+---
+title: "e1000"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/e1000.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c)
+
+- `static void `[`e1000_reset`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L17)`(`[`struct e1000_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/e1000.h#L39)` *dev)`
+- `static void `[`e1000_setup_tx_ring`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L22)`(`[`struct e1000_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/e1000.h#L39)` *dev)`
+- `static void `[`e1000_setup_rx_ring`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L53)`(`[`struct e1000_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/e1000.h#L39)` *dev)`
+- `int `[`e1000_send_packet`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L82)`(`[`struct e1000_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/e1000.h#L39)` *dev`,`void *data`,`uint64_t len)`
+- `static inline uint16_t `[`htons`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L107)`(uint16_t hostshort)`
+- `static inline uint32_t `[`htonl`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L111)`(uint32_t hostlong)`
+- `static uint16_t `[`checksum`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L116)`(void *data`,`int len)`
+- `void `[`send_hardcoded_ping`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L130)`(`[`struct e1000_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/e1000.h#L39)` *dev)`
+- `bool `[`e1000_init`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L170)`(`[`struct pci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h#L9)` *pci`,[`struct e1000_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/e1000.h#L39)` *dev)`
+- `static void `[`e1000_pci_init`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/e1000.c#L207)`(uint8_t bus`,`uint8_t d`,`uint8_t func`,[`struct pci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h#L9)` *db)`
+

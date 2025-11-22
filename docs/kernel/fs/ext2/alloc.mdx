@@ -1,0 +1,18 @@
+---
+title: "alloc"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/fs/ext2/alloc.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/alloc.c)
+
+- `static bool `[`find_free_bit`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/alloc.c#L7)`(uint8_t *bitmap`,`uint32_t size`,`uint32_t *byte_pos`,`uint32_t *bit_pos)`
+- `static uint32_t `[`alloc_from_bitmap`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/alloc.c#L21)`(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,`uint32_t bitmap_block`,`uint32_t items_per_group`,`uint32_t group`,`void (*update_counts)(struct ext2_fs *`,`
+                                                        uint32_t))`
+- `static void `[`update_block_counts`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/alloc.c#L47)`(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,`uint32_t group)`
+- `static void `[`update_inode_counts`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/alloc.c#L58)`(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,`uint32_t group)`
+- `uint32_t `[`ext2_alloc_block`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/alloc.c#L65)`(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs)`
+- `bool `[`ext2_free_block`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/alloc.c#L80)`(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,`uint32_t block_num)`
+- `uint32_t `[`ext2_alloc_inode`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/alloc.c#L115)`(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs)`
+- `bool `[`ext2_free_inode`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/ext2/alloc.c#L130)`(`[`struct ext2_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/ext2.h#L215)` *fs`,`uint32_t inode_num)`
+

@@ -1,0 +1,81 @@
+---
+title: "arena"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/mem/arena.h](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h)
+
+### struct [`hugepage_meta_common`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L49)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`enum arena_allocation_type`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L14) | [`type`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L50) |
+| `uint16_t` | [`meta_pages`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L51) |
+| `uint16_t` | [`reserved`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L52) |
+| `uint32_t` | [`magic`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L53) |
+
+
+### struct [`hugepage_buddy_meta`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L56)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct hugepage_meta_common`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L49) | [`common`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L57) |
+| `uint8_t` | [`order_of_block[512]`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L58) |
+
+
+### struct [`hugepage_slab_metadata`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L62)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `size_t` | [`obj_size`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L63) |
+| `size_t` | [`obj_count`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L64) |
+| `void` | [`*free_list`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L65) |
+| `uint8_t` | [`*alloc_bitmap`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L66) |
+
+
+### struct [`arena`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L69)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct spinlock`](https://github.com/bluegummi/charmos/blob/main/include/sync/spinlock.h#L10) | [`lock`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L70) |
+| [`struct minheap`](https://github.com/bluegummi/charmos/blob/main/include/structures/minheap.h#L20) | [`*hugepages`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L72) |
+| `size_t` | [`max_hpages`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L74) |
+| `struct hugepage_tb` | [`*tb`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L76) |
+| [`enum arena_flags`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L22) | [`flags`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L78) |
+| [`enum arena_allocation_type`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L14) | [`preferred`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L80) |
+
+
+### enum [`arena_allocation_type`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L14)
+
+| Name | Value |
+|------|-------|
+| [`ARENA_ALLOCATION_TYPE_BITMAP`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L15) | `0` |
+| [`ARENA_ALLOCATION_TYPE_BUDDY`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L16) | `1` |
+| [`ARENA_ALLOCATION_TYPE_SLAB`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L17) | `2` |
+| [`ARENA_ALLOCATION_TYPE_BUMP`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L18) | `3` |
+| [`ARENA_ALLOCATION_TYPE_DEFAULT`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L19) | `ARENA_ALLOCATION_TYPE_BITMAP` |
+
+
+### enum [`arena_flags`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L22)
+
+| Name | Value |
+|------|-------|
+| [`ARENA_FLAGS_DEMAND_ALLOC`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L23) | `(1 << 0)` |
+| [`ARENA_FLAGS_RECLAIM_FREED`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L26) | `(1 << 1)` |
+| [`ARENA_FLAGS_ALLOW_UNSAFE_DESTROY`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L29) | `(1 << 2)` |
+| [`ARENA_FLAGS_SET_MAX_HUGEPAGES`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L35) | `(1 << 3)` |
+| [`ARENA_FLAGS_RECYCLE`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L37) | `(1 << 4)` |
+| [`ARENA_FLAGS_PRIVATE_HTB`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L39) | `(1 << 5)` |
+| [`ARENA_FLAGS_ALWAYS_CREATE_NEW`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L41) | `(1 << 6)` |
+| [`ARENA_FLAGS_DEFAULT`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L46) | `ARENA_FLAGS_RECLAIM_FREED | ARENA_FLAGS_RECYCLE` |
+
+
+- `static inline bool `[`arena_can_demand_alloc`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L85)`(`[`struct arena`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L69)` *a)`
+- `static inline bool `[`arena_can_reclaim_freed`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L89)`(`[`struct arena`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L69)` *a)`
+- `static inline bool `[`arena_allows_unsafe_destroy`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L93)`(`[`struct arena`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L69)` *a)`
+- `static inline bool `[`arena_has_hugepage_limit`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L97)`(`[`struct arena`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L69)` *a)`
+- `static inline bool `[`arena_should_recycle`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L101)`(`[`struct arena`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L69)` *a)`
+- `static inline bool `[`arena_has_private_htb`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L105)`(`[`struct arena`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L69)` *a)`
+- `static inline bool `[`arena_must_alloc_new`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L109)`(`[`struct arena`](https://github.com/bluegummi/charmos/blob/main/include/mem/arena.h#L69)` *a)`
+

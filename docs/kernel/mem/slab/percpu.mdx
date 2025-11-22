@@ -1,0 +1,20 @@
+---
+title: "percpu"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/mem/slab/percpu.c](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c)
+
+- `bool `[`slab_magazine_push_internal`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L7)`(`[`struct slab_magazine`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L182)` *mag`,[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` obj)`
+- `bool `[`slab_magazine_push`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L15)`(`[`struct slab_magazine`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L182)` *mag`,[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` obj)`
+- [`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)[`slab_magazine_pop`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L24)`(`[`struct slab_magazine`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L182)` *mag)`
+- `bool `[`slab_cache_available`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L37)`(`[`struct slab_cache`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L254)` *cache)`
+- `size_t `[`slab_cache_bulk_alloc`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L48)`(`[`struct slab_cache`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L254)` *cache`,[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` *addr_array`,`size_t num_objects`,[`enum alloc_behavior`](https://github.com/bluegummi/charmos/blob/main/include/mem/alloc.h#L126)` behavior)`
+- `void `[`slab_cache_bulk_free`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L69)`(`[`struct slab_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L423)` *domain`,[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` *addr_array`,`size_t num_objects)`
+- `void `[`slab_percpu_flush`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L81)`(`[`struct slab_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L423)` *dom`,[`struct slab_percpu_cache`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L193)` *pc`,`size_t class_idx`,[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` overflow_obj)`
+- [`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)[`slab_percpu_refill_class`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L99)`(`[`struct slab_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L423)` *dom`,[`struct slab_percpu_cache`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L193)` *pc`,`size_t class_idx`,[`enum alloc_behavior`](https://github.com/bluegummi/charmos/blob/main/include/mem/alloc.h#L126)` behavior)`
+- `void `[`slab_percpu_refill`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L132)`(`[`struct slab_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L423)` *dom`,[`struct slab_percpu_cache`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L193)` *cache`,[`enum alloc_behavior`](https://github.com/bluegummi/charmos/blob/main/include/mem/alloc.h#L126)` behavior)`
+- `void `[`slab_percpu_free`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L141)`(`[`struct slab_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L423)` *dom`,`size_t class_idx`,[`vaddr_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L13)` obj)`
+- `void `[`slab_domain_percpu_init`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/percpu.c#L151)`(`[`struct slab_domain`](https://github.com/bluegummi/charmos/blob/main/kernel/mem/slab/internal.h#L423)` *domain)`
+

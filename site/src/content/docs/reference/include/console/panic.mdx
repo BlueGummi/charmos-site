@@ -1,0 +1,19 @@
+---
+title: "panic"
+author: "Unknown"
+status: "unknown"
+---
+
+# [include/console/panic.h](https://github.com/bluegummi/charmos/blob/main/include/console/panic.h)
+
+### struct [`panic_regs`](https://github.com/bluegummi/charmos/blob/main/include/console/panic.h#L21)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `uint64_t` | [`rsp`](https://github.com/bluegummi/charmos/blob/main/include/console/panic.h#L22) |
+| `uint64_t` | [`r15`](https://github.com/bluegummi/charmos/blob/main/include/console/panic.h#L23) |
+| `uint64_t` | [`rsi`](https://github.com/bluegummi/charmos/blob/main/include/console/panic.h#L24) |
+
+
+- `static inline void `[`qemu_exit`](https://github.com/bluegummi/charmos/blob/main/include/console/panic.h#L17)`(int code)`
+

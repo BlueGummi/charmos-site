@@ -1,7 +1,0 @@
-+++
-title = "containerof"
-author = "Unknown"
-status = "unknown"
-+++
-
-# [include/containerof.h](https://github.com/bluegummi/charmos/blob/main/include/containerof.h)

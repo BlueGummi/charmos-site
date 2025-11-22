@@ -1,0 +1,26 @@
+---
+title: "registry"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/devices/registry.c](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c)
+
+### struct [`disk_node`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L17)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| [`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68) | [`*disk`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L18) |
+| [`struct disk_node`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L17) | [`*next`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L19) |
+
+
+- `void `[`registry_register`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L25)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk)`
+- `void `[`registry_unregister`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L36)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk)`
+- [`struct generic_disk *`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)[`registry_get_by_name`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L51)`(char *name)`
+- [`struct generic_disk *`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)[`registry_get_by_index`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L59)`(uint64_t index)`
+- `uint64_t `[`registry_get_disk_cnt`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L66)`(void)`
+- `static char * `[`mkname`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L70)`(char *prefix`,`uint64_t counter)`
+- `static void `[`device_mkname`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L81)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`char *prefix`,`uint64_t counter)`
+- `void `[`registry_mkname`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L91)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`char *prefix`,`uint64_t counter)`
+- `void `[`registry_setup`](https://github.com/bluegummi/charmos/blob/main/kernel/devices/registry.c#L96)`()`
+

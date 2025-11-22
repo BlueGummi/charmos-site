@@ -1,0 +1,20 @@
+---
+title: "hpet"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/acpi/hpet.c](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c)
+
+- `void `[`hpet_enable`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L15)`(void)`
+- `void `[`hpet_disable`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L21)`(void)`
+- `void `[`hpet_clear_interrupt_status`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L27)`(void)`
+- `static inline uint64_t `[`hpet_us_to_ticks`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L31)`(uint64_t us)`
+- `void `[`hpet_setup_periodic_interrupt_us`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L35)`(uint64_t microseconds_period)`
+- `void `[`hpet_program_oneshot`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L52)`(uint64_t future_ms)`
+- `static inline void `[`pit_disable`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L72)`(void)`
+- `void `[`hpet_setup_timer`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L78)`(uint8_t timer_index`,`uint8_t irq_line`,`bool periodic`,`bool edge_triggered)`
+- `void `[`hpet_init`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L122)`(void)`
+- `uint64_t `[`hpet_timestamp_us`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L151)`(void)`
+- `uint64_t `[`hpet_timestamp_ms`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/hpet.c#L158)`(void)`
+

@@ -1,7 +1,0 @@
-+++
-title = "usb_hid"
-author = "Unknown"
-status = "unknown"
-+++
-
-# [include/drivers/usb_hid.h](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb_hid.h)

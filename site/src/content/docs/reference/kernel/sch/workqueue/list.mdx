@@ -1,0 +1,19 @@
+---
+title: "list"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/sch/workqueue/list.c](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c)
+
+- [`struct worklist *`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)[`worklist_create`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L3)`(`[`enum worklist_flags`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L81)` flags)`
+- `void `[`worklist_destroy`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L14)`(`[`struct worklist`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)` *list)`
+- `static`[`enum worklist_state`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L73)[`worklist_change_state`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L18)`(`[`struct worklist`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)` *wlist`,[`enum worklist_state`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L73)` new)`
+- `void `[`worklist_add_work`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L27)`(`[`struct worklist`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)` *list`,[`struct work`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L32)` *task)`
+- `void `[`worklist_remove_work`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L34)`(`[`struct worklist`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)` *list`,[`struct work`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L32)` *task)`
+- [`struct work *`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L32)[`worklist_pop_front`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L44)`(`[`struct worklist`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)` *list)`
+- `bool `[`worklist_empty`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L55)`(`[`struct worklist`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)` *list)`
+- `static void `[`worklist_execute_internal`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L62)`(`[`struct workqueue`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L194)` *queue`,[`struct worklist`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)` *list)`
+- `void `[`worklist_cancel_work`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L77)`(`[`struct worklist`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)` *wl`,[`struct work`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L32)` *wlw)`
+- [`enum workqueue_error`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L242)[`worklist_execute`](https://github.com/bluegummi/charmos/blob/main/kernel/sch/workqueue/list.c#L81)`(`[`struct workqueue`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L194)` *queue`,[`struct worklist`](https://github.com/bluegummi/charmos/blob/main/include/sch/defer.h#L85)` *w)`
+

@@ -1,0 +1,36 @@
+---
+title: "printf"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/console/printf.c](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c)
+
+### struct [`printf_cursor`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L18)
+
+| Member Type | Member Name |
+|-------------|-------------|
+| `char` | [`*buffer`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L19) |
+| `int` | [`buffer_len`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L20) |
+| `int` | [`cursor`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L21) |
+
+
+- `void `[`serial_init`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L24)`()`
+- `static int `[`serial_is_transmit_empty`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L40)`()`
+- `static void `[`serial_putc`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L44)`(char c)`
+- `void `[`serial_puts`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L51)`(`[`struct printf_cursor`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L18)` *csr`,`char *str`,`int len)`
+- `void `[`double_print`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L65)`(struct flanterm_context *f`,[`struct printf_cursor`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L18)` *csr`,`char *str`,`int len)`
+- `void `[`k_printf_init`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L72)`(`[`struct limine_framebuffer`](https://github.com/bluegummi/charmos/blob/main/include/limine.h#L206)` *fb)`
+- `static int `[`print_signed`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L84)`(char *buffer`,`int64_t num)`
+- `static int `[`print_unsigned`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L113)`(char *buffer`,`uint64_t num)`
+- `static int `[`print_hex`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L130)`(char *buffer`,`uint64_t num)`
+- `static int `[`print_hex_upper`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L148)`(char *buffer`,`uint64_t num)`
+- `static int `[`print_binary`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L165)`(char *buffer`,`uint64_t num)`
+- `static int `[`print_octal`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L186)`(char *buffer`,`uint64_t num)`
+- `static void `[`apply_padding`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L209)`(char *str`,`int len`,`int width`,`bool left_align`,`bool zero_pad`,[`struct printf_cursor`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L18)` *csr)`
+- `static void `[`handle_format_specifier`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L237)`(`[`struct printf_cursor`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L18)` *csr`,`char **format_ptr`,`va_list args)`
+- `void `[`v_k_printf`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L402)`(`[`struct printf_cursor`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L18)` *csr`,`char *format`,`va_list args)`
+- `void `[`k_printf`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L419)`(char *format)`
+- `int `[`snprintf`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L434)`(char *buffer`,`int buffer_len`,`char *format)`
+- `void `[`panic`](https://github.com/bluegummi/charmos/blob/main/kernel/console/printf.c#L456)`(char *format)`
+

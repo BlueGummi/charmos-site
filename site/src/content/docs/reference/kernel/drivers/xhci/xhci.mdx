@@ -1,0 +1,18 @@
+---
+title: "xhci"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/xhci/xhci.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c)
+
+- `bool `[`xhci_address_device`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c#L18)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *ctrl`,`uint8_t slot_id`,`uint8_t speed`,`uint8_t port)`
+- `bool `[`xhci_send_control_transfer`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c#L84)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev`,`uint8_t slot_id`,[`struct xhci_ring`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L451)` *ep0_ring`,[`struct usb_setup_packet`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L170)` *setup`,`void *buffer)`
+- `static`[`struct xhci_ring *`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L451)[`allocate_endpoint_ring`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c#L134)`(void)`
+- `bool `[`xhci_configure_device_endpoints`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c#L160)`(`[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *xhci`,[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *usb)`
+- `static bool `[`xhci_control_transfer`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c#L214)`(`[`struct usb_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L352)` *dev`,[`struct usb_packet`](https://github.com/bluegummi/charmos/blob/main/include/drivers/usb.h#L292)` *packet)`
+- `static void `[`xhci_isr`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c#L233)`(void *ctx`,`uint8_t vector`,`void *rsp)`
+- `static void `[`xhci_device_start_interrupts`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c#L241)`(uint8_t bus`,`uint8_t slot`,`uint8_t func`,[`struct xhci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/xhci.h#L513)` *dev)`
+- `void `[`xhci_init`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c#L249)`(uint8_t bus`,`uint8_t slot`,`uint8_t func`,[`struct pci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h#L9)` *pci)`
+- `static void `[`xhci_pci_init`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/xhci/xhci.c#L342)`(uint8_t bus`,`uint8_t slot`,`uint8_t func`,[`struct pci_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/pci.h#L9)` *dev)`
+

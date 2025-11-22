@@ -1,0 +1,20 @@
+---
+title: "io"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/fs/fat/io.c](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c)
+
+- `bool `[`fat_write_cluster`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L17)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster`,`uint8_t *buffer)`
+- `bool `[`fat_write_fat_entry`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L31)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster`,`uint32_t value)`
+- `static bool `[`fat12_write_fat_entry`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L40)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster`,`uint32_t value)`
+- `static bool `[`fat16_write_fat_entry`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L108)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster`,`uint32_t value)`
+- `static bool `[`fat32_write_fat_entry`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L143)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster`,`uint32_t value)`
+- `bool `[`fat_read_cluster`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L187)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster`,`uint8_t *buffer)`
+- `uint32_t `[`fat_read_fat_entry`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L199)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster)`
+- `static uint32_t `[`fat12_read_fat_entry`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L208)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster)`
+- `static uint32_t `[`fat16_read_fat_entry`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L250)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster)`
+- `static uint32_t `[`fat32_read_fat_entry`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L271)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t cluster)`
+- `bool `[`fat_write_dirent`](https://github.com/bluegummi/charmos/blob/main/kernel/fs/fat/io.c#L292)`(`[`struct fat_fs`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L127)` *fs`,`uint32_t dir_cluster`,[`struct fat_dirent`](https://github.com/bluegummi/charmos/blob/main/include/fs/fat.h#L111)` *dirent_to_write`,`uint32_t entry_index)`
+

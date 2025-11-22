@@ -1,0 +1,21 @@
+---
+title: "cmd"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/nvme/cmd.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c)
+
+- `static`[`enum bio_request_status`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L18)[`nvme_to_bio_status`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L21)`(uint16_t status)`
+- `static void `[`nvme_send_waiters`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L31)`(`[`struct nvme_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L124)` *dev)`
+- `static void `[`nvme_process_one`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L50)`(`[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *req)`
+- `static`[`struct nvme_request *`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)[`nvme_finished_pop_front`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L66)`(`[`struct nvme_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L124)` *dev)`
+- `void `[`nvme_work`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L80)`(void *dvoid`,`void *nothing)`
+- `void `[`nvme_process_completions`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L96)`(`[`struct nvme_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L124)` *dev`,`uint32_t qid)`
+- `void `[`nvme_isr_handler`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L138)`(void *ctx`,`uint8_t vector`,`void *rsp)`
+- `void `[`nvme_submit_io_cmd`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L145)`(`[`struct nvme_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L124)` *nvme`,[`struct nvme_command`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L10)` *cmd`,`uint32_t qid`,[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *req)`
+- `uint16_t `[`nvme_submit_admin_cmd`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L172)`(`[`struct nvme_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L124)` *nvme`,[`struct nvme_command`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L10)` *cmd`,`uint32_t *dw0_out)`
+- `uint8_t * `[`nvme_identify_controller`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L211)`(`[`struct nvme_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L124)` *nvme)`
+- `uint32_t `[`nvme_set_num_queues`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L236)`(`[`struct nvme_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L124)` *nvme`,`uint16_t desired_sq`,`uint16_t desired_cq)`
+- `uint8_t * `[`nvme_identify_namespace`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/cmd.c#L260)`(`[`struct nvme_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L124)` *nvme`,`uint32_t nsid)`
+

@@ -1,0 +1,17 @@
+---
+title: "semaphore"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/sync/semaphore.c](https://github.com/bluegummi/charmos/blob/main/kernel/sync/semaphore.c)
+
+- `void `[`semaphore_init`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/semaphore.c#L11)`(`[`struct semaphore`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L9)` *s`,`int value`,`bool irq_disable)`
+- `static`[`enum irql`](https://github.com/bluegummi/charmos/blob/main/include/sch/irql.h#L2)[`semaphore_lock_internal`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/semaphore.c#L18)`(`[`struct semaphore`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L9)` *sem)`
+- `void `[`semaphore_wait`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/semaphore.c#L25)`(`[`struct semaphore`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L9)` *s)`
+- `bool `[`semaphore_timedwait`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/semaphore.c#L35)`(`[`struct semaphore`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L9)` *s`,[`time_t`](https://github.com/bluegummi/charmos/blob/main/include/types/types.h#L6)` timeout_ms)`
+- `void `[`semaphore_post`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/semaphore.c#L52)`(`[`struct semaphore`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L9)` *s)`
+- `void `[`semaphore_postn`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/semaphore.c#L62)`(`[`struct semaphore`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L9)` *s`,`int n)`
+- `void `[`semaphore_post_callback`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/semaphore.c#L72)`(`[`struct semaphore`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L9)` *s`,`thread_action_callback cb)`
+- `void `[`semaphore_postn_callback`](https://github.com/bluegummi/charmos/blob/main/kernel/sync/semaphore.c#L82)`(`[`struct semaphore`](https://github.com/bluegummi/charmos/blob/main/include/sync/semaphore.h#L9)` *s`,`int n`,`thread_action_callback cb)`
+

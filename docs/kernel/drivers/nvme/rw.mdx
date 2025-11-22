@@ -1,0 +1,29 @@
+---
+title: "rw"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/drivers/nvme/rw.c](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c)
+
+### type alias
+[`(*sync_fn)`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L15) : `bool (struct generic_disk *, uint64_t, uint8_t *, uint16_t)`
+### type alias
+[`(*async_fn)`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L16) : `bool (struct generic_disk *, struct nvme_request *)`
+- `static void `[`enqueue_request`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L18)`(`[`struct nvme_device`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L124)` *dev`,[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *req)`
+- `static bool `[`nvme_bio_fill_prps`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L28)`(`[`struct nvme_bio_data`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L73)` *data`,`void *buffer`,`uint64_t size)`
+- `static void `[`nvme_setup_prps`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L49)`(`[`struct nvme_command`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L10)` *cmd`,[`struct nvme_bio_data`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L73)` *data)`
+- `static bool `[`rw_send_command`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L74)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *req`,`uint8_t opc)`
+- `static bool `[`rw_sync`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L122)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buffer`,`uint16_t count`,`async_fn function)`
+- `static bool `[`rw_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L145)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt`,`sync_fn function)`
+- `static bool `[`rw_async_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L164)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *req`,`async_fn function)`
+- `bool `[`nvme_read_sector`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L193)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buffer`,`uint16_t count)`
+- `bool `[`nvme_write_sector`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L198)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buffer`,`uint16_t count)`
+- `bool `[`nvme_read_sector_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L203)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt)`
+- `bool `[`nvme_write_sector_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L208)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,`uint64_t lba`,`uint8_t *buf`,`uint64_t cnt)`
+- `bool `[`nvme_read_sector_async`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L213)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *req)`
+- `bool `[`nvme_write_sector_async`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L218)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *req)`
+- `bool `[`nvme_write_sector_async_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L223)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *req)`
+- `bool `[`nvme_read_sector_async_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L228)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *req)`
+- `bool `[`nvme_send_nvme_req`](https://github.com/bluegummi/charmos/blob/main/kernel/drivers/nvme/rw.c#L233)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *d`,[`struct nvme_request`](https://github.com/bluegummi/charmos/blob/main/include/drivers/nvme.h#L78)` *r)`
+

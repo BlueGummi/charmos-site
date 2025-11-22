@@ -1,0 +1,15 @@
+---
+title: "sched"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/block/sched/sched.c](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/sched.c)
+
+- `static void `[`try_rq_reorder`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/sched.c#L8)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched)`
+- `static void `[`bio_sched_tick`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/sched.c#L16)`(void *ctx`,`void *unused)`
+- `static bool `[`try_early_submit`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/sched.c#L36)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+- `void `[`bio_sched_enqueue`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/sched.c#L48)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+- `void `[`bio_sched_dequeue`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/sched.c#L77)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req`,`bool already_locked)`
+- [`struct bio_scheduler *`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)[`bio_sched_create`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/sched.c#L90)`(`[`struct generic_disk`](https://github.com/bluegummi/charmos/blob/main/include/block/generic.h#L68)` *disk`,[`struct bio_scheduler_ops`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L139)` *ops)`
+

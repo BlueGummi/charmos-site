@@ -1,0 +1,15 @@
+---
+title: "boost"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/block/sched/boost.c](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/boost.c)
+
+- `static inline uint64_t `[`get_boost_depth`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/boost.c#L10)`(`[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+- `static inline uint64_t `[`get_boosted_prio`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/boost.c#L19)`(`[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+- `static bool `[`should_boost`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/boost.c#L25)`(`[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+- `static bool `[`do_boost_prio`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/boost.c#L46)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+- `static inline bool `[`try_boost`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/boost.c#L74)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched`,[`struct bio_request`](https://github.com/bluegummi/charmos/blob/main/include/block/bio.h#L36)` *req)`
+- `bool `[`bio_sched_boost_starved`](https://github.com/bluegummi/charmos/blob/main/kernel/block/sched/boost.c#L83)`(`[`struct bio_scheduler`](https://github.com/bluegummi/charmos/blob/main/include/block/sched.h#L131)` *sched)`
+

@@ -1,0 +1,24 @@
+---
+title: "lapic"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/acpi/lapic.c](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c)
+
+- `void `[`lapic_init`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L12)`(void)`
+- `void `[`lapic_timer_init`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L17)`(uint64_t core_id)`
+- `void `[`lapic_timer_set_ms`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L41)`(uint32_t ms)`
+- `void `[`lapic_timer_disable`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L47)`()`
+- `void `[`lapic_timer_enable`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L53)`()`
+- `bool `[`lapic_timer_is_enabled`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L59)`()`
+- `static void `[`lapic_send_ipi`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L64)`(uint8_t apic_id`,`uint8_t vector)`
+- `void `[`x2apic_send_ipi`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L70)`(uint32_t apic_id`,`uint8_t vector)`
+- `void `[`broadcast_nmi_except`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L81)`(uint64_t exclude_core)`
+- `static int `[`cpu_has_x2apic`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L90)`(void)`
+- `void `[`x2apic_init`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L101)`(void)`
+- `uint32_t `[`x2apic_get_id`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L113)`(void)`
+- `uint64_t `[`lapic_get_id`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L117)`(void)`
+- `uint32_t `[`cpu_get_this_id`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L123)`(void)`
+- `void `[`ipi_send`](https://github.com/bluegummi/charmos/blob/main/kernel/acpi/lapic.c#L127)`(uint32_t apic_id`,`uint8_t vector)`
+

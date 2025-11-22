@@ -1,0 +1,16 @@
+---
+title: "rcu"
+author: "Unknown"
+status: "unknown"
+---
+
+# [kernel/rcu.c](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c)
+
+- `void `[`rcu_mark_quiescent`](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c#L8)`(void)`
+- `void `[`rcu_synchronize`](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c#L17)`(void)`
+- `static void `[`rcu_defer_wrapper`](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c#L38)`(void *argument`,`void *fn)`
+- `void `[`rcu_defer`](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c#L43)`(void (*func)(void *)`,`void *arg)`
+- `void `[`rcu_maintenance_tick`](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c#L48)`(void)`
+- `void `[`rcu_read_lock`](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c#L60)`(void)`
+- `void `[`rcu_read_unlock`](https://github.com/bluegummi/charmos/blob/main/kernel/rcu.c#L70)`(void)`
+
