@@ -1,0 +1,6 @@
+node_modules/
+json_output/
+site/.astro
+site/node_modules
+charmos/
+limine/
