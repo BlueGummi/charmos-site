@@ -40,7 +40,7 @@ jobs:
           python3 generate.py
           cd site
           npm i starlight-theme-obsidian
-          rm -rf src/content/docs/reference/* && cp docs_reference_index.mdx src/content/docs/reference/index.mdx && cp -r ../docs/* src/content/docs/reference/
+          rm -rf src/content/docs/reference/* && mkdir src/content/docs/reference && cp docs_reference_index.mdx src/content/docs/reference/index.mdx && cp -r ../docs/* src/content/docs/reference/
 
       - name: Install, build, and upload your site
         uses: withastro/action@v5
