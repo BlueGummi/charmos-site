@@ -1,0 +1,65 @@
+name: Website
+
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [remote-trigger]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  BUILD_PATH: "./site"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: 'npm'
+          cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
+      
+      - name: Generate
+        run: |
+          pip install tree_sitter tree_sitter_language_pack --break-system-packages
+          python3 generate.py
+          cd site
+          npm i starlight-theme-obsidian
+          rm -rf src/content/docs/reference/* && mkdir src/content/docs/reference && cp docs_reference_index.mdx src/content/docs/reference/index.mdx && cp -r ../docs/* src/content/docs/reference/
+
+      - name: Install, build, and upload your site
+        uses: withastro/action@v5
+        with:
+          path: ./site
+
+
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+

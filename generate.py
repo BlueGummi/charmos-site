@@ -1,184 +1,187 @@
 #!/usr/bin/env python3
-import json
-import sys
-import re
+import subprocess
+import shutil
 from pathlib import Path
-from collections import defaultdict
+import os, sys
 
-SOURCE_REPO_URL = "https://github.com/bluegummi/charmos/blob/main"
-BUG_URL_BASE = "https://github.com/bluegummi/charmos/issues"
-DOCS_ROOT = Path("./docs")
-IGNORED_KEYWORDS = {"if", "for", "while", "switch", "return", "sizeof"}
+REPO_URL = "https://github.com/bluegummi/charmos.git"
+CLONE_DIR = Path("./charmos")
+JSON_OUT = Path("./json_output")
+MD_OUT = Path("./docs")
+LIMINE_URL = "https://github.com/limine-bootloader/limine"
+LIMINE_DIR = Path("./limine")
 
-def load_json_dir(json_dir: Path):
-    ideas = []
-    for path in json_dir.glob("*.json"):
-        with open(path, "r", encoding="utf-8") as f:
-            ideas.extend(json.load(f))
-    return ideas
+def print_single_line(*args, progress: float = None, **kwargs):
+    text = " ".join(str(arg) for arg in args)
+    terminal_width = shutil.get_terminal_size((80, 20)).columns
 
-def make_docs_path(idea_path: str, idea_name: str, big_or_small="big", collision_count=0):
-    src_path = Path(idea_path)
-    base = src_path.stem
-    if big_or_small == "small":
-        md_name = "root"
-        if collision_count > 0:
-            md_name += f"-{collision_count}"
+    if progress is not None:
+        progress_str = f"{int(progress * 100)}%"
+        space_to_progress = max(terminal_width - len(text) - len(progress_str), 1)
+        output = "\r" + text + " " * space_to_progress + progress_str
     else:
-        md_name = base
-        if collision_count > 0:
-            md_name += f"-{collision_count}"
-    doc_dir = DOCS_ROOT / src_path.parent
-    doc_dir.mkdir(parents=True, exist_ok=True)
-    return doc_dir / f"{md_name}.md"
+        spaces_to_clear = max(terminal_width - len(text), 0)
+        output = "\r" + text + " " * spaces_to_clear
 
-def generate_github_link(file_path: str, line: int = None):
-    url = f"{SOURCE_REPO_URL}/{file_path}"
-    if line:
-        url += f"#L{line}"
-    return url
+    flush = kwargs.get("flush", True)
+    sys.stdout.write(output)
+    if flush:
+        sys.stdout.flush()
 
-def link_functions_in_md(md_text: str, functions_map: dict):
-    FUNC_RE = re.compile(r'`([a-zA-Z_][a-zA-Z0-9_]*)\(\)`')
-    def replacer(match):
-        fn = match.group(1)
-        url = functions_map.get(fn)
-        if url:
-            return f"[`{fn}()`]({url})"
-        return match.group(0)
-    return FUNC_RE.sub(replacer, md_text)
+SOURCE_DIRS = [
+#    "kernel",   
+    "include", 
+]
 
-def link_files_in_md(md_text: str, files_map: dict):
-    FILE_RE = re.compile(r'`([\w./-]+\.(c|h|rs|cpp|txt|md))`')
-    def replacer(match):
-        file = match.group(1)
-        url = files_map.get(file)
-        if url:
-            return f"[`{file}`]({url})"
-        return match.group(0)
-    return FILE_RE.sub(replacer, md_text)
+def clone_repo():
+    if CLONE_DIR.exists():
+        return
 
-def link_bugs_in_md(md_text: str):
-    BUG_RE = re.compile(r'#(\d+)')
-    def replacer(match):
-        bug_number = match.group(1)
-        url = f"{BUG_URL_BASE}/{bug_number}"
-        return f"[#{bug_number}]({url})"
-    return BUG_RE.sub(replacer, md_text)
+    subprocess.check_call([
+        "git", "clone", "--depth=1",
+        REPO_URL,
+        str(CLONE_DIR)
+    ])
 
+    subprocess.check_call(["git", "submodule", "init"], cwd=CLONE_DIR)
+    subprocess.check_call(["git", "submodule", "update"], cwd=CLONE_DIR)
 
+    tests_dir = CLONE_DIR / "kernel/uACPI/tests"
+    if tests_dir.exists():
+        shutil.rmtree(tests_dir)
 
-def extract_mdx_title(md_text: str):
-    lines = md_text.splitlines()
-    cleaned_lines = []
-    idea_type = None
-    idea_name = None
-    credits = None
+    if not LIMINE_DIR.exists():
+        subprocess.check_call([
+            "git", "clone",
+            "--branch=v9.x-binary",
+            "--depth=1",
+            LIMINE_URL,
+            str(LIMINE_DIR)
+        ])
 
-    idx = 0
-    while idx < len(lines):
-        line = lines[idx].strip()
+def prepare_output_dirs():
+    if JSON_OUT.exists():
+        shutil.rmtree(JSON_OUT)
+    JSON_OUT.mkdir(parents=True)
 
-        m = re.match(r'^#\s*(Big|Small|Huge)\s+Idea\s*:\s*(.+)$', line, re.IGNORECASE)
-        if m:
-            idea_type, idea_name = m.groups()
-            idx += 1
+    MD_OUT.mkdir(parents=True, exist_ok=True)
+
+def json_filename_for_source(file_path: Path) -> Path:
+    parents = file_path.parts[-3:-1]
+    name_bits = list(parents) + [file_path.stem]
+    json_name = "_".join(name_bits) + ".json"
+    return JSON_OUT / json_name
+
+def run_make_json():
+    files = []
+    for dir_name in SOURCE_DIRS:
+        dir_path = CLONE_DIR / dir_name
+        if not dir_path.exists():
+            continue
+        files.extend(dir_path.rglob("*.c"))
+        files.extend(dir_path.rglob("*.h"))
+
+    files = [f for f in files if f.is_file()]
+
+    if not files:
+        return
+
+    for i, f in enumerate(files, start=1):
+        json_out_path = json_filename_for_source(f)
+        progress = i / len(files)
+        subprocess.check_call([
+            "python3", "make_json.py",
+            str(f),
+            str(json_out_path)
+        ])
+        
+        print_single_line(f"parsed source {f.relative_to(CLONE_DIR)} → {json_out_path.name}", progress=progress)
+
+def run_make_md():
+    subprocess.check_call([
+        "python3", "make_md.py",
+        str(JSON_OUT)
+    ])
+
+def delete_empty_markdown():
+    for path in MD_OUT.glob("**/*.md"):
+        content = path.read_text(encoding="utf-8").strip()
+        if not content:
+            print_single_line(f" removing empty: {path}")
+            path.unlink()
+
+def copy_directory_indexes(src_root: Path, docs_root: Path):
+    count = len(list(src_root.rglob("index.mdx")))
+    for (i, index_file) in enumerate(src_root.rglob("index.mdx")):
+        rel = index_file.relative_to(src_root)
+
+        dest_path = docs_root / rel
+
+        dest_path.parent.mkdir(parents=True, exist_ok=True)
+
+        shutil.copy2(index_file, dest_path)
+        print_single_line(f"copied {index_file} → {dest_path}", progress = i / count)
+
+def rename_directories_from_namefiles(src_root: Path, docs_root: Path):
+    for src_dir in src_root.rglob("*"):
+        if not src_dir.is_dir():
             continue
 
-        m2 = re.match(r'^#\s*(Big|Small|Huge)\s+Idea\s*$', line, re.IGNORECASE)
-        if m2 and idx + 1 < len(lines):
-            idea_type = m2.group(1)
-            next_line = lines[idx + 1].strip()
-            if next_line:
-                idea_name = next_line
-                idx += 2
-                continue
+        name_file = src_dir / "dir_doc_name"
+        if not name_file.is_file():
+            continue
 
-        if re.match(r'^#\s*Credits\s*$', line, re.IGNORECASE) and idx + 1 < len(lines):
-            credits_line = lines[idx + 1].strip()
-            if credits_line:
-                credits = credits_line
-                idx += 2
-                # If the next line is blank, skip it too to prevent double newline
-                if idx < len(lines) and lines[idx].strip() == "":
-                    idx += 1
-                continue
+        new_name = name_file.read_text(encoding="utf-8").strip()
+        if not new_name:
+            continue
 
-        cleaned_lines.append(lines[idx])
-        idx += 1
+        rel = src_dir.relative_to(src_root)
 
-    if not idea_type or not idea_name:
-        idea_type = "Idea"
-        idea_name = "Untitled"
+        docs_equiv = docs_root / rel
 
-    mdx_title_lines = [f"# {idea_type.capitalize()} Idea: {idea_name}"]
-    if credits:
-        mdx_title_lines.append(f"**Credits:** {credits}")
+        if not docs_equiv.exists():
+            continue
 
-    mdx_title = "\n".join(mdx_title_lines)
-    cleaned_body = "\n".join(cleaned_lines).strip()
-    return mdx_title, cleaned_body
+        old_parent = docs_equiv.parent
+        new_docs_path = old_parent / new_name
 
+        if docs_equiv.name == new_name:
+            continue
 
+        if new_docs_path.exists():
+            continue
 
-def generate_docs(json_dir: Path):
-    ideas = load_json_dir(json_dir)
-
-    functions_map = {}
-    files_map = {}
-
-    for idea in ideas:
-        for fn in idea.get("references", {}).get("functions", []):
-            functions_map[fn["name"]] = generate_github_link(idea["path"], fn.get("line"))
-        for f in idea.get("references", {}).get("files", []):
-            files_map[f["name"]] = generate_github_link(f["name"])
-
-    collision_counter = defaultdict(int)
-
-    for idea in ideas:
-        size = idea["size"]
-        idea_path = idea["path"]
-        idea_name = idea["name"]
-        collision_count = collision_counter[idea_name]
-        md_path = make_docs_path(
-            idea_path, idea_name, "big" if size != "small" else "small", collision_count
-        )
-        collision_counter[idea_name] += 1
-
-        md_text = idea["content_md"]
-
-        mdx_title, md_body = extract_mdx_title(md_text)
-
-        md_body = link_functions_in_md(md_body, functions_map)
-        md_body = link_files_in_md(md_body, files_map)
-        md_body = link_bugs_in_md(md_body)
-
-        if idea.get("references", {}).get("functions"):
-            md_body += "\n\n## Functions\n"
-            for fn in idea["references"]["functions"]:
-                url = functions_map.get(fn["name"])
-                if url:
-                    md_body += f"- [`{fn['name']}()`]({url})\n"
-
-        md_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(md_path, "w", encoding="utf-8") as f:
-            f.write(f"{mdx_title}\n\n{md_body}")
-
-        print(f"Wrote {md_path}")
-
+        print_single_line(f"renaming {docs_equiv} → {new_docs_path}")
+        docs_equiv.rename(new_docs_path)
 
 
 def main():
-    if len(sys.argv) != 2:
-        print(f"Usage: {sys.argv[0]} <json_dir>")
-        sys.exit(1)
+    subprocess.check_call([
+        "rm", "-rf", "json_output",
+    ])
+    
+    subprocess.check_call([
+        "rm", "-rf", "docs",
+    ])
 
-    json_dir = Path(sys.argv[1])
-    if not json_dir.is_dir():
-        print(f"Error: {json_dir} is not a directory")
-        sys.exit(1)
+    clone_repo()
+    print("initial repo clone and setup complete")
+    prepare_output_dirs()
+    print("output directory setup completed")
+    run_make_json()
+    print("JSON parsing completed")
+    run_make_md()
+    print("markdown generated")
+    rename_directories_from_namefiles(Path("charmos/include"), Path("docs"))
+    print("directories renamed")
+    delete_empty_markdown()
+    print("markdown cleaned")
+    copy_directory_indexes(Path("charmos/include"), Path("docs"))
+    print("directory indexes copied")
 
-    generate_docs(json_dir)
+
+    print("complete.")
+
 
 if __name__ == "__main__":
     main()
