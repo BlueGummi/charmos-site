@@ -360,7 +360,9 @@ def build_type_doc_table(c_parse_map: dict, docs_root: Path,
                 continue
             # Each typedef gets its own anchor based on its name so multiple
             # typedefs on one page link to the right one.
-            anchor = f"#type-alias--{name.lower().replace('_', '-')}"
+            # Starlight slugifies "type alias `name`" as "type-alias-name"
+            # github-slugger keeps underscores, strips backticks, spaces -> hyphens
+            anchor = f"#type-alias-{name.lower()}"
             doc_table[name.lower()] = doc_base + anchor
 
     return doc_table
@@ -1008,8 +1010,10 @@ def generate_docs(json_dir: Path):
             for t in data["c_parse"]["types"].get("typedefs", []):
                 if not t.get("name"):
                     continue
+                t_name = t["name"]
+                t_url  = generate_github_link_safe(data["file"], t.get("line"))
                 rendered = format_typedef_fn_ptr(data, t, type_table, doc_table)
-                lines.append(f"### type alias\n{rendered}")
+                lines.append(f"### type alias [`{t_name}`]({t_url})\n{rendered}")
     
             # Functions
             for f in data["c_parse"].get("functions", []):
