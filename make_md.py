@@ -344,14 +344,14 @@ def build_type_doc_table(c_parse_map: dict, docs_root: Path,
             if not name:
                 continue
             kind   = (s.get("kind") or "struct").lower()
-            anchor = f"#{kind}-{name.lower().replace('_', '-')}"
+            anchor = f"#{kind}-{name.lower()}"
             doc_table[f"struct {name}".lower()] = doc_base + anchor
 
         for e in types.get("enums", []):
             name = e.get("name")
             if not name:
                 continue
-            anchor = f"#enum-{name.lower().replace('_', '-')}"
+            anchor = f"#enum-{name.lower()}"
             doc_table[f"enum {name}".lower()] = doc_base + anchor
 
         for t in types.get("typedefs", []):
