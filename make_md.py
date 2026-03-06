@@ -22,10 +22,10 @@ DEFAULT_ASIDE_TYPE = "note"
 
 STATUS_BADGE_MAPPING = {
     "STABLE": "success",
-    "UNSTABLE": "warning",
+    "UNSTABLE": "caution",
     "LEGACY": "note",
     "DEPRECATED": "danger",
-    "EXPERIMENTAL": "warning",
+    "EXPERIMENTAL": "caution",
 }
 
 LIGHTS = """<ul class=\"lightrope\">
@@ -233,6 +233,157 @@ def link_type(type_str: str, type_table: dict, always_tick) -> str:
 
     url = generate_github_link_safe(entry["file"], entry["line"])
     return f"[`{type_str}`]({url})"
+
+
+
+# Root path under which all generated reference pages live on the doc site.
+REFERENCE_PREFIX = "/reference"
+
+# Source tree root where dir_doc_name files live.
+SOURCE_INCLUDE_ROOT = Path("charmos/include")
+
+
+def _dir_name_to_slug(name: str) -> str:
+    """
+    Convert a human-readable dir_doc_name value to the URL slug that
+    Astro/Starlight will use after the rename pass.
+    Mirrors what rename_directories_from_namefiles() does to the filesystem:
+    the directory is renamed to the literal string in the file, and Starlight
+    then lowercases it and replaces spaces/special chars with hyphens.
+    """
+    import re as _re
+    slug = name.strip().lower()
+    slug = _re.sub(r"[^a-z0-9]+", "-", slug)
+    slug = slug.strip("-")
+    return slug
+
+
+def build_dir_rename_map(src_root: Path = SOURCE_INCLUDE_ROOT) -> dict:
+    """
+    Walk the source include tree and collect every dir_doc_name file.
+    Returns a dict mapping each directory path (relative to src_root,
+    as a tuple of path segments) to the slug that directory will have
+    on the doc site after the rename pass.
+
+    e.g.  ("sch",) -> "scheduling-and-multitasking"
+    """
+    rename_map = {}
+    if not src_root.exists():
+        return rename_map
+    for name_file in src_root.rglob("dir_doc_name"):
+        parent = name_file.parent
+        new_name = name_file.read_text(encoding="utf-8").strip()
+        if not new_name:
+            continue
+        try:
+            rel = parent.relative_to(src_root)
+        except ValueError:
+            continue
+        # Store mapping from each segment tuple to the renamed final segment
+        # We only rename the *leaf* directory named by the file; ancestors
+        # are resolved recursively when we build the full URL below.
+        rename_map[rel.parts] = _dir_name_to_slug(new_name)
+    return rename_map
+
+
+def _apply_rename_map(rel_dir: Path, rename_map: dict) -> str:
+    """
+    Given a path like Path("sch/irq"), resolve each component through the
+    rename_map and return the resulting URL segment string.
+
+    rename_map keys are tuples of path segments relative to include root.
+    We resolve greedily from the root downward so nested renames compose
+    correctly.
+    """
+    parts = rel_dir.parts  # e.g. ("sch", "irq")
+    result = []
+    for i, part in enumerate(parts):
+        prefix = tuple(parts[: i + 1])
+        if prefix in rename_map:
+            result.append(rename_map[prefix])
+        else:
+            result.append(part)
+    return "/".join(result)
+
+
+def build_type_doc_table(c_parse_map: dict, docs_root: Path,
+                         src_root: Path = SOURCE_INCLUDE_ROOT) -> dict:
+    """
+    Build a mapping from normalised type keys to doc-site URLs.
+
+    URLs are root-relative, under REFERENCE_PREFIX, with directory segments
+    renamed according to any dir_doc_name files present in the source tree.
+
+    e.g.  "struct rt_scheduler"
+          -> /reference/scheduling-and-multitasking/rt_sched#struct-rt-scheduler
+    """
+    rename_map = build_dir_rename_map(src_root)
+    doc_table  = {}
+
+    for file_path, c_parse in c_parse_map.items():
+        src_path = Path(file_path)
+        try:
+            relative_path = src_path.relative_to("charmos/include")
+        except ValueError:
+            relative_path = src_path
+
+        mdx_stem = relative_path.stem          # e.g. "rt_sched"
+        mdx_dir  = relative_path.parent        # e.g. Path("sch")
+
+        # Apply directory renames, then prepend the reference prefix
+        renamed_dir = _apply_rename_map(mdx_dir, rename_map)
+        if renamed_dir:
+            doc_base = f"{REFERENCE_PREFIX}/{renamed_dir}/{mdx_stem}/"
+        else:
+            doc_base = f"{REFERENCE_PREFIX}/{mdx_stem}/"
+
+        types = c_parse.get("types", {})
+
+        for s in types.get("structs", []):
+            name = s.get("name")
+            if not name:
+                continue
+            kind   = (s.get("kind") or "struct").lower()
+            anchor = f"#{kind}-{name.lower().replace('_', '-')}"
+            doc_table[f"struct {name}".lower()] = doc_base + anchor
+
+        for e in types.get("enums", []):
+            name = e.get("name")
+            if not name:
+                continue
+            anchor = f"#enum-{name.lower().replace('_', '-')}"
+            doc_table[f"enum {name}".lower()] = doc_base + anchor
+
+        for t in types.get("typedefs", []):
+            name = t.get("name")
+            if not name:
+                continue
+            # Each typedef gets its own anchor based on its name so multiple
+            # typedefs on one page link to the right one.
+            anchor = f"#type-alias--{name.lower().replace('_', '-')}"
+            doc_table[name.lower()] = doc_base + anchor
+
+    return doc_table
+
+
+def link_type_doc(type_str: str, type_table: dict, doc_table: dict, always_tick: bool) -> str:
+    """
+    Like link_type() but prefers the doc-site URL from doc_table over the
+    GitHub source link.  Falls back to the GitHub link if the type is in
+    type_table but not doc_table, and to a plain/ticked string if unknown.
+    """
+    norm  = normalize_type_name(type_str)
+    doc_url = doc_table.get(norm)
+    if doc_url:
+        return f"[`{type_str}`]({doc_url})"
+    # fall back to GitHub link if we know the type but have no doc page
+    entry = type_table.get(norm)
+    if entry:
+        url = generate_github_link_safe(entry["file"], entry["line"])
+        return f"[`{type_str}`]({url})"
+    if always_tick:
+        return f"`{type_str}`"
+    return f" {type_str} "
 
 
 def build_type_table(c_parse_map: dict, ignored_types=None):
@@ -500,7 +651,7 @@ def append_defines_to_md(md_lines, json_data):
 
         # Determine if raw_text is multiline
         if "\n" in raw_text:
-            raw_md = f"\n```\n{raw_text}\n```"
+            raw_md = f"\n```c\n{raw_text}\n```"
         else:
             raw_md = f"`{raw_text}`"
 
@@ -515,9 +666,195 @@ def status_to_badge(status: str) -> str:
     variant = STATUS_BADGE_MAPPING.get(status, "tip")  # default to tip
     return f'<Badge text="{status.capitalize()}" variant="{variant}" />'
 
+
+def _render_struct_body(members: list, indent: int, col_width: int) -> list:
+    """
+    Recursively render struct/union members as plain C code lines.
+    Nested anonymous composites are rendered inline with increased indentation.
+    """
+    pad = " " * indent
+    lines = []
+    for m in members:
+        m_type = (m.get("type") or "").strip()
+        m_name = (m.get("name") or "").strip().replace("\n", "")
+        m_offset = m.get("offset")
+        nested = m.get("nested")
+        offset_comment = f"  //0x{m_offset:x}" if m_offset is not None else ""
+
+        if nested:
+            nested_kind = nested.get("kind", "struct")
+            inner_members = nested.get("members", [])
+            inner_col = min(
+                max((len((im.get("type") or "").strip()) for im in inner_members), default=8) + 2,
+                40,
+            )
+            lines.append(f"{pad}{nested_kind} {{")
+            lines.extend(_render_struct_body(inner_members, indent + 4, inner_col))
+            lines.append(f"{pad}}} {m_name};{offset_comment}")
+        else:
+            type_padding = " " * max(col_width - len(m_type), 1)
+            lines.append(f"{pad}{m_type}{type_padding}{m_name};{offset_comment}")
+
+    return lines
+
+
+def _collect_referenced_types(members: list, type_table: dict, doc_table: dict, file_path: str, seen: set) -> list:
+    """
+    Walk members recursively and collect unique external types that resolve
+    in the type_table.  Returns [(display_str, url), ...] in encounter order.
+    URLs point to the doc page (doc_table) when available, otherwise GitHub.
+    """
+    results = []
+    for m in members:
+        nested = m.get("nested")
+        if nested:
+            results.extend(_collect_referenced_types(
+                nested.get("members", []), type_table, doc_table, file_path, seen))
+        else:
+            m_type = (m.get("type") or "").strip()
+            norm = normalize_type_name(m_type)
+            if norm in seen:
+                continue
+            type_entry = type_table.get(norm)
+            if type_entry:
+                seen.add(norm)
+                # Prefer doc URL; fall back to GitHub
+                url = doc_table.get(norm) or generate_github_link_safe(type_entry["file"], type_entry["line"])
+                results.append((m_type, url))
+    return results
+
+
+def format_struct_as_c_code(data: dict, s: dict, type_table: dict, doc_table: dict = None) -> str:
+    """
+    Render a struct/union as a fenced ```c code block (Astro-safe) followed
+    by a compact "referenced types" link list of unique external types only.
+    Nested anonymous composites are inlined in the code block.
+    """
+    name = s.get("name", "?")
+    kind = s.get("kind") or "struct"
+    size = s.get("size")
+    members = s.get("members", [])
+    struct_line = s.get("line")
+    file_path = data.get("file")
+
+    struct_url = generate_github_link_safe(file_path, struct_line)
+
+    size_comment = f"//0x{size:x} bytes  " if size is not None else ""
+
+    top_level_types = [m for m in members if not m.get("nested")]
+    col_width = 16
+    if top_level_types:
+        col_width = min(
+            max(len((m.get("type") or "").strip()) for m in top_level_types) + 2, 40
+        )
+
+    code_lines = [f"{size_comment}{kind} {name} {{"]
+    code_lines.extend(_render_struct_body(members, indent=4, col_width=col_width))
+    code_lines.append("};")
+
+    code_block = "```c\n" + "\n".join(code_lines) + "\n```"
+
+    seen: set = set()
+    refs = _collect_referenced_types(members, type_table, doc_table or {}, file_path, seen)
+
+    if refs:
+        struct_link = f"[`{name}`]({struct_url})"
+        link_lines = [f"**{kind} {struct_link}** referenced types:"]
+        for type_str, type_url in refs:
+            link_lines.append(f"- [`{type_str}`]({type_url})")
+        return code_block + "\n\n" + "\n".join(link_lines)
+
+    return code_block
+
+
+def format_enum_as_c_code(data: dict, e: dict, type_table: dict) -> str:
+    """
+    Render an enum as a fenced ```c code block followed by a values link list.
+    Fully Astro MDX safe — no raw HTML, no JSX.
+    """
+    name = e.get("name", "?")
+    members = e.get("members", [])
+    enum_line = e.get("line")
+    file_path = data.get("file")
+
+    enum_url = generate_github_link_safe(file_path, enum_line)
+
+    code_lines = [f"enum {name} {{"]
+    for m in members:
+        m_name = (m.get("name") or "").strip()
+        m_value = m.get("value")
+        value_str = f" = {m_value}" if m_value is not None else ""
+        code_lines.append(f"    {m_name}{value_str},")
+    code_lines.append("};")
+
+    code_block = "```c\n" + "\n".join(code_lines) + "\n```"
+
+    enum_link = f"[`{name}`]({enum_url})"
+    link_lines = [f"**enum {enum_link}** values:"]
+    for m in members:
+        m_name = (m.get("name") or "").strip()
+        m_value = m.get("value")
+        m_line = m.get("line")
+        member_url = generate_github_link_safe(file_path, m_line)
+        value_str = f" = `{m_value}`" if m_value is not None else ""
+        link_lines.append(f"- [`{m_name}`]({member_url}){value_str}")
+
+    return code_block + "\n\n" + "\n".join(link_lines)
+
+
+
+def format_typedef_fn_ptr_raw(data: dict, t: dict, type_table: dict, doc_table: dict = None) -> str:
+    """
+    Build the raw pre-retick string for a typedef, mirroring the exact same
+    strategy as format_function_signature_raw.
+    Param/return types resolve to doc-site URLs via doc_table when available.
+    The alias name itself always links to the GitHub source definition.
+    """
+    _doc = doc_table or {}
+    fn_ptr = t.get("fn_ptr")
+    t_url = generate_github_link_safe(data["file"], t.get("line"))
+    alias_name = t.get("name") or "?"
+
+    if not fn_ptr:
+        type_raw = link_type_doc(t.get("type") or "", type_table, _doc, False).strip()
+        return f"[`{alias_name}`]({t_url}) : {type_raw}"
+
+    ret_type = fn_ptr.get("return_type") or "void"
+    ret_raw = link_type_doc(ret_type, type_table, _doc, False)
+
+    parts = [ret_raw, f"[`{alias_name}`]({t_url})", "("]
+
+    param_strs = []
+    for p in fn_ptr.get("parameters") or []:
+        p_type = (p.get("type") or "").strip()
+        p_name = p.get("name")
+        type_raw = link_type_doc(p_type, type_table, _doc, False).strip()
+        if p_name:
+            param_strs.append(f"{type_raw} {p_name}")
+        else:
+            param_strs.append(type_raw)
+    parts.append(",".join(param_strs))
+    parts.append(")")
+
+    return "".join(parts)
+
+
+def format_typedef_fn_ptr(data: dict, t: dict, type_table: dict, doc_table: dict = None) -> str:
+    """
+    Render a typedef — plain or function-pointer — using the same
+    retick_segmentwise pipeline as format_function_signature so that
+    tick wrapping is identical across all signature-like constructs.
+    """
+    raw = format_typedef_fn_ptr_raw(data, t, type_table, doc_table)
+    final = retick_segmentwise(raw)
+    final = re.sub(r'`{2,}', '', final)
+    return final
+
+
 def generate_docs(json_dir: Path):
     ideas, c_parse_map = load_json_dir(json_dir)
     type_table = build_type_table(c_parse_map)
+    doc_table  = build_type_doc_table(c_parse_map, DOCS_ROOT)
 
     # Step 1: Group ideas by their source file
 
@@ -638,9 +975,7 @@ def generate_docs(json_dir: Path):
             combined_lines.append(card_md)
             combined_lines.append(md_body)
                      
-            file_md_lines = []
-    
-        def collect_markdown_lines(json_path, type_table):
+        def collect_markdown_lines(json_path, type_table, doc_table):
             data = json.loads(open(json_path, encoding="utf-8").read())
             lines = []
     
@@ -648,54 +983,39 @@ def generate_docs(json_dir: Path):
             file_url = generate_github_link_safe(data["file"])
             lines.append(f"# [{source_path.as_posix()[8:]}]({file_url})\n")
     
-            # Structs
+            # Structs — rendered as C-style monospaced blocks with inline links
             for s in data["c_parse"]["types"].get("structs", []):
                 if not s.get("name") or s["name"].lower() == "none":
                     continue
-                struct_url = generate_github_link_safe(data["file"], s.get("line"))
-                lines.append(f"### struct [`{s['name']}`]({struct_url})\n")
-                if s.get("members"):
-                    lines.append("| Member Type | Member Name |")
-                    lines.append("|-------------|-------------|")
-                    for m in s["members"]:
-                        member_url = generate_github_link_safe(data["file"], m.get("line"))
-                        member_type_link = link_type(m['type'], type_table, True)
-                        member_type_link = clean_string(member_type_link)
-                        n = m['name']
-                        if n is not None:
-                            n = n.replace('\n', '')
-                        lines.append(f"| {member_type_link} | [`{n}`]({member_url}) |")
-                else:
-                    lines.append("_No members_\n")
+
+                kind = s.get("kind") or "struct"
+                s_url = generate_github_link_safe(data["file"], s.get("line"))
+                lines.append(f"### {kind} [`{s['name']}`]({s_url})\n")
+                lines.append(format_struct_as_c_code(data, s, type_table, doc_table))
                 lines.append("\n")
     
-            # Enums
+            # Enums — rendered as C-style monospaced blocks with inline links
             for e in data["c_parse"]["types"].get("enums", []):
                 if not e.get("name") or e["name"].lower() == "none":
                     continue
-                enum_url = generate_github_link_safe(data["file"], e.get("line"))
-                lines.append(f"### enum [`{e['name']}`]({enum_url})\n")
-                if e.get("members"):
-                    lines.append("| Name | Value |")
-                    lines.append("|------|-------|")
-                    for m in e["members"]:
-                        member_url = generate_github_link_safe(data["file"], m.get("line"))
-                        lines.append(f"| [`{m['name']}`]({member_url}) | `{m['value']}` |")
+
+                e_url = generate_github_link_safe(data["file"], e.get("line"))
+                lines.append(f"### enum [`{e['name']}`]({e_url})\n")
+                lines.append(format_enum_as_c_code(data, e, type_table))
                 lines.append("\n")
     
             # Typedefs
             for t in data["c_parse"]["types"].get("typedefs", []):
                 if not t.get("name"):
                     continue
-                t_url = generate_github_link_safe(data["file"], t.get("line"))
-                linked_type_str = clean_string(link_type(t['type'], type_table, True))
-                lines.append(f"### type alias\n[`{t['name']}`]({t_url}) : {linked_type_str}")
+                rendered = format_typedef_fn_ptr(data, t, type_table, doc_table)
+                lines.append(f"### type alias\n{rendered}")
     
             # Functions
             for f in data["c_parse"].get("functions", []):
                 if not f.get("name"):
                     continue
-                signature_md = format_function_signature(data, f, type_table)
+                signature_md = format_function_signature(data, f, type_table, doc_table)
                 lines.append(f"- {signature_md}")
     
             if data["c_parse"].get("functions"):
@@ -703,10 +1023,10 @@ def generate_docs(json_dir: Path):
     
             return lines
     
-        file_md_lines = collect_markdown_lines(json_file, type_table)
+        file_md_lines = collect_markdown_lines(json_file, type_table, doc_table)
         combined_lines.extend(file_md_lines)
         combined_lines = append_defines_to_md(combined_lines, data)
-        combined_lines = append_globals_to_md(combined_lines, data, type_table)
+        combined_lines = append_globals_to_md(combined_lines, data, type_table, doc_table)
     
         # Write combined Markdown to single file
         text = front_matter + "\n".join(combined_lines)
@@ -732,7 +1052,8 @@ def insert_string_at_line(original_string, new_string, line_n):
 
     return '\n'.join(lines)
 
-def format_function_signature_raw(data, f, type_table):
+def format_function_signature_raw(data, f, type_table, doc_table=None):
+    _doc = doc_table or {}
     qualifiers = " ".join(f.get("qualifiers", []))
     return_type = f.get("return_type") or "void"
 
@@ -740,7 +1061,7 @@ def format_function_signature_raw(data, f, type_table):
     if qualifiers:
         parts.append(qualifiers)
     
-    ret_type_full = link_type(return_type, type_table, False)
+    ret_type_full = link_type_doc(return_type, type_table, _doc, False)
     if not qualifiers:
         ret_type_full = ret_type_full.lstrip()
 
@@ -753,7 +1074,7 @@ def format_function_signature_raw(data, f, type_table):
 
     param_strs = []
     for p in f.get("parameters", []):
-        type_md = link_type(p['type'], type_table, False).strip()
+        type_md = link_type_doc(p['type'], type_table, _doc, False).strip()
         if p.get("name"):
             param_strs.append(f"{type_md} {p['name']}")
         else:
@@ -763,54 +1084,54 @@ def format_function_signature_raw(data, f, type_table):
 
     return "".join(parts)
 
+# Matches any markdown link starting at the current position:
+#   [display text](url)
+# The display text may contain backticks, parens, asterisks, etc.
+# We match a balanced [...] then (...) — good enough for our generated URLs
+# which never contain bare ')' inside the URL portion.
+_LINK_RE = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+
+
 def retick_segmentwise(s: str) -> str:
     out = []
     i = 0
     n = len(s)
 
-    out.append("`")  # start the first tick
+    out.append("`")  # open the first tick span
 
     while i < n:
         c = s[i]
 
-        # Rule A: hit a link
-        if c == "[" and i + 1 < n and s[i + 1] == "`":
-            # end current tick
-            out.append("`")
-            # copy the entire link verbatim
-            link_start = i
-            # find the closing ')'
-            # because markdown link is always [text](url)
-            j = s.find(")", i)
-            if j == -1:
-                # malformed; just treat '[' as normal char
-                out.append("`")  # reopen tick
-                out.append(c)
-                i += 1
+        # Rule A: hit the start of a markdown link [display](url)
+        # Detect via regex so we catch links whose display text starts with
+        # anything — backtick, paren, letter, etc.
+        if c == "[":
+            m = _LINK_RE.match(s, i)
+            if m:
+                # close the current tick span, emit the link verbatim, reopen
+                out.append("`")
+                out.append(m.group(0))
+                out.append("`")
+                i = m.end()
                 continue
-            link_end = j + 1
-            out.append(s[link_start:link_end])
-
-            # restart ticking
-            out.append("`")
-            i = link_end
+            # Not a valid link — treat as normal character
+            out.append(c)
+            i += 1
             continue
 
-        # Rule B: hit a comma
+        # Rule B: hit a comma — split tick spans around it
         if c == ",":
-            # close tick
             out.append("`")
             out.append(",")
-            # restart
             out.append("`")
             i += 1
             continue
 
-        # default case: normal character inside tick
+        # Default: normal character inside the current tick span
         out.append(c)
         i += 1
 
-    # close final tick
+    # close final tick span
     out.append("`")
     return "".join(out)
 
@@ -819,10 +1140,10 @@ def clean_string(input_string):
     cleaned_string = ' '.join(line.lstrip() for line in input_string.splitlines())
     return cleaned_string
 
-def format_function_signature(data, f, type_table):
-    raw = format_function_signature_raw(data, f, type_table)
+def format_function_signature(data, f, type_table, doc_table=None):
+    raw = format_function_signature_raw(data, f, type_table, doc_table)
     final = retick_segmentwise(raw)
-    final = re.sub('`{2,}', '', final)
+    final = re.sub(r'`{2,}', '', final)
     return final
 
 def merge_changelog_and_notes(markdown: str) -> str:
@@ -858,7 +1179,7 @@ def merge_changelog_and_notes(markdown: str) -> str:
     return markdown
 
 
-def append_globals_to_md(md_lines, json_data, type_table):
+def append_globals_to_md(md_lines, json_data, type_table, doc_table=None):
     globals_list = json_data.get("c_parse", {}).get("globals", [])
     if not globals_list:
         return md_lines
@@ -876,7 +1197,7 @@ def append_globals_to_md(md_lines, json_data, type_table):
 
         name_md = f"[`{var_name}`]({url})"
 
-        type_md = link_type(var_type, type_table, True)
+        type_md = link_type_doc(var_type, type_table, doc_table, True)
         type_md = clean_string(type_md)
 
         init_md = f" = `{init_val}`" if init_val is not None else ""
@@ -901,4 +1222,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

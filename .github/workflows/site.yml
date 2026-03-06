@@ -42,7 +42,7 @@ jobs:
           npm i starlight-theme-obsidian
           rm -rf src/content/docs/reference/* && mkdir src/content/docs/reference && cp docs_reference_index.mdx src/content/docs/reference/index.mdx && cp -r ../docs/* src/content/docs/reference/
 
-      - name: Install, build, and upload your site
+      - name: Install, build, and upload 
         uses: withastro/action@v5
         with:
           path: ./site
