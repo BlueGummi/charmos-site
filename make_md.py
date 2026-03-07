@@ -924,18 +924,18 @@ def format_enum_as_c_code(data: dict, e: dict, type_table: dict) -> str:
 
     code_block = "```c\n" + "\n".join(code_lines) + "\n```"
 
-    enum_link = f"[`{name}`]({enum_url})"
-    link_lines = [f"**enum {enum_link}** values:"]
-    for m in members:
-        m_name = (m.get("name") or "").strip()
-        m_value = m.get("value")
-        m_line = m.get("line")
-        member_url = generate_github_link_safe(file_path, m_line)
-        value_str = f" = `{m_value}`" if m_value is not None else ""
-        link_lines.append(f"- [`{m_name}`]({member_url}){value_str}")
+#    enum_link = f"[`{name}`]({enum_url})"
+#    link_lines = [f"**enum {enum_link}** values:"]
+#    for m in members:
+#        m_name = (m.get("name") or "").strip()
+#        m_value = m.get("value")
+#        m_line = m.get("line")
+#        member_url = generate_github_link_safe(file_path, m_line)
+#        value_str = f" = `{m_value}`" if m_value is not None else ""
+#        link_lines.append(f"- [`{m_name}`]({member_url}){value_str}")
 
-    return code_block + "\n\n" + "\n".join(link_lines)
-
+    return code_block + "\n" # + "\n" + "\n".join(link_lines)
+    
 
 
 def format_typedef_fn_ptr_raw(data: dict, t: dict, type_table: dict, doc_table: dict = None) -> str:
