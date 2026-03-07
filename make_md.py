@@ -640,26 +640,33 @@ def append_defines_to_md(md_lines, json_data):
         return md_lines
 
     md_lines.append("\n### Defines\n")
+    file_path = json_data.get("file")
 
     for d in defines:
+        name      = d.get("name") or ""
+        params    = d.get("params")     # None for object-like, str like "(a,b)" for fn-like
+        value     = d.get("value") or ""
+        raw_text  = d.get("raw_text") or ""
+        multiline = d.get("multiline", False)
+        line      = d.get("line")
+        url       = generate_github_link_safe(file_path, line)
 
-        name = d.get("name")
-        raw_text = d.get("raw_text", "")
-        line = d.get("line")
-        file_path = json_data.get("file")
-        url = generate_github_link_safe(file_path, line)
+        # Heading: #### `NAME` or #### `NAME(params)`
+        sig = (name + params) if params is not None else name
+        md_lines.append("#### [" + "`" + sig + "`" + "](" + url + ")")
+        md_lines.append("")
 
-        # Put name in code block and link
-        name_md = f"[`{name}`]({url})"
-
-        # Determine if raw_text is multiline
-        if "\n" in raw_text:
-            raw_md = f"\n```c\n{raw_text}\n```"
-        else:
-            raw_md = f"`{raw_text}`"
-
-        md_lines.append(f"- {name_md}: {raw_md}")
-
+        if multiline:
+            # Multi-line macro — show the full raw definition in a fenced block
+            md_lines.append("```c")
+            md_lines.append(raw_text)
+            md_lines.append("```")
+            md_lines.append("")
+        elif value:
+            # Single-line with a value — inline code
+            md_lines.append("`" + value + "`")
+            md_lines.append("")
+        # Bare sentinel define (no value) — heading alone is sufficient
 
     md_lines.append("\n---\n")
     return md_lines
@@ -693,7 +700,8 @@ def _render_struct_body(members: list, indent: int, col_width: int) -> list:
             )
             lines.append(f"{pad}{nested_kind} {{")
             lines.extend(_render_struct_body(inner_members, indent + 4, inner_col))
-            lines.append(f"{pad}}} {m_name};{offset_comment}")
+            closing_name = f" {m_name}" if m_name else ""
+            lines.append(f"{pad}}}{closing_name};{offset_comment}")
         else:
             type_padding = " " * max(col_width - len(m_type), 1)
             lines.append(f"{pad}{m_type}{type_padding}{m_name};{offset_comment}")

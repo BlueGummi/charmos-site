@@ -421,6 +421,7 @@ def parse_c_types_and_functions(filename):
     enums = []
     typedefs = []
     globals_vars = []
+    defines = []
 
     # Track node ids we have already recorded so we don't double-count
     # struct/enum nodes that appear both as a top-level declaration and
@@ -521,11 +522,53 @@ def parse_c_types_and_functions(filename):
                 }
             )
 
+        elif node.type == "preproc_def":
+            # Simple #define NAME value
+            name_node = node.child_by_field_name("name")
+            val_node  = node.child_by_field_name("value")
+            def_name  = node_text(name_node, code)
+            if def_name and def_name not in IGNORED_KEYWORDS:
+                raw_val = node_text(val_node, code) if val_node else ""
+                raw_full = node_text(node, code) or ""
+                multiline = "\\" in raw_full or "\
+" in (code[node.start_byte:node.end_byte].decode("utf-8"))
+                defines.append({
+                    "name": def_name,
+                    "params": None,
+                    "value": raw_val or "",
+                    "raw_text": raw_full,
+                    "multiline": multiline,
+                    "line": node.start_point[0] + 1,
+                })
+
+        elif node.type == "preproc_function_def":
+            # Function-like #define NAME(params...) body
+            name_node   = node.child_by_field_name("name")
+            params_node = node.child_by_field_name("parameters")
+            val_node    = node.child_by_field_name("value")
+            def_name    = node_text(name_node, code)
+            if def_name and def_name not in IGNORED_KEYWORDS:
+                params_raw = node_text(params_node, code) if params_node else "()"
+                raw_val  = node_text(val_node, code) if val_node else ""
+                raw_full = node_text(node, code) or ""
+                raw_bytes = code[node.start_byte:node.end_byte].decode("utf-8")
+                multiline = "\\" in raw_full or "\
+" in raw_bytes
+                defines.append({
+                    "name": def_name,
+                    "params": params_raw,
+                    "value": raw_val or "",
+                    "raw_text": raw_full,
+                    "multiline": multiline,
+                    "line": node.start_point[0] + 1,
+                })
+
         # Recurse — but don't descend into nodes we've already handled above
         # (struct/enum bodies are handled inside collect_struct_recursive /
         # collect_enum_members, not by the visitor).
         if node.type not in ("struct_specifier", "union_specifier", "enum_specifier",
-                              "type_definition", "function_definition"):
+                              "type_definition", "function_definition",
+                              "preproc_def", "preproc_function_def"):
             for child in node.children:
                 visit(child)
 
@@ -539,6 +582,7 @@ def parse_c_types_and_functions(filename):
             "typedefs": typedefs,
             "globals": globals_vars,
         },
+        "defines": defines,
     }
 
 
