@@ -443,7 +443,8 @@ def build_type_table(c_parse_map: dict, ignored_types=None):
                 "start_byte": t.get("start_byte"),
                 "end_byte": t.get("end_byte"),
                 "kind": "typedef",
-                "type_str": t.get("type")
+                "type_str": t.get("type"),
+                "fn_ptr": t.get("fn_ptr"),   # needed for signature-based fn-ptr matching
             }
 
     return type_table
@@ -700,11 +701,130 @@ def _render_struct_body(members: list, indent: int, col_width: int) -> list:
     return lines
 
 
+# Matches the fn-ptr declarator wrapper the C parser emits for struct members:
+#   (*member_name)(params...)
+# Capture group 1 = bare member name, group 2 = raw param list (may be empty).
+_FN_PTR_MEMBER_RE = re.compile(
+    r'^\(\*\s*[A-Za-z_][A-Za-z0-9_]*\s*\)'   # (*name)
+    r'\s*\(([^)]*)\)'                             # (params) — group 1
+)
+
+
+def _extract_fn_ptr_signature(m_type: str, m_name: str):
+    """
+    If m_name looks like a fn-ptr declarator (*foo)(...), extract a
+    normalised (return_type, (param_type, ...)) signature tuple.
+    Returns None if m_name is not a fn-ptr declarator.
+    """
+    match = _FN_PTR_MEMBER_RE.match(m_name.strip())
+    if not match:
+        return None
+    ret_norm = normalize_type_name(m_type)
+    params_raw = match.group(1)
+    param_norms = []
+    for p in params_raw.split(','):
+        p = p.strip()
+        if not p or p == 'void':
+            continue
+        # Strip trailing parameter name (last plain identifier) to leave type
+        p_type = re.sub(r'\b([A-Za-z_][A-Za-z0-9_]*)\s*$', '', p).strip() or p
+        param_norms.append(normalize_type_name(p_type))
+    return (ret_norm, tuple(param_norms))
+
+
+def _build_fn_sig_index(type_table: dict) -> dict:
+    """
+    Build a (ret_norm, (param_norms...)) -> typedef_key index from every
+    typedef entry in type_table that has fn_ptr metadata.
+    Used by strategy 3 of _resolve_member_typedef.
+    """
+    idx = {}
+    for key, entry in type_table.items():
+        fp = entry.get("type_str")  # plain typedef — no sig
+        fn_ptr = entry.get("fn_ptr") if isinstance(entry, dict) else None
+        # fn_ptr info is stored on the type_table entry if present
+        if not isinstance(entry, dict):
+            continue
+        fn_ptr = entry.get("fn_ptr")
+        if not fn_ptr:
+            continue
+        ret = normalize_type_name(fn_ptr.get("return_type") or "void")
+        params = tuple(
+            normalize_type_name((p.get("type") or "").strip())
+            for p in (fn_ptr.get("parameters") or [])
+            if (p.get("type") or "").strip() not in ("", "void")
+        )
+        idx[(ret, params)] = key
+    return idx
+
+
+# Module-level cache so we only build the sig index once per type_table object.
+_fn_sig_index_cache: tuple = (None, None)   # (type_table_id, index)
+
+
+def _get_fn_sig_index(type_table: dict) -> dict:
+    global _fn_sig_index_cache
+    tid = id(type_table)
+    if _fn_sig_index_cache[0] != tid:
+        _fn_sig_index_cache = (tid, _build_fn_sig_index(type_table))
+    return _fn_sig_index_cache[1]
+
+
+def _resolve_member_typedef(m_type: str, m_name: str, type_table: dict) -> tuple:
+    """
+    Try to resolve a struct member to a typedef entry in type_table.
+
+    Strategy 1 — direct type name:
+        normalise m_type and look it up.  Handles  `my_fn_t handler;`
+
+    Strategy 2 — name match:
+        if m_name is (*typedef_name) or (*typedef_name)(...), extract the
+        bare name and look it up as a typedef.  Handles the less-common case
+        where the member name happens to equal the typedef name.
+
+    Strategy 3 — signature match:
+        parse the fn-ptr signature from m_type + m_name and compare against
+        every typedef's fn_ptr metadata.  This is the reliable path for
+        `void (*on_tick)(struct foo *);` where "on_tick" is an arbitrary
+        member name unrelated to the typedef name "on_tick_fn".
+
+    Returns (norm_key, entry) if found, else (None, None).
+    """
+    # Strategy 1 — normalised type string
+    norm = normalize_type_name(m_type)
+    entry = type_table.get(norm)
+    if entry:
+        return norm, entry
+
+    # Strategies 2 & 3 only apply when m_name looks like (*foo) or (*foo)(...)
+    fn_ptr_match = re.match(r'^\(\*\s*([A-Za-z_][A-Za-z0-9_]*)\s*\)', m_name.strip())
+    if fn_ptr_match:
+        # Strategy 2 — name == typedef key
+        candidate = fn_ptr_match.group(1).lower()
+        entry = type_table.get(candidate)
+        if entry and entry.get("kind") == "typedef":
+            return candidate, entry
+
+        # Strategy 3 — signature match
+        sig = _extract_fn_ptr_signature(m_type, m_name)
+        if sig is not None:
+            sig_index = _get_fn_sig_index(type_table)
+            key = sig_index.get(sig)
+            if key:
+                return key, type_table[key]
+
+    return None, None
+
+
 def _collect_referenced_types(members: list, type_table: dict, doc_table: dict, file_path: str, seen: set) -> list:
     """
     Walk members recursively and collect unique external types that resolve
     in the type_table.  Returns [(display_str, url), ...] in encounter order.
     URLs point to the doc page (doc_table) when available, otherwise GitHub.
+
+    Function pointer members are matched against typedef signatures so that
+    `void (*on_tick)(struct foo *)` correctly links to `on_tick_fn` even
+    when the member name bears no relation to the typedef name.
     """
     results = []
     for m in members:
@@ -712,17 +832,22 @@ def _collect_referenced_types(members: list, type_table: dict, doc_table: dict, 
         if nested:
             results.extend(_collect_referenced_types(
                 nested.get("members", []), type_table, doc_table, file_path, seen))
-        else:
-            m_type = (m.get("type") or "").strip()
-            norm = normalize_type_name(m_type)
-            if norm in seen:
-                continue
-            type_entry = type_table.get(norm)
-            if type_entry:
-                seen.add(norm)
-                # Prefer doc URL; fall back to GitHub
-                url = doc_table.get(norm) or generate_github_link_safe(type_entry["file"], type_entry["line"])
-                results.append((m_type, url))
+            continue
+
+        m_type = (m.get("type") or "").strip()
+        m_name = (m.get("name") or "").strip()
+
+        norm, type_entry = _resolve_member_typedef(m_type, m_name, type_table)
+        if not norm or not type_entry:
+            continue
+        if norm in seen:
+            continue
+
+        seen.add(norm)
+        url = doc_table.get(norm) or generate_github_link_safe(type_entry["file"], type_entry["line"])
+        display = type_entry["full_name"]
+        results.append((display, url))
+
     return results
 
 

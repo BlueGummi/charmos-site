@@ -319,7 +319,7 @@ def run_make_md():
 
     result = subprocess.run(
         ["python3", "make_md.py", str(JSON_OUT)],
-        capture_output=True, text=True,
+        capture_output=False, text=True,
     )
 
     done_event.set()

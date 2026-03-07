@@ -148,12 +148,20 @@ def get_typedef_type(type_node, declarator_node, code_bytes):
 def extract_typedef_name(declarator_node, code_bytes):
     node = declarator_node
     while node:
-        if node.type in ("pointer_declarator", "function_declarator"):
+        if node.type in ("pointer_declarator", "function_declarator",
+                         "abstract_pointer_declarator"):
             node = node.child_by_field_name("declarator")
         else:
             break
     if node:
-        return code_bytes[node.start_byte : node.end_byte].decode("utf-8").strip()
+        raw = code_bytes[node.start_byte : node.end_byte].decode("utf-8").strip()
+        # tree-sitter sometimes gives us the full (*name) or (*name)(params)
+        # wrapper text when it can't resolve the inner identifier as a separate
+        # node.  Strip the pointer-declarator syntax to get the bare name.
+        m = re.match(r'^\(\*\s*([A-Za-z_][A-Za-z0-9_]*)\s*\)', raw)
+        if m:
+            return m.group(1)
+        return raw
     return None
 
 
