@@ -904,15 +904,10 @@ def format_struct_as_c_code(data: dict, s: dict, type_table: dict, doc_table: di
 
 def format_enum_as_c_code(data: dict, e: dict, type_table: dict) -> str:
     """
-    Render an enum as a fenced ```c code block followed by a values link list.
-    Fully Astro MDX safe — no raw HTML, no JSX.
+    Render an enum as a fenced ```c code block.
     """
     name = e.get("name", "?")
     members = e.get("members", [])
-    enum_line = e.get("line")
-    file_path = data.get("file")
-
-    enum_url = generate_github_link_safe(file_path, enum_line)
 
     code_lines = [f"enum {name} {{"]
     for m in members:
@@ -922,20 +917,8 @@ def format_enum_as_c_code(data: dict, e: dict, type_table: dict) -> str:
         code_lines.append(f"    {m_name}{value_str},")
     code_lines.append("};")
 
-    code_block = "```c\n" + "\n".join(code_lines) + "\n```"
+    return "```c\n" + "\n".join(code_lines) + "\n```"
 
-#    enum_link = f"[`{name}`]({enum_url})"
-#    link_lines = [f"**enum {enum_link}** values:"]
-#    for m in members:
-#        m_name = (m.get("name") or "").strip()
-#        m_value = m.get("value")
-#        m_line = m.get("line")
-#        member_url = generate_github_link_safe(file_path, m_line)
-#        value_str = f" = `{m_value}`" if m_value is not None else ""
-#        link_lines.append(f"- [`{m_name}`]({member_url}){value_str}")
-
-    return code_block + "\n" # + "\n" + "\n".join(link_lines)
-    
 
 
 def format_typedef_fn_ptr_raw(data: dict, t: dict, type_table: dict, doc_table: dict = None) -> str:
@@ -976,14 +959,60 @@ def format_typedef_fn_ptr_raw(data: dict, t: dict, type_table: dict, doc_table: 
 
 def format_typedef_fn_ptr(data: dict, t: dict, type_table: dict, doc_table: dict = None) -> str:
     """
-    Render a typedef — plain or function-pointer — using the same
-    retick_segmentwise pipeline as format_function_signature so that
-    tick wrapping is identical across all signature-like constructs.
+    Render a typedef as a fenced ```c code block followed by a referenced
+    types section, consistent with how structs/enums are rendered.
     """
-    raw = format_typedef_fn_ptr_raw(data, t, type_table, doc_table)
-    final = retick_segmentwise(raw)
-    final = re.sub(r'`{2,}', '', final)
-    return final
+    _doc = doc_table or {}
+    fn_ptr   = t.get("fn_ptr")
+    alias    = t.get("name") or "?"
+    t_url    = generate_github_link_safe(data["file"], t.get("line"))
+    file_path = data.get("file")
+
+    if not fn_ptr:
+        # Plain typedef — one-liner
+        raw_type = (t.get("type") or "").strip()
+        code_block = "```c\ntypedef " + raw_type + " " + alias + ";\n```"
+        # Referenced type
+        norm = normalize_type_name(raw_type)
+        entry = type_table.get(norm)
+        if entry:
+            url = _doc.get(norm) or generate_github_link_safe(entry["file"], entry["line"])
+            ref_lines = [f"**type alias [`{alias}`]({t_url})** referenced types:"]
+            ref_lines.append(f"- [`{raw_type}`]({url})")
+            return code_block + "\n\n" + "\n".join(ref_lines)
+        return code_block
+
+    # Function-pointer typedef — build signature line
+    ret_type = (fn_ptr.get("return_type") or "void").strip()
+    params = fn_ptr.get("parameters") or []
+    param_strs = []
+    for p in params:
+        p_type = (p.get("type") or "").strip()
+        p_name = p.get("name")
+        param_strs.append((p_type + " " + p_name).strip() if p_name else p_type)
+    sig = ret_type + " (*" + alias + ")(" + ", ".join(param_strs) + ");"
+    code_block = "```c\ntypedef " + sig + "\n```"
+
+    # Collect referenced types from return + params
+    seen = set()
+    ref_results = []
+    for type_str in [ret_type] + [p.get("type") or "" for p in params]:
+        type_str = type_str.strip()
+        norm = normalize_type_name(type_str)
+        if not norm or norm in seen:
+            continue
+        entry = type_table.get(norm)
+        if entry:
+            seen.add(norm)
+            url = _doc.get(norm) or generate_github_link_safe(entry["file"], entry["line"])
+            ref_results.append((entry["full_name"], url))
+
+    if ref_results:
+        ref_lines = [f"**type alias [`{alias}`]({t_url})** referenced types:"]
+        for display, url in ref_results:
+            ref_lines.append(f"- [`{display}`]({url})")
+        return code_block + "\n\n" + "\n".join(ref_lines)
+    return code_block
 
 
 def generate_docs(json_dir: Path):
@@ -1146,16 +1175,18 @@ def generate_docs(json_dir: Path):
                 t_name = t["name"]
                 t_url  = generate_github_link_safe(data["file"], t.get("line"))
                 rendered = format_typedef_fn_ptr(data, t, type_table, doc_table)
-                lines.append(f"### type alias [`{t_name}`]({t_url})\n{rendered}")
-    
+                lines.append(f"### type alias [`{t_name}`]({t_url})\n")
+                lines.append(rendered)
+                lines.append("\n")
+
             # Functions
             for f in data["c_parse"].get("functions", []):
                 if not f.get("name"):
                     continue
-                signature_md = format_function_signature(data, f, type_table, doc_table)
-                lines.append(f"- {signature_md}")
-    
-            if data["c_parse"].get("functions"):
+                f_url = generate_github_link_safe(data["file"], f.get("line"))
+                rendered = format_function_signature(data, f, type_table, doc_table)
+                lines.append(f"### [`{f['name']}`]({f_url})\n")
+                lines.append(rendered)
                 lines.append("\n")
     
             return lines
@@ -1278,10 +1309,47 @@ def clean_string(input_string):
     return cleaned_string
 
 def format_function_signature(data, f, type_table, doc_table=None):
-    raw = format_function_signature_raw(data, f, type_table, doc_table)
-    final = retick_segmentwise(raw)
-    final = re.sub(r'`{2,}', '', final)
-    return final
+    """
+    Render a function as a fenced ```c code block followed by a referenced
+    types section, consistent with structs/enums/typedefs.
+    """
+    _doc = doc_table or {}
+    name      = f.get("name") or "?"
+    ret_type  = (f.get("return_type") or "void").strip()
+    params    = f.get("parameters") or []
+    quals     = f.get("qualifiers") or []
+    f_url     = generate_github_link_safe(data["file"], f.get("line"))
+    file_path = data.get("file")
+
+    qual_prefix = (" ".join(quals) + " ") if quals else ""
+    param_strs = []
+    for p in params:
+        p_type = (p.get("type") or "").strip()
+        p_name = p.get("name")
+        param_strs.append((p_type + " " + p_name).strip() if p_name else p_type)
+    sig = qual_prefix + ret_type + " " + name + "(" + ", ".join(param_strs) + ");"
+    code_block = "```c\n" + sig + "\n```"
+
+    # Collect referenced types from return type + all param types
+    seen = set()
+    ref_results = []
+    for type_str in [ret_type] + [p.get("type") or "" for p in params]:
+        type_str = type_str.strip()
+        norm = normalize_type_name(type_str)
+        if not norm or norm in seen:
+            continue
+        entry = type_table.get(norm)
+        if entry:
+            seen.add(norm)
+            url = _doc.get(norm) or generate_github_link_safe(entry["file"], entry["line"])
+            ref_results.append((entry["full_name"], url))
+
+    if ref_results:
+        ref_lines = [f"**[`{name}`]({f_url})** referenced types:"]
+        for display, url in ref_results:
+            ref_lines.append(f"- [`{display}`]({url})")
+        return code_block + "\n\n" + "\n".join(ref_lines)
+    return code_block
 
 def merge_changelog_and_notes(markdown: str) -> str:
     section_re = re.compile(
